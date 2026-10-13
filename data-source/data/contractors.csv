@@ -1,0 +1,76 @@
+contractor_id,contractor_name,registration_number,contractor_type,district,state,registration_date,active_status,total_projects,total_project_value,contact_reference
+C-001,Sri Infra & Co,REG-RA-39256,Partnership Firm,Udaipur,Rajasthan,2013-06-29,Active,1,440270.04,CONTACT-001
+C-002,Vinayaga Infrastructure Associates,REG-MA-14165,Individual Proprietor,Bhopal,Madhya Pradesh,2017-06-18,Active,2,1781662.61,CONTACT-002
+C-003,Anand Infra Associates,REG-MA-95181,Public Works Cooperative,Nagpur,Maharashtra,2012-06-16,Active,0,0,CONTACT-003
+C-004,Sun Infra Private Limited,REG-RA-54597,Pvt Ltd,Jaipur,Rajasthan,2017-06-24,Active,1,623434.75,CONTACT-004
+C-005,Vishwa Infrastructure Pvt Ltd,REG-OD-22676,Pvt Ltd,Khordha,Odisha,2016-07-09,Active,2,4976131.31,CONTACT-005
+C-006,Sun Infra Enterprises,REG-RA-26361,Public Works Cooperative,Jodhpur,Rajasthan,2020-01-10,Active,2,3885792.33,CONTACT-006
+C-007,GANGA BUILDERS PVT LTD,REG-UT-96673,Partnership Firm,Lucknow,Uttar Pradesh,2009-01-10,Active,3,4853625.87,CONTACT-007
+C-008,Prime Infrastructure Enterprises,REG-TA-69429,Pvt Ltd,Madurai,Tamil Nadu,2014-03-27,Active,3,3807860.31,CONTACT-008
+C-009,Modern Engineering Pvt Ltd,REG-UT-80010,Partnership Firm,Kanpur Nagar,Uttar Pradesh,2011-11-02,Active,1,2112691.56,CONTACT-009
+C-010,Sun Works Private Limited,REG-BI-17331,Partnership Firm,Patna,Bihar,2015-04-10,Active,2,3592414.64,CONTACT-010
+C-011,Vishwa Contractors & Co,REG-OD-37653,Pvt Ltd,Cuttack,Odisha,2009-06-26,Active,5,8199062.94,CONTACT-011
+C-012,Bharat Projects Private Limited,REG-WE-28301,Partnership Firm,Kolkata,West Bengal,2013-12-09,Active,1,846456.96,CONTACT-012
+C-013,Sun Contractors Associates,REG-WE-57447,Partnership Firm,Darjeeling,West Bengal,2016-12-15,Active,1,2537062.21,CONTACT-013
+C-014,Anand Projects Pvt Ltd,REG-KA-24371,Partnership Firm,Mysuru,Karnataka,2009-01-20,Active,2,2447958.82,CONTACT-014
+C-015,Classic Infrastructure Enterprises,REG-OD-88104,Public Works Cooperative,Cuttack,Odisha,2016-07-23,Active,3,4753811.27,CONTACT-015
+C-016,Shree Infrastructure Associates,REG-WE-94012,Pvt Ltd,Darjeeling,West Bengal,2013-12-25,Active,2,3496752.19,CONTACT-016
+C-017,United Projects Pvt Ltd,REG-BI-75612,Partnership Firm,Gaya,Bihar,2013-11-27,Active,0,0,CONTACT-017
+C-018,METRO WORKS ASSOCIATES,REG-KA-30032,Pvt Ltd,Bengaluru Urban,Karnataka,2012-06-17,Active,2,3031789.15,CONTACT-018
+C-019,Anand Infra Associates,REG-WE-74042,Individual Proprietor,Darjeeling,West Bengal,2015-04-09,Active,3,3798448.68,CONTACT-019
+C-020,Metro Builders Pvt Ltd,REG-UT-84364,Individual Proprietor,Kanpur Nagar,Uttar Pradesh,2013-05-27,Active,1,643898.96,CONTACT-020
+C-021,Om Works Private Limited,REG-WE-96474,Public Works Cooperative,Kolkata,West Bengal,2010-11-17,Active,2,3062109.37,CONTACT-021
+C-022,Sun Works Associates,REG-KA-37760,Partnership Firm,Belagavi,Karnataka,2017-06-28,Active,0,0,CONTACT-022
+C-023,Ganga Projects Associates,REG-BI-25860,Partnership Firm,Patna,Bihar,2018-02-15,Active,0,0,CONTACT-023
+C-024,SHREE WORKS PRIVATE LIMITED,REG-UT-10942,Individual Proprietor,Varanasi,Uttar Pradesh,2012-12-09,Active,2,2140298.21,CONTACT-024
+C-025,Prime Infrastructure Pvt Ltd,REG-TA-19287,Partnership Firm,Coimbatore,Tamil Nadu,2015-05-30,Active,1,1268139.82,CONTACT-025
+C-026,Modern Works Private Limited,REG-WE-85525,Public Works Cooperative,Kolkata,West Bengal,2020-10-21,Active,2,3854428.12,CONTACT-026
+C-027,Classic Builders Pvt Ltd,REG-WE-96374,Public Works Cooperative,Kolkata,West Bengal,2010-03-05,Active,1,1329993.22,CONTACT-027
+C-028,Elite Infra Pvt Ltd,REG-BI-62772,Pvt Ltd,Gaya,Bihar,2009-05-11,Active,1,1380241.8,CONTACT-028
+C-029,Prime Builders Private Limited,REG-KA-68800,Partnership Firm,Bengaluru Urban,Karnataka,2020-01-11,Active,1,443023.62,CONTACT-029
+C-030,Elite Builders Pvt Ltd,REG-MA-82132,Individual Proprietor,Nashik,Maharashtra,2017-12-09,Inactive,11,20440301.25,CONTACT-030
+C-031,Shree Infrastructure Private Limited,REG-WE-63269,Public Works Cooperative,Darjeeling,West Bengal,2011-09-24,Active,5,9738851.5,CONTACT-031
+C-032,Bharat Infra Private Limited,REG-KE-10282,Public Works Cooperative,Thiruvananthapuram,Kerala,2016-07-01,Active,4,4819729.17,CONTACT-032
+C-033,Elite Engineering Enterprises,REG-OD-96752,Public Works Cooperative,Cuttack,Odisha,2020-06-18,Active,4,5403753.98,CONTACT-033
+C-034,MODERN INFRA ASSOCIATES,REG-UT-17989,Pvt Ltd,Lucknow,Uttar Pradesh,2020-02-28,Inactive,4,7855705.36,CONTACT-034
+C-035,Regal Works Associates,REG-RA-17455,Individual Proprietor,Jaipur,Rajasthan,2011-07-13,Active,3,8639190.29,CONTACT-035
+C-036,Om Builders Enterprises,REG-TA-84668,Partnership Firm,Madurai,Tamil Nadu,2010-09-09,Active,1,2027105.19,CONTACT-036
+C-037,Om Contractors Associates,REG-TA-78522,Pvt Ltd,Coimbatore,Tamil Nadu,2020-09-04,Active,1,1155900.06,CONTACT-037
+C-038,Vishwa Builders & Co,REG-MA-27154,Pvt Ltd,Pune,Maharashtra,2016-11-16,Active,2,4340845.46,CONTACT-038
+C-039,Om Infra Enterprises,REG-KE-23104,Individual Proprietor,Kozhikode,Kerala,2020-08-17,Active,3,3572039.09,CONTACT-039
+C-040,Sun Construction & Co,REG-WE-42018,Pvt Ltd,Howrah,West Bengal,2009-07-17,Active,4,7406904.07,CONTACT-040
+C-041,Vinayaga Engineering Associates,REG-BI-11025,Pvt Ltd,Bhagalpur,Bihar,2019-11-12,Active,3,4394161.42,CONTACT-041
+C-042,National Engineering Pvt Ltd,REG-KA-82512,Partnership Firm,Bengaluru Urban,Karnataka,2010-05-26,Active,4,6674024.72,CONTACT-042
+C-043,Modern Roadways Private Limited,REG-RA-76244,Public Works Cooperative,Jodhpur,Rajasthan,2013-12-02,Active,3,7170910.73,CONTACT-043
+C-044,Balaji Infrastructure Enterprises,REG-KE-15778,Individual Proprietor,Kozhikode,Kerala,2014-03-16,Active,1,1073307.04,CONTACT-044
+C-045,Sun Construction Enterprises,REG-KA-66057,Individual Proprietor,Mysuru,Karnataka,2020-05-16,Active,5,5547082.33,CONTACT-045
+C-046,National Works Pvt Ltd,REG-KE-86350,Partnership Firm,Ernakulam,Kerala,2016-04-12,Active,3,5955959.82,CONTACT-046
+C-047,Metro Roadways Pvt Ltd,REG-TA-37535,Partnership Firm,Coimbatore,Tamil Nadu,2016-01-10,Active,0,0,CONTACT-047
+C-048,Vinayaga Contractors Associates,REG-UT-41029,Partnership Firm,Kanpur Nagar,Uttar Pradesh,2011-06-20,Active,5,4375336.3,CONTACT-048
+C-049,UNITED CONTRACTORS PVT LTD,REG-OD-53540,Public Works Cooperative,Cuttack,Odisha,2012-01-09,Active,4,6728450.7,CONTACT-049
+C-050,Prime Engineering Private Limited,REG-KE-60140,Individual Proprietor,Thiruvananthapuram,Kerala,2010-06-04,Active,2,2432538.21,CONTACT-050
+C-051,Modern Projects & Co,REG-MA-39831,Partnership Firm,Nagpur,Maharashtra,2014-11-05,Inactive,4,4294971.46,CONTACT-051
+C-052,Bharat Roadways & Co,REG-MA-46585,Pvt Ltd,Pune,Maharashtra,2009-07-22,Active,6,6556732.37,CONTACT-052
+C-053,Vinayaga Roadways Pvt Ltd,REG-BI-44237,Partnership Firm,Patna,Bihar,2010-08-02,Active,3,5195976.78,CONTACT-053
+C-054,Balaji Infrastructure Associates,REG-MA-55309,Pvt Ltd,Nashik,Maharashtra,2017-09-29,Active,14,21705813.83,CONTACT-054
+C-055,SRI CONTRACTORS ASSOCIATES,REG-WE-43386,Individual Proprietor,Howrah,West Bengal,2012-04-06,Active,3,5520747.85,CONTACT-055
+C-056,Anand Works Private Limited,REG-TA-66531,Individual Proprietor,Chennai,Tamil Nadu,2016-03-02,Active,0,0,CONTACT-056
+C-057,Vishwa Roadways Pvt Ltd,REG-KE-76469,Pvt Ltd,Kozhikode,Kerala,2014-09-26,Active,3,1448109.39,CONTACT-057
+C-058,Bharat Engineering Associates,REG-UT-35144,Public Works Cooperative,Varanasi,Uttar Pradesh,2010-11-08,Active,4,6063268.29,CONTACT-058
+C-059,United Engineering Enterprises,REG-BI-10053,Pvt Ltd,Patna,Bihar,2020-04-15,Active,2,2672473.86,CONTACT-059
+C-060,VISHWA PROJECTS ENTERPRISES,REG-BI-98555,Partnership Firm,Gaya,Bihar,2017-12-01,Active,2,2701874.98,CONTACT-060
+C-061,United Infrastructure & Co,REG-OD-97012,Pvt Ltd,Cuttack,Odisha,2019-07-24,Active,2,2893303.64,CONTACT-061
+C-062,Prime Engineering Private Limited,REG-OD-29313,Individual Proprietor,Khordha,Odisha,2012-06-19,Inactive,2,4106218.87,CONTACT-062
+C-063,Om Projects Enterprises,REG-WE-35485,Public Works Cooperative,Kolkata,West Bengal,2020-11-28,Active,4,6986219.36,CONTACT-063
+C-064,National Infra Pvt Ltd,REG-MA-38683,Partnership Firm,Nagpur,Maharashtra,2017-07-14,Active,5,5719998.99,CONTACT-064
+C-065,Anand Projects Pvt Ltd,REG-MA-42662,Individual Proprietor,Indore,Madhya Pradesh,2020-07-02,Active,1,1187112.6,CONTACT-065
+C-066,Elite Works Associates,REG-OD-68008,Public Works Cooperative,Cuttack,Odisha,2015-02-12,Active,1,1943566.62,CONTACT-066
+C-067,Elite Construction Enterprises,REG-WE-43972,Partnership Firm,Darjeeling,West Bengal,2018-02-03,Active,1,2456418.38,CONTACT-067
+C-068,Anand Projects Private Limited,REG-MA-67654,Individual Proprietor,Nashik,Maharashtra,2014-02-27,Active,3,4230769.16,CONTACT-068
+C-069,Sun Roadways & Co,REG-MA-20561,Partnership Firm,Nagpur,Maharashtra,2020-02-11,Active,2,1993324.58,CONTACT-069
+C-070,National Builders Pvt Ltd,REG-BI-63424,Pvt Ltd,Patna,Bihar,2017-04-21,Active,4,3740316.16,CONTACT-070
+C-071,Balaji Builders Enterprises,REG-BI-86556,Individual Proprietor,Gaya,Bihar,2016-09-25,Active,5,7268142.26,CONTACT-071
+C-072,Bharat Projects Pvt Ltd,REG-OD-49139,Public Works Cooperative,Khordha,Odisha,2015-11-21,Active,3,3893945.27,CONTACT-072
+C-073,Classic Works Associates,REG-OD-73993,Partnership Firm,Puri,Odisha,2012-12-11,Active,0,0,CONTACT-073
+C-074,Shree Contractors & Co,REG-WE-31632,Public Works Cooperative,Kolkata,West Bengal,2017-01-25,Active,2,5070997.6,CONTACT-074
+C-075,Vinayaga Infra Enterprises,REG-RA-96900,Individual Proprietor,Jodhpur,Rajasthan,2020-08-28,Active,5,8062687.52,CONTACT-075

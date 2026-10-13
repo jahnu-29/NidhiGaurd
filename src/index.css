@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  height: 100%;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+}
+
+@theme inline {
+  --font-sans: 'Source Sans 3', system-ui, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-navy-950: #0d1f35;
+  --color-navy-900: #1c3557;
+  --color-navy-800: #234169;
+  --color-navy-700: #2d5184;
+  --color-navy-600: #3a639e;
+  --color-navy-100: #dde8f5;
+  --color-navy-50:  #eef3fb;
+
+  --color-gov-red: #c41e3a;
+  --color-gov-red-dark: #9e1830;
+
+  --color-risk-high: #dc2626;
+  --color-risk-high-bg: #fef2f2;
+  --color-risk-med: #d97706;
+  --color-risk-med-bg: #fffbeb;
+  --color-risk-low: #16a34a;
+  --color-risk-low-bg: #f0fdf4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c8d4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9aa3b0;
+}
+
+.risk-badge-high {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+.risk-badge-med {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+.risk-badge-low {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.data-table th {
+  background: #f0f3f8;
+  color: #374151;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #dde1e7;
+  white-space: nowrap;
+}
+.data-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #eef0f3;
+  font-size: 0.825rem;
+  color: #1f2937;
+  vertical-align: middle;
+}
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+.data-table tr:hover td {
+  background: #f8fafc;
+}
+
+.signal-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 2px;
+  margin: 1px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}

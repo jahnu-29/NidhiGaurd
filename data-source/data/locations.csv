@@ -1,0 +1,201 @@
+location_id,project_id,state,district,constituency,block,village_or_ward,latitude,longitude,pincode,location_type
+L-0001,P-1001,Uttar Pradesh,Lucknow,CONST-10,Anaikatti,Nallur,26.82121,80.97187,601440,Rural Village
+L-0002,P-1002,Maharashtra,Nagpur,CONST-08,Anaikatti,Kondampatti,21.13772,79.09637,601129,Urban Ward
+L-0003,P-1003,Kerala,Thiruvananthapuram,CONST-28,Ward 17,Saravanampatti,8.5139,76.94466,603922,Panchayat
+L-0004,P-1004,Karnataka,Mysuru,CONST-05,Ward 17,Alandurai,12.2913,76.62006,600729,Rural Village
+L-0005,P-1005,Karnataka,Bengaluru Urban,CONST-04,Kinathukadavu,Karamadai,12.99518,77.57526,600607,Rural Village
+L-0006,P-1006,Karnataka,Belagavi,CONST-06,Sathyamangalam,Sundarapuram,15.86586,74.48466,600864,Rural Village
+L-0007,P-1007,Karnataka,Bengaluru Urban,CONST-04,Vellalore,Ward 14,12.96524,77.61103,600615,Rural Village
+L-0008,P-1008,West Bengal,Darjeeling,CONST-18,Sultanpet,Sundarapuram,27.02525,88.23948,602476,Panchayat
+L-0009,P-1009,Tamil Nadu,Madurai,CONST-03,Kinathukadavu,Alandurai,9.95591,78.1547,600449,Panchayat
+L-0010,P-1010,West Bengal,Darjeeling,CONST-18,Modakurichi,Kondampatti,27.06987,88.22839,602550,Urban Ward
+L-0011,P-1011,Uttar Pradesh,Varanasi,CONST-11,Modakurichi,Vadavalli,25.33277,82.94324,601573,Rural Village
+L-0012,P-1012,Karnataka,Bengaluru Urban,CONST-04,Kinathukadavu,Ganapathy,12.97078,77.58395,600621,Panchayat
+L-0013,P-1013,Karnataka,Mysuru,CONST-05,Vellalore,Ganapathy,12.27023,76.66695,600784,Rural Village
+L-0014,P-1014,Karnataka,Bengaluru Urban,CONST-04,Ramnagar,Nallur,12.99841,77.6094,600560,Urban Ward
+L-0015,P-1015,Rajasthan,Jodhpur,CONST-20,Ward 9,Melapalayam,26.31205,72.9881,602778,Rural Village
+L-0016,P-1016,Karnataka,Bengaluru Urban,CONST-04,Sultanpet,Nallur,12.98319,77.60943,600550,Urban Ward
+L-0017,P-1017,Tamil Nadu,Chennai,CONST-01,Kinathukadavu,Kondampatti,13.05662,80.23394,600226,Rural Village
+L-0018,P-1018,Karnataka,Bengaluru Urban,CONST-04,Ward 17,Alandurai,12.99485,77.57723,600549,Panchayat
+L-0019,P-1019,West Bengal,Darjeeling,CONST-18,Ward 5,Keezhapalayam,27.02103,88.24066,602516,Urban Ward
+L-0020,P-1020,Bihar,Bhagalpur,CONST-15,Ward 9,Saravanampatti,25.22338,87.01579,602142,Urban Ward
+L-0021,P-1021,Uttar Pradesh,Lucknow,CONST-10,Panchayat South,Vadavalli,26.84418,80.96152,601401,Urban Ward
+L-0022,P-1022,Tamil Nadu,Madurai,CONST-03,Perur,Thondamuthur,9.9639,78.12308,600473,Rural Village
+L-0023,P-1023,Karnataka,Bengaluru Urban,CONST-04,Gobichettipalayam,Ward 14,12.9466,77.57571,600564,Rural Village
+L-0024,P-1024,Kerala,Thiruvananthapuram,CONST-28,Ward 5,Melapalayam,8.51526,76.90746,603862,Rural Village
+L-0025,P-1025,Uttar Pradesh,Kanpur Nagar,CONST-12,Kinathukadavu,Kondampatti,26.48519,80.3248,601720,Panchayat
+L-0026,P-1026,Bihar,Patna,CONST-13,Vellalore,Nallur,25.5894,85.15568,601810,Rural Village
+L-0027,P-1027,West Bengal,Howrah,CONST-17,Anaikatti,Periyanaickenpalayam,22.58348,88.27253,602389,Rural Village
+L-0028,P-1028,West Bengal,Howrah,CONST-17,Ramnagar,Ganapathy,22.58413,88.30128,602403,Urban Ward
+L-0029,P-1029,Madhya Pradesh,Bhopal,CONST-22,Sathyamangalam,Keezhapalayam,23.22815,77.40624,603111,Rural Village
+L-0030,P-1030,West Bengal,Darjeeling,CONST-18,Ramnagar,Alandurai,27.04033,88.22951,602514,Urban Ward
+L-0031,P-1031,Kerala,Thiruvananthapuram,CONST-28,Anaikatti,Thondamuthur,8.54532,76.96844,603853,Urban Ward
+L-0032,P-1032,Karnataka,Bengaluru Urban,CONST-04,Ramnagar,Ganapathy,12.98271,77.58149,600549,Urban Ward
+L-0033,P-1033,Rajasthan,Udaipur,CONST-21,Vellalore,Karamadai,24.57384,73.71381,602975,Panchayat
+L-0034,P-1034,Karnataka,Bengaluru Urban,CONST-04,Modakurichi,Ganapathy,12.95981,77.58649,600643,Urban Ward
+L-0035,P-1035,Bihar,Patna,CONST-13,Ward 5,Sundarapuram,25.57915,85.17064,601823,Panchayat
+L-0036,P-1036,Odisha,Khordha,CONST-25,Bhavani,Vadavalli,20.26904,85.84471,603477,Panchayat
+L-0037,P-1037,Bihar,Patna,CONST-13,Ward 17,Saravanampatti,25.60809,85.17916,601863,Urban Ward
+L-0038,P-1038,Kerala,Thiruvananthapuram,CONST-28,Anaikatti,Karamadai,8.48531,76.94052,603910,Urban Ward
+L-0039,P-1039,Rajasthan,Jaipur,CONST-19,Vellalore,Karamadai,26.88743,75.77886,602687,Rural Village
+L-0040,P-1040,Maharashtra,Nagpur,CONST-08,Vellalore,Saravanampatti,21.16329,79.11523,601118,Panchayat
+L-0041,P-1041,Uttar Pradesh,Kanpur Nagar,CONST-12,Ramnagar,Melapalayam,26.45365,80.34586,601664,Panchayat
+L-0042,P-1042,Rajasthan,Udaipur,CONST-21,Ward 9,Melapalayam,24.61021,73.68393,602921,Panchayat
+L-0043,P-1043,Bihar,Patna,CONST-13,Panchayat North,Keezhapalayam,25.61574,85.1766,601828,Urban Ward
+L-0044,P-1044,Rajasthan,Udaipur,CONST-21,Ward 5,Keezhapalayam,24.60518,73.68135,602939,Panchayat
+L-0045,P-1045,Uttar Pradesh,Varanasi,CONST-11,Ward 12,Karamadai,25.32349,82.93224,601574,Rural Village
+L-0046,P-1046,Madhya Pradesh,Indore,CONST-23,Ward 14,Saravanampatti,22.72347,75.83567,603201,Rural Village
+L-0047,P-1047,Maharashtra,Nashik,CONST-09,Modakurichi,Karamadai,19.96487,73.8264,601282,Panchayat
+L-0048,P-1048,West Bengal,Howrah,CONST-17,Ward 5,Alandurai,22.58999,88.32452,602426,Urban Ward
+L-0049,P-1049,Madhya Pradesh,Bhopal,CONST-22,Ward 9,Melapalayam,23.27684,77.44004,603113,Urban Ward
+L-0050,P-1050,West Bengal,Darjeeling,CONST-18,Panchayat South,Ganapathy,27.02587,88.29598,602478,Rural Village
+L-0051,P-1051,Maharashtra,Nashik,CONST-09,Bhavani,Karamadai,19.98666,73.81083,601303,Urban Ward
+L-0052,P-1052,Tamil Nadu,Madurai,CONST-03,Sathyamangalam,Ganapathy,9.94889,78.1186,600473,Panchayat
+L-0053,P-1053,Karnataka,Mysuru,CONST-05,Vellalore,Melapalayam,12.2914,76.67516,600725,Panchayat
+L-0054,P-1054,Bihar,Gaya,CONST-14,Vellalore,Karamadai,24.7837,85.02216,601934,Rural Village
+L-0055,P-1055,Kerala,Kozhikode,CONST-30,Vellalore,Alandurai,11.25652,75.79636,604133,Urban Ward
+L-0056,P-1056,Rajasthan,Jodhpur,CONST-20,Ramnagar,Periyanaickenpalayam,26.27547,73.05379,602753,Panchayat
+L-0057,P-1057,Tamil Nadu,Madurai,CONST-03,Sathyamangalam,Kondampatti,9.93904,78.09204,600489,Panchayat
+L-0058,P-1058,Uttar Pradesh,Varanasi,CONST-11,Ward 9,Melapalayam,25.32558,82.95658,601515,Rural Village
+L-0059,P-1059,Karnataka,Bengaluru Urban,CONST-04,Sultanpet,Kondampatti,12.98348,77.59697,600590,Panchayat
+L-0060,P-1060,Karnataka,Mysuru,CONST-05,Sultanpet,Ganapathy,12.2676,76.63141,600739,Panchayat
+L-0061,P-1061,West Bengal,Howrah,CONST-17,Ward 14,Vadavalli,22.55873,88.28722,602384,Urban Ward
+L-0062,P-1062,Maharashtra,Nashik,CONST-09,Gobichettipalayam,Nallur,19.98993,73.78365,601318,Rural Village
+L-0063,P-1063,Karnataka,Mysuru,CONST-05,Bhavani,Sundarapuram,12.3259,76.65848,600744,Urban Ward
+L-0064,P-1064,Bihar,Gaya,CONST-14,Ramnagar,Saravanampatti,24.78302,85.02537,601939,Panchayat
+L-0065,P-1065,West Bengal,Darjeeling,CONST-18,Vellalore,Nallur,27.04995,88.27684,602477,Urban Ward
+L-0066,P-1066,Maharashtra,Nashik,CONST-09,Panchayat North,Keezhapalayam,19.98024,73.78114,601248,Urban Ward
+L-0067,P-1067,Bihar,Gaya,CONST-14,Kinathukadavu,Vadavalli,24.81283,85.02971,602012,Urban Ward
+L-0068,P-1068,Bihar,Gaya,CONST-14,Perur,Vadavalli,24.77608,84.98967,601974,Rural Village
+L-0069,P-1069,Karnataka,Bengaluru Urban,CONST-04,Panchayat South,Ward 14,12.99614,77.626,600576,Panchayat
+L-0070,P-1070,Bihar,Bhagalpur,CONST-15,Sathyamangalam,Sundarapuram,25.24188,86.96103,602135,Panchayat
+L-0071,P-1071,Kerala,Thiruvananthapuram,CONST-28,Modakurichi,Thondamuthur,8.49968,76.92968,603918,Rural Village
+L-0072,P-1072,Kerala,Thiruvananthapuram,CONST-28,Gobichettipalayam,Karamadai,8.5223,76.96371,603893,Urban Ward
+L-0073,P-1073,West Bengal,Darjeeling,CONST-18,Ward 9,Sundarapuram,27.06085,88.23789,602502,Rural Village
+L-0074,P-1074,Tamil Nadu,Madurai,CONST-03,Ward 9,Alandurai,9.93847,78.09954,600422,Panchayat
+L-0075,P-1075,Bihar,Patna,CONST-13,Anaikatti,Vadavalli,25.58737,85.10219,601800,Panchayat
+L-0076,P-1076,West Bengal,Darjeeling,CONST-18,Perur,Karamadai,27.03891,88.24708,602479,Rural Village
+L-0077,P-1077,West Bengal,Howrah,CONST-17,Anaikatti,Nallur,22.62346,88.28438,602421,Rural Village
+L-0078,P-1078,Odisha,Khordha,CONST-25,Panchayat North,Nallur,20.31201,85.85459,603490,Panchayat
+L-0079,P-1079,Rajasthan,Udaipur,CONST-21,Gobichettipalayam,Nallur,24.59272,73.70112,602918,Rural Village
+L-0080,P-1080,Kerala,Kozhikode,CONST-30,Gobichettipalayam,Kondampatti,11.28131,75.79114,604174,Panchayat
+L-0081,P-1081,Bihar,Gaya,CONST-14,Panchayat South,Karamadai,24.80158,85.02612,601950,Panchayat
+L-0082,P-1082,West Bengal,Darjeeling,CONST-18,Ward 12,Sundarapuram,27.03585,88.22018,602498,Panchayat
+L-0083,P-1083,Odisha,Khordha,CONST-25,Sultanpet,Melapalayam,20.28757,85.80323,603478,Panchayat
+L-0084,P-1084,Maharashtra,Pune,CONST-07,Bhavani,Alandurai,18.5116,73.85417,600968,Rural Village
+L-0085,P-1085,Karnataka,Bengaluru Urban,CONST-04,Ward 17,Ward 14,13.00244,77.59412,600554,Rural Village
+L-0086,P-1086,Kerala,Thiruvananthapuram,CONST-28,Ward 17,Saravanampatti,8.50728,76.90567,603926,Urban Ward
+L-0087,P-1087,Maharashtra,Nashik,CONST-09,Sultanpet,Kondampatti,20.00197,73.80129,601270,Panchayat
+L-0088,P-1088,Maharashtra,Nagpur,CONST-08,Anaikatti,Vadavalli,21.12163,79.09266,601146,Rural Village
+L-0089,P-1089,West Bengal,Darjeeling,CONST-18,Gobichettipalayam,Saravanampatti,27.07456,88.28821,602470,Panchayat
+L-0090,P-1090,West Bengal,Darjeeling,CONST-18,Perur,Saravanampatti,27.02276,88.27432,602530,Rural Village
+L-0091,P-1091,Karnataka,Bengaluru Urban,CONST-04,Modakurichi,Vadavalli,12.98837,77.57969,600567,Urban Ward
+L-0092,P-1092,West Bengal,Darjeeling,CONST-18,Kinathukadavu,Kondampatti,27.03207,88.27771,602532,Urban Ward
+L-0093,P-1093,Karnataka,Bengaluru Urban,CONST-04,Panchayat North,Nallur,12.93845,77.61873,600575,Panchayat
+L-0094,P-1094,Bihar,Gaya,CONST-14,Panchayat North,Ganapathy,24.76883,84.96385,601991,Panchayat
+L-0095,P-1095,Odisha,Khordha,CONST-25,Kinathukadavu,Nallur,20.27713,85.84062,603464,Panchayat
+L-0096,P-1096,Odisha,Puri,CONST-27,Ramnagar,Vadavalli,19.82103,85.80452,603760,Panchayat
+L-0097,P-1097,Uttar Pradesh,Kanpur Nagar,CONST-12,Sultanpet,Thondamuthur,26.44227,80.29628,601712,Rural Village
+L-0098,P-1098,Kerala,Thiruvananthapuram,CONST-28,Ward 14,Kondampatti,8.55162,76.93508,603871,Rural Village
+L-0099,P-1099,Odisha,Cuttack,CONST-26,Ward 5,Melapalayam,20.48039,85.87647,603637,Rural Village
+L-0100,P-1100,Bihar,Gaya,CONST-14,Sathyamangalam,Karamadai,24.7679,84.9876,601999,Rural Village
+L-0101,P-1101,Tamil Nadu,Coimbatore,CONST-02,Bhavani,Ganapathy,10.99683,76.92487,600286,Rural Village
+L-0102,P-1102,Kerala,Kozhikode,CONST-30,Panchayat North,Karamadai,11.27402,75.79585,604170,Panchayat
+L-0103,P-1103,Maharashtra,Nashik,CONST-09,Anaikatti,Ganapathy,19.99307,73.78277,601293,Urban Ward
+L-0104,P-1104,Odisha,Khordha,CONST-25,Gobichettipalayam,Nallur,20.33329,85.83068,603436,Rural Village
+L-0105,P-1105,Rajasthan,Udaipur,CONST-21,Perur,Karamadai,24.59432,73.64383,602912,Urban Ward
+L-0106,P-1106,Maharashtra,Pune,CONST-07,Ward 17,Kondampatti,18.48477,73.84277,601004,Rural Village
+L-0107,P-1107,West Bengal,Kolkata,CONST-16,Ward 14,Periyanaickenpalayam,22.6013,88.35181,602207,Rural Village
+L-0108,P-1108,Kerala,Thiruvananthapuram,CONST-28,Vellalore,Nallur,8.5552,76.92051,603875,Rural Village
+L-0109,P-1109,Maharashtra,Nagpur,CONST-08,Sathyamangalam,Ganapathy,21.13453,79.086,601130,Panchayat
+L-0110,P-1110,Kerala,Thiruvananthapuram,CONST-28,Modakurichi,Alandurai,8.53088,76.97108,603867,Panchayat
+L-0111,P-1111,Karnataka,Bengaluru Urban,CONST-04,Perur,Ward 14,12.98471,77.56767,600612,Rural Village
+L-0112,P-1112,Maharashtra,Nashik,CONST-09,Panchayat South,Karamadai,20.01342,73.81837,601285,Urban Ward
+L-0113,P-1113,Tamil Nadu,Coimbatore,CONST-02,Ward 14,Melapalayam,11.03151,76.92985,600365,Rural Village
+L-0114,P-1114,Bihar,Gaya,CONST-14,Ramnagar,Karamadai,24.82516,85.02602,601994,Panchayat
+L-0115,P-1115,Karnataka,Belagavi,CONST-06,Ward 5,Kondampatti,15.81775,74.53598,600897,Panchayat
+L-0116,P-1116,Tamil Nadu,Madurai,CONST-03,Ward 17,Melapalayam,9.93714,78.09658,600451,Rural Village
+L-0117,P-1117,Uttar Pradesh,Lucknow,CONST-10,Kinathukadavu,Karamadai,26.83228,80.94397,601438,Rural Village
+L-0118,P-1118,Rajasthan,Jodhpur,CONST-20,Ward 12,Keezhapalayam,26.32373,73.02255,602801,Urban Ward
+L-0119,P-1119,Rajasthan,Udaipur,CONST-21,Ward 9,Kondampatti,24.54449,73.67405,602908,Urban Ward
+L-0120,P-1120,Karnataka,Belagavi,CONST-06,Kinathukadavu,Melapalayam,15.86126,74.49546,600867,Urban Ward
+L-0121,P-1121,Uttar Pradesh,Kanpur Nagar,CONST-12,Panchayat South,Vadavalli,26.44488,80.33947,601667,Rural Village
+L-0122,P-1122,Karnataka,Bengaluru Urban,CONST-04,Perur,Thondamuthur,12.95176,77.61922,600553,Rural Village
+L-0123,P-1123,Karnataka,Mysuru,CONST-05,Ward 14,Alandurai,12.27504,76.61255,600755,Urban Ward
+L-0124,P-1124,Rajasthan,Jodhpur,CONST-20,Ward 9,Melapalayam,26.25809,73.0454,602768,Urban Ward
+L-0125,P-1125,West Bengal,Howrah,CONST-17,Anaikatti,Melapalayam,22.59193,88.3277,602406,Rural Village
+L-0126,P-1126,Odisha,Puri,CONST-27,Panchayat North,Kondampatti,19.79907,85.79966,603783,Panchayat
+L-0127,P-1127,Tamil Nadu,Chennai,CONST-01,Sultanpet,Karamadai,13.09395,80.28837,600167,Panchayat
+L-0128,P-1128,West Bengal,Kolkata,CONST-16,Ramnagar,Kondampatti,22.53492,88.32966,602274,Rural Village
+L-0129,P-1129,Maharashtra,Nagpur,CONST-08,Ramnagar,Ganapathy,21.13129,79.05793,601168,Panchayat
+L-0130,P-1130,Rajasthan,Jodhpur,CONST-20,Ward 5,Melapalayam,26.30648,73.03217,602797,Rural Village
+L-0131,P-1131,Maharashtra,Pune,CONST-07,Ramnagar,Vadavalli,18.54707,73.87388,601053,Rural Village
+L-0132,P-1132,Kerala,Ernakulam,CONST-29,Perur,Periyanaickenpalayam,9.97417,76.29821,604062,Panchayat
+L-0133,P-1133,West Bengal,Darjeeling,CONST-18,Ward 14,Saravanampatti,27.02451,88.27291,602547,Panchayat
+L-0134,P-1134,Karnataka,Belagavi,CONST-06,Perur,Melapalayam,15.88003,74.52527,600863,Rural Village
+L-0135,P-1135,West Bengal,Howrah,CONST-17,Sathyamangalam,Nallur,22.55954,88.3369,602379,Rural Village
+L-0136,P-1136,Uttar Pradesh,Kanpur Nagar,CONST-12,Bhavani,Thondamuthur,26.46641,80.36541,601679,Panchayat
+L-0137,P-1137,Maharashtra,Nashik,CONST-09,Anaikatti,Karamadai,20.03352,73.77867,601247,Rural Village
+L-0138,P-1138,Tamil Nadu,Madurai,CONST-03,Bhavani,Thondamuthur,9.9518,78.13634,600451,Panchayat
+L-0139,P-1139,Odisha,Puri,CONST-27,Ward 17,Melapalayam,19.84357,85.82336,603784,Rural Village
+L-0140,P-1140,Karnataka,Bengaluru Urban,CONST-04,Ward 12,Nallur,12.96442,77.57476,600570,Urban Ward
+L-0141,P-1141,Madhya Pradesh,Bhopal,CONST-22,Ward 5,Thondamuthur,23.23073,77.39467,603071,Panchayat
+L-0142,P-1142,Rajasthan,Udaipur,CONST-21,Perur,Sundarapuram,24.56485,73.68461,602915,Panchayat
+L-0143,P-1143,Bihar,Gaya,CONST-14,Bhavani,Kondampatti,24.77399,85.02125,601935,Panchayat
+L-0144,P-1144,Uttar Pradesh,Varanasi,CONST-11,Gobichettipalayam,Kondampatti,25.308,82.9379,601579,Panchayat
+L-0145,P-1145,Madhya Pradesh,Indore,CONST-23,Modakurichi,Kondampatti,22.69728,75.88489,603172,Urban Ward
+L-0146,P-1146,Rajasthan,Jaipur,CONST-19,Gobichettipalayam,Periyanaickenpalayam,26.88406,75.81303,602653,Rural Village
+L-0147,P-1147,Maharashtra,Pune,CONST-07,Panchayat North,Vadavalli,18.51972,73.88527,601023,Panchayat
+L-0148,P-1148,Rajasthan,Udaipur,CONST-21,Anaikatti,Saravanampatti,24.58779,73.67044,602947,Panchayat
+L-0149,P-1149,Kerala,Kozhikode,CONST-30,Modakurichi,Kondampatti,11.23385,75.81498,604149,Urban Ward
+L-0150,P-1150,Odisha,Puri,CONST-27,Modakurichi,Vadavalli,19.84318,85.8275,603715,Rural Village
+L-0151,P-1151,Karnataka,Bengaluru Urban,CONST-04,Ward 9,Periyanaickenpalayam,12.95263,77.57206,600617,Urban Ward
+L-0152,P-1152,Kerala,Thiruvananthapuram,CONST-28,Ward 9,Thondamuthur,8.52436,76.90913,603919,Panchayat
+L-0153,P-1153,Odisha,Khordha,CONST-25,Ward 5,Ganapathy,20.28824,85.84495,603500,Urban Ward
+L-0154,P-1154,Karnataka,Bengaluru Urban,CONST-04,Sathyamangalam,Ward 14,13.00208,77.61828,600603,Urban Ward
+L-0155,P-1155,West Bengal,Kolkata,CONST-16,Ramnagar,Keezhapalayam,22.58161,88.38947,602273,Urban Ward
+L-0156,P-1156,West Bengal,Darjeeling,CONST-18,Vellalore,Melapalayam,27.01666,88.29692,602510,Urban Ward
+L-0157,P-1157,Bihar,Gaya,CONST-14,Perur,Periyanaickenpalayam,24.82593,84.97851,601965,Panchayat
+L-0158,P-1158,Maharashtra,Pune,CONST-07,Ward 14,Periyanaickenpalayam,18.51492,73.83889,601030,Panchayat
+L-0159,P-1159,Bihar,Patna,CONST-13,Modakurichi,Nallur,25.58919,85.13999,601822,Panchayat
+L-0160,P-1160,Maharashtra,Nashik,CONST-09,Ramnagar,Alandurai,20.00272,73.77704,601312,Panchayat
+L-0161,P-1161,Kerala,Kozhikode,CONST-30,Panchayat North,Nallur,11.28214,75.77452,604151,Panchayat
+L-0162,P-1162,Maharashtra,Nagpur,CONST-08,Anaikatti,Saravanampatti,21.14583,79.09201,601171,Panchayat
+L-0163,P-1163,Karnataka,Belagavi,CONST-06,Anaikatti,Melapalayam,15.82796,74.50854,600864,Urban Ward
+L-0164,P-1164,Kerala,Thiruvananthapuram,CONST-28,Kinathukadavu,Nallur,8.54628,76.95803,603875,Rural Village
+L-0165,P-1165,Karnataka,Mysuru,CONST-05,Vellalore,Ganapathy,12.29434,76.62781,600708,Panchayat
+L-0166,P-1166,Bihar,Patna,CONST-13,Sultanpet,Melapalayam,25.57099,85.11629,601873,Rural Village
+L-0167,P-1167,West Bengal,Howrah,CONST-17,Vellalore,Melapalayam,22.55789,88.30414,602406,Panchayat
+L-0168,P-1168,Uttar Pradesh,Varanasi,CONST-11,Bhavani,Karamadai,25.32958,82.96451,601551,Panchayat
+L-0169,P-1169,Bihar,Bhagalpur,CONST-15,Ward 9,Kondampatti,25.21487,86.9773,602111,Rural Village
+L-0170,P-1170,Tamil Nadu,Madurai,CONST-03,Perur,Sundarapuram,9.92636,78.15102,600462,Panchayat
+L-0171,P-1171,Uttar Pradesh,Lucknow,CONST-10,Panchayat North,Kondampatti,26.84325,80.9516,601419,Rural Village
+L-0172,P-1172,Kerala,Kozhikode,CONST-30,Modakurichi,Ganapathy,11.23463,75.76445,604157,Urban Ward
+L-0173,P-1173,Uttar Pradesh,Kanpur Nagar,CONST-12,Ward 17,Periyanaickenpalayam,26.46081,80.31845,601716,Urban Ward
+L-0174,P-1174,Bihar,Patna,CONST-13,Ward 14,Vadavalli,25.58685,85.10008,601857,Panchayat
+L-0175,P-1175,Karnataka,Bengaluru Urban,CONST-04,Panchayat South,Periyanaickenpalayam,12.97794,77.56464,600608,Urban Ward
+L-0176,P-1176,Rajasthan,Jodhpur,CONST-20,Ward 14,Sundarapuram,26.2593,73.05836,602759,Rural Village
+L-0177,P-1177,West Bengal,Howrah,CONST-17,Perur,Periyanaickenpalayam,22.62418,88.3319,602394,Rural Village
+L-0178,P-1178,Karnataka,Mysuru,CONST-05,Vellalore,Karamadai,12.32722,76.67278,600733,Rural Village
+L-0179,P-1179,Bihar,Patna,CONST-13,Panchayat South,Thondamuthur,25.56675,85.10079,601800,Rural Village
+L-0180,P-1180,West Bengal,Kolkata,CONST-16,Sathyamangalam,Alandurai,22.5684,88.37941,602208,Rural Village
+L-0181,P-1181,Rajasthan,Jodhpur,CONST-20,Panchayat South,Vadavalli,26.30765,73.0325,602783,Panchayat
+L-0182,P-1182,Madhya Pradesh,Gwalior,CONST-24,Ward 14,Saravanampatti,26.2381,78.15205,603313,Panchayat
+L-0183,P-1183,Odisha,Puri,CONST-27,Ramnagar,Melapalayam,19.83704,85.86443,603747,Panchayat
+L-0184,P-1184,Maharashtra,Nagpur,CONST-08,Ward 14,Thondamuthur,21.11665,79.08217,601181,Rural Village
+L-0185,P-1185,Maharashtra,Nashik,CONST-09,Gobichettipalayam,Karamadai,19.97355,73.7812,601311,Urban Ward
+L-0186,P-1186,Kerala,Kozhikode,CONST-30,Modakurichi,Periyanaickenpalayam,11.27457,75.81502,604169,Panchayat
+L-0187,P-1187,Bihar,Bhagalpur,CONST-15,Ward 14,Alandurai,25.21908,86.95523,602148,Rural Village
+L-0188,P-1188,Karnataka,Mysuru,CONST-05,Ward 9,Melapalayam,12.27707,76.61923,600697,Urban Ward
+L-0189,P-1189,West Bengal,Darjeeling,CONST-18,Perur,Vadavalli,27.06826,88.28006,602548,Panchayat
+L-0190,P-1190,Kerala,Thiruvananthapuram,CONST-28,Bhavani,Thondamuthur,8.49417,76.9215,603890,Urban Ward
+L-0191,P-1191,West Bengal,Howrah,CONST-17,Modakurichi,Thondamuthur,22.60892,88.33392,602384,Urban Ward
+L-0192,P-1192,Uttar Pradesh,Kanpur Nagar,CONST-12,Ramnagar,Nallur,26.47573,80.3511,601716,Urban Ward
+L-0193,P-1193,Karnataka,Bengaluru Urban,CONST-04,Ward 17,Keezhapalayam,12.96656,77.62346,600594,Panchayat
+L-0194,P-1194,Karnataka,Bengaluru Urban,CONST-04,Ward 5,Ward 14,13.00028,77.61733,600559,Panchayat
+L-0195,P-1195,Uttar Pradesh,Lucknow,CONST-10,Sathyamangalam,Saravanampatti,26.82474,80.98982,601451,Panchayat
+L-0196,P-1196,Bihar,Gaya,CONST-14,Ward 14,Karamadai,24.78815,85.02407,601970,Urban Ward
+L-0197,P-1197,West Bengal,Kolkata,CONST-16,Perur,Kondampatti,22.60517,88.36823,602252,Panchayat
+L-0198,P-1198,Rajasthan,Jaipur,CONST-19,Ward 17,Periyanaickenpalayam,26.94209,75.78218,602660,Rural Village
+L-0199,P-1199,Tamil Nadu,Coimbatore,CONST-02,Ward 14,Kondampatti,10.98851,76.95611,600305,Rural Village
+L-0200,P-1200,Maharashtra,Pune,CONST-07,Sathyamangalam,Sundarapuram,18.50703,73.89689,601041,Rural Village

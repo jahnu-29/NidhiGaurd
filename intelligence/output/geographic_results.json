@@ -1,0 +1,3168 @@
+{
+  "disclaimer": "Geographic proximity is contextual information for investigators. Proximity alone is never treated as an anomaly.",
+  "radius_km": 2.0,
+  "project_nearby_relationships": [
+    {
+      "source": "P-1012",
+      "target": "P-1034",
+      "distance_km": 1.25,
+      "same_work_type": true,
+      "same_contractor": true,
+      "description_similarity": 1.0,
+      "cost_similarity": 0.988,
+      "date_proximity": 0.718,
+      "relationship_strength": 95.2,
+      "evidence": [
+        "same contractor",
+        "same work type",
+        "same district",
+        "~1.25 km apart",
+        "description similarity 100%",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.25 km) \u2014 same contractor, same work type, same district, ~1.25 km apart, description similarity 100%, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1023",
+      "target": "P-1151",
+      "distance_km": 0.778,
+      "same_work_type": true,
+      "same_contractor": true,
+      "description_similarity": 0.238,
+      "cost_similarity": 0.961,
+      "date_proximity": 0.814,
+      "relationship_strength": 77.5,
+      "evidence": [
+        "same contractor",
+        "same work type",
+        "same district",
+        "~0.78 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.78 km) \u2014 same contractor, same work type, same district, ~0.78 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1069",
+      "target": "P-1194",
+      "distance_km": 1.046,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 1.0,
+      "cost_similarity": 0.927,
+      "date_proximity": 0.74,
+      "relationship_strength": 75.1,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.05 km apart",
+        "description similarity 100%",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.05 km) \u2014 same work type, same district, ~1.05 km apart, description similarity 100%, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1075",
+      "target": "P-1174",
+      "distance_km": 0.219,
+      "same_work_type": true,
+      "same_contractor": true,
+      "description_similarity": 0.353,
+      "cost_similarity": 0.685,
+      "date_proximity": 0.477,
+      "relationship_strength": 75.1,
+      "evidence": [
+        "same contractor",
+        "same work type",
+        "same district",
+        "~0.22 km apart",
+        "description similarity 35%"
+      ],
+      "explanation": "Nearby project relationship detected (0.22 km) \u2014 same contractor, same work type, same district, ~0.22 km apart, description similarity 35%."
+    },
+    {
+      "source": "P-1004",
+      "target": "P-1188",
+      "distance_km": 1.585,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.867,
+      "cost_similarity": 0.98,
+      "date_proximity": 0.721,
+      "relationship_strength": 71.3,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.58 km apart",
+        "description similarity 87%",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.58 km) \u2014 same work type, same district, ~1.58 km apart, description similarity 87%, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1030",
+      "target": "P-1082",
+      "distance_km": 1.05,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.781,
+      "cost_similarity": 0.914,
+      "date_proximity": 0.726,
+      "relationship_strength": 69.3,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.05 km apart",
+        "description similarity 78%",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.05 km) \u2014 same work type, same district, ~1.05 km apart, description similarity 78%, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1008",
+      "target": "P-1030",
+      "distance_km": 1.946,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.781,
+      "cost_similarity": 0.958,
+      "date_proximity": 0.764,
+      "relationship_strength": 68.8,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.95 km apart",
+        "description similarity 78%",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.95 km) \u2014 same work type, same district, ~1.95 km apart, description similarity 78%, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1051",
+      "target": "P-1087",
+      "distance_km": 1.973,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.794,
+      "cost_similarity": 0.755,
+      "date_proximity": 0.918,
+      "relationship_strength": 68.6,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.97 km apart",
+        "description similarity 79%",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.97 km) \u2014 same work type, same district, ~1.97 km apart, description similarity 79%, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1090",
+      "target": "P-1092",
+      "distance_km": 1.088,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.823,
+      "cost_similarity": 0.885,
+      "date_proximity": 0.521,
+      "relationship_strength": 68.0,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.09 km apart",
+        "description similarity 82%",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.09 km) \u2014 same work type, same district, ~1.09 km apart, description similarity 82%, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1008",
+      "target": "P-1019",
+      "distance_km": 0.484,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.76,
+      "cost_similarity": 0.812,
+      "date_proximity": 0.633,
+      "relationship_strength": 67.7,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~0.48 km apart",
+        "description similarity 76%",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (0.48 km) \u2014 same work type, same district, ~0.48 km apart, description similarity 76%, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1080",
+      "target": "P-1161",
+      "distance_km": 1.815,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.796,
+      "cost_similarity": 0.563,
+      "date_proximity": 0.926,
+      "relationship_strength": 67.1,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.81 km apart",
+        "description similarity 80%",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.81 km) \u2014 same work type, same district, ~1.81 km apart, description similarity 80%, sanctioned close together in time."
+    },
+    {
+      "source": "P-1177",
+      "target": "P-1191",
+      "distance_km": 1.709,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.737,
+      "cost_similarity": 0.827,
+      "date_proximity": 0.732,
+      "relationship_strength": 66.4,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.71 km apart",
+        "description similarity 74%",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.71 km) \u2014 same work type, same district, ~1.71 km apart, description similarity 74%, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1062",
+      "target": "P-1103",
+      "distance_km": 0.361,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.766,
+      "cost_similarity": 0.469,
+      "date_proximity": 0.775,
+      "relationship_strength": 66.0,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~0.36 km apart",
+        "description similarity 77%",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.36 km) \u2014 same work type, same district, ~0.36 km apart, description similarity 77%, sanctioned close together in time."
+    },
+    {
+      "source": "P-1055",
+      "target": "P-1102",
+      "distance_km": 1.947,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.777,
+      "cost_similarity": 0.699,
+      "date_proximity": 0.69,
+      "relationship_strength": 65.4,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.95 km apart",
+        "description similarity 78%"
+      ],
+      "explanation": "Nearby project relationship detected (1.95 km) \u2014 same work type, same district, ~1.95 km apart, description similarity 78%."
+    },
+    {
+      "source": "P-1026",
+      "target": "P-1035",
+      "distance_km": 1.884,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.786,
+      "cost_similarity": 0.667,
+      "date_proximity": 0.625,
+      "relationship_strength": 64.7,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.88 km apart",
+        "description similarity 79%"
+      ],
+      "explanation": "Nearby project relationship detected (1.88 km) \u2014 same work type, same district, ~1.88 km apart, description similarity 79%."
+    },
+    {
+      "source": "P-1080",
+      "target": "P-1102",
+      "distance_km": 0.96,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.805,
+      "cost_similarity": 0.493,
+      "date_proximity": 0.589,
+      "relationship_strength": 64.5,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~0.96 km apart",
+        "description similarity 80%"
+      ],
+      "explanation": "Nearby project relationship detected (0.96 km) \u2014 same work type, same district, ~0.96 km apart, description similarity 80%."
+    },
+    {
+      "source": "P-1005",
+      "target": "P-1018",
+      "distance_km": 0.217,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.74,
+      "cost_similarity": 0.489,
+      "date_proximity": 0.337,
+      "relationship_strength": 61.4,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~0.22 km apart",
+        "description similarity 74%"
+      ],
+      "explanation": "Nearby project relationship detected (0.22 km) \u2014 same work type, same district, ~0.22 km apart, description similarity 74%."
+    },
+    {
+      "source": "P-1023",
+      "target": "P-1140",
+      "distance_km": 1.984,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.496,
+      "cost_similarity": 0.754,
+      "date_proximity": 0.841,
+      "relationship_strength": 60.4,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.98 km apart",
+        "description similarity 50%",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.98 km) \u2014 same work type, same district, ~1.98 km apart, description similarity 50%, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1023",
+      "target": "P-1034",
+      "distance_km": 1.877,
+      "same_work_type": false,
+      "same_contractor": true,
+      "description_similarity": 0.084,
+      "cost_similarity": 0.616,
+      "date_proximity": 0.956,
+      "relationship_strength": 60.0,
+      "evidence": [
+        "same contractor",
+        "same district",
+        "~1.88 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.88 km) \u2014 same contractor, same district, ~1.88 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1010",
+      "target": "P-1073",
+      "distance_km": 1.375,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.376,
+      "cost_similarity": 0.962,
+      "date_proximity": 0.748,
+      "relationship_strength": 59.4,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.38 km apart",
+        "description similarity 38%",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.38 km) \u2014 same work type, same district, ~1.38 km apart, description similarity 38%, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1034",
+      "target": "P-1151",
+      "distance_km": 1.756,
+      "same_work_type": false,
+      "same_contractor": true,
+      "description_similarity": 0.078,
+      "cost_similarity": 0.641,
+      "date_proximity": 0.858,
+      "relationship_strength": 59.3,
+      "evidence": [
+        "same contractor",
+        "same district",
+        "~1.76 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.76 km) \u2014 same contractor, same district, ~1.76 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1059",
+      "target": "P-1091",
+      "distance_km": 1.95,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.327,
+      "cost_similarity": 0.997,
+      "date_proximity": 0.674,
+      "relationship_strength": 57.0,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.95 km apart",
+        "description similarity 33%",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.95 km) \u2014 same work type, same district, ~1.95 km apart, description similarity 33%, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1032",
+      "target": "P-1091",
+      "distance_km": 0.659,
+      "same_work_type": false,
+      "same_contractor": true,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.443,
+      "date_proximity": 0.699,
+      "relationship_strength": 55.4,
+      "evidence": [
+        "same contractor",
+        "same district",
+        "~0.66 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (0.66 km) \u2014 same contractor, same district, ~0.66 km apart."
+    },
+    {
+      "source": "P-1007",
+      "target": "P-1193",
+      "distance_km": 1.355,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.252,
+      "cost_similarity": 0.796,
+      "date_proximity": 0.811,
+      "relationship_strength": 55.3,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.35 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.35 km) \u2014 same work type, same district, ~1.35 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1140",
+      "target": "P-1151",
+      "distance_km": 1.343,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.317,
+      "cost_similarity": 0.785,
+      "date_proximity": 0.655,
+      "relationship_strength": 55.3,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.34 km apart",
+        "description similarity 32%",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.34 km) \u2014 same work type, same district, ~1.34 km apart, description similarity 32%, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1004",
+      "target": "P-1123",
+      "distance_km": 1.984,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.302,
+      "cost_similarity": 0.595,
+      "date_proximity": 0.959,
+      "relationship_strength": 55.1,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.98 km apart",
+        "description similarity 30%",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.98 km) \u2014 same work type, same district, ~1.98 km apart, description similarity 30%, sanctioned close together in time."
+    },
+    {
+      "source": "P-1014",
+      "target": "P-1154",
+      "distance_km": 1.045,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.112,
+      "cost_similarity": 0.883,
+      "date_proximity": 0.981,
+      "relationship_strength": 54.9,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.05 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.05 km) \u2014 same work type, same district, ~1.05 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1155",
+      "target": "P-1180",
+      "distance_km": 1.796,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.163,
+      "cost_similarity": 0.983,
+      "date_proximity": 0.784,
+      "relationship_strength": 54.0,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.8 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.80 km) \u2014 same work type, same district, ~1.8 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1086",
+      "target": "P-1152",
+      "distance_km": 1.937,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.101,
+      "cost_similarity": 0.943,
+      "date_proximity": 0.981,
+      "relationship_strength": 53.8,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.94 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.94 km) \u2014 same work type, same district, ~1.94 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1004",
+      "target": "P-1165",
+      "distance_km": 0.907,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.179,
+      "cost_similarity": 0.835,
+      "date_proximity": 0.649,
+      "relationship_strength": 53.0,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~0.91 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (0.91 km) \u2014 same work type, same district, ~0.91 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1066",
+      "target": "P-1103",
+      "distance_km": 1.437,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.16,
+      "cost_similarity": 0.848,
+      "date_proximity": 0.663,
+      "relationship_strength": 52.0,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.44 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.44 km) \u2014 same work type, same district, ~1.44 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1062",
+      "target": "P-1066",
+      "distance_km": 1.109,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.162,
+      "cost_similarity": 0.553,
+      "date_proximity": 0.888,
+      "relationship_strength": 51.8,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.11 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.11 km) \u2014 same work type, same district, ~1.11 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1042",
+      "target": "P-1044",
+      "distance_km": 0.617,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.127,
+      "cost_similarity": 0.586,
+      "date_proximity": 0.852,
+      "relationship_strength": 51.6,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~0.62 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.62 km) \u2014 same work type, same district, ~0.62 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1143",
+      "target": "P-1196",
+      "distance_km": 1.6,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.39,
+      "cost_similarity": 0.258,
+      "date_proximity": 0.66,
+      "relationship_strength": 51.5,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.6 km apart",
+        "description similarity 39%"
+      ],
+      "explanation": "Nearby project relationship detected (1.60 km) \u2014 same work type, same district, ~1.6 km apart, description similarity 39%."
+    },
+    {
+      "source": "P-1074",
+      "target": "P-1116",
+      "distance_km": 0.356,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.824,
+      "date_proximity": 0.748,
+      "relationship_strength": 50.2,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~0.36 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.36 km) \u2014 same work type, same district, ~0.36 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1123",
+      "target": "P-1188",
+      "distance_km": 0.76,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.13,
+      "cost_similarity": 0.583,
+      "date_proximity": 0.679,
+      "relationship_strength": 49.7,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~0.76 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (0.76 km) \u2014 same work type, same district, ~0.76 km apart."
+    },
+    {
+      "source": "P-1031",
+      "target": "P-1110",
+      "distance_km": 1.632,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.1,
+      "cost_similarity": 0.563,
+      "date_proximity": 0.841,
+      "relationship_strength": 49.1,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.63 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.63 km) \u2014 same work type, same district, ~1.63 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1022",
+      "target": "P-1052",
+      "distance_km": 1.74,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.193,
+      "cost_similarity": 0.523,
+      "date_proximity": 0.622,
+      "relationship_strength": 48.7,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.74 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.74 km) \u2014 same work type, same district, ~1.74 km apart."
+    },
+    {
+      "source": "P-1089",
+      "target": "P-1189",
+      "distance_km": 1.069,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.679,
+      "date_proximity": 0.737,
+      "relationship_strength": 47.6,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.07 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.07 km) \u2014 same work type, same district, ~1.07 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1154",
+      "target": "P-1194",
+      "distance_km": 0.225,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.443,
+      "cost_similarity": 0.156,
+      "date_proximity": 0.97,
+      "relationship_strength": 47.0,
+      "evidence": [
+        "same district",
+        "~0.23 km apart",
+        "description similarity 44%",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.23 km) \u2014 same district, ~0.23 km apart, description similarity 44%, sanctioned close together in time."
+    },
+    {
+      "source": "P-1091",
+      "target": "P-1111",
+      "distance_km": 1.364,
+      "same_work_type": true,
+      "same_contractor": false,
+      "description_similarity": 0.115,
+      "cost_similarity": 0.607,
+      "date_proximity": 0.482,
+      "relationship_strength": 46.7,
+      "evidence": [
+        "same work type",
+        "same district",
+        "~1.36 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.36 km) \u2014 same work type, same district, ~1.36 km apart."
+    },
+    {
+      "source": "P-1107",
+      "target": "P-1197",
+      "distance_km": 1.74,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.162,
+      "cost_similarity": 0.976,
+      "date_proximity": 0.907,
+      "relationship_strength": 45.3,
+      "evidence": [
+        "same district",
+        "~1.74 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.74 km) \u2014 same district, ~1.74 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1022",
+      "target": "P-1138",
+      "distance_km": 1.98,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.254,
+      "cost_similarity": 0.975,
+      "date_proximity": 0.69,
+      "relationship_strength": 45.0,
+      "evidence": [
+        "same district",
+        "~1.98 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.98 km) \u2014 same district, ~1.98 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1021",
+      "target": "P-1171",
+      "distance_km": 0.99,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.287,
+      "cost_similarity": 0.51,
+      "date_proximity": 0.879,
+      "relationship_strength": 44.6,
+      "evidence": [
+        "same district",
+        "~0.99 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.99 km) \u2014 same district, ~0.99 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1069",
+      "target": "P-1154",
+      "distance_km": 1.066,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.443,
+      "cost_similarity": 0.144,
+      "date_proximity": 0.71,
+      "relationship_strength": 43.0,
+      "evidence": [
+        "same district",
+        "~1.07 km apart",
+        "description similarity 44%",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.07 km) \u2014 same district, ~1.07 km apart, description similarity 44%, sanctioned close together in time."
+    },
+    {
+      "source": "P-1006",
+      "target": "P-1120",
+      "distance_km": 1.263,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.959,
+      "date_proximity": 0.964,
+      "relationship_strength": 42.3,
+      "evidence": [
+        "same district",
+        "~1.26 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.26 km) \u2014 same district, ~1.26 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1012",
+      "target": "P-1059",
+      "distance_km": 1.996,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.114,
+      "cost_similarity": 0.897,
+      "date_proximity": 0.83,
+      "relationship_strength": 42.1,
+      "evidence": [
+        "same district",
+        "~2.0 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (2.00 km) \u2014 same district, ~2.0 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1041",
+      "target": "P-1121",
+      "distance_km": 1.164,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.978,
+      "date_proximity": 0.907,
+      "relationship_strength": 42.1,
+      "evidence": [
+        "same district",
+        "~1.16 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.16 km) \u2014 same district, ~1.16 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1018",
+      "target": "P-1111",
+      "distance_km": 1.531,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.95,
+      "date_proximity": 0.975,
+      "relationship_strength": 42.0,
+      "evidence": [
+        "same district",
+        "~1.53 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.53 km) \u2014 same district, ~1.53 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1026",
+      "target": "P-1159",
+      "distance_km": 1.574,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.201,
+      "cost_similarity": 0.805,
+      "date_proximity": 0.619,
+      "relationship_strength": 41.9,
+      "evidence": [
+        "same district",
+        "~1.57 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.57 km) \u2014 same district, ~1.57 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1034",
+      "target": "P-1140",
+      "distance_km": 1.371,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.112,
+      "cost_similarity": 0.816,
+      "date_proximity": 0.797,
+      "relationship_strength": 41.9,
+      "evidence": [
+        "same district",
+        "~1.37 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.37 km) \u2014 same district, ~1.37 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1071",
+      "target": "P-1190",
+      "distance_km": 1.088,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.284,
+      "cost_similarity": 0.326,
+      "date_proximity": 0.8,
+      "relationship_strength": 41.7,
+      "evidence": [
+        "same district",
+        "~1.09 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.09 km) \u2014 same district, ~1.09 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1095",
+      "target": "P-1153",
+      "distance_km": 1.315,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.829,
+      "date_proximity": 0.997,
+      "relationship_strength": 41.3,
+      "evidence": [
+        "same district",
+        "~1.32 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.32 km) \u2014 same district, ~1.32 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1062",
+      "target": "P-1160",
+      "distance_km": 1.581,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.868,
+      "date_proximity": 0.975,
+      "relationship_strength": 41.1,
+      "evidence": [
+        "same district",
+        "~1.58 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.58 km) \u2014 same district, ~1.58 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1012",
+      "target": "P-1032",
+      "distance_km": 1.353,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.201,
+      "cost_similarity": 0.492,
+      "date_proximity": 0.805,
+      "relationship_strength": 41.0,
+      "evidence": [
+        "same district",
+        "~1.35 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.35 km) \u2014 same district, ~1.35 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1031",
+      "target": "P-1164",
+      "distance_km": 1.15,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.985,
+      "date_proximity": 0.764,
+      "relationship_strength": 40.8,
+      "evidence": [
+        "same district",
+        "~1.15 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.15 km) \u2014 same district, ~1.15 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1018",
+      "target": "P-1032",
+      "distance_km": 1.427,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.123,
+      "cost_similarity": 0.693,
+      "date_proximity": 0.759,
+      "relationship_strength": 40.5,
+      "evidence": [
+        "same district",
+        "~1.43 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.43 km) \u2014 same district, ~1.43 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1050",
+      "target": "P-1156",
+      "distance_km": 1.028,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.798,
+      "date_proximity": 0.91,
+      "relationship_strength": 40.5,
+      "evidence": [
+        "same district",
+        "~1.03 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.03 km) \u2014 same district, ~1.03 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1032",
+      "target": "P-1059",
+      "distance_km": 1.679,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.151,
+      "cost_similarity": 0.441,
+      "date_proximity": 0.975,
+      "relationship_strength": 40.4,
+      "evidence": [
+        "same district",
+        "~1.68 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.68 km) \u2014 same district, ~1.68 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1005",
+      "target": "P-1091",
+      "distance_km": 0.897,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.765,
+      "date_proximity": 0.879,
+      "relationship_strength": 40.1,
+      "evidence": [
+        "same district",
+        "~0.9 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.90 km) \u2014 same district, ~0.9 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1024",
+      "target": "P-1086",
+      "distance_km": 0.909,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.975,
+      "date_proximity": 0.668,
+      "relationship_strength": 40.1,
+      "evidence": [
+        "same district",
+        "~0.91 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (0.91 km) \u2014 same district, ~0.91 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1122",
+      "target": "P-1193",
+      "distance_km": 1.709,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.146,
+      "cost_similarity": 0.682,
+      "date_proximity": 0.721,
+      "relationship_strength": 40.1,
+      "evidence": [
+        "same district",
+        "~1.71 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.71 km) \u2014 same district, ~1.71 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1024",
+      "target": "P-1152",
+      "distance_km": 1.028,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.967,
+      "date_proximity": 0.688,
+      "relationship_strength": 40.0,
+      "evidence": [
+        "same district",
+        "~1.03 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.03 km) \u2014 same district, ~1.03 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1147",
+      "target": "P-1200",
+      "distance_km": 1.869,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.085,
+      "cost_similarity": 0.801,
+      "date_proximity": 0.742,
+      "relationship_strength": 39.8,
+      "evidence": [
+        "same district",
+        "~1.87 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.87 km) \u2014 same district, ~1.87 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1130",
+      "target": "P-1181",
+      "distance_km": 0.134,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.553,
+      "date_proximity": 0.94,
+      "relationship_strength": 39.7,
+      "evidence": [
+        "same district",
+        "~0.13 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.13 km) \u2014 same district, ~0.13 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1054",
+      "target": "P-1143",
+      "distance_km": 1.084,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.705,
+      "date_proximity": 0.918,
+      "relationship_strength": 39.6,
+      "evidence": [
+        "same district",
+        "~1.08 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.08 km) \u2014 same district, ~1.08 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1098",
+      "target": "P-1108",
+      "distance_km": 1.651,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.96,
+      "date_proximity": 0.74,
+      "relationship_strength": 39.5,
+      "evidence": [
+        "same district",
+        "~1.65 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.65 km) \u2014 same district, ~1.65 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1012",
+      "target": "P-1140",
+      "distance_km": 1.221,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.112,
+      "cost_similarity": 0.826,
+      "date_proximity": 0.515,
+      "relationship_strength": 39.4,
+      "evidence": [
+        "same district",
+        "~1.22 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.22 km) \u2014 same district, ~1.22 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1061",
+      "target": "P-1167",
+      "distance_km": 1.74,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.165,
+      "cost_similarity": 0.485,
+      "date_proximity": 0.756,
+      "relationship_strength": 38.9,
+      "evidence": [
+        "same district",
+        "~1.74 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.74 km) \u2014 same district, ~1.74 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1054",
+      "target": "P-1196",
+      "distance_km": 0.531,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.277,
+      "cost_similarity": 0.182,
+      "date_proximity": 0.578,
+      "relationship_strength": 38.7,
+      "evidence": [
+        "same district",
+        "~0.53 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (0.53 km) \u2014 same district, ~0.53 km apart."
+    },
+    {
+      "source": "P-1090",
+      "target": "P-1133",
+      "distance_km": 0.24,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.257,
+      "cost_similarity": 0.092,
+      "date_proximity": 0.671,
+      "relationship_strength": 38.7,
+      "evidence": [
+        "same district",
+        "~0.24 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (0.24 km) \u2014 same district, ~0.24 km apart."
+    },
+    {
+      "source": "P-1037",
+      "target": "P-1043",
+      "distance_km": 0.889,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.539,
+      "date_proximity": 0.959,
+      "relationship_strength": 38.6,
+      "evidence": [
+        "same district",
+        "~0.89 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.89 km) \u2014 same district, ~0.89 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1084",
+      "target": "P-1158",
+      "distance_km": 1.653,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.099,
+      "cost_similarity": 0.96,
+      "date_proximity": 0.389,
+      "relationship_strength": 38.5,
+      "evidence": [
+        "same district",
+        "~1.65 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.65 km) \u2014 same district, ~1.65 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1139",
+      "target": "P-1150",
+      "distance_km": 0.435,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.732,
+      "date_proximity": 0.649,
+      "relationship_strength": 38.2,
+      "evidence": [
+        "same district",
+        "~0.44 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (0.44 km) \u2014 same district, ~0.44 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1066",
+      "target": "P-1185",
+      "distance_km": 0.744,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.205,
+      "cost_similarity": 0.531,
+      "date_proximity": 0.384,
+      "relationship_strength": 38.1,
+      "evidence": [
+        "same district",
+        "~0.74 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (0.74 km) \u2014 same district, ~0.74 km apart."
+    },
+    {
+      "source": "P-1088",
+      "target": "P-1109",
+      "distance_km": 1.592,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.8,
+      "date_proximity": 0.74,
+      "relationship_strength": 38.0,
+      "evidence": [
+        "same district",
+        "~1.59 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.59 km) \u2014 same district, ~1.59 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1109",
+      "target": "P-1162",
+      "distance_km": 1.403,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.993,
+      "date_proximity": 0.515,
+      "relationship_strength": 38.0,
+      "evidence": [
+        "same district",
+        "~1.4 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.40 km) \u2014 same district, ~1.4 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1032",
+      "target": "P-1111",
+      "distance_km": 1.514,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.729,
+      "date_proximity": 0.784,
+      "relationship_strength": 37.9,
+      "evidence": [
+        "same district",
+        "~1.51 km apart",
+        "comparable sanctioned amount",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.51 km) \u2014 same district, ~1.51 km apart, comparable sanctioned amount, sanctioned close together in time."
+    },
+    {
+      "source": "P-1057",
+      "target": "P-1116",
+      "distance_km": 0.54,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.375,
+      "date_proximity": 0.964,
+      "relationship_strength": 37.6,
+      "evidence": [
+        "same district",
+        "~0.54 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.54 km) \u2014 same district, ~0.54 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1088",
+      "target": "P-1184",
+      "distance_km": 1.221,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.634,
+      "date_proximity": 0.781,
+      "relationship_strength": 37.3,
+      "evidence": [
+        "same district",
+        "~1.22 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.22 km) \u2014 same district, ~1.22 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1054",
+      "target": "P-1064",
+      "distance_km": 0.333,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.364,
+      "date_proximity": 0.91,
+      "relationship_strength": 37.2,
+      "evidence": [
+        "same district",
+        "~0.33 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.33 km) \u2014 same district, ~0.33 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1016",
+      "target": "P-1059",
+      "distance_km": 1.35,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.601,
+      "date_proximity": 0.811,
+      "relationship_strength": 37.1,
+      "evidence": [
+        "same district",
+        "~1.35 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.35 km) \u2014 same district, ~1.35 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1072",
+      "target": "P-1110",
+      "distance_km": 1.252,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.543,
+      "date_proximity": 0.841,
+      "relationship_strength": 37.0,
+      "evidence": [
+        "same district",
+        "~1.25 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.25 km) \u2014 same district, ~1.25 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1117",
+      "target": "P-1171",
+      "distance_km": 1.436,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.536,
+      "date_proximity": 0.871,
+      "relationship_strength": 36.9,
+      "evidence": [
+        "same district",
+        "~1.44 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.44 km) \u2014 same district, ~1.44 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1067",
+      "target": "P-1081",
+      "distance_km": 1.302,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.398,
+      "date_proximity": 0.964,
+      "relationship_strength": 36.7,
+      "evidence": [
+        "same district",
+        "~1.3 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.30 km) \u2014 same district, ~1.3 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1103",
+      "target": "P-1160",
+      "distance_km": 1.229,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.54,
+      "date_proximity": 0.8,
+      "relationship_strength": 36.6,
+      "evidence": [
+        "same district",
+        "~1.23 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.23 km) \u2014 same district, ~1.23 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1001",
+      "target": "P-1195",
+      "distance_km": 1.824,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.57,
+      "date_proximity": 0.852,
+      "relationship_strength": 36.5,
+      "evidence": [
+        "same district",
+        "~1.82 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.82 km) \u2014 same district, ~1.82 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1052",
+      "target": "P-1138",
+      "distance_km": 1.97,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.51,
+      "date_proximity": 0.932,
+      "relationship_strength": 36.5,
+      "evidence": [
+        "same district",
+        "~1.97 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.97 km) \u2014 same district, ~1.97 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1058",
+      "target": "P-1168",
+      "distance_km": 0.913,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.777,
+      "date_proximity": 0.51,
+      "relationship_strength": 36.5,
+      "evidence": [
+        "same district",
+        "~0.91 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (0.91 km) \u2014 same district, ~0.91 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1093",
+      "target": "P-1122",
+      "distance_km": 1.481,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.702,
+      "date_proximity": 0.671,
+      "relationship_strength": 36.5,
+      "evidence": [
+        "same district",
+        "~1.48 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.48 km) \u2014 same district, ~1.48 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1007",
+      "target": "P-1122",
+      "distance_km": 1.742,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.857,
+      "date_proximity": 0.532,
+      "relationship_strength": 36.3,
+      "evidence": [
+        "same district",
+        "~1.74 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.74 km) \u2014 same district, ~1.74 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1029",
+      "target": "P-1141",
+      "distance_km": 1.217,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.802,
+      "date_proximity": 0.512,
+      "relationship_strength": 36.3,
+      "evidence": [
+        "same district",
+        "~1.22 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.22 km) \u2014 same district, ~1.22 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1166",
+      "target": "P-1179",
+      "distance_km": 1.625,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.372,
+      "date_proximity": 0.992,
+      "relationship_strength": 36.2,
+      "evidence": [
+        "same district",
+        "~1.62 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.62 km) \u2014 same district, ~1.62 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1014",
+      "target": "P-1016",
+      "distance_km": 1.692,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.146,
+      "cost_similarity": 0.586,
+      "date_proximity": 0.405,
+      "relationship_strength": 36.0,
+      "evidence": [
+        "same district",
+        "~1.69 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.69 km) \u2014 same district, ~1.69 km apart."
+    },
+    {
+      "source": "P-1032",
+      "target": "P-1175",
+      "distance_km": 1.901,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.404,
+      "date_proximity": 0.981,
+      "relationship_strength": 36.0,
+      "evidence": [
+        "same district",
+        "~1.9 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.90 km) \u2014 same district, ~1.9 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1014",
+      "target": "P-1194",
+      "distance_km": 0.884,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.176,
+      "date_proximity": 0.989,
+      "relationship_strength": 35.3,
+      "evidence": [
+        "same district",
+        "~0.88 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.88 km) \u2014 same district, ~0.88 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1068",
+      "target": "P-1100",
+      "distance_km": 0.933,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.453,
+      "date_proximity": 0.712,
+      "relationship_strength": 35.3,
+      "evidence": [
+        "same district",
+        "~0.93 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.93 km) \u2014 same district, ~0.93 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1136",
+      "target": "P-1192",
+      "distance_km": 1.761,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.867,
+      "date_proximity": 0.427,
+      "relationship_strength": 35.3,
+      "evidence": [
+        "same district",
+        "~1.76 km apart",
+        "comparable sanctioned amount"
+      ],
+      "explanation": "Nearby project relationship detected (1.76 km) \u2014 same district, ~1.76 km apart, comparable sanctioned amount."
+    },
+    {
+      "source": "P-1005",
+      "target": "P-1032",
+      "distance_km": 1.542,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.129,
+      "cost_similarity": 0.338,
+      "date_proximity": 0.578,
+      "relationship_strength": 35.1,
+      "evidence": [
+        "same district",
+        "~1.54 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.54 km) \u2014 same district, ~1.54 km apart."
+    },
+    {
+      "source": "P-1011",
+      "target": "P-1058",
+      "distance_km": 1.561,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.262,
+      "date_proximity": 0.986,
+      "relationship_strength": 35.1,
+      "evidence": [
+        "same district",
+        "~1.56 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.56 km) \u2014 same district, ~1.56 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1124",
+      "target": "P-1176",
+      "distance_km": 1.299,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.636,
+      "date_proximity": 0.562,
+      "relationship_strength": 35.0,
+      "evidence": [
+        "same district",
+        "~1.3 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.30 km) \u2014 same district, ~1.3 km apart."
+    },
+    {
+      "source": "P-1018",
+      "target": "P-1091",
+      "distance_km": 0.768,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.639,
+      "date_proximity": 0.458,
+      "relationship_strength": 34.8,
+      "evidence": [
+        "same district",
+        "~0.77 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (0.77 km) \u2014 same district, ~0.77 km apart."
+    },
+    {
+      "source": "P-1048",
+      "target": "P-1125",
+      "distance_km": 0.391,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.285,
+      "date_proximity": 0.748,
+      "relationship_strength": 34.7,
+      "evidence": [
+        "same district",
+        "~0.39 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.39 km) \u2014 same district, ~0.39 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1057",
+      "target": "P-1074",
+      "distance_km": 0.824,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.309,
+      "date_proximity": 0.784,
+      "relationship_strength": 34.7,
+      "evidence": [
+        "same district",
+        "~0.82 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.82 km) \u2014 same district, ~0.82 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1111",
+      "target": "P-1175",
+      "distance_km": 0.821,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.294,
+      "date_proximity": 0.803,
+      "relationship_strength": 34.7,
+      "evidence": [
+        "same district",
+        "~0.82 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.82 km) \u2014 same district, ~0.82 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1065",
+      "target": "P-1092",
+      "distance_km": 1.99,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.265,
+      "cost_similarity": 0.17,
+      "date_proximity": 0.427,
+      "relationship_strength": 34.6,
+      "evidence": [
+        "same district",
+        "~1.99 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.99 km) \u2014 same district, ~1.99 km apart."
+    },
+    {
+      "source": "P-1064",
+      "target": "P-1143",
+      "distance_km": 1.087,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.257,
+      "date_proximity": 0.827,
+      "relationship_strength": 34.2,
+      "evidence": [
+        "same district",
+        "~1.09 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.09 km) \u2014 same district, ~1.09 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1014",
+      "target": "P-1085",
+      "distance_km": 1.715,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.486,
+      "date_proximity": 0.674,
+      "relationship_strength": 34.0,
+      "evidence": [
+        "same district",
+        "~1.72 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.72 km) \u2014 same district, ~1.72 km apart."
+    },
+    {
+      "source": "P-1067",
+      "target": "P-1114",
+      "distance_km": 1.421,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.379,
+      "date_proximity": 0.729,
+      "relationship_strength": 34.0,
+      "evidence": [
+        "same district",
+        "~1.42 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.42 km) \u2014 same district, ~1.42 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1002",
+      "target": "P-1109",
+      "distance_km": 1.133,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.187,
+      "date_proximity": 0.852,
+      "relationship_strength": 33.7,
+      "evidence": [
+        "same district",
+        "~1.13 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.13 km) \u2014 same district, ~1.13 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1081",
+      "target": "P-1196",
+      "distance_km": 1.508,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.165,
+      "cost_similarity": 0.173,
+      "date_proximity": 0.515,
+      "relationship_strength": 33.7,
+      "evidence": [
+        "same district",
+        "~1.51 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.51 km) \u2014 same district, ~1.51 km apart."
+    },
+    {
+      "source": "P-1002",
+      "target": "P-1088",
+      "distance_km": 1.83,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.234,
+      "date_proximity": 0.888,
+      "relationship_strength": 33.5,
+      "evidence": [
+        "same district",
+        "~1.83 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.83 km) \u2014 same district, ~1.83 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1038",
+      "target": "P-1071",
+      "distance_km": 1.994,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.148,
+      "date_proximity": 0.975,
+      "relationship_strength": 33.2,
+      "evidence": [
+        "same district",
+        "~1.99 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.99 km) \u2014 same district, ~1.99 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1008",
+      "target": "P-1076",
+      "distance_km": 1.695,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.179,
+      "date_proximity": 0.879,
+      "relationship_strength": 33.0,
+      "evidence": [
+        "same district",
+        "~1.7 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.70 km) \u2014 same district, ~1.7 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1030",
+      "target": "P-1076",
+      "distance_km": 1.747,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.172,
+      "date_proximity": 0.885,
+      "relationship_strength": 32.9,
+      "evidence": [
+        "same district",
+        "~1.75 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.75 km) \u2014 same district, ~1.75 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1092",
+      "target": "P-1133",
+      "distance_km": 0.966,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.082,
+      "date_proximity": 0.849,
+      "relationship_strength": 32.9,
+      "evidence": [
+        "same district",
+        "~0.97 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (0.97 km) \u2014 same district, ~0.97 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1056",
+      "target": "P-1176",
+      "distance_km": 1.855,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.183,
+      "date_proximity": 0.819,
+      "relationship_strength": 32.2,
+      "evidence": [
+        "same district",
+        "~1.85 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.85 km) \u2014 same district, ~1.85 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1002",
+      "target": "P-1162",
+      "distance_km": 1.009,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.186,
+      "date_proximity": 0.663,
+      "relationship_strength": 32.0,
+      "evidence": [
+        "same district",
+        "~1.01 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.01 km) \u2014 same district, ~1.01 km apart."
+    },
+    {
+      "source": "P-1050",
+      "target": "P-1092",
+      "distance_km": 1.937,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.109,
+      "date_proximity": 0.885,
+      "relationship_strength": 32.0,
+      "evidence": [
+        "same district",
+        "~1.94 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.94 km) \u2014 same district, ~1.94 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1011",
+      "target": "P-1045",
+      "distance_km": 1.512,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.134,
+      "date_proximity": 0.718,
+      "relationship_strength": 31.3,
+      "evidence": [
+        "same district",
+        "~1.51 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.51 km) \u2014 same district, ~1.51 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1060",
+      "target": "P-1188",
+      "distance_km": 1.691,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.106,
+      "date_proximity": 0.781,
+      "relationship_strength": 31.3,
+      "evidence": [
+        "same district",
+        "~1.69 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.69 km) \u2014 same district, ~1.69 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1063",
+      "target": "P-1178",
+      "distance_km": 1.56,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.256,
+      "date_proximity": 0.605,
+      "relationship_strength": 31.3,
+      "evidence": [
+        "same district",
+        "~1.56 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.56 km) \u2014 same district, ~1.56 km apart."
+    },
+    {
+      "source": "P-1014",
+      "target": "P-1069",
+      "distance_km": 1.816,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.163,
+      "date_proximity": 0.729,
+      "relationship_strength": 31.2,
+      "evidence": [
+        "same district",
+        "~1.82 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.82 km) \u2014 same district, ~1.82 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1005",
+      "target": "P-1111",
+      "distance_km": 1.425,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.464,
+      "date_proximity": 0.362,
+      "relationship_strength": 31.1,
+      "evidence": [
+        "same district",
+        "~1.43 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.43 km) \u2014 same district, ~1.43 km apart."
+    },
+    {
+      "source": "P-1045",
+      "target": "P-1144",
+      "distance_km": 1.814,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.179,
+      "date_proximity": 0.704,
+      "relationship_strength": 31.1,
+      "evidence": [
+        "same district",
+        "~1.81 km apart",
+        "sanctioned close together in time"
+      ],
+      "explanation": "Nearby project relationship detected (1.81 km) \u2014 same district, ~1.81 km apart, sanctioned close together in time."
+    },
+    {
+      "source": "P-1140",
+      "target": "P-1175",
+      "distance_km": 1.861,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.164,
+      "date_proximity": 0.69,
+      "relationship_strength": 30.8,
+      "evidence": [
+        "same district",
+        "~1.86 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.86 km) \u2014 same district, ~1.86 km apart."
+    },
+    {
+      "source": "P-1125",
+      "target": "P-1191",
+      "distance_km": 1.994,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.327,
+      "date_proximity": 0.537,
+      "relationship_strength": 30.7,
+      "evidence": [
+        "same district",
+        "~1.99 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.99 km) \u2014 same district, ~1.99 km apart."
+    },
+    {
+      "source": "P-1062",
+      "target": "P-1185",
+      "distance_km": 1.839,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.294,
+      "date_proximity": 0.496,
+      "relationship_strength": 30.1,
+      "evidence": [
+        "same district",
+        "~1.84 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.84 km) \u2014 same district, ~1.84 km apart."
+    },
+    {
+      "source": "P-1036",
+      "target": "P-1095",
+      "distance_km": 0.996,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.167,
+      "date_proximity": 0.474,
+      "relationship_strength": 29.9,
+      "evidence": [
+        "same district",
+        "~1.0 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (1.00 km) \u2014 same district, ~1.0 km apart."
+    },
+    {
+      "source": "P-1064",
+      "target": "P-1196",
+      "distance_km": 0.585,
+      "same_work_type": false,
+      "same_contractor": false,
+      "description_similarity": 0.0,
+      "cost_similarity": 0.066,
+      "date_proximity": 0.488,
+      "relationship_strength": 29.7,
+      "evidence": [
+        "same district",
+        "~0.59 km apart"
+      ],
+      "explanation": "Nearby project relationship detected (0.59 km) \u2014 same district, ~0.59 km apart."
+    }
+  ],
+  "duplicate_like_matches": [
+    {
+      "project_a": "P-1012",
+      "project_b": "P-1034",
+      "distance_km": 1.25,
+      "description_similarity": 1.0,
+      "cost_similarity": 0.988,
+      "shared_attributes": [
+        "work type",
+        "location proximity",
+        "description similarity",
+        "comparable cost",
+        "same contractor"
+      ],
+      "relationship_strength": 95.2,
+      "explanation": "Potential duplicate-like pattern between P-1012 and P-1034: 1.25 km apart, 100% description similarity, same work type, comparable sanctioned amount (99% cost similarity). Requires review, not a confirmed duplicate."
+    },
+    {
+      "project_a": "P-1069",
+      "project_b": "P-1194",
+      "distance_km": 1.046,
+      "description_similarity": 1.0,
+      "cost_similarity": 0.927,
+      "shared_attributes": [
+        "work type",
+        "location proximity",
+        "description similarity",
+        "comparable cost"
+      ],
+      "relationship_strength": 75.1,
+      "explanation": "Potential duplicate-like pattern between P-1069 and P-1194: 1.046 km apart, 100% description similarity, same work type, comparable sanctioned amount (93% cost similarity). Requires review, not a confirmed duplicate."
+    },
+    {
+      "project_a": "P-1004",
+      "project_b": "P-1188",
+      "distance_km": 1.585,
+      "description_similarity": 0.867,
+      "cost_similarity": 0.98,
+      "shared_attributes": [
+        "work type",
+        "location proximity",
+        "description similarity",
+        "comparable cost"
+      ],
+      "relationship_strength": 71.3,
+      "explanation": "Potential duplicate-like pattern between P-1004 and P-1188: 1.585 km apart, 87% description similarity, same work type, comparable sanctioned amount (98% cost similarity). Requires review, not a confirmed duplicate."
+    },
+    {
+      "project_a": "P-1030",
+      "project_b": "P-1082",
+      "distance_km": 1.05,
+      "description_similarity": 0.781,
+      "cost_similarity": 0.914,
+      "shared_attributes": [
+        "work type",
+        "location proximity",
+        "description similarity",
+        "comparable cost"
+      ],
+      "relationship_strength": 69.3,
+      "explanation": "Potential duplicate-like pattern between P-1030 and P-1082: 1.05 km apart, 78% description similarity, same work type, comparable sanctioned amount (91% cost similarity). Requires review, not a confirmed duplicate."
+    },
+    {
+      "project_a": "P-1008",
+      "project_b": "P-1030",
+      "distance_km": 1.946,
+      "description_similarity": 0.781,
+      "cost_similarity": 0.958,
+      "shared_attributes": [
+        "work type",
+        "location proximity",
+        "description similarity",
+        "comparable cost"
+      ],
+      "relationship_strength": 68.8,
+      "explanation": "Potential duplicate-like pattern between P-1008 and P-1030: 1.946 km apart, 78% description similarity, same work type, comparable sanctioned amount (96% cost similarity). Requires review, not a confirmed duplicate."
+    },
+    {
+      "project_a": "P-1051",
+      "project_b": "P-1087",
+      "distance_km": 1.973,
+      "description_similarity": 0.794,
+      "cost_similarity": 0.755,
+      "shared_attributes": [
+        "work type",
+        "location proximity",
+        "description similarity",
+        "comparable cost"
+      ],
+      "relationship_strength": 68.6,
+      "explanation": "Potential duplicate-like pattern between P-1051 and P-1087: 1.973 km apart, 79% description similarity, same work type, comparable sanctioned amount (76% cost similarity). Requires review, not a confirmed duplicate."
+    },
+    {
+      "project_a": "P-1090",
+      "project_b": "P-1092",
+      "distance_km": 1.088,
+      "description_similarity": 0.823,
+      "cost_similarity": 0.885,
+      "shared_attributes": [
+        "work type",
+        "location proximity",
+        "description similarity",
+        "comparable cost"
+      ],
+      "relationship_strength": 68.0,
+      "explanation": "Potential duplicate-like pattern between P-1090 and P-1092: 1.088 km apart, 82% description similarity, same work type, comparable sanctioned amount (88% cost similarity). Requires review, not a confirmed duplicate."
+    },
+    {
+      "project_a": "P-1008",
+      "project_b": "P-1019",
+      "distance_km": 0.484,
+      "description_similarity": 0.76,
+      "cost_similarity": 0.812,
+      "shared_attributes": [
+        "work type",
+        "location proximity",
+        "description similarity",
+        "comparable cost"
+      ],
+      "relationship_strength": 67.7,
+      "explanation": "Potential duplicate-like pattern between P-1008 and P-1019: 0.484 km apart, 76% description similarity, same work type, comparable sanctioned amount (81% cost similarity). Requires review, not a confirmed duplicate."
+    },
+    {
+      "project_a": "P-1177",
+      "project_b": "P-1191",
+      "distance_km": 1.709,
+      "description_similarity": 0.737,
+      "cost_similarity": 0.827,
+      "shared_attributes": [
+        "work type",
+        "location proximity",
+        "description similarity",
+        "comparable cost"
+      ],
+      "relationship_strength": 66.4,
+      "explanation": "Potential duplicate-like pattern between P-1177 and P-1191: 1.709 km apart, 74% description similarity, same work type, comparable sanctioned amount (83% cost similarity). Requires review, not a confirmed duplicate."
+    }
+  ],
+  "clusters": [
+    {
+      "cluster_id": "GEO-CLUSTER-004",
+      "project_count": 18,
+      "project_ids": [
+        "P-1005",
+        "P-1012",
+        "P-1014",
+        "P-1016",
+        "P-1018",
+        "P-1023",
+        "P-1032",
+        "P-1034",
+        "P-1059",
+        "P-1069",
+        "P-1085",
+        "P-1091",
+        "P-1111",
+        "P-1140",
+        "P-1151",
+        "P-1154",
+        "P-1175",
+        "P-1194"
+      ],
+      "approximate_center": {
+        "latitude": 12.98245,
+        "longitude": 77.58947
+      },
+      "radius_km": 4.26,
+      "common_work_types": [
+        "Bitumen Road",
+        "Community Hall",
+        "Concrete Road",
+        "Drainage System",
+        "Street Lighting"
+      ],
+      "shared_contractors": [
+        "C-033",
+        "C-054",
+        "C-075"
+      ]
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-024",
+      "project_count": 7,
+      "project_ids": [
+        "P-1054",
+        "P-1064",
+        "P-1067",
+        "P-1081",
+        "P-1114",
+        "P-1143",
+        "P-1196"
+      ],
+      "approximate_center": {
+        "latitude": 24.79549,
+        "longitude": 85.02496
+      },
+      "radius_km": 3.3,
+      "common_work_types": [
+        "Bitumen Road",
+        "Hand Pump Installation"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-022",
+      "project_count": 6,
+      "project_ids": [
+        "P-1050",
+        "P-1065",
+        "P-1090",
+        "P-1092",
+        "P-1133",
+        "P-1156"
+      ],
+      "approximate_center": {
+        "latitude": 27.02864,
+        "longitude": 88.28245
+      },
+      "radius_km": 2.43,
+      "common_work_types": [
+        "Bitumen Road",
+        "Hand Pump Installation"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-002",
+      "project_count": 5,
+      "project_ids": [
+        "P-1002",
+        "P-1088",
+        "P-1109",
+        "P-1162",
+        "P-1184"
+      ],
+      "approximate_center": {
+        "latitude": 21.13127,
+        "longitude": 79.08984
+      },
+      "radius_km": 1.81,
+      "common_work_types": [
+        "Classroom Block"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-003",
+      "project_count": 5,
+      "project_ids": [
+        "P-1004",
+        "P-1060",
+        "P-1123",
+        "P-1165",
+        "P-1188"
+      ],
+      "approximate_center": {
+        "latitude": 12.28107,
+        "longitude": 76.62221
+      },
+      "radius_km": 1.8,
+      "common_work_types": [
+        "Concrete Road"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-007",
+      "project_count": 5,
+      "project_ids": [
+        "P-1008",
+        "P-1019",
+        "P-1030",
+        "P-1076",
+        "P-1082"
+      ],
+      "approximate_center": {
+        "latitude": 27.03227,
+        "longitude": 88.23538
+      },
+      "radius_km": 1.56,
+      "common_work_types": [
+        "Health Sub-Centre Upgrade"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-009",
+      "project_count": 5,
+      "project_ids": [
+        "P-1011",
+        "P-1045",
+        "P-1058",
+        "P-1144",
+        "P-1168"
+      ],
+      "approximate_center": {
+        "latitude": 25.32388,
+        "longitude": 82.94689
+      },
+      "radius_km": 1.98,
+      "common_work_types": [
+        "Overhead Water Tank"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-029",
+      "project_count": 5,
+      "project_ids": [
+        "P-1062",
+        "P-1066",
+        "P-1103",
+        "P-1160",
+        "P-1185"
+      ],
+      "approximate_center": {
+        "latitude": 19.9879,
+        "longitude": 73.78116
+      },
+      "radius_km": 1.7,
+      "common_work_types": [
+        "Street Lighting"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-006",
+      "project_count": 4,
+      "project_ids": [
+        "P-1007",
+        "P-1093",
+        "P-1122",
+        "P-1193"
+      ],
+      "approximate_center": {
+        "latitude": 12.9555,
+        "longitude": 77.61811
+      },
+      "radius_km": 1.9,
+      "common_work_types": [
+        "Concrete Road"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-015",
+      "project_count": 4,
+      "project_ids": [
+        "P-1031",
+        "P-1072",
+        "P-1110",
+        "P-1164"
+      ],
+      "approximate_center": {
+        "latitude": 8.53619,
+        "longitude": 76.96532
+      },
+      "radius_km": 1.56,
+      "common_work_types": [
+        "Bitumen Road"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-021",
+      "project_count": 4,
+      "project_ids": [
+        "P-1048",
+        "P-1125",
+        "P-1177",
+        "P-1191"
+      ],
+      "approximate_center": {
+        "latitude": 22.60375,
+        "longitude": 88.32951
+      },
+      "radius_km": 2.28,
+      "common_work_types": [
+        "Street Lighting"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-025",
+      "project_count": 4,
+      "project_ids": [
+        "P-1055",
+        "P-1080",
+        "P-1102",
+        "P-1161"
+      ],
+      "approximate_center": {
+        "latitude": 11.2735,
+        "longitude": 75.78947
+      },
+      "radius_km": 2.03,
+      "common_work_types": [
+        "Community Hall"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-010",
+      "project_count": 3,
+      "project_ids": [
+        "P-1021",
+        "P-1117",
+        "P-1171"
+      ],
+      "approximate_center": {
+        "latitude": 26.8399,
+        "longitude": 80.95236
+      },
+      "radius_km": 1.19,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-011",
+      "project_count": 3,
+      "project_ids": [
+        "P-1022",
+        "P-1052",
+        "P-1138"
+      ],
+      "approximate_center": {
+        "latitude": 9.95486,
+        "longitude": 78.12601
+      },
+      "radius_km": 1.18,
+      "common_work_types": [
+        "Community Hall"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-012",
+      "project_count": 3,
+      "project_ids": [
+        "P-1024",
+        "P-1086",
+        "P-1152"
+      ],
+      "approximate_center": {
+        "latitude": 8.51563,
+        "longitude": 76.90742
+      },
+      "radius_km": 0.99,
+      "common_work_types": [
+        "Bitumen Road"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-013",
+      "project_count": 3,
+      "project_ids": [
+        "P-1026",
+        "P-1035",
+        "P-1159"
+      ],
+      "approximate_center": {
+        "latitude": 25.58591,
+        "longitude": 85.15544
+      },
+      "radius_km": 1.7,
+      "common_work_types": [
+        "Bitumen Road"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-016",
+      "project_count": 3,
+      "project_ids": [
+        "P-1036",
+        "P-1095",
+        "P-1153"
+      ],
+      "approximate_center": {
+        "latitude": 20.27814,
+        "longitude": 85.84343
+      },
+      "radius_km": 1.13,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-018",
+      "project_count": 3,
+      "project_ids": [
+        "P-1038",
+        "P-1071",
+        "P-1190"
+      ],
+      "approximate_center": {
+        "latitude": 8.49305,
+        "longitude": 76.93057
+      },
+      "radius_km": 1.39,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-026",
+      "project_count": 3,
+      "project_ids": [
+        "P-1056",
+        "P-1124",
+        "P-1176"
+      ],
+      "approximate_center": {
+        "latitude": 26.26429,
+        "longitude": 73.05252
+      },
+      "radius_km": 1.25,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-027",
+      "project_count": 3,
+      "project_ids": [
+        "P-1057",
+        "P-1074",
+        "P-1116"
+      ],
+      "approximate_center": {
+        "latitude": 9.93822,
+        "longitude": 78.09605
+      },
+      "radius_km": 0.45,
+      "common_work_types": [
+        "Drainage System"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-001",
+      "project_count": 2,
+      "project_ids": [
+        "P-1001",
+        "P-1195"
+      ],
+      "approximate_center": {
+        "latitude": 26.82297,
+        "longitude": 80.98084
+      },
+      "radius_km": 0.91,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-005",
+      "project_count": 2,
+      "project_ids": [
+        "P-1006",
+        "P-1120"
+      ],
+      "approximate_center": {
+        "latitude": 15.86356,
+        "longitude": 74.49006
+      },
+      "radius_km": 0.63,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-008",
+      "project_count": 2,
+      "project_ids": [
+        "P-1010",
+        "P-1073"
+      ],
+      "approximate_center": {
+        "latitude": 27.06536,
+        "longitude": 88.23314
+      },
+      "radius_km": 0.69,
+      "common_work_types": [
+        "Hand Pump Installation"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-014",
+      "project_count": 2,
+      "project_ids": [
+        "P-1029",
+        "P-1141"
+      ],
+      "approximate_center": {
+        "latitude": 23.22944,
+        "longitude": 77.40045
+      },
+      "radius_km": 0.61,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-017",
+      "project_count": 2,
+      "project_ids": [
+        "P-1037",
+        "P-1043"
+      ],
+      "approximate_center": {
+        "latitude": 25.61191,
+        "longitude": 85.17788
+      },
+      "radius_km": 0.44,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-019",
+      "project_count": 2,
+      "project_ids": [
+        "P-1041",
+        "P-1121"
+      ],
+      "approximate_center": {
+        "latitude": 26.44927,
+        "longitude": 80.34267
+      },
+      "radius_km": 0.58,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-020",
+      "project_count": 2,
+      "project_ids": [
+        "P-1042",
+        "P-1044"
+      ],
+      "approximate_center": {
+        "latitude": 24.60769,
+        "longitude": 73.68264
+      },
+      "radius_km": 0.31,
+      "common_work_types": [
+        "Concrete Road"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-023",
+      "project_count": 2,
+      "project_ids": [
+        "P-1051",
+        "P-1087"
+      ],
+      "approximate_center": {
+        "latitude": 19.99432,
+        "longitude": 73.80606
+      },
+      "radius_km": 0.99,
+      "common_work_types": [
+        "Street Lighting"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-028",
+      "project_count": 2,
+      "project_ids": [
+        "P-1061",
+        "P-1167"
+      ],
+      "approximate_center": {
+        "latitude": 22.55831,
+        "longitude": 88.29568
+      },
+      "radius_km": 0.87,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-030",
+      "project_count": 2,
+      "project_ids": [
+        "P-1063",
+        "P-1178"
+      ],
+      "approximate_center": {
+        "latitude": 12.32656,
+        "longitude": 76.66563
+      },
+      "radius_km": 0.78,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-031",
+      "project_count": 2,
+      "project_ids": [
+        "P-1068",
+        "P-1100"
+      ],
+      "approximate_center": {
+        "latitude": 24.77199,
+        "longitude": 84.98864
+      },
+      "radius_km": 0.47,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-032",
+      "project_count": 2,
+      "project_ids": [
+        "P-1075",
+        "P-1174"
+      ],
+      "approximate_center": {
+        "latitude": 25.58711,
+        "longitude": 85.10113
+      },
+      "radius_km": 0.11,
+      "common_work_types": [
+        "Bitumen Road"
+      ],
+      "shared_contractors": [
+        "C-058"
+      ]
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-033",
+      "project_count": 2,
+      "project_ids": [
+        "P-1084",
+        "P-1158"
+      ],
+      "approximate_center": {
+        "latitude": 18.51326,
+        "longitude": 73.84653
+      },
+      "radius_km": 0.83,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-034",
+      "project_count": 2,
+      "project_ids": [
+        "P-1089",
+        "P-1189"
+      ],
+      "approximate_center": {
+        "latitude": 27.07141,
+        "longitude": 88.28414
+      },
+      "radius_km": 0.53,
+      "common_work_types": [
+        "Health Sub-Centre Upgrade"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-035",
+      "project_count": 2,
+      "project_ids": [
+        "P-1098",
+        "P-1108"
+      ],
+      "approximate_center": {
+        "latitude": 8.55341,
+        "longitude": 76.9278
+      },
+      "radius_km": 0.83,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-036",
+      "project_count": 2,
+      "project_ids": [
+        "P-1107",
+        "P-1197"
+      ],
+      "approximate_center": {
+        "latitude": 22.60323,
+        "longitude": 88.36002
+      },
+      "radius_km": 0.87,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-037",
+      "project_count": 2,
+      "project_ids": [
+        "P-1130",
+        "P-1181"
+      ],
+      "approximate_center": {
+        "latitude": 26.30707,
+        "longitude": 73.03233
+      },
+      "radius_km": 0.07,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-038",
+      "project_count": 2,
+      "project_ids": [
+        "P-1136",
+        "P-1192"
+      ],
+      "approximate_center": {
+        "latitude": 26.47107,
+        "longitude": 80.35825
+      },
+      "radius_km": 0.88,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-039",
+      "project_count": 2,
+      "project_ids": [
+        "P-1139",
+        "P-1150"
+      ],
+      "approximate_center": {
+        "latitude": 19.84338,
+        "longitude": 85.82543
+      },
+      "radius_km": 0.22,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-040",
+      "project_count": 2,
+      "project_ids": [
+        "P-1147",
+        "P-1200"
+      ],
+      "approximate_center": {
+        "latitude": 18.51337,
+        "longitude": 73.89108
+      },
+      "radius_km": 0.93,
+      "common_work_types": [],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-041",
+      "project_count": 2,
+      "project_ids": [
+        "P-1155",
+        "P-1180"
+      ],
+      "approximate_center": {
+        "latitude": 22.57501,
+        "longitude": 88.38444
+      },
+      "radius_km": 0.9,
+      "common_work_types": [
+        "Classroom Block"
+      ],
+      "shared_contractors": []
+    },
+    {
+      "cluster_id": "GEO-CLUSTER-042",
+      "project_count": 2,
+      "project_ids": [
+        "P-1166",
+        "P-1179"
+      ],
+      "approximate_center": {
+        "latitude": 25.56887,
+        "longitude": 85.10854
+      },
+      "radius_km": 0.81,
+      "common_work_types": [],
+      "shared_contractors": []
+    }
+  ]
+}
