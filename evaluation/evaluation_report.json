@@ -1,0 +1,690 @@
+{
+  "dataset_summary": {
+    "projects": 150,
+    "anomalous": 49,
+    "normal": 101,
+    "prevalence": 0.326667,
+    "scenario_counts": {
+      "NORMAL": 60,
+      "ADVERSARIAL_NORMAL": 41,
+      "COST_ANOMALY": 8,
+      "BILLING_ANOMALY": 8,
+      "CONTRACTOR_PATTERN": 9,
+      "SIMILAR_PROJECT": 8,
+      "GEOGRAPHIC_PATTERN": 8,
+      "MULTI_SIGNAL": 8
+    },
+    "predicted_risk_levels": {
+      "LOW": 129,
+      "MEDIUM": 21
+    },
+    "risk_score": {
+      "min": 11.8,
+      "mean": 21.849333,
+      "median": 17.65,
+      "max": 55.5
+    },
+    "label_vocabulary": {
+      "positive": "ANOMALOUS",
+      "negative": "NORMAL",
+      "binary_normal_scenarios": [
+        "NORMAL",
+        "ADVERSARIAL_NORMAL"
+      ]
+    },
+    "provenance": {
+      "labels_sha256": "c6642c357120925661df40d24a6456063c360fe1ab2b6f002e4250de61a149fc",
+      "labels_match_frozen_hash": true,
+      "predictions_sha256": "bee17325fa5a409167f39352ab4e34f2b38c510783b5fa51480ee5c97d758615",
+      "predictions_made_from_frozen_engine_input": true,
+      "predictions_projects_scored": 150,
+      "frozen_hash_check_at_prediction_time": "passed"
+    }
+  },
+  "ranking": {
+    "order": "risk_score descending, project_id ascending for ties",
+    "random_baseline_precision": 0.326667,
+    "precision_at_5": {
+      "k": 5,
+      "anomalous_in_top_k": 5,
+      "precision": 1.0,
+      "recall_at_k": 0.102041
+    },
+    "precision_at_10": {
+      "k": 10,
+      "anomalous_in_top_k": 9,
+      "precision": 0.9,
+      "recall_at_k": 0.183673
+    },
+    "precision_at_20": {
+      "k": 20,
+      "anomalous_in_top_k": 17,
+      "precision": 0.85,
+      "recall_at_k": 0.346939
+    },
+    "precision_at_n_positives": {
+      "k": 49,
+      "anomalous_in_top_k": 39,
+      "precision": 0.795918,
+      "recall_at_k": 0.795918
+    }
+  },
+  "pr_auc": {
+    "average_precision": 0.845326,
+    "trapezoid_auc": 0.843097,
+    "random_baseline": 0.326667,
+    "note": "average_precision (step-wise, no linear interpolation) is the headline PR-AUC; trapezoid_auc is shown for transparency. Tied scores are treated as one threshold."
+  },
+  "thresholded_classification": {
+    "primary": {
+      "label": "Thresholded classification at risk_score >= 40",
+      "threshold": 40.0,
+      "rule": "risk_score >= 40 -> predicted anomaly",
+      "tp": 9,
+      "fp": 1,
+      "tn": 100,
+      "fn": 40,
+      "precision": 0.9,
+      "recall": 0.183673,
+      "f1": 0.305085,
+      "false_positive_rate": 0.009901,
+      "predicted_positive": 10,
+      "note": "null = undefined (zero denominator)"
+    },
+    "v1_queue_reference": {
+      "label": "Reference: V1 investigation-queue cutoff (non-LOW) at risk_score >= 30",
+      "threshold": 30.0,
+      "rule": "risk_score >= 30 -> predicted anomaly",
+      "tp": 18,
+      "fp": 3,
+      "tn": 98,
+      "fn": 31,
+      "precision": 0.857143,
+      "recall": 0.367347,
+      "f1": 0.514286,
+      "false_positive_rate": 0.029703,
+      "predicted_positive": 21,
+      "note": "null = undefined (zero denominator)"
+    },
+    "threshold_note": "The primary threshold (40) is the one specified for V2.2. V1 code defines levels at 30/60/80 and builds its queue from every non-LOW project (>= 30); 40 does not appear in V1. Both are fixed in advance; neither was chosen from these results."
+  },
+  "recall_definitions": {
+    "thresholded_recall": "TP / all actual anomalous at the stated threshold (see thresholded_classification)",
+    "recall_at_k": "anomalous in top K / all actual anomalous (see ranking.precision_at_*.recall_at_k)"
+  },
+  "bootstrap": {
+    "method": "percentile bootstrap, row-level resampling",
+    "resamples": 2000,
+    "seed": 20261019,
+    "average_precision_95ci": [
+      0.741318,
+      0.933809
+    ],
+    "recall_at_40_95ci": [
+      0.076923,
+      0.297872
+    ],
+    "precision_at_40_95ci": [
+      0.666667,
+      1.0
+    ],
+    "caveat": "n=150 with linked groups; treat intervals as optimistic (too narrow)."
+  },
+  "scenario_level": {
+    "NORMAL": {
+      "n": 60,
+      "n_anomalous": 0,
+      "n_normal": 60,
+      "mean": 16.341667,
+      "median": 16.8,
+      "max": 21.3,
+      "n_at_or_above_primary": 0,
+      "rate_at_or_above_primary": 0.0,
+      "n_at_or_above_v1_queue": 0,
+      "rate_at_or_above_v1_queue": 0.0,
+      "rate_meaning": "false_positive_rate",
+      "mean_component_scores": {
+        "cost_anomaly_score": 0.15,
+        "project_similarity_score": 16.191667,
+        "contractor_pattern_score": 0.0,
+        "billing_anomaly_score": 0.0,
+        "geographic_signal_score": 0.0
+      }
+    },
+    "ADVERSARIAL_NORMAL": {
+      "n": 41,
+      "n_anomalous": 0,
+      "n_normal": 41,
+      "mean": 19.521951,
+      "median": 17.1,
+      "max": 45.3,
+      "n_at_or_above_primary": 1,
+      "rate_at_or_above_primary": 0.02439,
+      "n_at_or_above_v1_queue": 3,
+      "rate_at_or_above_v1_queue": 0.073171,
+      "rate_meaning": "false_positive_rate",
+      "mean_component_scores": {
+        "cost_anomaly_score": 3.026829,
+        "project_similarity_score": 15.053659,
+        "contractor_pattern_score": 0.0,
+        "billing_anomaly_score": 1.197561,
+        "geographic_signal_score": 0.243902
+      }
+    },
+    "COST_ANOMALY": {
+      "n": 8,
+      "n_anomalous": 8,
+      "n_normal": 0,
+      "mean": 37.9375,
+      "median": 38.55,
+      "max": 45.5,
+      "n_at_or_above_primary": 1,
+      "rate_at_or_above_primary": 0.125,
+      "n_at_or_above_v1_queue": 7,
+      "rate_at_or_above_v1_queue": 0.875,
+      "rate_meaning": "detection_rate",
+      "by_difficulty": {
+        "OBVIOUS": {
+          "n": 4,
+          "n_anomalous": 4,
+          "n_normal": 0,
+          "mean": 40.075,
+          "median": 38.8,
+          "max": 45.5,
+          "n_at_or_above_primary": 1,
+          "rate_at_or_above_primary": 0.25,
+          "n_at_or_above_v1_queue": 4,
+          "rate_at_or_above_v1_queue": 1.0
+        },
+        "BORDERLINE": {
+          "n": 4,
+          "n_anomalous": 4,
+          "n_normal": 0,
+          "mean": 35.8,
+          "median": 38.0,
+          "max": 38.9,
+          "n_at_or_above_primary": 0,
+          "rate_at_or_above_primary": 0.0,
+          "n_at_or_above_v1_queue": 3,
+          "rate_at_or_above_v1_queue": 0.75
+        }
+      },
+      "mean_component_scores": {
+        "cost_anomaly_score": 22.6125,
+        "project_similarity_score": 15.325,
+        "contractor_pattern_score": 0.0,
+        "billing_anomaly_score": 0.0,
+        "geographic_signal_score": 0.0
+      }
+    },
+    "BILLING_ANOMALY": {
+      "n": 8,
+      "n_anomalous": 8,
+      "n_normal": 0,
+      "mean": 26.3125,
+      "median": 27.0,
+      "max": 28.1,
+      "n_at_or_above_primary": 0,
+      "rate_at_or_above_primary": 0.0,
+      "n_at_or_above_v1_queue": 0,
+      "rate_at_or_above_v1_queue": 0.0,
+      "rate_meaning": "detection_rate",
+      "by_difficulty": {
+        "OBVIOUS": {
+          "n": 4,
+          "n_anomalous": 4,
+          "n_normal": 0,
+          "mean": 25.175,
+          "median": 25.5,
+          "max": 27.1,
+          "n_at_or_above_primary": 0,
+          "rate_at_or_above_primary": 0.0,
+          "n_at_or_above_v1_queue": 0,
+          "rate_at_or_above_v1_queue": 0.0
+        },
+        "BORDERLINE": {
+          "n": 4,
+          "n_anomalous": 4,
+          "n_normal": 0,
+          "mean": 27.45,
+          "median": 27.4,
+          "max": 28.1,
+          "n_at_or_above_primary": 0,
+          "rate_at_or_above_primary": 0.0,
+          "n_at_or_above_v1_queue": 0,
+          "rate_at_or_above_v1_queue": 0.0
+        }
+      },
+      "mean_component_scores": {
+        "cost_anomaly_score": 0.0,
+        "project_similarity_score": 16.3125,
+        "contractor_pattern_score": 0.0,
+        "billing_anomaly_score": 10.0,
+        "geographic_signal_score": 0.0
+      }
+    },
+    "CONTRACTOR_PATTERN": {
+      "n": 9,
+      "n_anomalous": 9,
+      "n_normal": 0,
+      "mean": 26.311111,
+      "median": 24.8,
+      "max": 34.5,
+      "n_at_or_above_primary": 0,
+      "rate_at_or_above_primary": 0.0,
+      "n_at_or_above_v1_queue": 3,
+      "rate_at_or_above_v1_queue": 0.333333,
+      "rate_meaning": "detection_rate",
+      "by_difficulty": {
+        "OBVIOUS": {
+          "n": 5,
+          "n_anomalous": 5,
+          "n_normal": 0,
+          "mean": 28.58,
+          "median": 31.5,
+          "max": 34.5,
+          "n_at_or_above_primary": 0,
+          "rate_at_or_above_primary": 0.0,
+          "n_at_or_above_v1_queue": 3,
+          "rate_at_or_above_v1_queue": 0.6
+        },
+        "BORDERLINE": {
+          "n": 4,
+          "n_anomalous": 4,
+          "n_normal": 0,
+          "mean": 23.475,
+          "median": 23.4,
+          "max": 25.1,
+          "n_at_or_above_primary": 0,
+          "rate_at_or_above_primary": 0.0,
+          "n_at_or_above_v1_queue": 0,
+          "rate_at_or_above_v1_queue": 0.0
+        }
+      },
+      "mean_component_scores": {
+        "cost_anomaly_score": 5.155556,
+        "project_similarity_score": 16.044444,
+        "contractor_pattern_score": 5.111111,
+        "billing_anomaly_score": 0.0,
+        "geographic_signal_score": 0.0
+      }
+    },
+    "SIMILAR_PROJECT": {
+      "n": 8,
+      "n_anomalous": 8,
+      "n_normal": 0,
+      "mean": 21.8625,
+      "median": 22.25,
+      "max": 23.5,
+      "n_at_or_above_primary": 0,
+      "rate_at_or_above_primary": 0.0,
+      "n_at_or_above_v1_queue": 0,
+      "rate_at_or_above_v1_queue": 0.0,
+      "rate_meaning": "detection_rate",
+      "by_difficulty": {
+        "OBVIOUS": {
+          "n": 4,
+          "n_anomalous": 4,
+          "n_normal": 0,
+          "mean": 22.25,
+          "median": 22.25,
+          "max": 22.5,
+          "n_at_or_above_primary": 0,
+          "rate_at_or_above_primary": 0.0,
+          "n_at_or_above_v1_queue": 0,
+          "rate_at_or_above_v1_queue": 0.0
+        },
+        "BORDERLINE": {
+          "n": 4,
+          "n_anomalous": 4,
+          "n_normal": 0,
+          "mean": 21.475,
+          "median": 21.55,
+          "max": 23.5,
+          "n_at_or_above_primary": 0,
+          "rate_at_or_above_primary": 0.0,
+          "n_at_or_above_v1_queue": 0,
+          "rate_at_or_above_v1_queue": 0.0
+        }
+      },
+      "mean_component_scores": {
+        "cost_anomaly_score": 0.2125,
+        "project_similarity_score": 21.65,
+        "contractor_pattern_score": 0.0,
+        "billing_anomaly_score": 0.0,
+        "geographic_signal_score": 0.0
+      }
+    },
+    "GEOGRAPHIC_PATTERN": {
+      "n": 8,
+      "n_anomalous": 8,
+      "n_normal": 0,
+      "mean": 22.95,
+      "median": 27.25,
+      "max": 28.6,
+      "n_at_or_above_primary": 0,
+      "rate_at_or_above_primary": 0.0,
+      "n_at_or_above_v1_queue": 0,
+      "rate_at_or_above_v1_queue": 0.0,
+      "rate_meaning": "detection_rate",
+      "by_difficulty": {
+        "OBVIOUS": {
+          "n": 5,
+          "n_anomalous": 5,
+          "n_normal": 0,
+          "mean": 27.82,
+          "median": 27.4,
+          "max": 28.6,
+          "n_at_or_above_primary": 0,
+          "rate_at_or_above_primary": 0.0,
+          "n_at_or_above_v1_queue": 0,
+          "rate_at_or_above_v1_queue": 0.0
+        },
+        "BORDERLINE": {
+          "n": 3,
+          "n_anomalous": 3,
+          "n_normal": 0,
+          "mean": 14.833333,
+          "median": 15.1,
+          "max": 15.1,
+          "n_at_or_above_primary": 0,
+          "rate_at_or_above_primary": 0.0,
+          "n_at_or_above_v1_queue": 0,
+          "rate_at_or_above_v1_queue": 0.0
+        }
+      },
+      "mean_component_scores": {
+        "cost_anomaly_score": 0.0,
+        "project_similarity_score": 16.7,
+        "contractor_pattern_score": 0.0,
+        "billing_anomaly_score": 0.0,
+        "geographic_signal_score": 6.25
+      }
+    },
+    "MULTI_SIGNAL": {
+      "n": 8,
+      "n_anomalous": 8,
+      "n_normal": 0,
+      "mean": 48.4,
+      "median": 48.35,
+      "max": 55.5,
+      "n_at_or_above_primary": 8,
+      "rate_at_or_above_primary": 1.0,
+      "n_at_or_above_v1_queue": 8,
+      "rate_at_or_above_v1_queue": 1.0,
+      "rate_meaning": "detection_rate",
+      "by_difficulty": {
+        "OBVIOUS": {
+          "n": 5,
+          "n_anomalous": 5,
+          "n_normal": 0,
+          "mean": 49.96,
+          "median": 49.8,
+          "max": 55.5,
+          "n_at_or_above_primary": 5,
+          "rate_at_or_above_primary": 1.0,
+          "n_at_or_above_v1_queue": 5,
+          "rate_at_or_above_v1_queue": 1.0
+        },
+        "BORDERLINE": {
+          "n": 3,
+          "n_anomalous": 3,
+          "n_normal": 0,
+          "mean": 45.8,
+          "median": 45.4,
+          "max": 49.6,
+          "n_at_or_above_primary": 3,
+          "rate_at_or_above_primary": 1.0,
+          "n_at_or_above_v1_queue": 3,
+          "rate_at_or_above_v1_queue": 1.0
+        }
+      },
+      "mean_component_scores": {
+        "cost_anomaly_score": 22.825,
+        "project_similarity_score": 18.075,
+        "contractor_pattern_score": 0.0,
+        "billing_anomaly_score": 7.5,
+        "geographic_signal_score": 0.0
+      }
+    }
+  },
+  "adversarial_normal": {
+    "n": 41,
+    "n_anomalous": 0,
+    "n_normal": 41,
+    "mean": 19.521951,
+    "median": 17.1,
+    "max": 45.3,
+    "n_at_or_above_primary": 1,
+    "rate_at_or_above_primary": 0.02439,
+    "n_at_or_above_v1_queue": 3,
+    "rate_at_or_above_v1_queue": 0.073171,
+    "treated_as": "NORMAL",
+    "false_positive_rate_primary": 0.02439,
+    "false_positive_rate_v1_queue": 0.073171,
+    "by_subtype": {
+      "A": {
+        "n": 14,
+        "n_anomalous": 0,
+        "n_normal": 14,
+        "mean": 15.971429,
+        "median": 15.95,
+        "max": 18.5,
+        "n_at_or_above_primary": 0,
+        "rate_at_or_above_primary": 0.0,
+        "n_at_or_above_v1_queue": 0,
+        "rate_at_or_above_v1_queue": 0.0
+      },
+      "B": {
+        "n": 9,
+        "n_anomalous": 0,
+        "n_normal": 9,
+        "mean": 17.788889,
+        "median": 17.9,
+        "max": 22.1,
+        "n_at_or_above_primary": 0,
+        "rate_at_or_above_primary": 0.0,
+        "n_at_or_above_v1_queue": 0,
+        "rate_at_or_above_v1_queue": 0.0
+      },
+      "C": {
+        "n": 5,
+        "n_anomalous": 0,
+        "n_normal": 5,
+        "mean": 31.56,
+        "median": 36.9,
+        "max": 45.3,
+        "n_at_or_above_primary": 1,
+        "rate_at_or_above_primary": 0.2,
+        "n_at_or_above_v1_queue": 3,
+        "rate_at_or_above_v1_queue": 0.6
+      },
+      "D": {
+        "n": 5,
+        "n_anomalous": 0,
+        "n_normal": 5,
+        "mean": 24.28,
+        "median": 24.1,
+        "max": 26.2,
+        "n_at_or_above_primary": 0,
+        "rate_at_or_above_primary": 0.0,
+        "n_at_or_above_v1_queue": 0,
+        "rate_at_or_above_v1_queue": 0.0
+      },
+      "E": {
+        "n": 8,
+        "n_anomalous": 0,
+        "n_normal": 8,
+        "mean": 17.1875,
+        "median": 15.7,
+        "max": 23.3,
+        "n_at_or_above_primary": 0,
+        "rate_at_or_above_primary": 0.0,
+        "n_at_or_above_v1_queue": 0,
+        "rate_at_or_above_v1_queue": 0.0
+      }
+    }
+  },
+  "top_20": [
+    {
+      "rank": 1,
+      "project_id": "P-5062",
+      "risk_score": 55.5,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "MULTI_SIGNAL"
+    },
+    {
+      "rank": 2,
+      "project_id": "P-5044",
+      "risk_score": 50.3,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "MULTI_SIGNAL"
+    },
+    {
+      "rank": 3,
+      "project_id": "P-5135",
+      "risk_score": 49.8,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "MULTI_SIGNAL"
+    },
+    {
+      "rank": 4,
+      "project_id": "P-5035",
+      "risk_score": 49.6,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "MULTI_SIGNAL"
+    },
+    {
+      "rank": 5,
+      "project_id": "P-5066",
+      "risk_score": 47.1,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "MULTI_SIGNAL"
+    },
+    {
+      "rank": 6,
+      "project_id": "P-5116",
+      "risk_score": 47.1,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "MULTI_SIGNAL"
+    },
+    {
+      "rank": 7,
+      "project_id": "P-5131",
+      "risk_score": 45.5,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "COST_ANOMALY"
+    },
+    {
+      "rank": 8,
+      "project_id": "P-5106",
+      "risk_score": 45.4,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "MULTI_SIGNAL"
+    },
+    {
+      "rank": 9,
+      "project_id": "P-5040",
+      "risk_score": 45.3,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "NORMAL",
+      "scenario_type": "ADVERSARIAL_NORMAL"
+    },
+    {
+      "rank": 10,
+      "project_id": "P-5005",
+      "risk_score": 42.4,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "MULTI_SIGNAL"
+    },
+    {
+      "rank": 11,
+      "project_id": "P-5114",
+      "risk_score": 39.3,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "COST_ANOMALY"
+    },
+    {
+      "rank": 12,
+      "project_id": "P-5070",
+      "risk_score": 38.9,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "COST_ANOMALY"
+    },
+    {
+      "rank": 13,
+      "project_id": "P-5060",
+      "risk_score": 38.8,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "COST_ANOMALY"
+    },
+    {
+      "rank": 14,
+      "project_id": "P-5145",
+      "risk_score": 38.3,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "COST_ANOMALY"
+    },
+    {
+      "rank": 15,
+      "project_id": "P-5010",
+      "risk_score": 38.1,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "NORMAL",
+      "scenario_type": "ADVERSARIAL_NORMAL"
+    },
+    {
+      "rank": 16,
+      "project_id": "P-5041",
+      "risk_score": 37.2,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "COST_ANOMALY"
+    },
+    {
+      "rank": 17,
+      "project_id": "P-5081",
+      "risk_score": 37.2,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "COST_ANOMALY"
+    },
+    {
+      "rank": 18,
+      "project_id": "P-5048",
+      "risk_score": 36.9,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "NORMAL",
+      "scenario_type": "ADVERSARIAL_NORMAL"
+    },
+    {
+      "rank": 19,
+      "project_id": "P-5031",
+      "risk_score": 34.5,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "CONTRACTOR_PATTERN"
+    },
+    {
+      "rank": 20,
+      "project_id": "P-5100",
+      "risk_score": 33.4,
+      "risk_level": "MEDIUM",
+      "ground_truth_label": "ANOMALOUS",
+      "scenario_type": "CONTRACTOR_PATTERN"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "projects_scored": 150,
+  "engine_input_sha256": {
+    "engine_input/anomaly_signals.csv": "93d4a8e69f8860a4175951130e7bd3b4157739a4c1cff2f4a291db223e39f395",
+    "engine_input/bills.csv": "a3d2ae09f3ac1fa589c1ae3158eb01b2b7193550acc45224d558cb5d1e646387",
+    "engine_input/contractors.csv": "e193f677c338432008d5cd63b8258f571701f4a27fd7b0fdd6c4436e33d4dc2e",
+    "engine_input/historical_projects.csv": "623027ff47eff67e5ffe8a5821e7faf0959039829a44449ae5ec6f2abc3d9160",
+    "engine_input/locations.csv": "cf46006ece82184595773083b2940f7cd74cead8b0339a6a54d367d19d529296",
+    "engine_input/payments.csv": "fef83c0ee81830534b16106bc5fd7618f5ffb02b136349f7578b3e324c60891a",
+    "engine_input/project_contractors.csv": "c688f831d869a56f2ee9e9a341a2ab2d5990bdcf88acb3c825e317564ae673c8",
+    "engine_input/projects.csv": "f6c8d300e4ca97321d749c444d188250ee17420e7c007ab323fefdacdf2b7e6f"
+  },
+  "engine_source_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "billing_analysis.py": "98eab4d69d203e46f3936dbb058793464c12b0bdc205164528a2a35137cc7c26",
+    "contractor_analysis.py": "bca0544e7de86149f97207f63d8849f07c72a33f19a9cd84a54b6b64e81ef8ad",
+    "cost_anomaly.py": "d818fe4567bb227800a4420606e8a3dff8ea7e92d94ab5614173d3db5c254617",
+    "data_loader.py": "a2aa261de690d226274ec6aa3519b6afed930c296e60d5793bcc937015fbc990",
+    "geographic_analysis.py": "4688d19ad95d876df26119c43bb2540c9a6fd0f3fcdbf6b4621cc65ee565b015",
+    "geographic_intelligence.py": "a4bbcf8a74fdf5da1e9d5a1228db33fe8aee2d431f0f38b455947072ec8fe726",
+    "main.py": "7a9379705becf6ed746ddc677b37bfaadff75d64d6b21cf1f8ea9ec587053116",
+    "project_similarity.py": "e709d58b89592d4f5f92e8c021b131b5b20c313829b304fbed796cdd92233715",
+    "relationship_analysis.py": "27e8217849ff583c271c2df38e11e853bad05d7f0d79cace1e2d13db418b25b4",
+    "risk_engine.py": "c42a05ac39ec7700cd2f841a3d00c86ef5de2262952c341e02f568c4921fc647",
+    "stage5a_main.py": "f8024c03efd73f665213ae6eb73859094f31882fa524bee37e61109713ea2f52"
+  },
+  "git_commit_at_run": "582d8834280ac48d3b268a275df9454ad0b06c98",
+  "frozen_hash_check": "passed",
+  "note": "Engine outputs only. No labels were read. No metrics were computed."
+}
