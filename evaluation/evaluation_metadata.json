@@ -1,0 +1,84 @@
+{
+  "dataset_version": "2.1.0-eval",
+  "creation_method": "Deterministic rule-based construction (evaluation/generate_evaluation_data.py, seed 7919). Each case is built from an explicit scenario rule in evaluation/SCENARIO_SPEC.md; labels are the scenario the case was built from. Project IDs are assigned after a random shuffle.",
+  "generator_seed": 7919,
+  "as_of_date": "2025-12-31",
+  "number_of_cases": 150,
+  "number_normal": 101,
+  "number_anomalous": 49,
+  "scenario_distribution": {
+    "ADVERSARIAL_NORMAL": 41,
+    "BILLING_ANOMALY": 8,
+    "CONTRACTOR_PATTERN": 9,
+    "COST_ANOMALY": 8,
+    "GEOGRAPHIC_PATTERN": 8,
+    "MULTI_SIGNAL": 8,
+    "NORMAL": 60,
+    "SIMILAR_PROJECT": 8
+  },
+  "difficulty_distribution": {
+    "BORDERLINE": 22,
+    "NA": 101,
+    "OBVIOUS": 27
+  },
+  "adversarial_negative_count": 41,
+  "adversarial_subtype_distribution": {
+    "A": 14,
+    "B": 9,
+    "C": 5,
+    "D": 5,
+    "E": 8
+  },
+  "label_definition": "ANOMALOUS = the project was constructed to satisfy at least one anomaly rule (COST-1, BILL-1, BILL-2, CONT-1, SIM-1, GEO-1) in SCENARIO_SPEC.md. NORMAL = constructed to satisfy NORM-1 or one of the ADV-A..E legitimate-lookalike rules. A label says how the case was built, not what any detector says.",
+  "independence_statement": "This dataset is intentionally separated from the V1 planted-signal dataset and is used only for evaluation. The labels are generated from independently defined evaluation scenarios and are not derived from NidhiGuard risk scores. The generator does not read any V1 data file, does not import the intelligence package, and was written without reading the detector implementations.",
+  "leakage_controls": [
+    "Labels live in evaluation_labels.csv, outside engine_input/; no label, scenario, difficulty or group column exists in any engine input file.",
+    "engine_input/anomaly_signals.csv is header-only (0 rows); it exists solely because the V1 loader requires the file.",
+    "The generator never reads data-source/ and never imports intelligence/.",
+    "The prediction runner never opens evaluation_labels.csv.",
+    "Project IDs are shuffled so ID order and file order carry no scenario information.",
+    "SHA-256 hashes of all dataset files are recorded here before the engine is run; later changes must be logged in CHANGELOG.md."
+  ],
+  "scenario_construction": {
+    "NORMAL": "NORM-1: cost within +-1.2 sigma of the generative (work type, state) median, estimate corroborates sanction, bills >=3 weeks apart with final bill 12-25%, >=6 km from every other project, contractor <=3 projects >=120 days apart.",
+    "COST_ANOMALY": "COST-1: sanctioned = 3.0-4.0x (obvious) or 1.8-2.2x (borderline) generative median; estimated cost stays at ~median so the estimate does not support the sanction; no scope text.",
+    "BILLING_ANOMALY": "BILL-1 compression (4 bills in <=5 days / 3 bills in <=10 days mid-project) or BILL-2 end-loading (72-85% / 60-66% of claims in the final bill within the last 15% of the project window).",
+    "CONTRACTOR_PATTERN": "CONT-1: one contractor, 5 (obvious, 16-day window, 1.30-1.55x) or 4 (borderline, 38-day window, 1.15-1.30x) same-work-type projects in districts >=10 km apart; contractor's other projects are cheaper and >=150 days away.",
+    "SIMILAR_PROJECT": "SIM-1: pairs, same work type/district/village; obvious = near-identical wording, 5-20 days, 0.1-0.5 km, +-3%, same contractor; borderline = paraphrased wording, 40-60 days, 1.0-1.8 km, +-8%, different contractors.",
+    "GEOGRAPHIC_PATTERN": "GEO-1: same contractor and work type, comparable amounts, tight cluster (5 projects <=0.8 km +-7% / 3 projects <=1.8 km +-12%), sanctioned >=60 days apart, different villages and templates.",
+    "MULTI_SIGNAL": "MULTI-1: >=2 independent injected signals each meeting its rule: COST-1 + BILL-1/BILL-2 (6 projects, 3 obvious, 3 borderline) and one duplicate-like pair with inflated cost on both members.",
+    "ADVERSARIAL_NORMAL": "ADV-A large legitimate portfolio; ADV-B nearby but unrelated works; ADV-C high cost with corroborating estimate and documented scope; ADV-D milestone billing with 38-48% final bill; ADV-E similar wording but far apart, months apart, different amounts."
+  },
+  "known_limitations": [
+    "Controlled synthetic evaluation dataset; it does not represent real MPLADS ground truth.",
+    "The scenarios and the V1 detectors were designed by the same author, so this measures agreement with the author's definition of 'suspicious', not with an external truth.",
+    "Rules were written before any engine output was seen, and no detector source file was read. However, the scenario author had read the V1 README's plain-language description of each detector (median cost benchmark, contractor concentration, bill timing, proximity plus shared attributes), so the scenario families mirror the detector families by design. Complete independence cannot be guaranteed.",
+    "While inspecting file layouts, the first two rows of V1 anomaly_signals.csv (one CONTRACTOR_PATTERN and one COST_ANOMALY explanation sentence) were displayed to the scenario author. They were not used as input, but the CONT-1 rule resembles that sentence; treat CONTRACTOR_PATTERN results with extra caution.",
+    "The sample is small (150 cases, 49 anomalous); metrics will have wide confidence intervals.",
+    "Labels are binary by construction; real-world ambiguity (a legitimate project that looks odd, a fraud that looks clean) is only represented by the ADVERSARIAL_NORMAL and BORDERLINE cases.",
+    "Several adversarial cases (ADV-C, ADV-D) rely on fields (estimated cost, bill structure) the V1 engine may not use; expected false positives there are a property of the engine, not a dataset defect.",
+    "The V1 loader requires anomaly_signals.csv; a header-only placeholder is shipped in engine_input. It contains no rows and no labels.",
+    "Cost scale, template wording and the district list are domain-plausible, not calibrated to real data."
+  ],
+  "engine_input_files": [
+    "anomaly_signals.csv",
+    "bills.csv",
+    "contractors.csv",
+    "historical_projects.csv",
+    "locations.csv",
+    "payments.csv",
+    "project_contractors.csv",
+    "projects.csv"
+  ],
+  "file_sha256": {
+    "engine_input/anomaly_signals.csv": "93d4a8e69f8860a4175951130e7bd3b4157739a4c1cff2f4a291db223e39f395",
+    "engine_input/bills.csv": "a3d2ae09f3ac1fa589c1ae3158eb01b2b7193550acc45224d558cb5d1e646387",
+    "engine_input/contractors.csv": "e193f677c338432008d5cd63b8258f571701f4a27fd7b0fdd6c4436e33d4dc2e",
+    "engine_input/historical_projects.csv": "623027ff47eff67e5ffe8a5821e7faf0959039829a44449ae5ec6f2abc3d9160",
+    "engine_input/locations.csv": "cf46006ece82184595773083b2940f7cd74cead8b0339a6a54d367d19d529296",
+    "engine_input/payments.csv": "fef83c0ee81830534b16106bc5fd7618f5ffb02b136349f7578b3e324c60891a",
+    "engine_input/project_contractors.csv": "c688f831d869a56f2ee9e9a341a2ab2d5990bdcf88acb3c825e317564ae673c8",
+    "engine_input/projects.csv": "f6c8d300e4ca97321d749c444d188250ee17420e7c007ab323fefdacdf2b7e6f",
+    "evaluation_labels.csv": "c6642c357120925661df40d24a6456063c360fe1ab2b6f002e4250de61a149fc"
+  }
+}

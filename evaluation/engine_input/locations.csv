@@ -1,0 +1,151 @@
+location_id,project_id,state,district,constituency,block,village_or_ward,latitude,longitude,pincode,location_type
+L-5001,P-5001,Maharashtra,Pune,CONST-15,Hill Block,Kalapalli,18.30989,73.85794,374879,Rural Village
+L-5002,P-5002,Uttar Pradesh,Kanpur Nagar,CONST-25,Northern Block,Kalapur,26.30263,80.39468,296389,Urban Ward
+L-5003,P-5003,Maharashtra,Nagpur,CONST-13,Western Block,Taragaon,20.92628,79.02380,379573,Urban Ward
+L-5004,P-5004,Madhya Pradesh,Bhopal,CONST-10,Eastern Block,Tarawadi,23.30154,77.46629,444789,Panchayat
+L-5005,P-5005,Rajasthan,Jodhpur,CONST-20,Northern Block,Anandpatti,26.38846,73.14163,610771,Urban Ward
+L-5006,P-5006,Uttar Pradesh,Kanpur Nagar,CONST-25,Hill Block,Navagaon,26.51515,80.18184,205703,Panchayat
+L-5007,P-5007,West Bengal,Howrah,CONST-29,Western Block,Chandrapura,22.44632,88.25469,330085,Urban Ward
+L-5008,P-5008,Rajasthan,Jaipur,CONST-19,Central Block,Indrapatti,26.92976,75.54738,568829,Panchayat
+L-5009,P-5009,Bihar,Gaya,CONST-02,Northern Block,Kesarpur,24.72950,84.99124,674380,Rural Village
+L-5010,P-5010,Uttar Pradesh,Varanasi,CONST-27,Hill Block,Navapur,25.30570,83.19495,756005,Urban Ward
+L-5011,P-5011,Tamil Nadu,Coimbatore,CONST-23,Western Block,Indranagar,11.09147,76.78346,233493,Urban Ward
+L-5012,P-5012,Odisha,Puri,CONST-18,Western Block,Devakuppam,19.61262,85.73834,389671,Urban Ward
+L-5013,P-5013,Bihar,Bhagalpur,CONST-01,Eastern Block,Pushpapatti,25.01198,86.85385,836244,Rural Village
+L-5014,P-5014,Odisha,Puri,CONST-18,Eastern Block,Indrapura,19.58680,85.90488,554235,Panchayat
+L-5015,P-5015,Kerala,Thiruvananthapuram,CONST-09,Northern Block,Devapalli,8.71975,77.01353,236742,Rural Village
+L-5016,P-5016,Kerala,Thiruvananthapuram,CONST-09,Western Block,Balanagar,8.58609,76.81166,351548,Rural Village
+L-5017,P-5017,Kerala,Ernakulam,CONST-07,Eastern Block,Kalapatti,9.84645,76.22228,733963,Urban Ward
+L-5018,P-5018,Tamil Nadu,Madurai,CONST-24,Northern Block,Pushpawadi,10.06715,77.91614,554093,Panchayat
+L-5019,P-5019,Madhya Pradesh,Gwalior,CONST-11,Southern Block,Mohankuppam,26.44416,78.13706,119232,Urban Ward
+L-5020,P-5020,Rajasthan,Jaipur,CONST-19,Western Block,Pushpanagar,26.70601,75.70138,707711,Rural Village
+L-5021,P-5021,Karnataka,Bengaluru Urban,CONST-05,Northern Block,Suryapatti,13.22110,77.56254,720716,Urban Ward
+L-5022,P-5022,Kerala,Kozhikode,CONST-08,Southern Block,Chandrakhed,11.31616,75.63616,572290,Rural Village
+L-5023,P-5023,Tamil Nadu,Coimbatore,CONST-23,Hill Block,Devapura,11.00107,77.05590,112532,Panchayat
+L-5024,P-5024,Karnataka,Belagavi,CONST-04,Eastern Block,Kalanagar,15.83544,74.36679,725743,Rural Village
+L-5025,P-5025,Tamil Nadu,Coimbatore,CONST-23,Southern Block,Harigaon,10.80268,76.91006,269310,Rural Village
+L-5026,P-5026,Rajasthan,Jodhpur,CONST-20,Central Block,Padmapatti,26.27346,73.25533,381632,Rural Village
+L-5027,P-5027,Odisha,Cuttack,CONST-16,Northern Block,Balagaon,20.35570,85.66586,504471,Panchayat
+L-5028,P-5028,Kerala,Ernakulam,CONST-07,Eastern Block,Lakshmikuppam,9.92066,76.52398,215058,Rural Village
+L-5029,P-5029,Madhya Pradesh,Gwalior,CONST-11,Central Block,Mohanhalli,26.21732,78.28981,621751,Panchayat
+L-5030,P-5030,Kerala,Kozhikode,CONST-08,Northern Block,Suryapalli,11.20938,76.01244,540624,Rural Village
+L-5031,P-5031,Rajasthan,Jodhpur,CONST-20,Eastern Block,Navawadi,26.31226,72.76263,294671,Panchayat
+L-5032,P-5032,Kerala,Kozhikode,CONST-08,Central Block,Lakshmipalli,11.30892,75.63543,880114,Rural Village
+L-5033,P-5033,Kerala,Kozhikode,CONST-08,Southern Block,Mandikhed,11.14465,75.59785,700796,Rural Village
+L-5034,P-5034,Kerala,Kozhikode,CONST-08,Southern Block,Padmawadi,11.27029,75.93483,524474,Urban Ward
+L-5035,P-5035,Odisha,Puri,CONST-18,Western Block,Taranagar,19.76148,85.63998,283252,Panchayat
+L-5036,P-5036,Kerala,Ernakulam,CONST-07,Eastern Block,Navakhed,10.03960,76.38565,833269,Rural Village
+L-5037,P-5037,Tamil Nadu,Chennai,CONST-22,Central Block,Ramagaon,13.07121,80.01554,147740,Rural Village
+L-5038,P-5038,Odisha,Puri,CONST-18,Northern Block,Indrapura,19.58341,85.90519,428105,Rural Village
+L-5039,P-5039,Kerala,Ernakulam,CONST-07,Eastern Block,Balapalli,10.13661,76.10170,227778,Rural Village
+L-5040,P-5040,Madhya Pradesh,Gwalior,CONST-11,Northern Block,Navanagar,26.13429,77.99004,173828,Urban Ward
+L-5041,P-5041,Tamil Nadu,Coimbatore,CONST-23,Eastern Block,Mandihalli,10.81005,77.01761,661958,Urban Ward
+L-5042,P-5042,Kerala,Kozhikode,CONST-08,Eastern Block,Navahalli,11.49203,75.77773,690366,Panchayat
+L-5043,P-5043,West Bengal,Howrah,CONST-29,Western Block,Kesarkuppam,22.62961,88.38980,334299,Urban Ward
+L-5044,P-5044,Karnataka,Bengaluru Urban,CONST-05,Hill Block,Shivahalli,12.86994,77.43620,318083,Rural Village
+L-5045,P-5045,Bihar,Patna,CONST-03,Southern Block,Anandpura,25.70773,84.96413,398563,Panchayat
+L-5046,P-5046,Karnataka,Belagavi,CONST-04,Southern Block,Ramahalli,15.74640,74.43656,460417,Panchayat
+L-5047,P-5047,Madhya Pradesh,Gwalior,CONST-11,Western Block,Harikhed,26.41401,78.19084,446560,Panchayat
+L-5048,P-5048,Bihar,Gaya,CONST-02,Southern Block,Lakshmigaon,24.94738,85.07551,893696,Rural Village
+L-5049,P-5049,Uttar Pradesh,Kanpur Nagar,CONST-25,Western Block,Ramanagar,26.38618,80.37385,464695,Panchayat
+L-5050,P-5050,Madhya Pradesh,Gwalior,CONST-11,Northern Block,Mohanhalli,26.22585,78.27553,724929,Panchayat
+L-5051,P-5051,Bihar,Patna,CONST-03,Southern Block,Kalahalli,25.60374,85.12461,159023,Panchayat
+L-5052,P-5052,Karnataka,Mysuru,CONST-06,Eastern Block,Mandigaon,12.38601,76.77195,211199,Panchayat
+L-5053,P-5053,Kerala,Thiruvananthapuram,CONST-09,Eastern Block,Shivapura,8.31292,76.88317,646435,Rural Village
+L-5054,P-5054,Tamil Nadu,Madurai,CONST-24,Southern Block,Balahalli,9.93361,78.09903,173845,Urban Ward
+L-5055,P-5055,Rajasthan,Udaipur,CONST-21,Northern Block,Tarakhed,24.78084,73.78596,613820,Panchayat
+L-5056,P-5056,Kerala,Kozhikode,CONST-08,Central Block,Ramakhed,11.06628,75.84889,891422,Urban Ward
+L-5057,P-5057,Odisha,Puri,CONST-18,Hill Block,Padmahalli,19.60970,85.74525,474733,Rural Village
+L-5058,P-5058,Odisha,Puri,CONST-18,Southern Block,Pushpakhed,19.70662,85.93008,393598,Urban Ward
+L-5059,P-5059,Tamil Nadu,Madurai,CONST-24,Southern Block,Balahalli,9.93396,78.09754,121303,Panchayat
+L-5060,P-5060,Karnataka,Bengaluru Urban,CONST-05,Eastern Block,Devagaon,13.06929,77.71800,864107,Urban Ward
+L-5061,P-5061,Rajasthan,Jodhpur,CONST-20,Northern Block,Lakshmihalli,26.32151,72.95513,256561,Rural Village
+L-5062,P-5062,Tamil Nadu,Chennai,CONST-22,Hill Block,Mandipur,13.30340,80.29183,891782,Panchayat
+L-5063,P-5063,Maharashtra,Nagpur,CONST-13,Western Block,Balapatti,21.09872,79.20443,368065,Rural Village
+L-5064,P-5064,Uttar Pradesh,Kanpur Nagar,CONST-25,Hill Block,Anandkuppam,26.41363,80.25127,361100,Panchayat
+L-5065,P-5065,Tamil Nadu,Madurai,CONST-24,Western Block,Mandinagar,10.05995,77.91636,447813,Urban Ward
+L-5066,P-5066,Uttar Pradesh,Varanasi,CONST-27,Central Block,Velapur,25.51782,82.90137,395575,Urban Ward
+L-5067,P-5067,Uttar Pradesh,Varanasi,CONST-27,Southern Block,Anandpur,25.15212,82.92744,530870,Urban Ward
+L-5068,P-5068,Bihar,Bhagalpur,CONST-01,Southern Block,Mohanpatti,25.12213,87.08585,776620,Urban Ward
+L-5069,P-5069,Rajasthan,Jaipur,CONST-19,Western Block,Lakshmikhed,26.84197,76.00901,246681,Panchayat
+L-5070,P-5070,Odisha,Puri,CONST-18,Western Block,Suryakuppam,19.64409,86.00350,343163,Urban Ward
+L-5071,P-5071,West Bengal,Kolkata,CONST-30,Central Block,Padmagaon,22.52157,88.45914,577533,Panchayat
+L-5072,P-5072,Odisha,Cuttack,CONST-16,Northern Block,Pushpakuppam,20.42181,85.88460,472047,Urban Ward
+L-5073,P-5073,Maharashtra,Nagpur,CONST-13,Hill Block,Anandkhed,21.23117,78.98025,351835,Panchayat
+L-5074,P-5074,Tamil Nadu,Madurai,CONST-24,Northern Block,Tarahalli,10.06300,77.92300,572322,Urban Ward
+L-5075,P-5075,Kerala,Kozhikode,CONST-08,Western Block,Mandipalli,11.28795,76.02939,456689,Urban Ward
+L-5076,P-5076,Bihar,Gaya,CONST-02,Central Block,Navakuppam,24.80738,85.10534,574349,Panchayat
+L-5077,P-5077,Bihar,Gaya,CONST-02,Hill Block,Haripalli,24.77193,85.26272,867976,Urban Ward
+L-5078,P-5078,Tamil Nadu,Madurai,CONST-24,Southern Block,Padmanagar,9.72061,78.20524,883340,Rural Village
+L-5079,P-5079,Kerala,Kozhikode,CONST-08,Central Block,Kesargaon,11.23379,75.68883,308187,Rural Village
+L-5080,P-5080,Tamil Nadu,Coimbatore,CONST-23,Western Block,Velahalli,11.13260,77.11537,413279,Panchayat
+L-5081,P-5081,Tamil Nadu,Chennai,CONST-22,Southern Block,Indrapur,12.90221,80.29799,116427,Rural Village
+L-5082,P-5082,Kerala,Kozhikode,CONST-08,Central Block,Mohannagar,11.41377,75.80585,700017,Panchayat
+L-5083,P-5083,Bihar,Gaya,CONST-02,Hill Block,Kalapura,25.03248,85.07072,100728,Rural Village
+L-5084,P-5084,Uttar Pradesh,Lucknow,CONST-26,Eastern Block,Hariwadi,26.83782,80.73731,295378,Panchayat
+L-5085,P-5085,Kerala,Kozhikode,CONST-08,Hill Block,Indrapalli,11.14622,75.70082,251049,Rural Village
+L-5086,P-5086,Bihar,Patna,CONST-03,Western Block,Velakuppam,25.65233,85.08302,215638,Urban Ward
+L-5087,P-5087,West Bengal,Darjeeling,CONST-28,Central Block,Devapur,27.08277,88.18448,226931,Panchayat
+L-5088,P-5088,Karnataka,Bengaluru Urban,CONST-05,Southern Block,Velapalli,13.17480,77.73995,821013,Urban Ward
+L-5089,P-5089,Karnataka,Bengaluru Urban,CONST-05,Western Block,Lakshmiwadi,12.81506,77.77633,105073,Urban Ward
+L-5090,P-5090,Rajasthan,Jodhpur,CONST-20,Northern Block,Ramakuppam,26.30827,72.95654,751967,Panchayat
+L-5091,P-5091,Uttar Pradesh,Lucknow,CONST-26,Western Block,Lakshmipatti,26.94835,81.17142,800476,Panchayat
+L-5092,P-5092,Tamil Nadu,Madurai,CONST-24,Northern Block,Shivapatti,9.86873,78.28555,453139,Urban Ward
+L-5093,P-5093,Karnataka,Bengaluru Urban,CONST-05,Southern Block,Haripur,12.95643,77.72138,590785,Rural Village
+L-5094,P-5094,Odisha,Cuttack,CONST-16,Hill Block,Gopalkuppam,20.63534,85.78786,587464,Urban Ward
+L-5095,P-5095,Kerala,Thiruvananthapuram,CONST-09,Central Block,Kesarnagar,8.49130,76.80267,269169,Panchayat
+L-5096,P-5096,Bihar,Bhagalpur,CONST-01,Hill Block,Kesarpura,25.21799,87.01461,567048,Urban Ward
+L-5097,P-5097,Kerala,Thiruvananthapuram,CONST-09,Southern Block,Indrakuppam,8.35664,76.93331,683160,Rural Village
+L-5098,P-5098,West Bengal,Darjeeling,CONST-28,Northern Block,Indrahalli,26.93108,88.51485,522671,Urban Ward
+L-5099,P-5099,Tamil Nadu,Madurai,CONST-24,Northern Block,Ramapura,9.72898,78.14230,815959,Panchayat
+L-5100,P-5100,Odisha,Puri,CONST-18,Northern Block,Tarakuppam,19.82169,85.84471,253937,Panchayat
+L-5101,P-5101,Odisha,Cuttack,CONST-16,Western Block,Suryagaon,20.26722,85.95323,462470,Rural Village
+L-5102,P-5102,Uttar Pradesh,Varanasi,CONST-27,Southern Block,Ramapalli,25.06373,82.86952,756164,Urban Ward
+L-5103,P-5103,Rajasthan,Jodhpur,CONST-20,Western Block,Mohanpur,26.31679,72.95127,892333,Urban Ward
+L-5104,P-5104,Rajasthan,Jodhpur,CONST-20,Western Block,Gopalpur,26.20274,72.97601,365816,Rural Village
+L-5105,P-5105,Maharashtra,Nashik,CONST-14,Western Block,Padmapur,20.09826,73.86464,450883,Panchayat
+L-5106,P-5106,Karnataka,Belagavi,CONST-04,Hill Block,Tarapatti,15.96401,74.56031,411557,Panchayat
+L-5107,P-5107,Maharashtra,Nagpur,CONST-13,Southern Block,Balawadi,21.24105,78.96697,526507,Rural Village
+L-5108,P-5108,Kerala,Thiruvananthapuram,CONST-09,Eastern Block,Anandwadi,8.33621,76.82875,262168,Urban Ward
+L-5109,P-5109,Odisha,Cuttack,CONST-16,Central Block,Mandipura,20.22150,85.81593,859804,Panchayat
+L-5110,P-5110,Rajasthan,Jodhpur,CONST-20,Eastern Block,Velapura,26.01989,73.00821,735069,Urban Ward
+L-5111,P-5111,Karnataka,Bengaluru Urban,CONST-05,Central Block,Mohangaon,12.89658,77.75420,592485,Rural Village
+L-5112,P-5112,Kerala,Kozhikode,CONST-08,Central Block,Chandrakuppam,11.31259,75.64253,290498,Urban Ward
+L-5113,P-5113,Rajasthan,Udaipur,CONST-21,Hill Block,Ramapatti,24.57446,73.96653,647986,Urban Ward
+L-5114,P-5114,Bihar,Patna,CONST-03,Hill Block,Gopalpatti,25.81002,85.03827,875479,Panchayat
+L-5115,P-5115,Odisha,Puri,CONST-18,Southern Block,Haripura,19.60593,85.73900,343387,Rural Village
+L-5116,P-5116,Uttar Pradesh,Varanasi,CONST-27,Northern Block,Velapur,25.51720,82.90028,134256,Panchayat
+L-5117,P-5117,Odisha,Cuttack,CONST-16,Western Block,Indrakhed,20.58157,85.81240,156867,Rural Village
+L-5118,P-5118,Rajasthan,Jodhpur,CONST-20,Northern Block,Haripatti,26.31250,72.95236,476242,Urban Ward
+L-5119,P-5119,Uttar Pradesh,Kanpur Nagar,CONST-25,Hill Block,Kalawadi,26.36323,80.10330,895961,Panchayat
+L-5120,P-5120,Maharashtra,Pune,CONST-15,Western Block,Velagaon,18.73310,73.97050,728006,Rural Village
+L-5121,P-5121,Kerala,Kozhikode,CONST-08,Eastern Block,Lakshminagar,10.97320,75.83488,688410,Urban Ward
+L-5122,P-5122,Odisha,Cuttack,CONST-16,Southern Block,Devawadi,20.57446,85.67218,519997,Panchayat
+L-5123,P-5123,Madhya Pradesh,Indore,CONST-12,Hill Block,Devahalli,22.61061,75.61422,684921,Panchayat
+L-5124,P-5124,Madhya Pradesh,Bhopal,CONST-10,Central Block,Velakhed,23.37783,77.51686,681016,Panchayat
+L-5125,P-5125,Kerala,Thiruvananthapuram,CONST-09,Southern Block,Mohanpura,8.58530,76.88771,100280,Rural Village
+L-5126,P-5126,Uttar Pradesh,Varanasi,CONST-27,Southern Block,Gopalnagar,25.52539,83.04346,890437,Panchayat
+L-5127,P-5127,West Bengal,Kolkata,CONST-30,Southern Block,Navapalli,22.58614,88.59567,836558,Panchayat
+L-5128,P-5128,Maharashtra,Nagpur,CONST-13,Southern Block,Pushpagaon,21.21675,78.96514,699310,Panchayat
+L-5129,P-5129,Kerala,Kozhikode,CONST-08,Western Block,Suryanagar,11.32737,75.95757,379450,Urban Ward
+L-5130,P-5130,Rajasthan,Jodhpur,CONST-20,Southern Block,Lakshmipura,26.31546,72.95935,758353,Rural Village
+L-5131,P-5131,Tamil Nadu,Chennai,CONST-22,Western Block,Velapatti,12.88844,80.16494,335386,Rural Village
+L-5132,P-5132,Rajasthan,Udaipur,CONST-21,Western Block,Shivapalli,24.47474,73.92299,372896,Rural Village
+L-5133,P-5133,Tamil Nadu,Chennai,CONST-22,Western Block,Shivapur,12.96654,80.25310,712436,Rural Village
+L-5134,P-5134,Odisha,Cuttack,CONST-16,Northern Block,Mandipura,20.21696,85.82737,343120,Rural Village
+L-5135,P-5135,Madhya Pradesh,Bhopal,CONST-10,Central Block,Devakhed,23.32542,77.15726,791697,Panchayat
+L-5136,P-5136,Tamil Nadu,Madurai,CONST-24,Hill Block,Pushpapalli,9.87651,77.88474,366602,Rural Village
+L-5137,P-5137,Maharashtra,Nashik,CONST-14,Western Block,Devapatti,19.99872,73.82778,139638,Rural Village
+L-5138,P-5138,Kerala,Ernakulam,CONST-07,Hill Block,Padmakhed,10.00630,76.26884,173777,Rural Village
+L-5139,P-5139,Uttar Pradesh,Kanpur Nagar,CONST-25,Northern Block,Mandiwadi,26.66621,80.36328,820868,Panchayat
+L-5140,P-5140,Odisha,Khordha,CONST-17,Western Block,Indrawadi,20.07485,85.70466,502408,Rural Village
+L-5141,P-5141,Maharashtra,Nagpur,CONST-13,Central Block,Padmapura,21.18768,79.22671,719467,Panchayat
+L-5142,P-5142,Karnataka,Mysuru,CONST-06,Northern Block,Kalagaon,12.11055,76.58283,288925,Urban Ward
+L-5143,P-5143,Maharashtra,Pune,CONST-15,Northern Block,Suryahalli,18.45725,73.66291,229957,Urban Ward
+L-5144,P-5144,Bihar,Bhagalpur,CONST-01,Western Block,Anandnagar,25.26954,86.97492,541203,Panchayat
+L-5145,P-5145,Tamil Nadu,Coimbatore,CONST-23,Hill Block,Pushpapura,10.96761,76.77063,423763,Panchayat
+L-5146,P-5146,Karnataka,Bengaluru Urban,CONST-05,Central Block,Gopalpalli,12.83606,77.49534,474842,Rural Village
+L-5147,P-5147,Tamil Nadu,Coimbatore,CONST-23,Hill Block,Shivagaon,10.89311,77.07879,428535,Rural Village
+L-5148,P-5148,Bihar,Gaya,CONST-02,Eastern Block,Shivanagar,24.90442,85.16989,647537,Urban Ward
+L-5149,P-5149,Maharashtra,Nashik,CONST-14,Western Block,Mandipatti,20.14942,73.95588,893147,Urban Ward
+L-5150,P-5150,Karnataka,Mysuru,CONST-06,Southern Block,Velawadi,12.38318,76.54143,206796,Panchayat

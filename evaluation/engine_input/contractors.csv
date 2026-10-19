@@ -1,0 +1,101 @@
+contractor_id,contractor_name,registration_number,contractor_type,district,state,registration_date,active_status,total_projects,total_project_value,contact_reference
+C-501,Hoysala Constructions Pvt Ltd,REG-MH-67095,Pvt Ltd,Pune,Maharashtra,2009-04-18,Inactive,1,8012473.24,CONTACT-C-501
+C-502,Sahyadri Civil Works & Co,REG-UP-80685,Partnership Firm,Lucknow,Uttar Pradesh,2010-10-09,Active,1,1587332.88,CONTACT-C-502
+C-503,Sahyadri Builders Pvt Ltd,REG-WB-77673,Pvt Ltd,Howrah,West Bengal,2009-01-29,Active,5,12736045.66,CONTACT-C-503
+C-504,Sri Associates,REG-TN-44647,Individual Proprietor,Coimbatore,Tamil Nadu,2011-01-09,Active,0,0.00,CONTACT-C-504
+C-505,Chola Civil Works Cooperative,REG-OD-26697,Public Works Cooperative,Cuttack,Odisha,2010-09-09,Active,2,4287940.24,CONTACT-C-505
+C-506,Hoysala Civil Works & Co,REG-UP-24857,Partnership Firm,Varanasi,Uttar Pradesh,2018-07-01,Active,1,1720991.44,CONTACT-C-506
+C-507,Shakti Infrastructure,REG-WB-94101,Individual Proprietor,Darjeeling,West Bengal,2014-08-02,Active,1,1328496.50,CONTACT-C-507
+C-508,Mahanadi Constructions & Co,REG-KA-70174,Partnership Firm,Belagavi,Karnataka,2011-02-06,Active,1,208797.15,CONTACT-C-508
+C-509,Hoysala Builders & Co,REG-BR-54441,Partnership Firm,Gaya,Bihar,2015-04-11,Active,7,10870336.13,CONTACT-C-509
+C-510,Sri Developers Pvt Ltd,REG-TN-50718,Pvt Ltd,Madurai,Tamil Nadu,2017-12-21,Active,1,1892398.51,CONTACT-C-510
+C-511,Konark Constructions & Co,REG-BR-75832,Partnership Firm,Bhagalpur,Bihar,2011-06-14,Active,1,1685459.33,CONTACT-C-511
+C-512,Sahyadri Builders & Co,REG-KL-80234,Partnership Firm,Kozhikode,Kerala,2009-09-05,Active,1,2696342.66,CONTACT-C-512
+C-513,Kaveri Infrastructure & Co,REG-BR-42142,Partnership Firm,Patna,Bihar,2018-06-11,Active,3,8667792.11,CONTACT-C-513
+C-514,Gayatri Infra Cooperative,REG-BR-16895,Public Works Cooperative,Bhagalpur,Bihar,2009-05-23,Inactive,1,2356138.44,CONTACT-C-514
+C-515,Maruti Builders Cooperative,REG-MH-24399,Public Works Cooperative,Nagpur,Maharashtra,2020-10-04,Active,2,5725082.68,CONTACT-C-515
+C-516,Vindhya Constructions Cooperative,REG-WB-95622,Public Works Cooperative,Darjeeling,West Bengal,2019-08-28,Active,1,134052.03,CONTACT-C-516
+C-517,Ganga Infrastructure Pvt Ltd,REG-MP-75959,Pvt Ltd,Gwalior,Madhya Pradesh,2008-05-07,Active,2,2074961.46,CONTACT-C-517
+C-518,Sahyadri Infra Cooperative,REG-OD-53600,Public Works Cooperative,Cuttack,Odisha,2008-12-05,Active,1,1806663.99,CONTACT-C-518
+C-519,Sri Builders & Co,REG-RJ-77152,Partnership Firm,Jodhpur,Rajasthan,2019-12-19,Active,1,2849125.48,CONTACT-C-519
+C-520,Mahanadi Infrastructure Cooperative,REG-TN-62360,Public Works Cooperative,Coimbatore,Tamil Nadu,2017-03-15,Inactive,1,2105882.51,CONTACT-C-520
+C-521,Maurya Developers,REG-UP-49160,Individual Proprietor,Kanpur Nagar,Uttar Pradesh,2018-01-12,Active,2,8622531.60,CONTACT-C-521
+C-522,Himalaya Developers & Co,REG-KA-32239,Partnership Firm,Bengaluru Urban,Karnataka,2011-01-09,Active,1,781651.85,CONTACT-C-522
+C-523,Kaveri Infrastructure Cooperative,REG-OD-71369,Public Works Cooperative,Puri,Odisha,2011-07-15,Active,1,1287795.73,CONTACT-C-523
+C-524,Bharat Civil Works,REG-TN-53296,Individual Proprietor,Madurai,Tamil Nadu,2016-06-22,Active,0,0.00,CONTACT-C-524
+C-525,Mahanadi Developers Cooperative,REG-MH-89454,Public Works Cooperative,Nagpur,Maharashtra,2010-12-30,Active,2,3310684.33,CONTACT-C-525
+C-526,Maurya Civil Works,REG-TN-87150,Individual Proprietor,Chennai,Tamil Nadu,2009-01-22,Active,1,9482563.19,CONTACT-C-526
+C-527,Chola Engineering Works Cooperative,REG-MP-43183,Public Works Cooperative,Bhopal,Madhya Pradesh,2009-10-29,Active,1,1455081.45,CONTACT-C-527
+C-528,Kaveri Engineering Works & Co,REG-KA-27533,Partnership Firm,Bengaluru Urban,Karnataka,2012-09-05,Active,2,2734457.21,CONTACT-C-528
+C-529,Maruti Associates & Co,REG-BR-87812,Partnership Firm,Gaya,Bihar,2014-07-14,Active,1,1811200.25,CONTACT-C-529
+C-530,Himalaya Civil Works & Co,REG-MP-62371,Partnership Firm,Bhopal,Madhya Pradesh,2016-09-03,Active,1,609250.97,CONTACT-C-530
+C-531,Chola Associates Cooperative,REG-RJ-54177,Public Works Cooperative,Jaipur,Rajasthan,2011-07-04,Active,1,3983913.24,CONTACT-C-531
+C-532,Annapurna Infrastructure & Co,REG-BR-32032,Partnership Firm,Patna,Bihar,2019-08-21,Active,1,187808.37,CONTACT-C-532
+C-533,Himalaya Developers Pvt Ltd,REG-UP-85205,Pvt Ltd,Varanasi,Uttar Pradesh,2013-11-13,Active,1,10418639.56,CONTACT-C-533
+C-534,Maruti Engineering Works & Co,REG-MH-58888,Partnership Firm,Nashik,Maharashtra,2013-07-22,Active,2,4681863.50,CONTACT-C-534
+C-535,Kaveri Infra,REG-BR-36548,Individual Proprietor,Bhagalpur,Bihar,2016-12-19,Active,1,220035.88,CONTACT-C-535
+C-536,Sri Developers,REG-MH-89905,Individual Proprietor,Pune,Maharashtra,2015-07-31,Active,1,2885642.09,CONTACT-C-536
+C-537,Rajdhani Engineering Works Pvt Ltd,REG-TN-87746,Pvt Ltd,Madurai,Tamil Nadu,2019-11-24,Active,1,2673688.43,CONTACT-C-537
+C-538,Rajdhani Infra,REG-KA-30335,Individual Proprietor,Bengaluru Urban,Karnataka,2011-08-10,Active,1,4657826.13,CONTACT-C-538
+C-539,Maurya Infrastructure Pvt Ltd,REG-WB-79095,Pvt Ltd,Kolkata,West Bengal,2020-08-03,Active,1,2742981.67,CONTACT-C-539
+C-540,Nilgiri Developers & Co,REG-MP-10534,Partnership Firm,Gwalior,Madhya Pradesh,2017-06-23,Active,1,154576.78,CONTACT-C-540
+C-541,Bharat Builders & Co,REG-KL-10158,Partnership Firm,Kozhikode,Kerala,2014-03-05,Active,1,2840605.04,CONTACT-C-541
+C-542,Annapurna Constructions Pvt Ltd,REG-MH-61166,Pvt Ltd,Pune,Maharashtra,2013-01-15,Active,2,3983483.57,CONTACT-C-542
+C-543,Annapurna Constructions,REG-RJ-20080,Individual Proprietor,Jaipur,Rajasthan,2015-09-24,Active,1,4598596.64,CONTACT-C-543
+C-544,Chola Engineering Works,REG-OD-14579,Individual Proprietor,Puri,Odisha,2016-12-08,Active,0,0.00,CONTACT-C-544
+C-545,Vindhya Developers,REG-TN-18412,Individual Proprietor,Coimbatore,Tamil Nadu,2020-12-14,Active,1,2371971.70,CONTACT-C-545
+C-546,Vindhya Developers & Co,REG-OD-86516,Partnership Firm,Cuttack,Odisha,2019-08-09,Active,1,1831953.51,CONTACT-C-546
+C-547,Sahyadri Engineering Works,REG-TN-94802,Individual Proprietor,Coimbatore,Tamil Nadu,2012-05-11,Active,1,2229969.16,CONTACT-C-547
+C-548,Sri Constructions Pvt Ltd,REG-WB-38199,Pvt Ltd,Kolkata,West Bengal,2016-05-25,Active,1,2490409.71,CONTACT-C-548
+C-549,Rajdhani Builders & Co,REG-KA-42443,Partnership Firm,Bengaluru Urban,Karnataka,2019-12-13,Active,1,1308605.63,CONTACT-C-549
+C-550,Vindhya Constructions & Co,REG-MH-77223,Partnership Firm,Pune,Maharashtra,2013-04-22,Active,3,3181612.41,CONTACT-C-550
+C-551,Maurya Builders Cooperative,REG-UP-97896,Public Works Cooperative,Kanpur Nagar,Uttar Pradesh,2020-04-18,Active,0,0.00,CONTACT-C-551
+C-552,Sahyadri Developers Cooperative,REG-RJ-62307,Public Works Cooperative,Jodhpur,Rajasthan,2015-06-22,Active,1,1508334.35,CONTACT-C-552
+C-553,Ganga Constructions,REG-RJ-40738,Individual Proprietor,Jodhpur,Rajasthan,2009-11-14,Active,1,4006100.75,CONTACT-C-553
+C-554,Nilgiri Engineering Works Cooperative,REG-WB-62898,Public Works Cooperative,Darjeeling,West Bengal,2017-05-07,Active,2,3080645.97,CONTACT-C-554
+C-555,Sri Engineering Works & Co,REG-RJ-10674,Partnership Firm,Jaipur,Rajasthan,2020-01-28,Active,1,5514341.35,CONTACT-C-555
+C-556,Chola Infrastructure Pvt Ltd,REG-MH-41945,Pvt Ltd,Nagpur,Maharashtra,2018-08-22,Active,1,552294.40,CONTACT-C-556
+C-557,Himalaya Infra & Co,REG-MP-57673,Partnership Firm,Gwalior,Madhya Pradesh,2015-11-06,Active,1,2578757.11,CONTACT-C-557
+C-558,Nilgiri Associates & Co,REG-TN-76383,Partnership Firm,Coimbatore,Tamil Nadu,2012-12-06,Active,1,1818926.18,CONTACT-C-558
+C-559,Mahanadi Infra & Co,REG-UP-47768,Partnership Firm,Kanpur Nagar,Uttar Pradesh,2016-06-03,Inactive,1,3567131.81,CONTACT-C-559
+C-560,Mahanadi Constructions Pvt Ltd,REG-TN-40009,Pvt Ltd,Coimbatore,Tamil Nadu,2018-03-21,Active,1,9786400.33,CONTACT-C-560
+C-561,Chola Infrastructure Cooperative,REG-KA-44228,Public Works Cooperative,Mysuru,Karnataka,2017-03-31,Active,1,4074910.24,CONTACT-C-561
+C-562,Bharat Infra Pvt Ltd,REG-TN-53545,Pvt Ltd,Coimbatore,Tamil Nadu,2009-05-31,Active,1,8758652.71,CONTACT-C-562
+C-563,Himalaya Infra,REG-KA-62582,Individual Proprietor,Belagavi,Karnataka,2008-07-01,Inactive,1,171530.82,CONTACT-C-563
+C-564,Maruti Constructions Cooperative,REG-KL-67693,Public Works Cooperative,Thiruvananthapuram,Kerala,2020-07-22,Inactive,1,1407229.41,CONTACT-C-564
+C-565,Chola Builders,REG-WB-65727,Individual Proprietor,Howrah,West Bengal,2018-04-30,Active,3,2033909.77,CONTACT-C-565
+C-566,Kaveri Civil Works Cooperative,REG-UP-83955,Public Works Cooperative,Lucknow,Uttar Pradesh,2019-05-12,Active,1,2211224.22,CONTACT-C-566
+C-567,Mahanadi Builders & Co,REG-MP-88619,Partnership Firm,Bhopal,Madhya Pradesh,2018-01-18,Active,1,4366823.99,CONTACT-C-567
+C-568,Himalaya Engineering Works,REG-WB-53007,Individual Proprietor,Howrah,West Bengal,2019-05-26,Active,1,1523017.13,CONTACT-C-568
+C-569,Konark Developers Pvt Ltd,REG-WB-12095,Pvt Ltd,Howrah,West Bengal,2012-01-21,Active,1,1989761.91,CONTACT-C-569
+C-570,Ganga Builders & Co,REG-MP-30469,Partnership Firm,Indore,Madhya Pradesh,2011-12-05,Active,3,5639628.78,CONTACT-C-570
+C-571,Vindhya Engineering Works Pvt Ltd,REG-KA-79425,Pvt Ltd,Bengaluru Urban,Karnataka,2016-10-19,Active,1,1863585.26,CONTACT-C-571
+C-572,Narmada Engineering Works & Co,REG-TN-35776,Partnership Firm,Coimbatore,Tamil Nadu,2009-06-03,Active,1,767877.93,CONTACT-C-572
+C-573,Maurya Infra Pvt Ltd,REG-OD-18651,Pvt Ltd,Puri,Odisha,2011-12-15,Active,1,570038.55,CONTACT-C-573
+C-574,Pallava Developers Cooperative,REG-TN-37814,Public Works Cooperative,Madurai,Tamil Nadu,2014-09-06,Active,3,6060365.76,CONTACT-C-574
+C-575,Maruti Constructions Pvt Ltd,REG-KA-57178,Pvt Ltd,Mysuru,Karnataka,2019-10-10,Inactive,7,20087319.51,CONTACT-C-575
+C-576,Hoysala Developers Cooperative,REG-BR-45286,Public Works Cooperative,Gaya,Bihar,2010-10-18,Active,1,1633975.23,CONTACT-C-576
+C-577,Kaveri Civil Works Pvt Ltd,REG-BR-82599,Pvt Ltd,Bhagalpur,Bihar,2008-03-30,Active,2,4567633.76,CONTACT-C-577
+C-578,Sri Infrastructure Pvt Ltd,REG-KL-49249,Pvt Ltd,Thiruvananthapuram,Kerala,2020-06-30,Active,1,396368.26,CONTACT-C-578
+C-579,Pallava Builders & Co,REG-KA-49293,Partnership Firm,Belagavi,Karnataka,2011-03-01,Active,7,10562831.41,CONTACT-C-579
+C-580,Gayatri Constructions & Co,REG-TN-44856,Partnership Firm,Madurai,Tamil Nadu,2012-11-03,Active,1,3538707.02,CONTACT-C-580
+C-581,Sahyadri Civil Works,REG-WB-26298,Individual Proprietor,Kolkata,West Bengal,2013-02-02,Active,1,1339203.46,CONTACT-C-581
+C-582,Vindhya Civil Works,REG-MH-71210,Individual Proprietor,Nagpur,Maharashtra,2018-09-16,Active,1,2401986.57,CONTACT-C-582
+C-583,Annapurna Constructions Cooperative,REG-RJ-24269,Public Works Cooperative,Jodhpur,Rajasthan,2013-02-01,Active,1,563212.60,CONTACT-C-583
+C-584,Narmada Developers,REG-WB-81013,Individual Proprietor,Howrah,West Bengal,2019-03-22,Active,1,4128494.14,CONTACT-C-584
+C-585,Pallava Developers Pvt Ltd,REG-KL-53501,Pvt Ltd,Kozhikode,Kerala,2014-03-04,Active,1,567627.72,CONTACT-C-585
+C-586,Bharat Developers Pvt Ltd,REG-KA-69249,Pvt Ltd,Bengaluru Urban,Karnataka,2016-09-25,Active,1,2026596.49,CONTACT-C-586
+C-587,Maurya Engineering Works Cooperative,REG-KA-97625,Public Works Cooperative,Bengaluru Urban,Karnataka,2018-04-14,Active,1,2366274.80,CONTACT-C-587
+C-588,Hoysala Developers,REG-RJ-78234,Individual Proprietor,Udaipur,Rajasthan,2019-08-09,Active,1,1603601.71,CONTACT-C-588
+C-589,Bharat Constructions Cooperative,REG-MH-20919,Public Works Cooperative,Nagpur,Maharashtra,2011-03-26,Active,1,181618.53,CONTACT-C-589
+C-590,Hoysala Civil Works Cooperative,REG-RJ-29858,Public Works Cooperative,Udaipur,Rajasthan,2012-10-08,Active,1,1877150.06,CONTACT-C-590
+C-591,Pallava Associates,REG-MH-72039,Individual Proprietor,Pune,Maharashtra,2010-12-13,Active,3,5459831.89,CONTACT-C-591
+C-592,Himalaya Civil Works Pvt Ltd,REG-WB-47832,Pvt Ltd,Darjeeling,West Bengal,2010-07-28,Active,1,4174837.73,CONTACT-C-592
+C-593,Konark Builders & Co,REG-RJ-56996,Partnership Firm,Jodhpur,Rajasthan,2008-05-16,Active,2,3624391.11,CONTACT-C-593
+C-594,Ganga Infra Cooperative,REG-MP-83053,Public Works Cooperative,Gwalior,Madhya Pradesh,2014-06-01,Active,6,11994690.22,CONTACT-C-594
+C-595,Nilgiri Constructions Cooperative,REG-MP-63699,Public Works Cooperative,Bhopal,Madhya Pradesh,2008-10-01,Active,1,3187386.35,CONTACT-C-595
+C-596,Himalaya Constructions Pvt Ltd,REG-KA-16994,Pvt Ltd,Belagavi,Karnataka,2012-09-29,Active,1,1802782.41,CONTACT-C-596
+C-597,Pallava Builders,REG-BR-42377,Individual Proprietor,Gaya,Bihar,2008-06-08,Active,1,3248814.32,CONTACT-C-597
+C-598,Shakti Builders Cooperative,REG-OD-41566,Public Works Cooperative,Cuttack,Odisha,2011-07-14,Inactive,3,7525563.27,CONTACT-C-598
+C-599,Sahyadri Associates & Co,REG-MH-89148,Partnership Firm,Nagpur,Maharashtra,2016-09-02,Active,3,6555960.41,CONTACT-C-599
+C-600,Shakti Associates & Co,REG-TN-17118,Partnership Firm,Chennai,Tamil Nadu,2018-06-05,Active,1,1466552.30,CONTACT-C-600
