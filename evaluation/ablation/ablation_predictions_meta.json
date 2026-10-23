@@ -1,0 +1,207 @@
+{
+  "stage": "V2.4 ablation predictions (label-free)",
+  "number_of_projects": 150,
+  "rows": 900,
+  "variants": [
+    {
+      "variant": "FULL",
+      "ablated_component": "none",
+      "max_possible_score": 100
+    },
+    {
+      "variant": "NO_COST",
+      "ablated_component": "cost_anomaly",
+      "max_possible_score": 75
+    },
+    {
+      "variant": "NO_SIMILARITY",
+      "ablated_component": "project_similarity",
+      "max_possible_score": 75
+    },
+    {
+      "variant": "NO_CONTRACTOR",
+      "ablated_component": "contractor_pattern",
+      "max_possible_score": 80
+    },
+    {
+      "variant": "NO_BILLING",
+      "ablated_component": "billing_anomaly",
+      "max_possible_score": 80
+    },
+    {
+      "variant": "NO_GEOGRAPHIC",
+      "ablated_component": "geographic_signal",
+      "max_possible_score": 90
+    }
+  ],
+  "v1_scoring_formula": {
+    "raw_total": "cost.score + similarity.score + contractor.score + billing.score + geographic.score",
+    "risk_score": "round(min(100.0, raw_total), 1)",
+    "risk_level": "CRITICAL if score >= 80; HIGH if >= 60; MEDIUM if >= 30; else LOW"
+  },
+  "component_caps": {
+    "cost_anomaly": 25,
+    "project_similarity": 25,
+    "contractor_pattern": 20,
+    "billing_anomaly": 20,
+    "geographic_signal": 10
+  },
+  "component_order_in_sum": [
+    "cost_anomaly",
+    "project_similarity",
+    "contractor_pattern",
+    "billing_anomaly",
+    "geographic_signal"
+  ],
+  "ablation_definition": "the ablated component is set to 0.0 and V1's aggregation expression is re-applied unchanged; remaining components keep their original values and caps; nothing is rescaled",
+  "rank_definition": "ablation_score descending, project_id ascending for ties; 1 = highest",
+  "risk_level_boundaries": "unchanged V1 boundaries 30/60/80 for every variant",
+  "inputs_read": [
+    "evaluation_predictions.csv (frozen V1 reference: project_id, five component scores, risk_score)"
+  ],
+  "inputs_never_read_in_this_stage": [
+    "evaluation_labels.csv",
+    "engine_input/anomaly_signals.csv",
+    "engine_input/* (dataset)"
+  ],
+  "input_hashes": {
+    "evaluation_predictions.csv": "bee17325fa5a409167f39352ab4e34f2b38c510783b5fa51480ee5c97d758615",
+    "engine_input": {
+      "engine_input/anomaly_signals.csv": "93d4a8e69f8860a4175951130e7bd3b4157739a4c1cff2f4a291db223e39f395",
+      "engine_input/bills.csv": "a3d2ae09f3ac1fa589c1ae3158eb01b2b7193550acc45224d558cb5d1e646387",
+      "engine_input/contractors.csv": "e193f677c338432008d5cd63b8258f571701f4a27fd7b0fdd6c4436e33d4dc2e",
+      "engine_input/historical_projects.csv": "623027ff47eff67e5ffe8a5821e7faf0959039829a44449ae5ec6f2abc3d9160",
+      "engine_input/locations.csv": "cf46006ece82184595773083b2940f7cd74cead8b0339a6a54d367d19d529296",
+      "engine_input/payments.csv": "fef83c0ee81830534b16106bc5fd7618f5ffb02b136349f7578b3e324c60891a",
+      "engine_input/project_contractors.csv": "c688f831d869a56f2ee9e9a341a2ab2d5990bdcf88acb3c825e317564ae673c8",
+      "engine_input/projects.csv": "f6c8d300e4ca97321d749c444d188250ee17420e7c007ab323fefdacdf2b7e6f"
+    }
+  },
+  "environment": {
+    "python": "3.13.0",
+    "numpy": "2.5.0",
+    "pandas": "3.0.3",
+    "scikit_learn": "1.9.0"
+  },
+  "frozen_manifest": {
+    "v1_intelligence_source": {
+      "intelligence/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "intelligence/billing_analysis.py": "98eab4d69d203e46f3936dbb058793464c12b0bdc205164528a2a35137cc7c26",
+      "intelligence/contractor_analysis.py": "bca0544e7de86149f97207f63d8849f07c72a33f19a9cd84a54b6b64e81ef8ad",
+      "intelligence/cost_anomaly.py": "d818fe4567bb227800a4420606e8a3dff8ea7e92d94ab5614173d3db5c254617",
+      "intelligence/data_loader.py": "a2aa261de690d226274ec6aa3519b6afed930c296e60d5793bcc937015fbc990",
+      "intelligence/geographic_analysis.py": "4688d19ad95d876df26119c43bb2540c9a6fd0f3fcdbf6b4621cc65ee565b015",
+      "intelligence/geographic_intelligence.py": "a4bbcf8a74fdf5da1e9d5a1228db33fe8aee2d431f0f38b455947072ec8fe726",
+      "intelligence/main.py": "7a9379705becf6ed746ddc677b37bfaadff75d64d6b21cf1f8ea9ec587053116",
+      "intelligence/project_similarity.py": "e709d58b89592d4f5f92e8c021b131b5b20c313829b304fbed796cdd92233715",
+      "intelligence/relationship_analysis.py": "27e8217849ff583c271c2df38e11e853bad05d7f0d79cace1e2d13db418b25b4",
+      "intelligence/risk_engine.py": "c42a05ac39ec7700cd2f841a3d00c86ef5de2262952c341e02f568c4921fc647",
+      "intelligence/stage5a_main.py": "f8024c03efd73f665213ae6eb73859094f31882fa524bee37e61109713ea2f52"
+    },
+    "v1_backend_and_frontend_source": {
+      "backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/app/api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/app/api/dependencies.py": "656d4d3e95f80b07c6728985dbdbc3e273d9189c69096e6207c88dcdb7406c8b",
+      "backend/app/api/routes/__init__.py": "86256d42203c6a22757bb9d571e1f7e9ec75b800ceb7612d084a47bb470f3f8f",
+      "backend/app/api/routes/contractors.py": "a715146c6be6a2e8057879e500ecbea009466e14e46e65c54dfba47af6414134",
+      "backend/app/api/routes/dashboard.py": "00f83e752702f0e4bafcf4b477f331e6fa2eebbf1b378985b53f070588bdb6b2",
+      "backend/app/api/routes/geography.py": "cd463363ee5dcc5df516f11bd823ef8a4b072b813c35e3a64251b006770e17fb",
+      "backend/app/api/routes/investigation_queue.py": "4c6a50544a8b544e2630f254c3b6ca0fe5c516c9e5180a8bbd246d29d53110c9",
+      "backend/app/api/routes/projects.py": "08d35d21c60e062d0a922d906ea9e5120c46c0d260d007b63712322ef4e8a65e",
+      "backend/app/api/routes/risk_results.py": "28d52e87c90be7eb25335e6d397f8a5f4c84aa8935d17b414bc6c9e83b5b630e",
+      "backend/app/api/schemas.py": "97edadd48dc1ff3ff3ecad7d28ed492c55761650499fe8e31cc30f087ff0a722",
+      "backend/app/api/services.py": "271b03461890991180e66759e4a5e8be0559539f1a93c7d3135dfa79a62c7929",
+      "backend/app/auth/__init__.py": "389bc506143b4a9a3621ac2d01f938371388ce3fec732ec033863bb304bdb846",
+      "backend/app/auth/dependencies.py": "8e33e69468a9ce2a5c4a08c7d94ef027456454715c53ac66accc233e4e28c71b",
+      "backend/app/auth/models.py": "13f430f14fa10578309d57c6167ca580d90ebeb301dc06a90e7a186abcc7df79",
+      "backend/app/auth/routes.py": "80ad6762b6db07c8ddfd10578d4005145fbe8a7b540b2d404103725dcd03a0c1",
+      "backend/app/auth/security.py": "dc30102b7585bbfeb7231b7c10c5616d3a91347cc2259ad0d6ac208837b34fb4",
+      "backend/app/auth/seed.py": "d3a796f318a7987bd9a8cd6e4c3bd40488a2a416e30672a018dcc08d3989d664",
+      "backend/app/config.py": "564013ee71d490d9ed544228299a5964e3c73766d7f6053cf1c6fa46d136c9c7",
+      "backend/app/db/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/app/db/database.py": "a843e3dfc0c349c4cac13f0d13861465d1a10e0efa809c0de48d66589db2ba34",
+      "backend/app/db/models.py": "14100a81b69989cb2acf9ccdf95696340585255119e071c7a0dee564f241a09d",
+      "backend/app/ingestion/__init__.py": "8a075575c4335ab27dc884505ac867bcfcb62a33274c6a386d8f5faad5e4b935",
+      "backend/app/ingestion/__main__.py": "c53f056bec9faaade53bad7d8e31ae9624ae0ba9140c0cf367eacf2bc1665f91",
+      "backend/app/ingestion/csv_ingestion.py": "ab1bda4cab0b64e8cb852665ce7f06ceef170d2ca6b7f250b4ce0885b2810e09",
+      "backend/app/intelligence/__init__.py": "8dc26afac85de3daabe3e0458f3494a2a1bcca3e2201504acfeb0d8682588d11",
+      "backend/app/intelligence/db_data_loader.py": "b7a835c3f84e949299786a0ea4806e7eab255a9c94ec00021a517f518bee25c2",
+      "backend/app/main.py": "cc44c802734cac73d6b31ff5e504785d9d8b6d511083be8725978ce51463c66c",
+      "src/App.tsx": "2ec47555ad662ea6cd6a515c316acd64446fa7dcdd8d8e070feb479136177c3a",
+      "src/api/client.ts": "00f658de40d741c9492ac03b42873e279ad42dc210fde47ecc93d71f7218ce61",
+      "src/api/types.ts": "68cfaaa0c59520c5e9449f21008b6e699e5adfff556177e607a4f1ea5f55f2ad",
+      "src/api/useApiData.ts": "423490e74e960d4eb67f278e743f31b9ca11f84812ef6573acdd310bc10989e9",
+      "src/auth/AuthContext.tsx": "c2bcad607457d41841b5c6abf69e7a450e8d77ef5020f7e5daf2b07030e7a5a1",
+      "src/auth/permissions.ts": "aa1c0a421588951ab306a4d1bc824c95de4da53e369e18b9fe4024c65c89440b",
+      "src/components/ApiState.tsx": "f92dd9bfc380a0e97010b56bb56d53eac98737f5f6556159382a57032a48a6f2",
+      "src/components/Layout.tsx": "c1d096629e10d32294a0ac472257c1597e3291e3e56e18963db7d3fbfb48f1a0",
+      "src/data/access.ts": "bb42c83e175c0c08c1e4520137292b643bfdce2412f308f63b3df47fba244538",
+      "src/data/contractorNetwork.ts": "7ccd626cf2ef00a25d34cbebf0f8e61091a3fd0d734ba8154735ff1883f4fe75",
+      "src/data/generated/anomalySignals.ts": "5ecb3a73344d2d0fe14e73e6a70c791038a7a7030d059ed944313e54142f4b2c",
+      "src/data/generated/bills.ts": "ffa83b1788c56a124af0663181272233f5a2fe0c3103928020cea6bef1c3ca83",
+      "src/data/generated/contractorNetwork.ts": "6d2269135d1fb508ec5ff760cb3751f8cb1912d246fc18e68adf6be47274b483",
+      "src/data/generated/contractors.ts": "15559f37a63c4a761a9b394d39c0e5c5c6c16d4134e83a239ca27be890495ae4",
+      "src/data/generated/geographicResults.ts": "1de1a5accf4ca2c754522257d2d6440e991abbe81bae69a828b79fa365ddb35e",
+      "src/data/generated/historicalProjects.ts": "19b5136cb4e316eded42aa6c9f6fa27419ee3a711c8c496ab8b308794d6db06f",
+      "src/data/generated/locations.ts": "f98e32da52211811ef60e1c0ccea900437c397dffdc2bdb5694b0fc5703190ea",
+      "src/data/generated/payments.ts": "e822b38406278b985d73172edf45f7ba262f6261383265cb94cab4280e46b1e7",
+      "src/data/generated/projectContractors.ts": "a66964fb1f4c262d36f28a60141fc81b1e707a2222ed2f81547b9f514989e439",
+      "src/data/generated/projectRelationships.ts": "67c44e447f211d9854a0743726092090312153dca2bfc6536d3ad95dcb45d961",
+      "src/data/generated/projects.ts": "4c4dd6a5c63af5d3a8d9f6b97ae45e3de9b07d64532335123148ad2af0abbf8e",
+      "src/data/generated/riskResults.ts": "6fc3843272d983cea1f14911c5bf6941a4d89fc0727f42ffc672cb556b33c78d",
+      "src/data/geographicResults.ts": "8f94b4c60aa39e81f99c078e4203d2145b97cd54c8855e0974468060dc4ba8cf",
+      "src/data/projectRelationships.ts": "61cfed83fdf519a1ede45bb848b95283bec7ac8d0ab431f40e3196b32a18d94a",
+      "src/data/riskResults.ts": "d83d8c13a309f2aa38d5d19f00e8675a562d8367adfbc1a53df2b622d6693a20",
+      "src/data/synthetic.ts": "a573743eda3243c0cacb0c0cf4d5c6a76d5595532a4b833703aec90e76cac7ec",
+      "src/data/types.ts": "a21d14a29f64c07ffd8b9bc9b57635343221d3275c07e20ecf5fd32807cae994",
+      "src/imports/pasted_text/pasted-attachment.txt": "8df97da907ea27ccf05422f22569930e40582094347aa9db679a942413555ba5",
+      "src/index.css": "e58d7553ccc93f73c730d3ee82287e3655f0e1e476aafe15928f248b4fad7e83",
+      "src/main.tsx": "5f49dce6e6cc4b5d678cf529ef892af0ab7dfa6afb300b11ad559224019b8b05",
+      "src/pages/ContractorsPage.tsx": "3442aef9ab77bae57e1a5aef09cb1efbcb56fb88414775986abbc1a3160cb2f5",
+      "src/pages/DashboardPage.tsx": "08c0c253cd1713938bd96f64d58820271374a1a6c632e3b05ff6668582966754",
+      "src/pages/GeographicPage.tsx": "a9681ba5c9bb0014d464be441a6c663591dd66ac060997c3ce331c7796adfde6",
+      "src/pages/InvestigationQueuePage.tsx": "087f09ff9aec1600046b26ba08335c5547abd828e1d1fff9bf2d28c2cf0d03aa",
+      "src/pages/LoginPage.tsx": "f9123e1f3e2916cd94155db91615dd53af6ef50ab3f813755952592f022f6587",
+      "src/pages/ProjectInvestigationPage.tsx": "89b4329fc59daffb3ff618fe80fda0e6580b4e2a57000676e63fcfc0c40283a4",
+      "src/pages/ProjectsPage.tsx": "bd4a09ba52f84474b9a358b46326d94847bd2544e4fa7ac3a84de9ba1fcc9f97",
+      "src/pages/ReportsPage.tsx": "e0f9eef3b2d6521c5a6e6736c5afffe36b43295e17a2f3befa4fc979d6036c4b",
+      "src/pages/RiskAnalysisPage.tsx": "51f28490e885e72039710242e3de3a3c7e6f0395452e4c5742f2995f8e61816a",
+      "src/pages/UsersPage.tsx": "2519220fb483925d450565fae0a778a67c5cfcdad6313dcc64ce154b433d9d23",
+      "src/vite-env.d.ts": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    "v2_1_dataset_and_spec": {
+      "evaluation/engine_input/anomaly_signals.csv": "93d4a8e69f8860a4175951130e7bd3b4157739a4c1cff2f4a291db223e39f395",
+      "evaluation/engine_input/bills.csv": "a3d2ae09f3ac1fa589c1ae3158eb01b2b7193550acc45224d558cb5d1e646387",
+      "evaluation/engine_input/contractors.csv": "e193f677c338432008d5cd63b8258f571701f4a27fd7b0fdd6c4436e33d4dc2e",
+      "evaluation/engine_input/historical_projects.csv": "623027ff47eff67e5ffe8a5821e7faf0959039829a44449ae5ec6f2abc3d9160",
+      "evaluation/engine_input/locations.csv": "cf46006ece82184595773083b2940f7cd74cead8b0339a6a54d367d19d529296",
+      "evaluation/engine_input/payments.csv": "fef83c0ee81830534b16106bc5fd7618f5ffb02b136349f7578b3e324c60891a",
+      "evaluation/engine_input/project_contractors.csv": "c688f831d869a56f2ee9e9a341a2ab2d5990bdcf88acb3c825e317564ae673c8",
+      "evaluation/engine_input/projects.csv": "f6c8d300e4ca97321d749c444d188250ee17420e7c007ab323fefdacdf2b7e6f",
+      "evaluation/evaluation_labels.csv": "c6642c357120925661df40d24a6456063c360fe1ab2b6f002e4250de61a149fc",
+      "evaluation/evaluation_metadata.json": "099e5ac49b6c0ff3d8e3a53047709f0aaac20555db71ed4a091280424a26e50d",
+      "evaluation/spec_constants.py": "aa34b0eed022be41b46936815e7b42844556b248c41fff30908c9cf511f3513d",
+      "evaluation/SCENARIO_SPEC.md": "3b6920264ac8552657e8fdb7c2bb14458bb5b86693b1c9bee16fdb29a861ad09",
+      "evaluation/generate_evaluation_data.py": "1f0b706af834b184d27cdde8e576519632cedb722b83a44138e33a78898ac568",
+      "evaluation/run_v1_predictions.py": "ea83ad75ffc46104411bc6e3a6b29f3673538371c9063b01f2a340f37297994e"
+    },
+    "v2_2_metrics_and_reference_outputs": {
+      "evaluation/evaluation_metrics.py": "45cfdbc6ff68aa54fad7cd8f384a58c877693b2ddf31ac2b8806f3f979545e04",
+      "evaluation/evaluation_predictions.csv": "bee17325fa5a409167f39352ab4e34f2b38c510783b5fa51480ee5c97d758615",
+      "evaluation/evaluation_predictions_meta.json": "79dee586fa1afbe6e9b1526330fffe644ed8249bfe5e0ee78938c245b6158ed8",
+      "evaluation/evaluation_report.json": "cc3436b3ef0c21a919da160eca71823c8cfe930b6f0b01982a81f6460e1fcb01",
+      "evaluation/evaluation_report.md": "3b0784e12d7db1fc2d6ef5c8b0dc0d0e6f5ea10c82614410e4d77672af9698a7"
+    },
+    "v2_3_baselines": {
+      "evaluation/baselines/__init__.py": "6227569e980fb6666b4d11182a4b509eee62a14fb5ee0d69964912c21b12ea9e",
+      "evaluation/baselines/cost_baseline.py": "ef3d7fdd9f0ac341cdaee6e2551b6cc6ea0886a4806bdffe2845d2038e44a257",
+      "evaluation/baselines/isolation_forest_baseline.py": "98d68acbe2c94fd6586071715ac5fd3eb9da7601d71435c66730844fc0382589",
+      "evaluation/baselines/run_baselines.py": "f1ff641b1245a0a594d544ef9a2f5c89bb601b53211f2a6695161583eb32b745",
+      "evaluation/baseline_predictions.csv": "a48cf0f00d4db19a045db6791046b95bb522be55054b19b6f557b4b29a02be95",
+      "evaluation/baseline_predictions_meta.json": "c17027fdba39beff744faa0093cfd778c22788267edb3ebbdc1bde0199e131af",
+      "evaluation/baseline_comparison.json": "0ab8a42eaebee2f79b0d78eb0bd4a8ce0b2f8101cd8b760ecfc1c27a1a0dc646",
+      "evaluation/baseline_comparison.md": "6d48d195249e571ea1fb41ddbf3843f2281a2632a31ab45dc66f84f7d2db5914"
+    }
+  },
+  "note": "No timestamp is stored so that repeated runs produce byte-identical files."
+}

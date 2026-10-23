@@ -1,0 +1,2835 @@
+{
+  "dataset": {
+    "projects": 150,
+    "anomalous": 49,
+    "normal": 101,
+    "adversarial_normal": 41,
+    "scenario_counts": {
+      "NORMAL": 60,
+      "ADVERSARIAL_NORMAL": 41,
+      "COST_ANOMALY": 8,
+      "BILLING_ANOMALY": 8,
+      "CONTRACTOR_PATTERN": 9,
+      "SIMILAR_PROJECT": 8,
+      "GEOGRAPHIC_PATTERN": 8,
+      "MULTI_SIGNAL": 8
+    },
+    "same_projects_and_labels_as_v2_2_v2_3": true,
+    "provenance": {
+      "labels_sha256": "c6642c357120925661df40d24a6456063c360fe1ab2b6f002e4250de61a149fc",
+      "labels_match_frozen_hash": true,
+      "predictions_sha256": "bee17325fa5a409167f39352ab4e34f2b38c510783b5fa51480ee5c97d758615",
+      "predictions_made_from_frozen_engine_input": true,
+      "predictions_projects_scored": 150,
+      "frozen_hash_check_at_prediction_time": "passed"
+    }
+  },
+  "v1_scoring_formula": {
+    "raw_total": "cost.score + similarity.score + contractor.score + billing.score + geographic.score",
+    "risk_score": "round(min(100.0, raw_total), 1)",
+    "risk_level": "CRITICAL if score >= 80; HIGH if >= 60; MEDIUM if >= 30; else LOW",
+    "component_caps": {
+      "cost_anomaly": 25,
+      "project_similarity": 25,
+      "contractor_pattern": 20,
+      "billing_anomaly": 20,
+      "geographic_signal": 10
+    },
+    "component_order_in_sum": [
+      "cost_anomaly",
+      "project_similarity",
+      "contractor_pattern",
+      "billing_anomaly",
+      "geographic_signal"
+    ],
+    "weights": "no separate weights: each detector scales itself to its own cap, so the caps are the weights",
+    "full_variant_reproduces_frozen_v1_risk_score": true
+  },
+  "variants": {
+    "FULL": {
+      "ablated_component": "none",
+      "max_possible_score": 100
+    },
+    "NO_COST": {
+      "ablated_component": "cost_anomaly",
+      "max_possible_score": 75
+    },
+    "NO_SIMILARITY": {
+      "ablated_component": "project_similarity",
+      "max_possible_score": 75
+    },
+    "NO_CONTRACTOR": {
+      "ablated_component": "contractor_pattern",
+      "max_possible_score": 80
+    },
+    "NO_BILLING": {
+      "ablated_component": "billing_anomaly",
+      "max_possible_score": 80
+    },
+    "NO_GEOGRAPHIC": {
+      "ablated_component": "geographic_signal",
+      "max_possible_score": 90
+    }
+  },
+  "full_mean_component_scores_by_scenario": {
+    "NORMAL": {
+      "cost_anomaly_score": 0.15,
+      "project_similarity_score": 16.191667,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 0.0,
+      "geographic_signal_score": 0.0
+    },
+    "ADVERSARIAL_NORMAL": {
+      "cost_anomaly_score": 3.026829,
+      "project_similarity_score": 15.053659,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 1.197561,
+      "geographic_signal_score": 0.243902
+    },
+    "COST_ANOMALY": {
+      "cost_anomaly_score": 22.6125,
+      "project_similarity_score": 15.325,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 0.0,
+      "geographic_signal_score": 0.0
+    },
+    "BILLING_ANOMALY": {
+      "cost_anomaly_score": 0.0,
+      "project_similarity_score": 16.3125,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 10.0,
+      "geographic_signal_score": 0.0
+    },
+    "CONTRACTOR_PATTERN": {
+      "cost_anomaly_score": 5.155556,
+      "project_similarity_score": 16.044444,
+      "contractor_pattern_score": 5.111111,
+      "billing_anomaly_score": 0.0,
+      "geographic_signal_score": 0.0
+    },
+    "SIMILAR_PROJECT": {
+      "cost_anomaly_score": 0.2125,
+      "project_similarity_score": 21.65,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 0.0,
+      "geographic_signal_score": 0.0
+    },
+    "GEOGRAPHIC_PATTERN": {
+      "cost_anomaly_score": 0.0,
+      "project_similarity_score": 16.7,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 0.0,
+      "geographic_signal_score": 6.25
+    },
+    "MULTI_SIGNAL": {
+      "cost_anomaly_score": 22.825,
+      "project_similarity_score": 18.075,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 7.5,
+      "geographic_signal_score": 0.0
+    }
+  },
+  "full_mean_component_scores_by_label": {
+    "ANOMALOUS": {
+      "cost_anomaly_score": 8.4,
+      "project_similarity_score": 17.32449,
+      "contractor_pattern_score": 0.938776,
+      "billing_anomaly_score": 2.857143,
+      "geographic_signal_score": 1.020408
+    },
+    "NORMAL": {
+      "cost_anomaly_score": 1.317822,
+      "project_similarity_score": 15.729703,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 0.486139,
+      "geographic_signal_score": 0.09901
+    }
+  },
+  "scenario_carrier_components": {
+    "COST_ANOMALY": [
+      {
+        "component": "cost_anomaly_score",
+        "mean_points_above_normal": 22.4625
+      }
+    ],
+    "BILLING_ANOMALY": [
+      {
+        "component": "billing_anomaly_score",
+        "mean_points_above_normal": 10.0
+      }
+    ],
+    "CONTRACTOR_PATTERN": [
+      {
+        "component": "contractor_pattern_score",
+        "mean_points_above_normal": 5.111111
+      },
+      {
+        "component": "cost_anomaly_score",
+        "mean_points_above_normal": 5.005556
+      }
+    ],
+    "SIMILAR_PROJECT": [
+      {
+        "component": "project_similarity_score",
+        "mean_points_above_normal": 5.458333
+      }
+    ],
+    "GEOGRAPHIC_PATTERN": [
+      {
+        "component": "geographic_signal_score",
+        "mean_points_above_normal": 6.25
+      }
+    ],
+    "MULTI_SIGNAL": [
+      {
+        "component": "cost_anomaly_score",
+        "mean_points_above_normal": 22.675
+      },
+      {
+        "component": "billing_anomaly_score",
+        "mean_points_above_normal": 7.5
+      },
+      {
+        "component": "project_similarity_score",
+        "mean_points_above_normal": 1.883333
+      }
+    ]
+  },
+  "results": {
+    "FULL": {
+      "ablated_component": "none",
+      "ties": {
+        "distinct_scores": 76,
+        "largest_tie_block": 10,
+        "largest_tie_score": 15.1,
+        "tie_straddles_top_20": false,
+        "tie_straddles_top_10": false,
+        "tie_straddles_top_5": true,
+        "precision_at_k_tie_range": {
+          "5": {
+            "p_at_k_if_ties_ordered_worst": 1.0,
+            "p_at_k_if_ties_ordered_best": 1.0,
+            "tied_block_at_cutoff": 2,
+            "tie_sensitive": false
+          },
+          "10": {
+            "p_at_k_if_ties_ordered_worst": 0.9,
+            "p_at_k_if_ties_ordered_best": 0.9,
+            "tied_block_at_cutoff": 1,
+            "tie_sensitive": false
+          },
+          "20": {
+            "p_at_k_if_ties_ordered_worst": 0.85,
+            "p_at_k_if_ties_ordered_best": 0.85,
+            "tied_block_at_cutoff": 1,
+            "tie_sensitive": false
+          }
+        }
+      },
+      "max_possible_score": 100,
+      "average_precision": 0.845326,
+      "trapezoid_auc": 0.843097,
+      "precision_at_k": {
+        "5": {
+          "k": 5,
+          "anomalous_in_top_k": 5,
+          "precision": 1.0,
+          "recall_at_k": 0.102041
+        },
+        "10": {
+          "k": 10,
+          "anomalous_in_top_k": 9,
+          "precision": 0.9,
+          "recall_at_k": 0.183673
+        },
+        "20": {
+          "k": 20,
+          "anomalous_in_top_k": 17,
+          "precision": 0.85,
+          "recall_at_k": 0.346939
+        }
+      },
+      "r_precision": {
+        "k": 49,
+        "anomalous_in_top_k": 39,
+        "precision": 0.795918,
+        "recall_at_k": 0.795918
+      },
+      "thresholds": {
+        "30": {
+          "flagged_total": 21,
+          "anomalous_detected": 18,
+          "normal_flagged": 3,
+          "anomalous_missed": 31,
+          "precision": 0.857143,
+          "recall": 0.367347,
+          "f1": 0.514286
+        },
+        "40": {
+          "flagged_total": 10,
+          "anomalous_detected": 9,
+          "normal_flagged": 1,
+          "anomalous_missed": 40,
+          "precision": 0.9,
+          "recall": 0.183673,
+          "f1": 0.305085
+        }
+      },
+      "adversarial_normal": {
+        "n": 41,
+        "max_score": 45.3,
+        "mean_score": 19.521951,
+        "median_score": 17.1,
+        "in_top_10": 1,
+        "in_top_20": 3,
+        "best_rank": 9,
+        "flagged_at_30": 3,
+        "flagged_at_40": 1,
+        "by_subtype": {
+          "A": {
+            "n": 14,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 18.5
+          },
+          "B": {
+            "n": 9,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 22.1
+          },
+          "C": {
+            "n": 5,
+            "flagged_at_30": 3,
+            "flagged_at_40": 1,
+            "max_score": 45.3
+          },
+          "D": {
+            "n": 5,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 26.2
+          },
+          "E": {
+            "n": 8,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 23.3
+          }
+        }
+      },
+      "scenario_level": {
+        "NORMAL": {
+          "n": 60,
+          "n_anomalous": 0,
+          "mean_score": 16.341667,
+          "max_score": 21.3,
+          "mean_percentile_rank": 0.325111,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "ADVERSARIAL_NORMAL": {
+          "n": 41,
+          "n_anomalous": 0,
+          "mean_score": 19.521951,
+          "max_score": 45.3,
+          "mean_percentile_rank": 0.438455,
+          "flagged_at_30": 3,
+          "rate_at_30": 0.073171,
+          "flagged_at_40": 1,
+          "rate_at_40": 0.02439,
+          "rate_meaning": "false_positive_rate"
+        },
+        "COST_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 37.9375,
+          "max_score": 45.5,
+          "mean_percentile_rank": 0.911667,
+          "flagged_at_30": 7,
+          "rate_at_30": 0.875,
+          "flagged_at_40": 1,
+          "rate_at_40": 0.125,
+          "rate_meaning": "detection_rate"
+        },
+        "BILLING_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 26.3125,
+          "max_score": 28.1,
+          "mean_percentile_rank": 0.79125,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "CONTRACTOR_PATTERN": {
+          "n": 9,
+          "n_anomalous": 9,
+          "mean_score": 26.311111,
+          "max_score": 34.5,
+          "mean_percentile_rank": 0.752593,
+          "flagged_at_30": 3,
+          "rate_at_30": 0.333333,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "SIMILAR_PROJECT": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 21.8625,
+          "max_score": 23.5,
+          "mean_percentile_rank": 0.663333,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "GEOGRAPHIC_PATTERN": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 22.95,
+          "max_score": 28.6,
+          "mean_percentile_rank": 0.565,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "MULTI_SIGNAL": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 48.4,
+          "max_score": 55.5,
+          "mean_percentile_rank": 0.974167,
+          "flagged_at_30": 8,
+          "rate_at_30": 1.0,
+          "flagged_at_40": 8,
+          "rate_at_40": 1.0,
+          "rate_meaning": "detection_rate"
+        }
+      },
+      "score_distribution": {
+        "min": 11.8,
+        "median": 17.65,
+        "mean": 21.849333,
+        "max": 55.5
+      },
+      "top_20": [
+        {
+          "rank": 1,
+          "project_id": "P-5062",
+          "risk_score": 55.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 2,
+          "project_id": "P-5044",
+          "risk_score": 50.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 3,
+          "project_id": "P-5135",
+          "risk_score": 49.8,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 4,
+          "project_id": "P-5035",
+          "risk_score": 49.6,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 5,
+          "project_id": "P-5066",
+          "risk_score": 47.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 6,
+          "project_id": "P-5116",
+          "risk_score": 47.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 7,
+          "project_id": "P-5131",
+          "risk_score": 45.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 8,
+          "project_id": "P-5106",
+          "risk_score": 45.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 9,
+          "project_id": "P-5040",
+          "risk_score": 45.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 10,
+          "project_id": "P-5005",
+          "risk_score": 42.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 11,
+          "project_id": "P-5114",
+          "risk_score": 39.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 12,
+          "project_id": "P-5070",
+          "risk_score": 38.9,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 13,
+          "project_id": "P-5060",
+          "risk_score": 38.8,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 14,
+          "project_id": "P-5145",
+          "risk_score": 38.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 15,
+          "project_id": "P-5010",
+          "risk_score": 38.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 16,
+          "project_id": "P-5041",
+          "risk_score": 37.2,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 17,
+          "project_id": "P-5081",
+          "risk_score": 37.2,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 18,
+          "project_id": "P-5048",
+          "risk_score": 36.9,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 19,
+          "project_id": "P-5031",
+          "risk_score": 34.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "CONTRACTOR_PATTERN"
+        },
+        {
+          "rank": 20,
+          "project_id": "P-5100",
+          "risk_score": 33.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "CONTRACTOR_PATTERN"
+        }
+      ],
+      "spearman_with_full": 1.0,
+      "top10_overlap_with_full": 10,
+      "top20_overlap_with_full": 20
+    },
+    "NO_COST": {
+      "ablated_component": "cost_anomaly",
+      "ties": {
+        "distinct_scores": 62,
+        "largest_tie_block": 12,
+        "largest_tie_score": 15.1,
+        "tie_straddles_top_20": false,
+        "tie_straddles_top_10": true,
+        "tie_straddles_top_5": false,
+        "precision_at_k_tie_range": {
+          "5": {
+            "p_at_k_if_ties_ordered_worst": 1.0,
+            "p_at_k_if_ties_ordered_best": 1.0,
+            "tied_block_at_cutoff": 1,
+            "tie_sensitive": false
+          },
+          "10": {
+            "p_at_k_if_ties_ordered_worst": 1.0,
+            "p_at_k_if_ties_ordered_best": 1.0,
+            "tied_block_at_cutoff": 3,
+            "tie_sensitive": false
+          },
+          "20": {
+            "p_at_k_if_ties_ordered_worst": 0.9,
+            "p_at_k_if_ties_ordered_best": 0.9,
+            "tied_block_at_cutoff": 2,
+            "tie_sensitive": false
+          }
+        }
+      },
+      "max_possible_score": 75,
+      "average_precision": 0.787253,
+      "trapezoid_auc": 0.785174,
+      "precision_at_k": {
+        "5": {
+          "k": 5,
+          "anomalous_in_top_k": 5,
+          "precision": 1.0,
+          "recall_at_k": 0.102041
+        },
+        "10": {
+          "k": 10,
+          "anomalous_in_top_k": 10,
+          "precision": 1.0,
+          "recall_at_k": 0.204082
+        },
+        "20": {
+          "k": 20,
+          "anomalous_in_top_k": 18,
+          "precision": 0.9,
+          "recall_at_k": 0.367347
+        }
+      },
+      "r_precision": {
+        "k": 49,
+        "anomalous_in_top_k": 37,
+        "precision": 0.755102,
+        "recall_at_k": 0.755102
+      },
+      "thresholds": {
+        "30": {
+          "flagged_total": 1,
+          "anomalous_detected": 1,
+          "normal_flagged": 0,
+          "anomalous_missed": 48,
+          "precision": 1.0,
+          "recall": 0.020408,
+          "f1": 0.04
+        },
+        "40": {
+          "flagged_total": 0,
+          "anomalous_detected": 0,
+          "normal_flagged": 0,
+          "anomalous_missed": 49,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "adversarial_normal": {
+        "n": 41,
+        "max_score": 26.2,
+        "mean_score": 16.495122,
+        "median_score": 15.8,
+        "in_top_10": 0,
+        "in_top_20": 2,
+        "best_rank": 13,
+        "flagged_at_30": 0,
+        "flagged_at_40": 0,
+        "by_subtype": {
+          "A": {
+            "n": 14,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 18.5
+          },
+          "B": {
+            "n": 9,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 22.1
+          },
+          "C": {
+            "n": 5,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 20.3
+          },
+          "D": {
+            "n": 5,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 26.2
+          },
+          "E": {
+            "n": 8,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 18.5
+          }
+        }
+      },
+      "scenario_level": {
+        "NORMAL": {
+          "n": 60,
+          "n_anomalous": 0,
+          "mean_score": 16.191667,
+          "max_score": 20.3,
+          "mean_percentile_rank": 0.386167,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "ADVERSARIAL_NORMAL": {
+          "n": 41,
+          "n_anomalous": 0,
+          "mean_score": 16.495122,
+          "max_score": 26.2,
+          "mean_percentile_rank": 0.423902,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "COST_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 15.325,
+          "max_score": 20.5,
+          "mean_percentile_rank": 0.2625,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "BILLING_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 26.3125,
+          "max_score": 28.1,
+          "mean_percentile_rank": 0.924583,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "CONTRACTOR_PATTERN": {
+          "n": 9,
+          "n_anomalous": 9,
+          "mean_score": 21.155556,
+          "max_score": 22.0,
+          "mean_percentile_rank": 0.747037,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "SIMILAR_PROJECT": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 21.65,
+          "max_score": 22.8,
+          "mean_percentile_rank": 0.779167,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "GEOGRAPHIC_PATTERN": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 22.95,
+          "max_score": 28.6,
+          "mean_percentile_rank": 0.667083,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "MULTI_SIGNAL": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 25.575,
+          "max_score": 30.5,
+          "mean_percentile_rank": 0.895,
+          "flagged_at_30": 1,
+          "rate_at_30": 0.125,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        }
+      },
+      "score_distribution": {
+        "min": 0.0,
+        "median": 17.1,
+        "mean": 18.218,
+        "max": 30.5
+      },
+      "top_20": [
+        {
+          "rank": 1,
+          "project_id": "P-5062",
+          "risk_score": 30.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 2,
+          "project_id": "P-5035",
+          "risk_score": 29.9,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 3,
+          "project_id": "P-5118",
+          "risk_score": 28.6,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 4,
+          "project_id": "P-5130",
+          "risk_score": 28.6,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 5,
+          "project_id": "P-5034",
+          "risk_score": 28.1,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "BILLING_ANOMALY"
+        },
+        {
+          "rank": 6,
+          "project_id": "P-5136",
+          "risk_score": 27.7,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "BILLING_ANOMALY"
+        },
+        {
+          "rank": 7,
+          "project_id": "P-5061",
+          "risk_score": 27.4,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 8,
+          "project_id": "P-5090",
+          "risk_score": 27.4,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 9,
+          "project_id": "P-5013",
+          "risk_score": 27.1,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "BILLING_ANOMALY"
+        },
+        {
+          "rank": 10,
+          "project_id": "P-5103",
+          "risk_score": 27.1,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 11,
+          "project_id": "P-5124",
+          "risk_score": 27.1,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "BILLING_ANOMALY"
+        },
+        {
+          "rank": 12,
+          "project_id": "P-5052",
+          "risk_score": 26.9,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "BILLING_ANOMALY"
+        },
+        {
+          "rank": 13,
+          "project_id": "P-5024",
+          "risk_score": 26.2,
+          "risk_level": "LOW",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 14,
+          "project_id": "P-5125",
+          "risk_score": 25.8,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "BILLING_ANOMALY"
+        },
+        {
+          "rank": 15,
+          "project_id": "P-5044",
+          "risk_score": 25.3,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 16,
+          "project_id": "P-5095",
+          "risk_score": 25.2,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "BILLING_ANOMALY"
+        },
+        {
+          "rank": 17,
+          "project_id": "P-5005",
+          "risk_score": 25.1,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 18,
+          "project_id": "P-5091",
+          "risk_score": 25.0,
+          "risk_level": "LOW",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 19,
+          "project_id": "P-5106",
+          "risk_score": 24.8,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 20,
+          "project_id": "P-5135",
+          "risk_score": 24.8,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        }
+      ],
+      "spearman_with_full": 0.704841,
+      "top10_overlap_with_full": 2,
+      "top20_overlap_with_full": 6
+    },
+    "NO_SIMILARITY": {
+      "ablated_component": "project_similarity",
+      "ties": {
+        "distinct_scores": 38,
+        "largest_tie_block": 88,
+        "largest_tie_score": 0.0,
+        "tie_straddles_top_20": false,
+        "tie_straddles_top_10": true,
+        "tie_straddles_top_5": false,
+        "precision_at_k_tie_range": {
+          "5": {
+            "p_at_k_if_ties_ordered_worst": 0.8,
+            "p_at_k_if_ties_ordered_best": 0.8,
+            "tied_block_at_cutoff": 1,
+            "tie_sensitive": false
+          },
+          "10": {
+            "p_at_k_if_ties_ordered_worst": 0.6,
+            "p_at_k_if_ties_ordered_best": 0.9,
+            "tied_block_at_cutoff": 9,
+            "tie_sensitive": true
+          },
+          "20": {
+            "p_at_k_if_ties_ordered_worst": 0.8,
+            "p_at_k_if_ties_ordered_best": 0.8,
+            "tied_block_at_cutoff": 1,
+            "tie_sensitive": false
+          }
+        }
+      },
+      "max_possible_score": 75,
+      "average_precision": 0.735389,
+      "trapezoid_auc": 0.757279,
+      "precision_at_k": {
+        "5": {
+          "k": 5,
+          "anomalous_in_top_k": 4,
+          "precision": 0.8,
+          "recall_at_k": 0.081633
+        },
+        "10": {
+          "k": 10,
+          "anomalous_in_top_k": 6,
+          "precision": 0.6,
+          "recall_at_k": 0.122449
+        },
+        "20": {
+          "k": 20,
+          "anomalous_in_top_k": 16,
+          "precision": 0.8,
+          "recall_at_k": 0.326531
+        }
+      },
+      "r_precision": {
+        "k": 49,
+        "anomalous_in_top_k": 37,
+        "precision": 0.755102,
+        "recall_at_k": 0.755102
+      },
+      "thresholds": {
+        "30": {
+          "flagged_total": 5,
+          "anomalous_detected": 4,
+          "normal_flagged": 1,
+          "anomalous_missed": 45,
+          "precision": 0.8,
+          "recall": 0.081633,
+          "f1": 0.148148
+        },
+        "40": {
+          "flagged_total": 0,
+          "anomalous_detected": 0,
+          "normal_flagged": 0,
+          "anomalous_missed": 49,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "adversarial_normal": {
+        "n": 41,
+        "max_score": 32.2,
+        "mean_score": 4.468293,
+        "median_score": 0.0,
+        "in_top_10": 4,
+        "in_top_20": 4,
+        "best_rank": 4,
+        "flagged_at_30": 1,
+        "flagged_at_40": 0,
+        "by_subtype": {
+          "A": {
+            "n": 14,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 0.0
+          },
+          "B": {
+            "n": 9,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 5.0
+          },
+          "C": {
+            "n": 5,
+            "flagged_at_30": 1,
+            "flagged_at_40": 0,
+            "max_score": 32.2
+          },
+          "D": {
+            "n": 5,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 9.6
+          },
+          "E": {
+            "n": 8,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 8.1
+          }
+        }
+      },
+      "scenario_level": {
+        "NORMAL": {
+          "n": 60,
+          "n_anomalous": 0,
+          "mean_score": 0.15,
+          "max_score": 3.4,
+          "mean_percentile_rank": 0.3355,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "ADVERSARIAL_NORMAL": {
+          "n": 41,
+          "n_anomalous": 0,
+          "mean_score": 4.468293,
+          "max_score": 32.2,
+          "mean_percentile_rank": 0.464228,
+          "flagged_at_30": 1,
+          "rate_at_30": 0.02439,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "COST_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 22.6125,
+          "max_score": 25.0,
+          "mean_percentile_rank": 0.901667,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "BILLING_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 10.0,
+          "max_score": 10.0,
+          "mean_percentile_rank": 0.8,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "CONTRACTOR_PATTERN": {
+          "n": 9,
+          "n_anomalous": 9,
+          "mean_score": 10.266667,
+          "max_score": 19.4,
+          "mean_percentile_rank": 0.754444,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "SIMILAR_PROJECT": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 0.2125,
+          "max_score": 0.7,
+          "mean_percentile_rank": 0.41375,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "GEOGRAPHIC_PATTERN": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 6.25,
+          "max_score": 10.0,
+          "mean_percentile_rank": 0.61125,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "MULTI_SIGNAL": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 30.325,
+          "max_score": 35.0,
+          "mean_percentile_rank": 0.966667,
+          "flagged_at_30": 4,
+          "rate_at_30": 0.5,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        }
+      },
+      "score_distribution": {
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 5.598667,
+        "max": 35.0
+      },
+      "top_20": [
+        {
+          "rank": 1,
+          "project_id": "P-5044",
+          "risk_score": 35.0,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 2,
+          "project_id": "P-5062",
+          "risk_score": 35.0,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 3,
+          "project_id": "P-5135",
+          "risk_score": 35.0,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 4,
+          "project_id": "P-5040",
+          "risk_score": 32.2,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 5,
+          "project_id": "P-5106",
+          "risk_score": 30.6,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 6,
+          "project_id": "P-5035",
+          "risk_score": 29.7,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 7,
+          "project_id": "P-5005",
+          "risk_score": 27.3,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 8,
+          "project_id": "P-5010",
+          "risk_score": 25.0,
+          "risk_level": "LOW",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 9,
+          "project_id": "P-5043",
+          "risk_score": 25.0,
+          "risk_level": "LOW",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 10,
+          "project_id": "P-5048",
+          "risk_score": 25.0,
+          "risk_level": "LOW",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 11,
+          "project_id": "P-5066",
+          "risk_score": 25.0,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 12,
+          "project_id": "P-5081",
+          "risk_score": 25.0,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 13,
+          "project_id": "P-5114",
+          "risk_score": 25.0,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 14,
+          "project_id": "P-5116",
+          "risk_score": 25.0,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 15,
+          "project_id": "P-5131",
+          "risk_score": 25.0,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 16,
+          "project_id": "P-5145",
+          "risk_score": 25.0,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 17,
+          "project_id": "P-5041",
+          "risk_score": 24.6,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 18,
+          "project_id": "P-5060",
+          "risk_score": 24.2,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 19,
+          "project_id": "P-5031",
+          "risk_score": 19.4,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "CONTRACTOR_PATTERN"
+        },
+        {
+          "rank": 20,
+          "project_id": "P-5070",
+          "risk_score": 19.0,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        }
+      ],
+      "spearman_with_full": 0.814827,
+      "top10_overlap_with_full": 7,
+      "top20_overlap_with_full": 19
+    },
+    "NO_CONTRACTOR": {
+      "ablated_component": "contractor_pattern",
+      "ties": {
+        "distinct_scores": 74,
+        "largest_tie_block": 10,
+        "largest_tie_score": 15.1,
+        "tie_straddles_top_20": false,
+        "tie_straddles_top_10": false,
+        "tie_straddles_top_5": true,
+        "precision_at_k_tie_range": {
+          "5": {
+            "p_at_k_if_ties_ordered_worst": 1.0,
+            "p_at_k_if_ties_ordered_best": 1.0,
+            "tied_block_at_cutoff": 2,
+            "tie_sensitive": false
+          },
+          "10": {
+            "p_at_k_if_ties_ordered_worst": 0.9,
+            "p_at_k_if_ties_ordered_best": 0.9,
+            "tied_block_at_cutoff": 1,
+            "tie_sensitive": false
+          },
+          "20": {
+            "p_at_k_if_ties_ordered_worst": 0.85,
+            "p_at_k_if_ties_ordered_best": 0.85,
+            "tied_block_at_cutoff": 2,
+            "tie_sensitive": false
+          }
+        }
+      },
+      "max_possible_score": 80,
+      "average_precision": 0.818501,
+      "trapezoid_auc": 0.816427,
+      "precision_at_k": {
+        "5": {
+          "k": 5,
+          "anomalous_in_top_k": 5,
+          "precision": 1.0,
+          "recall_at_k": 0.102041
+        },
+        "10": {
+          "k": 10,
+          "anomalous_in_top_k": 9,
+          "precision": 0.9,
+          "recall_at_k": 0.183673
+        },
+        "20": {
+          "k": 20,
+          "anomalous_in_top_k": 17,
+          "precision": 0.85,
+          "recall_at_k": 0.346939
+        }
+      },
+      "r_precision": {
+        "k": 49,
+        "anomalous_in_top_k": 38,
+        "precision": 0.77551,
+        "recall_at_k": 0.77551
+      },
+      "thresholds": {
+        "30": {
+          "flagged_total": 18,
+          "anomalous_detected": 15,
+          "normal_flagged": 3,
+          "anomalous_missed": 34,
+          "precision": 0.833333,
+          "recall": 0.306122,
+          "f1": 0.447761
+        },
+        "40": {
+          "flagged_total": 10,
+          "anomalous_detected": 9,
+          "normal_flagged": 1,
+          "anomalous_missed": 40,
+          "precision": 0.9,
+          "recall": 0.183673,
+          "f1": 0.305085
+        }
+      },
+      "adversarial_normal": {
+        "n": 41,
+        "max_score": 45.3,
+        "mean_score": 19.521951,
+        "median_score": 17.1,
+        "in_top_10": 1,
+        "in_top_20": 3,
+        "best_rank": 9,
+        "flagged_at_30": 3,
+        "flagged_at_40": 1,
+        "by_subtype": {
+          "A": {
+            "n": 14,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 18.5
+          },
+          "B": {
+            "n": 9,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 22.1
+          },
+          "C": {
+            "n": 5,
+            "flagged_at_30": 3,
+            "flagged_at_40": 1,
+            "max_score": 45.3
+          },
+          "D": {
+            "n": 5,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 26.2
+          },
+          "E": {
+            "n": 8,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 23.3
+          }
+        }
+      },
+      "scenario_level": {
+        "NORMAL": {
+          "n": 60,
+          "n_anomalous": 0,
+          "mean_score": 16.341667,
+          "max_score": 21.3,
+          "mean_percentile_rank": 0.334278,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "ADVERSARIAL_NORMAL": {
+          "n": 41,
+          "n_anomalous": 0,
+          "mean_score": 19.521951,
+          "max_score": 45.3,
+          "mean_percentile_rank": 0.448211,
+          "flagged_at_30": 3,
+          "rate_at_30": 0.073171,
+          "flagged_at_40": 1,
+          "rate_at_40": 0.02439,
+          "rate_meaning": "false_positive_rate"
+        },
+        "COST_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 37.9375,
+          "max_score": 45.5,
+          "mean_percentile_rank": 0.913333,
+          "flagged_at_30": 7,
+          "rate_at_30": 0.875,
+          "flagged_at_40": 1,
+          "rate_at_40": 0.125,
+          "rate_meaning": "detection_rate"
+        },
+        "BILLING_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 26.3125,
+          "max_score": 28.1,
+          "mean_percentile_rank": 0.800417,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "CONTRACTOR_PATTERN": {
+          "n": 9,
+          "n_anomalous": 9,
+          "mean_score": 21.2,
+          "max_score": 28.5,
+          "mean_percentile_rank": 0.608889,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "SIMILAR_PROJECT": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 21.8625,
+          "max_score": 23.5,
+          "mean_percentile_rank": 0.685,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "GEOGRAPHIC_PATTERN": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 22.95,
+          "max_score": 28.6,
+          "mean_percentile_rank": 0.575417,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "MULTI_SIGNAL": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 48.4,
+          "max_score": 55.5,
+          "mean_percentile_rank": 0.974167,
+          "flagged_at_30": 8,
+          "rate_at_30": 1.0,
+          "flagged_at_40": 8,
+          "rate_at_40": 1.0,
+          "rate_meaning": "detection_rate"
+        }
+      },
+      "score_distribution": {
+        "min": 11.8,
+        "median": 17.55,
+        "mean": 21.542667,
+        "max": 55.5
+      },
+      "top_20": [
+        {
+          "rank": 1,
+          "project_id": "P-5062",
+          "risk_score": 55.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 2,
+          "project_id": "P-5044",
+          "risk_score": 50.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 3,
+          "project_id": "P-5135",
+          "risk_score": 49.8,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 4,
+          "project_id": "P-5035",
+          "risk_score": 49.6,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 5,
+          "project_id": "P-5066",
+          "risk_score": 47.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 6,
+          "project_id": "P-5116",
+          "risk_score": 47.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 7,
+          "project_id": "P-5131",
+          "risk_score": 45.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 8,
+          "project_id": "P-5106",
+          "risk_score": 45.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 9,
+          "project_id": "P-5040",
+          "risk_score": 45.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 10,
+          "project_id": "P-5005",
+          "risk_score": 42.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 11,
+          "project_id": "P-5114",
+          "risk_score": 39.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 12,
+          "project_id": "P-5070",
+          "risk_score": 38.9,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 13,
+          "project_id": "P-5060",
+          "risk_score": 38.8,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 14,
+          "project_id": "P-5145",
+          "risk_score": 38.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 15,
+          "project_id": "P-5010",
+          "risk_score": 38.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 16,
+          "project_id": "P-5041",
+          "risk_score": 37.2,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 17,
+          "project_id": "P-5081",
+          "risk_score": 37.2,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 18,
+          "project_id": "P-5048",
+          "risk_score": 36.9,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 19,
+          "project_id": "P-5118",
+          "risk_score": 28.6,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 20,
+          "project_id": "P-5130",
+          "risk_score": 28.6,
+          "risk_level": "LOW",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        }
+      ],
+      "spearman_with_full": 0.983502,
+      "top10_overlap_with_full": 10,
+      "top20_overlap_with_full": 18
+    },
+    "NO_BILLING": {
+      "ablated_component": "billing_anomaly",
+      "ties": {
+        "distinct_scores": 68,
+        "largest_tie_block": 10,
+        "largest_tie_score": 17.1,
+        "tie_straddles_top_20": false,
+        "tie_straddles_top_10": false,
+        "tie_straddles_top_5": false,
+        "precision_at_k_tie_range": {
+          "5": {
+            "p_at_k_if_ties_ordered_worst": 1.0,
+            "p_at_k_if_ties_ordered_best": 1.0,
+            "tied_block_at_cutoff": 1,
+            "tie_sensitive": false
+          },
+          "10": {
+            "p_at_k_if_ties_ordered_worst": 1.0,
+            "p_at_k_if_ties_ordered_best": 1.0,
+            "tied_block_at_cutoff": 1,
+            "tie_sensitive": false
+          },
+          "20": {
+            "p_at_k_if_ties_ordered_worst": 0.85,
+            "p_at_k_if_ties_ordered_best": 0.85,
+            "tied_block_at_cutoff": 1,
+            "tie_sensitive": false
+          }
+        }
+      },
+      "max_possible_score": 80,
+      "average_precision": 0.79473,
+      "trapezoid_auc": 0.794094,
+      "precision_at_k": {
+        "5": {
+          "k": 5,
+          "anomalous_in_top_k": 5,
+          "precision": 1.0,
+          "recall_at_k": 0.102041
+        },
+        "10": {
+          "k": 10,
+          "anomalous_in_top_k": 10,
+          "precision": 1.0,
+          "recall_at_k": 0.204082
+        },
+        "20": {
+          "k": 20,
+          "anomalous_in_top_k": 17,
+          "precision": 0.85,
+          "recall_at_k": 0.346939
+        }
+      },
+      "r_precision": {
+        "k": 49,
+        "anomalous_in_top_k": 37,
+        "precision": 0.755102,
+        "recall_at_k": 0.755102
+      },
+      "thresholds": {
+        "30": {
+          "flagged_total": 21,
+          "anomalous_detected": 18,
+          "normal_flagged": 3,
+          "anomalous_missed": 31,
+          "precision": 0.857143,
+          "recall": 0.367347,
+          "f1": 0.514286
+        },
+        "40": {
+          "flagged_total": 5,
+          "anomalous_detected": 5,
+          "normal_flagged": 0,
+          "anomalous_missed": 44,
+          "precision": 1.0,
+          "recall": 0.102041,
+          "f1": 0.185185
+        }
+      },
+      "adversarial_normal": {
+        "n": 41,
+        "max_score": 38.1,
+        "mean_score": 18.32439,
+        "median_score": 16.1,
+        "in_top_10": 0,
+        "in_top_20": 3,
+        "best_rank": 12,
+        "flagged_at_30": 3,
+        "flagged_at_40": 0,
+        "by_subtype": {
+          "A": {
+            "n": 14,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 18.5
+          },
+          "B": {
+            "n": 9,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 22.1
+          },
+          "C": {
+            "n": 5,
+            "flagged_at_30": 3,
+            "flagged_at_40": 0,
+            "max_score": 38.1
+          },
+          "D": {
+            "n": 5,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 18.6
+          },
+          "E": {
+            "n": 8,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 23.3
+          }
+        }
+      },
+      "scenario_level": {
+        "NORMAL": {
+          "n": 60,
+          "n_anomalous": 0,
+          "mean_score": 16.341667,
+          "max_score": 21.3,
+          "mean_percentile_rank": 0.3695,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "ADVERSARIAL_NORMAL": {
+          "n": 41,
+          "n_anomalous": 0,
+          "mean_score": 18.32439,
+          "max_score": 38.1,
+          "mean_percentile_rank": 0.422358,
+          "flagged_at_30": 3,
+          "rate_at_30": 0.073171,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "COST_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 37.9375,
+          "max_score": 45.5,
+          "mean_percentile_rank": 0.927917,
+          "flagged_at_30": 7,
+          "rate_at_30": 0.875,
+          "flagged_at_40": 1,
+          "rate_at_40": 0.125,
+          "rate_meaning": "detection_rate"
+        },
+        "BILLING_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 16.3125,
+          "max_score": 18.1,
+          "mean_percentile_rank": 0.392917,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "CONTRACTOR_PATTERN": {
+          "n": 9,
+          "n_anomalous": 9,
+          "mean_score": 26.311111,
+          "max_score": 34.5,
+          "mean_percentile_rank": 0.803704,
+          "flagged_at_30": 3,
+          "rate_at_30": 0.333333,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "SIMILAR_PROJECT": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 21.8625,
+          "max_score": 23.5,
+          "mean_percentile_rank": 0.745833,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "GEOGRAPHIC_PATTERN": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 22.95,
+          "max_score": 28.6,
+          "mean_percentile_rank": 0.575417,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "MULTI_SIGNAL": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 40.9,
+          "max_score": 47.1,
+          "mean_percentile_rank": 0.955417,
+          "flagged_at_30": 8,
+          "rate_at_30": 1.0,
+          "flagged_at_40": 4,
+          "rate_at_40": 0.5,
+          "rate_meaning": "detection_rate"
+        }
+      },
+      "score_distribution": {
+        "min": 11.8,
+        "median": 17.1,
+        "mean": 20.588667,
+        "max": 47.1
+      },
+      "top_20": [
+        {
+          "rank": 1,
+          "project_id": "P-5066",
+          "risk_score": 47.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 2,
+          "project_id": "P-5116",
+          "risk_score": 47.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 3,
+          "project_id": "P-5062",
+          "risk_score": 45.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 4,
+          "project_id": "P-5131",
+          "risk_score": 45.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 5,
+          "project_id": "P-5044",
+          "risk_score": 40.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 6,
+          "project_id": "P-5135",
+          "risk_score": 39.8,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 7,
+          "project_id": "P-5035",
+          "risk_score": 39.6,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 8,
+          "project_id": "P-5114",
+          "risk_score": 39.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 9,
+          "project_id": "P-5070",
+          "risk_score": 38.9,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 10,
+          "project_id": "P-5060",
+          "risk_score": 38.8,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 11,
+          "project_id": "P-5145",
+          "risk_score": 38.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 12,
+          "project_id": "P-5010",
+          "risk_score": 38.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 13,
+          "project_id": "P-5040",
+          "risk_score": 38.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 14,
+          "project_id": "P-5041",
+          "risk_score": 37.2,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 15,
+          "project_id": "P-5081",
+          "risk_score": 37.2,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 16,
+          "project_id": "P-5048",
+          "risk_score": 36.9,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 17,
+          "project_id": "P-5106",
+          "risk_score": 35.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 18,
+          "project_id": "P-5031",
+          "risk_score": 34.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "CONTRACTOR_PATTERN"
+        },
+        {
+          "rank": 19,
+          "project_id": "P-5100",
+          "risk_score": 33.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "CONTRACTOR_PATTERN"
+        },
+        {
+          "rank": 20,
+          "project_id": "P-5005",
+          "risk_score": 32.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        }
+      ],
+      "spearman_with_full": 0.885693,
+      "top10_overlap_with_full": 7,
+      "top20_overlap_with_full": 20
+    },
+    "NO_GEOGRAPHIC": {
+      "ablated_component": "geographic_signal",
+      "ties": {
+        "distinct_scores": 73,
+        "largest_tie_block": 10,
+        "largest_tie_score": 17.1,
+        "tie_straddles_top_20": false,
+        "tie_straddles_top_10": false,
+        "tie_straddles_top_5": true,
+        "precision_at_k_tie_range": {
+          "5": {
+            "p_at_k_if_ties_ordered_worst": 1.0,
+            "p_at_k_if_ties_ordered_best": 1.0,
+            "tied_block_at_cutoff": 2,
+            "tie_sensitive": false
+          },
+          "10": {
+            "p_at_k_if_ties_ordered_worst": 0.9,
+            "p_at_k_if_ties_ordered_best": 0.9,
+            "tied_block_at_cutoff": 1,
+            "tie_sensitive": false
+          },
+          "20": {
+            "p_at_k_if_ties_ordered_worst": 0.85,
+            "p_at_k_if_ties_ordered_best": 0.85,
+            "tied_block_at_cutoff": 1,
+            "tie_sensitive": false
+          }
+        }
+      },
+      "max_possible_score": 90,
+      "average_precision": 0.810985,
+      "trapezoid_auc": 0.809636,
+      "precision_at_k": {
+        "5": {
+          "k": 5,
+          "anomalous_in_top_k": 5,
+          "precision": 1.0,
+          "recall_at_k": 0.102041
+        },
+        "10": {
+          "k": 10,
+          "anomalous_in_top_k": 9,
+          "precision": 0.9,
+          "recall_at_k": 0.183673
+        },
+        "20": {
+          "k": 20,
+          "anomalous_in_top_k": 17,
+          "precision": 0.85,
+          "recall_at_k": 0.346939
+        }
+      },
+      "r_precision": {
+        "k": 49,
+        "anomalous_in_top_k": 38,
+        "precision": 0.77551,
+        "recall_at_k": 0.77551
+      },
+      "thresholds": {
+        "30": {
+          "flagged_total": 21,
+          "anomalous_detected": 18,
+          "normal_flagged": 3,
+          "anomalous_missed": 31,
+          "precision": 0.857143,
+          "recall": 0.367347,
+          "f1": 0.514286
+        },
+        "40": {
+          "flagged_total": 10,
+          "anomalous_detected": 9,
+          "normal_flagged": 1,
+          "anomalous_missed": 40,
+          "precision": 0.9,
+          "recall": 0.183673,
+          "f1": 0.305085
+        }
+      },
+      "adversarial_normal": {
+        "n": 41,
+        "max_score": 45.3,
+        "mean_score": 19.278049,
+        "median_score": 16.9,
+        "in_top_10": 1,
+        "in_top_20": 3,
+        "best_rank": 9,
+        "flagged_at_30": 3,
+        "flagged_at_40": 1,
+        "by_subtype": {
+          "A": {
+            "n": 14,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 18.5
+          },
+          "B": {
+            "n": 9,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 20.3
+          },
+          "C": {
+            "n": 5,
+            "flagged_at_30": 3,
+            "flagged_at_40": 1,
+            "max_score": 45.3
+          },
+          "D": {
+            "n": 5,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 26.2
+          },
+          "E": {
+            "n": 8,
+            "flagged_at_30": 0,
+            "flagged_at_40": 0,
+            "max_score": 23.3
+          }
+        }
+      },
+      "scenario_level": {
+        "NORMAL": {
+          "n": 60,
+          "n_anomalous": 0,
+          "mean_score": 16.341667,
+          "max_score": 21.3,
+          "mean_percentile_rank": 0.338778,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "ADVERSARIAL_NORMAL": {
+          "n": 41,
+          "n_anomalous": 0,
+          "mean_score": 19.278049,
+          "max_score": 45.3,
+          "mean_percentile_rank": 0.437236,
+          "flagged_at_30": 3,
+          "rate_at_30": 0.073171,
+          "flagged_at_40": 1,
+          "rate_at_40": 0.02439,
+          "rate_meaning": "false_positive_rate"
+        },
+        "COST_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 37.9375,
+          "max_score": 45.5,
+          "mean_percentile_rank": 0.913333,
+          "flagged_at_30": 7,
+          "rate_at_30": 0.875,
+          "flagged_at_40": 1,
+          "rate_at_40": 0.125,
+          "rate_meaning": "detection_rate"
+        },
+        "BILLING_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 26.3125,
+          "max_score": 28.1,
+          "mean_percentile_rank": 0.81875,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "CONTRACTOR_PATTERN": {
+          "n": 9,
+          "n_anomalous": 9,
+          "mean_score": 26.311111,
+          "max_score": 34.5,
+          "mean_percentile_rank": 0.777778,
+          "flagged_at_30": 3,
+          "rate_at_30": 0.333333,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "SIMILAR_PROJECT": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 21.8625,
+          "max_score": 23.5,
+          "mean_percentile_rank": 0.701667,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "GEOGRAPHIC_PATTERN": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 16.7,
+          "max_score": 18.6,
+          "mean_percentile_rank": 0.372917,
+          "flagged_at_30": 0,
+          "rate_at_30": 0.0,
+          "flagged_at_40": 0,
+          "rate_at_40": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "MULTI_SIGNAL": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 48.4,
+          "max_score": 55.5,
+          "mean_percentile_rank": 0.974167,
+          "flagged_at_30": 8,
+          "rate_at_30": 1.0,
+          "flagged_at_40": 8,
+          "rate_at_40": 1.0,
+          "rate_meaning": "detection_rate"
+        }
+      },
+      "score_distribution": {
+        "min": 11.8,
+        "median": 17.5,
+        "mean": 21.449333,
+        "max": 55.5
+      },
+      "top_20": [
+        {
+          "rank": 1,
+          "project_id": "P-5062",
+          "risk_score": 55.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 2,
+          "project_id": "P-5044",
+          "risk_score": 50.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 3,
+          "project_id": "P-5135",
+          "risk_score": 49.8,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 4,
+          "project_id": "P-5035",
+          "risk_score": 49.6,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 5,
+          "project_id": "P-5066",
+          "risk_score": 47.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 6,
+          "project_id": "P-5116",
+          "risk_score": 47.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 7,
+          "project_id": "P-5131",
+          "risk_score": 45.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 8,
+          "project_id": "P-5106",
+          "risk_score": 45.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 9,
+          "project_id": "P-5040",
+          "risk_score": 45.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 10,
+          "project_id": "P-5005",
+          "risk_score": 42.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 11,
+          "project_id": "P-5114",
+          "risk_score": 39.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 12,
+          "project_id": "P-5070",
+          "risk_score": 38.9,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 13,
+          "project_id": "P-5060",
+          "risk_score": 38.8,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 14,
+          "project_id": "P-5145",
+          "risk_score": 38.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 15,
+          "project_id": "P-5010",
+          "risk_score": 38.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 16,
+          "project_id": "P-5041",
+          "risk_score": 37.2,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 17,
+          "project_id": "P-5081",
+          "risk_score": 37.2,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 18,
+          "project_id": "P-5048",
+          "risk_score": 36.9,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 19,
+          "project_id": "P-5031",
+          "risk_score": 34.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "CONTRACTOR_PATTERN"
+        },
+        {
+          "rank": 20,
+          "project_id": "P-5100",
+          "risk_score": 33.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "CONTRACTOR_PATTERN"
+        }
+      ],
+      "spearman_with_full": 0.969754,
+      "top10_overlap_with_full": 10,
+      "top20_overlap_with_full": 20
+    }
+  },
+  "comparison_table": [
+    {
+      "variant": "FULL",
+      "average_precision": 0.845326,
+      "precision_at_5": 1.0,
+      "precision_at_10": 0.9,
+      "precision_at_20": 0.85,
+      "recall_at_20": 0.346939
+    },
+    {
+      "variant": "NO_COST",
+      "average_precision": 0.787253,
+      "precision_at_5": 1.0,
+      "precision_at_10": 1.0,
+      "precision_at_20": 0.9,
+      "recall_at_20": 0.367347
+    },
+    {
+      "variant": "NO_SIMILARITY",
+      "average_precision": 0.735389,
+      "precision_at_5": 0.8,
+      "precision_at_10": 0.6,
+      "precision_at_20": 0.8,
+      "recall_at_20": 0.326531
+    },
+    {
+      "variant": "NO_CONTRACTOR",
+      "average_precision": 0.818501,
+      "precision_at_5": 1.0,
+      "precision_at_10": 0.9,
+      "precision_at_20": 0.85,
+      "recall_at_20": 0.346939
+    },
+    {
+      "variant": "NO_BILLING",
+      "average_precision": 0.79473,
+      "precision_at_5": 1.0,
+      "precision_at_10": 1.0,
+      "precision_at_20": 0.85,
+      "recall_at_20": 0.346939
+    },
+    {
+      "variant": "NO_GEOGRAPHIC",
+      "average_precision": 0.810985,
+      "precision_at_5": 1.0,
+      "precision_at_10": 0.9,
+      "precision_at_20": 0.85,
+      "recall_at_20": 0.346939
+    }
+  ],
+  "delta_definition": "delta = ABLATION - FULL. A negative value means removing the detector LOWERED the metric.",
+  "deltas_vs_full": {
+    "NO_COST": {
+      "delta_pr_auc": -0.058073,
+      "delta_precision_at_5": 0.0,
+      "delta_precision_at_10": 0.1,
+      "delta_precision_at_20": 0.05,
+      "delta_recall_at_20": 0.020408,
+      "delta_anomalous_detected_at_30": -17,
+      "delta_anomalous_detected_at_40": -9,
+      "delta_adversarial_flagged_at_30": -3,
+      "delta_adversarial_flagged_at_40": -1,
+      "delta_adversarial_max_score": -19.1,
+      "delta_adversarial_in_top_20": -1
+    },
+    "NO_SIMILARITY": {
+      "delta_pr_auc": -0.109937,
+      "delta_precision_at_5": -0.2,
+      "delta_precision_at_10": -0.3,
+      "delta_precision_at_20": -0.05,
+      "delta_recall_at_20": -0.020408,
+      "delta_anomalous_detected_at_30": -14,
+      "delta_anomalous_detected_at_40": -9,
+      "delta_adversarial_flagged_at_30": -2,
+      "delta_adversarial_flagged_at_40": -1,
+      "delta_adversarial_max_score": -13.1,
+      "delta_adversarial_in_top_20": 1
+    },
+    "NO_CONTRACTOR": {
+      "delta_pr_auc": -0.026824,
+      "delta_precision_at_5": 0.0,
+      "delta_precision_at_10": 0.0,
+      "delta_precision_at_20": 0.0,
+      "delta_recall_at_20": 0.0,
+      "delta_anomalous_detected_at_30": -3,
+      "delta_anomalous_detected_at_40": 0,
+      "delta_adversarial_flagged_at_30": 0,
+      "delta_adversarial_flagged_at_40": 0,
+      "delta_adversarial_max_score": 0.0,
+      "delta_adversarial_in_top_20": 0
+    },
+    "NO_BILLING": {
+      "delta_pr_auc": -0.050596,
+      "delta_precision_at_5": 0.0,
+      "delta_precision_at_10": 0.1,
+      "delta_precision_at_20": 0.0,
+      "delta_recall_at_20": 0.0,
+      "delta_anomalous_detected_at_30": 0,
+      "delta_anomalous_detected_at_40": -4,
+      "delta_adversarial_flagged_at_30": 0,
+      "delta_adversarial_flagged_at_40": -1,
+      "delta_adversarial_max_score": -7.2,
+      "delta_adversarial_in_top_20": 0
+    },
+    "NO_GEOGRAPHIC": {
+      "delta_pr_auc": -0.034341,
+      "delta_precision_at_5": 0.0,
+      "delta_precision_at_10": 0.0,
+      "delta_precision_at_20": 0.0,
+      "delta_recall_at_20": 0.0,
+      "delta_anomalous_detected_at_30": 0,
+      "delta_anomalous_detected_at_40": 0,
+      "delta_adversarial_flagged_at_30": 0,
+      "delta_adversarial_flagged_at_40": 0,
+      "delta_adversarial_max_score": 0.0,
+      "delta_adversarial_in_top_20": 0
+    }
+  },
+  "paired_bootstrap_delta_average_precision_vs_full": {
+    "NO_COST": {
+      "mean_delta_ap": -0.059376,
+      "ci95": [
+        -0.169239,
+        0.053335
+      ],
+      "share_resamples_variant_better": 0.141,
+      "share_resamples_variant_worse": 0.859,
+      "resamples_used": 2000,
+      "label": "Supplementary optimistic bootstrap interval; row resampling does not account for linked synthetic scenario groups."
+    },
+    "NO_SIMILARITY": {
+      "mean_delta_ap": -0.107204,
+      "ci95": [
+        -0.172867,
+        -0.049144
+      ],
+      "share_resamples_variant_better": 0.0,
+      "share_resamples_variant_worse": 1.0,
+      "resamples_used": 2000,
+      "label": "Supplementary optimistic bootstrap interval; row resampling does not account for linked synthetic scenario groups."
+    },
+    "NO_CONTRACTOR": {
+      "mean_delta_ap": -0.026107,
+      "ci95": [
+        -0.053613,
+        -0.006236
+      ],
+      "share_resamples_variant_better": 0.002,
+      "share_resamples_variant_worse": 0.998,
+      "resamples_used": 2000,
+      "label": "Supplementary optimistic bootstrap interval; row resampling does not account for linked synthetic scenario groups."
+    },
+    "NO_BILLING": {
+      "mean_delta_ap": -0.05205,
+      "ci95": [
+        -0.11371,
+        0.006495
+      ],
+      "share_resamples_variant_better": 0.0435,
+      "share_resamples_variant_worse": 0.9565,
+      "resamples_used": 2000,
+      "label": "Supplementary optimistic bootstrap interval; row resampling does not account for linked synthetic scenario groups."
+    },
+    "NO_GEOGRAPHIC": {
+      "mean_delta_ap": -0.034326,
+      "ci95": [
+        -0.076301,
+        -0.004657
+      ],
+      "share_resamples_variant_better": 0.0075,
+      "share_resamples_variant_worse": 0.992,
+      "resamples_used": 2000,
+      "label": "Supplementary optimistic bootstrap interval; row resampling does not account for linked synthetic scenario groups."
+    }
+  },
+  "contribution_analysis": {
+    "ranking_by_ap_contribution": [
+      {
+        "variant": "NO_SIMILARITY",
+        "component": "project_similarity",
+        "contribution_ap": 0.109937,
+        "contribution_p20": 0.05,
+        "contribution_recall20": 0.020408,
+        "ci95_delta_ap": [
+          -0.172867,
+          -0.049144
+        ],
+        "removal_reliably_hurts": true,
+        "removal_reliably_helps": false,
+        "small_change": false,
+        "removal_improves_ap": false,
+        "removal_improves_top_of_queue": {},
+        "removal_lowers_adversarial_top_20": false,
+        "no_headline_metric_changed": false
+      },
+      {
+        "variant": "NO_COST",
+        "component": "cost_anomaly",
+        "contribution_ap": 0.058073,
+        "contribution_p20": -0.05,
+        "contribution_recall20": -0.020408,
+        "ci95_delta_ap": [
+          -0.169239,
+          0.053335
+        ],
+        "removal_reliably_hurts": false,
+        "removal_reliably_helps": false,
+        "small_change": false,
+        "removal_improves_ap": false,
+        "removal_improves_top_of_queue": {
+          "delta_precision_at_10": 0.1,
+          "delta_precision_at_20": 0.05,
+          "delta_recall_at_20": 0.020408
+        },
+        "removal_lowers_adversarial_top_20": true,
+        "no_headline_metric_changed": false
+      },
+      {
+        "variant": "NO_BILLING",
+        "component": "billing_anomaly",
+        "contribution_ap": 0.050596,
+        "contribution_p20": -0.0,
+        "contribution_recall20": -0.0,
+        "ci95_delta_ap": [
+          -0.11371,
+          0.006495
+        ],
+        "removal_reliably_hurts": false,
+        "removal_reliably_helps": false,
+        "small_change": false,
+        "removal_improves_ap": false,
+        "removal_improves_top_of_queue": {
+          "delta_precision_at_10": 0.1
+        },
+        "removal_lowers_adversarial_top_20": false,
+        "no_headline_metric_changed": false
+      },
+      {
+        "variant": "NO_GEOGRAPHIC",
+        "component": "geographic_signal",
+        "contribution_ap": 0.034341,
+        "contribution_p20": -0.0,
+        "contribution_recall20": -0.0,
+        "ci95_delta_ap": [
+          -0.076301,
+          -0.004657
+        ],
+        "removal_reliably_hurts": true,
+        "removal_reliably_helps": false,
+        "small_change": false,
+        "removal_improves_ap": false,
+        "removal_improves_top_of_queue": {},
+        "removal_lowers_adversarial_top_20": false,
+        "no_headline_metric_changed": false
+      },
+      {
+        "variant": "NO_CONTRACTOR",
+        "component": "contractor_pattern",
+        "contribution_ap": 0.026824,
+        "contribution_p20": -0.0,
+        "contribution_recall20": -0.0,
+        "ci95_delta_ap": [
+          -0.053613,
+          -0.006236
+        ],
+        "removal_reliably_hurts": true,
+        "removal_reliably_helps": false,
+        "small_change": false,
+        "removal_improves_ap": false,
+        "removal_improves_top_of_queue": {},
+        "removal_lowers_adversarial_top_20": false,
+        "no_headline_metric_changed": false
+      }
+    ],
+    "rules": {
+      "contribution_ap": "AP(FULL) - AP(variant); positive = the detector helped on this set",
+      "removal_reliably_hurts": "optimistic paired-bootstrap 95% interval of AP(variant)-AP(FULL) lies entirely below 0",
+      "small_change": "|AP(variant) - AP(FULL)| < 0.02 (operational label, not a statistical test)",
+      "removal_improves_top_of_queue": "a positive delta in P@5, P@10, P@20 or Recall@20 even if PR-AUC fell",
+      "no_headline_metric_changed": "AP, P@5/10/20, Recall@20, detections and adversarial flags at 30/40 all identical to FULL"
+    }
+  },
+  "mandatory_statement": "This ablation study evaluates detector contribution on the frozen V2.1 synthetic evaluation set. It does not establish real-world fraud-detection effectiveness."
+}
