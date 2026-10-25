@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="440" viewBox="0 0 760 440" font-family="Helvetica, Arial, sans-serif" font-size="12">
+<title>Projects queued by score threshold</title>
+<desc>Projects queued at each predefined threshold, split into anomalous captured, adversarial normals and other normals.</desc>
+<rect width="760" height="440" fill="#ffffff"/>
+<text x="380.00" y="28" text-anchor="middle" font-size="16" font-weight="bold">Projects queued by score threshold</text>
+<text x="404.00" y="426" text-anchor="middle">evaluation threshold (risk_score &gt;=)</text>
+<text x="20" y="218.00" text-anchor="middle" transform="rotate(-90 20 218.00)">projects queued</text>
+<line x1="78" y1="380.00" x2="730" y2="380.00" stroke="#dddddd"/>
+<text x="70" y="384.00" text-anchor="end">0</text>
+<line x1="78" y1="333.71" x2="730" y2="333.71" stroke="#dddddd"/>
+<text x="70" y="337.71" text-anchor="end">10</text>
+<line x1="78" y1="287.43" x2="730" y2="287.43" stroke="#dddddd"/>
+<text x="70" y="291.43" text-anchor="end">20</text>
+<line x1="78" y1="241.14" x2="730" y2="241.14" stroke="#dddddd"/>
+<text x="70" y="245.14" text-anchor="end">30</text>
+<line x1="78" y1="194.86" x2="730" y2="194.86" stroke="#dddddd"/>
+<text x="70" y="198.86" text-anchor="end">40</text>
+<line x1="78" y1="148.57" x2="730" y2="148.57" stroke="#dddddd"/>
+<text x="70" y="152.57" text-anchor="end">50</text>
+<line x1="78" y1="102.29" x2="730" y2="102.29" stroke="#dddddd"/>
+<text x="70" y="106.29" text-anchor="end">60</text>
+<line x1="78" y1="56.00" x2="730" y2="56.00" stroke="#dddddd"/>
+<text x="70" y="60.00" text-anchor="end">70</text>
+<line x1="78" y1="380" x2="730" y2="380" stroke="#333333"/><line x1="78" y1="380" x2="78" y2="56" stroke="#333333"/>
+<rect x="96.63" y="176.34" width="55.89" height="203.66" fill="#b03a2e"/>
+<rect x="96.63" y="116.17" width="55.89" height="60.17" fill="#d68910"/>
+<rect x="96.63" y="97.66" width="55.89" height="18.51" fill="#5d8aa8"/>
+<text x="124.57" y="91.66" text-anchor="middle">61</text>
+<text x="124.57" y="400" text-anchor="middle">&gt;=20</text>
+<rect x="189.77" y="231.89" width="55.89" height="148.11" fill="#b03a2e"/>
+<rect x="189.77" y="204.11" width="55.89" height="27.77" fill="#d68910"/>
+<text x="217.71" y="198.11" text-anchor="middle">38</text>
+<text x="217.71" y="400" text-anchor="middle">&gt;=25</text>
+<rect x="282.91" y="296.69" width="55.89" height="83.31" fill="#b03a2e"/>
+<rect x="282.91" y="282.80" width="55.89" height="13.89" fill="#d68910"/>
+<text x="310.86" y="276.80" text-anchor="middle">21</text>
+<text x="310.86" y="400" text-anchor="middle">&gt;=30</text>
+<rect x="376.06" y="310.57" width="55.89" height="69.43" fill="#b03a2e"/>
+<rect x="376.06" y="296.69" width="55.89" height="13.89" fill="#d68910"/>
+<text x="404.00" y="290.69" text-anchor="middle">18</text>
+<text x="404.00" y="400" text-anchor="middle">&gt;=35</text>
+<rect x="469.20" y="338.34" width="55.89" height="41.66" fill="#b03a2e"/>
+<rect x="469.20" y="333.71" width="55.89" height="4.63" fill="#d68910"/>
+<text x="497.14" y="327.71" text-anchor="middle">10</text>
+<text x="497.14" y="400" text-anchor="middle">&gt;=40</text>
+<rect x="562.34" y="342.97" width="55.89" height="37.03" fill="#b03a2e"/>
+<rect x="562.34" y="338.34" width="55.89" height="4.63" fill="#d68910"/>
+<text x="590.29" y="332.34" text-anchor="middle">9</text>
+<text x="590.29" y="400" text-anchor="middle">&gt;=45</text>
+<rect x="655.49" y="370.74" width="55.89" height="9.26" fill="#b03a2e"/>
+<text x="683.43" y="364.74" text-anchor="middle">2</text>
+<text x="683.43" y="400" text-anchor="middle">&gt;=50</text>
+<rect x="515.00" y="64.00" width="12" height="12" fill="#b03a2e"/>
+<text x="533.00" y="74.00">anomalous captured</text>
+<rect x="515.00" y="82.00" width="12" height="12" fill="#d68910"/>
+<text x="533.00" y="92.00">adversarial normal queued</text>
+<rect x="515.00" y="100.00" width="12" height="12" fill="#5d8aa8"/>
+<text x="533.00" y="110.00">other normal queued</text>
+</svg>

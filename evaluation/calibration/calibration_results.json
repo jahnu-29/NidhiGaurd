@@ -1,0 +1,1786 @@
+{
+  "dataset": {
+    "projects": 150,
+    "anomalous": 49,
+    "normal": 101,
+    "adversarial_normal": 41,
+    "scenario_counts": {
+      "NORMAL": 60,
+      "ADVERSARIAL_NORMAL": 41,
+      "COST_ANOMALY": 8,
+      "BILLING_ANOMALY": 8,
+      "CONTRACTOR_PATTERN": 9,
+      "SIMILAR_PROJECT": 8,
+      "GEOGRAPHIC_PATTERN": 8,
+      "MULTI_SIGNAL": 8
+    },
+    "same_projects_and_labels_as_v2_2_to_v2_4": true,
+    "provenance": {
+      "labels_sha256": "c6642c357120925661df40d24a6456063c360fe1ab2b6f002e4250de61a149fc",
+      "labels_match_frozen_hash": true,
+      "predictions_sha256": "bee17325fa5a409167f39352ab4e34f2b38c510783b5fa51480ee5c97d758615",
+      "predictions_made_from_frozen_engine_input": true,
+      "predictions_projects_scored": 150,
+      "frozen_hash_check_at_prediction_time": "passed"
+    }
+  },
+  "v1_facts": {
+    "score_formula": "risk_score = round(min(100.0, cost + similarity + contractor + billing + geographic), 1); caps 25/25/20/20/10",
+    "risk_level_boundaries": "LOW < 30 <= MEDIUM < 60 <= HIGH < 80 <= CRITICAL (unchanged)",
+    "production_queue_rule": "production queue = every project with risk_level != LOW, i.e. risk_score >= 30 (V1 route /api/investigation-queue), sorted by score descending",
+    "frozen_prediction_file": "evaluation/evaluation_predictions.csv",
+    "score_column": "risk_score"
+  },
+  "definitions": {
+    "model_score": "The deterministic anomaly/risk score produced by V1 (risk_score, 0-100 scale, in practice compressed). It is not a probability of fraud.",
+    "evaluation_threshold": "A score cutoff (risk_score >= T) used only to study performance on the frozen V2.1 set. It is not calibrated for production.",
+    "investigator_operating_point": "A hypothetical workload constraint such as Top-20 (review the 20 highest-scored projects). It does not represent actual staffing.",
+    "production_threshold": "What V1 actually does today: the investigation queue is every project whose risk_level is not LOW (risk_score >= 30), ranked by score descending."
+  },
+  "predefined_evaluation_thresholds": [
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "predefined_investigator_capacities": [
+    5,
+    10,
+    20,
+    25,
+    30,
+    40,
+    50
+  ],
+  "score_distribution": {
+    "overall": {
+      "min": 11.8,
+      "max": 55.5,
+      "mean": 21.849333,
+      "median": 17.65,
+      "std_population": 9.336679,
+      "q25": 15.7,
+      "q50": 17.65,
+      "q75": 24.95,
+      "distinct_scores": 76,
+      "largest_tie_block": 10,
+      "largest_tie_score": 15.1
+    },
+    "anomalous": {
+      "n": 49,
+      "min": 14.3,
+      "max": 55.5,
+      "mean": 30.540816,
+      "median": 27.4
+    },
+    "normal": {
+      "n": 101,
+      "min": 11.8,
+      "max": 45.3,
+      "mean": 17.632673,
+      "median": 16.9
+    },
+    "adversarial_normal": {
+      "n": 41,
+      "min": 12.5,
+      "max": 45.3,
+      "mean": 19.521951,
+      "median": 17.1
+    },
+    "bands": [
+      {
+        "band": "<20",
+        "n": 89,
+        "anomalous": 5,
+        "normal": 84,
+        "adversarial_normal": 28,
+        "share_anomalous": 0.05618
+      },
+      {
+        "band": "20-24.9",
+        "n": 23,
+        "anomalous": 12,
+        "normal": 11,
+        "adversarial_normal": 7,
+        "share_anomalous": 0.521739
+      },
+      {
+        "band": "25-29.9",
+        "n": 17,
+        "anomalous": 14,
+        "normal": 3,
+        "adversarial_normal": 3,
+        "share_anomalous": 0.823529
+      },
+      {
+        "band": "30-34.9",
+        "n": 3,
+        "anomalous": 3,
+        "normal": 0,
+        "adversarial_normal": 0,
+        "share_anomalous": 1.0
+      },
+      {
+        "band": "35-39.9",
+        "n": 8,
+        "anomalous": 6,
+        "normal": 2,
+        "adversarial_normal": 2,
+        "share_anomalous": 0.75
+      },
+      {
+        "band": "40-44.9",
+        "n": 1,
+        "anomalous": 1,
+        "normal": 0,
+        "adversarial_normal": 0,
+        "share_anomalous": 1.0
+      },
+      {
+        "band": "45-49.9",
+        "n": 7,
+        "anomalous": 6,
+        "normal": 1,
+        "adversarial_normal": 1,
+        "share_anomalous": 0.857143
+      },
+      {
+        "band": ">=50",
+        "n": 2,
+        "anomalous": 2,
+        "normal": 0,
+        "adversarial_normal": 0,
+        "share_anomalous": 1.0
+      }
+    ],
+    "native_risk_levels": [
+      {
+        "risk_level": "LOW",
+        "n": 129,
+        "anomalous": 31,
+        "normal": 98,
+        "adversarial_normal": 38
+      },
+      {
+        "risk_level": "MEDIUM",
+        "n": 21,
+        "anomalous": 18,
+        "normal": 3,
+        "adversarial_normal": 3
+      },
+      {
+        "risk_level": "HIGH",
+        "n": 0,
+        "anomalous": 0,
+        "normal": 0,
+        "adversarial_normal": 0
+      },
+      {
+        "risk_level": "CRITICAL",
+        "n": 0,
+        "anomalous": 0,
+        "normal": 0,
+        "adversarial_normal": 0
+      }
+    ],
+    "note": "risk_score is a deterministic anomaly score, not a probability; a score of 40 does not mean a 40% chance of fraud."
+  },
+  "threshold_table": [
+    {
+      "threshold": 20.0,
+      "kind": "evaluation threshold",
+      "projects_queued": 61,
+      "pct_of_dataset": 0.406667,
+      "tp": 44,
+      "fp": 17,
+      "tn": 84,
+      "fn": 5,
+      "precision": 0.721311,
+      "recall": 0.897959,
+      "f1": 0.8,
+      "anomalous_captured": 44,
+      "normal_incorrectly_queued": 17,
+      "adversarial_queued": 13,
+      "adversarial_queued_pct": 0.317073,
+      "adversarial_ids": [
+        "P-5010",
+        "P-5018",
+        "P-5024",
+        "P-5026",
+        "P-5030",
+        "P-5040",
+        "P-5043",
+        "P-5048",
+        "P-5065",
+        "P-5078",
+        "P-5091",
+        "P-5102",
+        "P-5112"
+      ],
+      "plain_normal_queued": 4,
+      "scenario_captured": {
+        "COST_ANOMALY": 8,
+        "BILLING_ANOMALY": 8,
+        "CONTRACTOR_PATTERN": 9,
+        "SIMILAR_PROJECT": 6,
+        "GEOGRAPHIC_PATTERN": 5,
+        "MULTI_SIGNAL": 8
+      },
+      "selection_identical_to_top_q": true
+    },
+    {
+      "threshold": 25.0,
+      "kind": "evaluation threshold",
+      "projects_queued": 38,
+      "pct_of_dataset": 0.253333,
+      "tp": 32,
+      "fp": 6,
+      "tn": 95,
+      "fn": 17,
+      "precision": 0.842105,
+      "recall": 0.653061,
+      "f1": 0.735632,
+      "anomalous_captured": 32,
+      "normal_incorrectly_queued": 6,
+      "adversarial_queued": 6,
+      "adversarial_queued_pct": 0.146341,
+      "adversarial_ids": [
+        "P-5010",
+        "P-5024",
+        "P-5040",
+        "P-5043",
+        "P-5048",
+        "P-5091"
+      ],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 8,
+        "BILLING_ANOMALY": 7,
+        "CONTRACTOR_PATTERN": 4,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 5,
+        "MULTI_SIGNAL": 8
+      },
+      "selection_identical_to_top_q": true
+    },
+    {
+      "threshold": 30.0,
+      "kind": "production threshold (V1 native queue boundary; MEDIUM floor)",
+      "projects_queued": 21,
+      "pct_of_dataset": 0.14,
+      "tp": 18,
+      "fp": 3,
+      "tn": 98,
+      "fn": 31,
+      "precision": 0.857143,
+      "recall": 0.367347,
+      "f1": 0.514286,
+      "anomalous_captured": 18,
+      "normal_incorrectly_queued": 3,
+      "adversarial_queued": 3,
+      "adversarial_queued_pct": 0.073171,
+      "adversarial_ids": [
+        "P-5010",
+        "P-5040",
+        "P-5048"
+      ],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 7,
+        "BILLING_ANOMALY": 0,
+        "CONTRACTOR_PATTERN": 3,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 0,
+        "MULTI_SIGNAL": 8
+      },
+      "selection_identical_to_top_q": true
+    },
+    {
+      "threshold": 35.0,
+      "kind": "evaluation threshold",
+      "projects_queued": 18,
+      "pct_of_dataset": 0.12,
+      "tp": 15,
+      "fp": 3,
+      "tn": 98,
+      "fn": 34,
+      "precision": 0.833333,
+      "recall": 0.306122,
+      "f1": 0.447761,
+      "anomalous_captured": 15,
+      "normal_incorrectly_queued": 3,
+      "adversarial_queued": 3,
+      "adversarial_queued_pct": 0.073171,
+      "adversarial_ids": [
+        "P-5010",
+        "P-5040",
+        "P-5048"
+      ],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 7,
+        "BILLING_ANOMALY": 0,
+        "CONTRACTOR_PATTERN": 0,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 0,
+        "MULTI_SIGNAL": 8
+      },
+      "selection_identical_to_top_q": true
+    },
+    {
+      "threshold": 40.0,
+      "kind": "evaluation threshold (V2.2 primary; not a native V1 boundary)",
+      "projects_queued": 10,
+      "pct_of_dataset": 0.066667,
+      "tp": 9,
+      "fp": 1,
+      "tn": 100,
+      "fn": 40,
+      "precision": 0.9,
+      "recall": 0.183673,
+      "f1": 0.305085,
+      "anomalous_captured": 9,
+      "normal_incorrectly_queued": 1,
+      "adversarial_queued": 1,
+      "adversarial_queued_pct": 0.02439,
+      "adversarial_ids": [
+        "P-5040"
+      ],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 1,
+        "BILLING_ANOMALY": 0,
+        "CONTRACTOR_PATTERN": 0,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 0,
+        "MULTI_SIGNAL": 8
+      },
+      "selection_identical_to_top_q": true
+    },
+    {
+      "threshold": 45.0,
+      "kind": "evaluation threshold",
+      "projects_queued": 9,
+      "pct_of_dataset": 0.06,
+      "tp": 8,
+      "fp": 1,
+      "tn": 100,
+      "fn": 41,
+      "precision": 0.888889,
+      "recall": 0.163265,
+      "f1": 0.275862,
+      "anomalous_captured": 8,
+      "normal_incorrectly_queued": 1,
+      "adversarial_queued": 1,
+      "adversarial_queued_pct": 0.02439,
+      "adversarial_ids": [
+        "P-5040"
+      ],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 1,
+        "BILLING_ANOMALY": 0,
+        "CONTRACTOR_PATTERN": 0,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 0,
+        "MULTI_SIGNAL": 7
+      },
+      "selection_identical_to_top_q": true
+    },
+    {
+      "threshold": 50.0,
+      "kind": "evaluation threshold",
+      "projects_queued": 2,
+      "pct_of_dataset": 0.013333,
+      "tp": 2,
+      "fp": 0,
+      "tn": 101,
+      "fn": 47,
+      "precision": 1.0,
+      "recall": 0.040816,
+      "f1": 0.078431,
+      "anomalous_captured": 2,
+      "normal_incorrectly_queued": 0,
+      "adversarial_queued": 0,
+      "adversarial_queued_pct": 0.0,
+      "adversarial_ids": [],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 0,
+        "BILLING_ANOMALY": 0,
+        "CONTRACTOR_PATTERN": 0,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 0,
+        "MULTI_SIGNAL": 2
+      },
+      "selection_identical_to_top_q": true
+    }
+  ],
+  "top_k_table": [
+    {
+      "capacity": 5,
+      "pct_of_dataset": 0.033333,
+      "anomalous_captured": 5,
+      "recall": 0.102041,
+      "precision": 1.0,
+      "false_positives": 0,
+      "lowest_selected_score": 47.1,
+      "highest_ranked_normal": {
+        "rank": 9,
+        "project_id": "P-5040",
+        "risk_score": 45.3,
+        "scenario_type": "ADVERSARIAL_NORMAL",
+        "inside_selection": false
+      },
+      "tied_at_cutoff": 2,
+      "slots_filled_from_tie": 1,
+      "tied_excluded": 1,
+      "captured_if_ties_ordered_worst": 5,
+      "captured_if_ties_ordered_best": 5,
+      "tie_sensitive": false,
+      "adversarial_queued": 0,
+      "adversarial_queued_pct": 0.0,
+      "adversarial_ids": [],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 0,
+        "BILLING_ANOMALY": 0,
+        "CONTRACTOR_PATTERN": 0,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 0,
+        "MULTI_SIGNAL": 5
+      }
+    },
+    {
+      "capacity": 10,
+      "pct_of_dataset": 0.066667,
+      "anomalous_captured": 9,
+      "recall": 0.183673,
+      "precision": 0.9,
+      "false_positives": 1,
+      "lowest_selected_score": 42.4,
+      "highest_ranked_normal": {
+        "rank": 9,
+        "project_id": "P-5040",
+        "risk_score": 45.3,
+        "scenario_type": "ADVERSARIAL_NORMAL",
+        "inside_selection": true
+      },
+      "tied_at_cutoff": 1,
+      "slots_filled_from_tie": 1,
+      "tied_excluded": 0,
+      "captured_if_ties_ordered_worst": 9,
+      "captured_if_ties_ordered_best": 9,
+      "tie_sensitive": false,
+      "adversarial_queued": 1,
+      "adversarial_queued_pct": 0.02439,
+      "adversarial_ids": [
+        "P-5040"
+      ],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 1,
+        "BILLING_ANOMALY": 0,
+        "CONTRACTOR_PATTERN": 0,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 0,
+        "MULTI_SIGNAL": 8
+      }
+    },
+    {
+      "capacity": 20,
+      "pct_of_dataset": 0.133333,
+      "anomalous_captured": 17,
+      "recall": 0.346939,
+      "precision": 0.85,
+      "false_positives": 3,
+      "lowest_selected_score": 33.4,
+      "highest_ranked_normal": {
+        "rank": 9,
+        "project_id": "P-5040",
+        "risk_score": 45.3,
+        "scenario_type": "ADVERSARIAL_NORMAL",
+        "inside_selection": true
+      },
+      "tied_at_cutoff": 1,
+      "slots_filled_from_tie": 1,
+      "tied_excluded": 0,
+      "captured_if_ties_ordered_worst": 17,
+      "captured_if_ties_ordered_best": 17,
+      "tie_sensitive": false,
+      "adversarial_queued": 3,
+      "adversarial_queued_pct": 0.073171,
+      "adversarial_ids": [
+        "P-5010",
+        "P-5040",
+        "P-5048"
+      ],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 7,
+        "BILLING_ANOMALY": 0,
+        "CONTRACTOR_PATTERN": 2,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 0,
+        "MULTI_SIGNAL": 8
+      }
+    },
+    {
+      "capacity": 25,
+      "pct_of_dataset": 0.166667,
+      "anomalous_captured": 22,
+      "recall": 0.44898,
+      "precision": 0.88,
+      "false_positives": 3,
+      "lowest_selected_score": 28.1,
+      "highest_ranked_normal": {
+        "rank": 9,
+        "project_id": "P-5040",
+        "risk_score": 45.3,
+        "scenario_type": "ADVERSARIAL_NORMAL",
+        "inside_selection": true
+      },
+      "tied_at_cutoff": 1,
+      "slots_filled_from_tie": 1,
+      "tied_excluded": 0,
+      "captured_if_ties_ordered_worst": 22,
+      "captured_if_ties_ordered_best": 22,
+      "tie_sensitive": false,
+      "adversarial_queued": 3,
+      "adversarial_queued_pct": 0.073171,
+      "adversarial_ids": [
+        "P-5010",
+        "P-5040",
+        "P-5048"
+      ],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 8,
+        "BILLING_ANOMALY": 1,
+        "CONTRACTOR_PATTERN": 3,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 2,
+        "MULTI_SIGNAL": 8
+      }
+    },
+    {
+      "capacity": 30,
+      "pct_of_dataset": 0.2,
+      "anomalous_captured": 27,
+      "recall": 0.55102,
+      "precision": 0.9,
+      "false_positives": 3,
+      "lowest_selected_score": 27.1,
+      "highest_ranked_normal": {
+        "rank": 9,
+        "project_id": "P-5040",
+        "risk_score": 45.3,
+        "scenario_type": "ADVERSARIAL_NORMAL",
+        "inside_selection": true
+      },
+      "tied_at_cutoff": 3,
+      "slots_filled_from_tie": 2,
+      "tied_excluded": 1,
+      "captured_if_ties_ordered_worst": 27,
+      "captured_if_ties_ordered_best": 27,
+      "tie_sensitive": false,
+      "adversarial_queued": 3,
+      "adversarial_queued_pct": 0.073171,
+      "adversarial_ids": [
+        "P-5010",
+        "P-5040",
+        "P-5048"
+      ],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 8,
+        "BILLING_ANOMALY": 3,
+        "CONTRACTOR_PATTERN": 3,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 5,
+        "MULTI_SIGNAL": 8
+      }
+    },
+    {
+      "capacity": 40,
+      "pct_of_dataset": 0.266667,
+      "anomalous_captured": 33,
+      "recall": 0.673469,
+      "precision": 0.825,
+      "false_positives": 7,
+      "lowest_selected_score": 24.1,
+      "highest_ranked_normal": {
+        "rank": 9,
+        "project_id": "P-5040",
+        "risk_score": 45.3,
+        "scenario_type": "ADVERSARIAL_NORMAL",
+        "inside_selection": true
+      },
+      "tied_at_cutoff": 1,
+      "slots_filled_from_tie": 1,
+      "tied_excluded": 0,
+      "captured_if_ties_ordered_worst": 33,
+      "captured_if_ties_ordered_best": 33,
+      "tie_sensitive": false,
+      "adversarial_queued": 7,
+      "adversarial_queued_pct": 0.170732,
+      "adversarial_ids": [
+        "P-5010",
+        "P-5024",
+        "P-5040",
+        "P-5043",
+        "P-5048",
+        "P-5078",
+        "P-5091"
+      ],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 8,
+        "BILLING_ANOMALY": 7,
+        "CONTRACTOR_PATTERN": 5,
+        "SIMILAR_PROJECT": 0,
+        "GEOGRAPHIC_PATTERN": 5,
+        "MULTI_SIGNAL": 8
+      }
+    },
+    {
+      "capacity": 50,
+      "pct_of_dataset": 0.333333,
+      "anomalous_captured": 39,
+      "recall": 0.795918,
+      "precision": 0.78,
+      "false_positives": 11,
+      "lowest_selected_score": 22.1,
+      "highest_ranked_normal": {
+        "rank": 9,
+        "project_id": "P-5040",
+        "risk_score": 45.3,
+        "scenario_type": "ADVERSARIAL_NORMAL",
+        "inside_selection": true
+      },
+      "tied_at_cutoff": 1,
+      "slots_filled_from_tie": 1,
+      "tied_excluded": 0,
+      "captured_if_ties_ordered_worst": 39,
+      "captured_if_ties_ordered_best": 39,
+      "tie_sensitive": false,
+      "adversarial_queued": 11,
+      "adversarial_queued_pct": 0.268293,
+      "adversarial_ids": [
+        "P-5010",
+        "P-5018",
+        "P-5024",
+        "P-5026",
+        "P-5030",
+        "P-5040",
+        "P-5043",
+        "P-5048",
+        "P-5078",
+        "P-5091",
+        "P-5102"
+      ],
+      "plain_normal_queued": 0,
+      "scenario_captured": {
+        "COST_ANOMALY": 8,
+        "BILLING_ANOMALY": 8,
+        "CONTRACTOR_PATTERN": 6,
+        "SIMILAR_PROJECT": 4,
+        "GEOGRAPHIC_PATTERN": 5,
+        "MULTI_SIGNAL": 8
+      }
+    }
+  ],
+  "queue_curve": [
+    {
+      "k": 1,
+      "tp": 1,
+      "precision": 1.0,
+      "recall": 0.020408
+    },
+    {
+      "k": 2,
+      "tp": 2,
+      "precision": 1.0,
+      "recall": 0.040816
+    },
+    {
+      "k": 3,
+      "tp": 3,
+      "precision": 1.0,
+      "recall": 0.061224
+    },
+    {
+      "k": 4,
+      "tp": 4,
+      "precision": 1.0,
+      "recall": 0.081633
+    },
+    {
+      "k": 5,
+      "tp": 5,
+      "precision": 1.0,
+      "recall": 0.102041
+    },
+    {
+      "k": 6,
+      "tp": 6,
+      "precision": 1.0,
+      "recall": 0.122449
+    },
+    {
+      "k": 7,
+      "tp": 7,
+      "precision": 1.0,
+      "recall": 0.142857
+    },
+    {
+      "k": 8,
+      "tp": 8,
+      "precision": 1.0,
+      "recall": 0.163265
+    },
+    {
+      "k": 9,
+      "tp": 8,
+      "precision": 0.888889,
+      "recall": 0.163265
+    },
+    {
+      "k": 10,
+      "tp": 9,
+      "precision": 0.9,
+      "recall": 0.183673
+    },
+    {
+      "k": 11,
+      "tp": 10,
+      "precision": 0.909091,
+      "recall": 0.204082
+    },
+    {
+      "k": 12,
+      "tp": 11,
+      "precision": 0.916667,
+      "recall": 0.22449
+    },
+    {
+      "k": 13,
+      "tp": 12,
+      "precision": 0.923077,
+      "recall": 0.244898
+    },
+    {
+      "k": 14,
+      "tp": 13,
+      "precision": 0.928571,
+      "recall": 0.265306
+    },
+    {
+      "k": 15,
+      "tp": 13,
+      "precision": 0.866667,
+      "recall": 0.265306
+    },
+    {
+      "k": 16,
+      "tp": 14,
+      "precision": 0.875,
+      "recall": 0.285714
+    },
+    {
+      "k": 17,
+      "tp": 15,
+      "precision": 0.882353,
+      "recall": 0.306122
+    },
+    {
+      "k": 18,
+      "tp": 15,
+      "precision": 0.833333,
+      "recall": 0.306122
+    },
+    {
+      "k": 19,
+      "tp": 16,
+      "precision": 0.842105,
+      "recall": 0.326531
+    },
+    {
+      "k": 20,
+      "tp": 17,
+      "precision": 0.85,
+      "recall": 0.346939
+    },
+    {
+      "k": 21,
+      "tp": 18,
+      "precision": 0.857143,
+      "recall": 0.367347
+    },
+    {
+      "k": 22,
+      "tp": 19,
+      "precision": 0.863636,
+      "recall": 0.387755
+    },
+    {
+      "k": 23,
+      "tp": 20,
+      "precision": 0.869565,
+      "recall": 0.408163
+    },
+    {
+      "k": 24,
+      "tp": 21,
+      "precision": 0.875,
+      "recall": 0.428571
+    },
+    {
+      "k": 25,
+      "tp": 22,
+      "precision": 0.88,
+      "recall": 0.44898
+    },
+    {
+      "k": 26,
+      "tp": 23,
+      "precision": 0.884615,
+      "recall": 0.469388
+    },
+    {
+      "k": 27,
+      "tp": 24,
+      "precision": 0.888889,
+      "recall": 0.489796
+    },
+    {
+      "k": 28,
+      "tp": 25,
+      "precision": 0.892857,
+      "recall": 0.510204
+    },
+    {
+      "k": 29,
+      "tp": 26,
+      "precision": 0.896552,
+      "recall": 0.530612
+    },
+    {
+      "k": 30,
+      "tp": 27,
+      "precision": 0.9,
+      "recall": 0.55102
+    },
+    {
+      "k": 31,
+      "tp": 28,
+      "precision": 0.903226,
+      "recall": 0.571429
+    },
+    {
+      "k": 32,
+      "tp": 29,
+      "precision": 0.90625,
+      "recall": 0.591837
+    },
+    {
+      "k": 33,
+      "tp": 29,
+      "precision": 0.878788,
+      "recall": 0.591837
+    },
+    {
+      "k": 34,
+      "tp": 30,
+      "precision": 0.882353,
+      "recall": 0.612245
+    },
+    {
+      "k": 35,
+      "tp": 31,
+      "precision": 0.885714,
+      "recall": 0.632653
+    },
+    {
+      "k": 36,
+      "tp": 32,
+      "precision": 0.888889,
+      "recall": 0.653061
+    },
+    {
+      "k": 37,
+      "tp": 32,
+      "precision": 0.864865,
+      "recall": 0.653061
+    },
+    {
+      "k": 38,
+      "tp": 32,
+      "precision": 0.842105,
+      "recall": 0.653061
+    },
+    {
+      "k": 39,
+      "tp": 33,
+      "precision": 0.846154,
+      "recall": 0.673469
+    },
+    {
+      "k": 40,
+      "tp": 33,
+      "precision": 0.825,
+      "recall": 0.673469
+    },
+    {
+      "k": 41,
+      "tp": 33,
+      "precision": 0.804878,
+      "recall": 0.673469
+    },
+    {
+      "k": 42,
+      "tp": 34,
+      "precision": 0.809524,
+      "recall": 0.693878
+    },
+    {
+      "k": 43,
+      "tp": 35,
+      "precision": 0.813953,
+      "recall": 0.714286
+    },
+    {
+      "k": 44,
+      "tp": 35,
+      "precision": 0.795455,
+      "recall": 0.714286
+    },
+    {
+      "k": 45,
+      "tp": 36,
+      "precision": 0.8,
+      "recall": 0.734694
+    },
+    {
+      "k": 46,
+      "tp": 36,
+      "precision": 0.782609,
+      "recall": 0.734694
+    },
+    {
+      "k": 47,
+      "tp": 37,
+      "precision": 0.787234,
+      "recall": 0.755102
+    },
+    {
+      "k": 48,
+      "tp": 38,
+      "precision": 0.791667,
+      "recall": 0.77551
+    },
+    {
+      "k": 49,
+      "tp": 39,
+      "precision": 0.795918,
+      "recall": 0.795918
+    },
+    {
+      "k": 50,
+      "tp": 39,
+      "precision": 0.78,
+      "recall": 0.795918
+    },
+    {
+      "k": 51,
+      "tp": 40,
+      "precision": 0.784314,
+      "recall": 0.816327
+    },
+    {
+      "k": 52,
+      "tp": 41,
+      "precision": 0.788462,
+      "recall": 0.836735
+    },
+    {
+      "k": 53,
+      "tp": 42,
+      "precision": 0.792453,
+      "recall": 0.857143
+    },
+    {
+      "k": 54,
+      "tp": 43,
+      "precision": 0.796296,
+      "recall": 0.877551
+    },
+    {
+      "k": 55,
+      "tp": 43,
+      "precision": 0.781818,
+      "recall": 0.877551
+    },
+    {
+      "k": 56,
+      "tp": 43,
+      "precision": 0.767857,
+      "recall": 0.877551
+    },
+    {
+      "k": 57,
+      "tp": 43,
+      "precision": 0.754386,
+      "recall": 0.877551
+    },
+    {
+      "k": 58,
+      "tp": 44,
+      "precision": 0.758621,
+      "recall": 0.897959
+    },
+    {
+      "k": 59,
+      "tp": 44,
+      "precision": 0.745763,
+      "recall": 0.897959
+    },
+    {
+      "k": 60,
+      "tp": 44,
+      "precision": 0.733333,
+      "recall": 0.897959
+    },
+    {
+      "k": 61,
+      "tp": 44,
+      "precision": 0.721311,
+      "recall": 0.897959
+    },
+    {
+      "k": 62,
+      "tp": 45,
+      "precision": 0.725806,
+      "recall": 0.918367
+    },
+    {
+      "k": 63,
+      "tp": 45,
+      "precision": 0.714286,
+      "recall": 0.918367
+    },
+    {
+      "k": 64,
+      "tp": 46,
+      "precision": 0.71875,
+      "recall": 0.938776
+    },
+    {
+      "k": 65,
+      "tp": 46,
+      "precision": 0.707692,
+      "recall": 0.938776
+    },
+    {
+      "k": 66,
+      "tp": 46,
+      "precision": 0.69697,
+      "recall": 0.938776
+    },
+    {
+      "k": 67,
+      "tp": 46,
+      "precision": 0.686567,
+      "recall": 0.938776
+    },
+    {
+      "k": 68,
+      "tp": 46,
+      "precision": 0.676471,
+      "recall": 0.938776
+    },
+    {
+      "k": 69,
+      "tp": 46,
+      "precision": 0.666667,
+      "recall": 0.938776
+    },
+    {
+      "k": 70,
+      "tp": 46,
+      "precision": 0.657143,
+      "recall": 0.938776
+    },
+    {
+      "k": 71,
+      "tp": 46,
+      "precision": 0.647887,
+      "recall": 0.938776
+    },
+    {
+      "k": 72,
+      "tp": 46,
+      "precision": 0.638889,
+      "recall": 0.938776
+    },
+    {
+      "k": 73,
+      "tp": 46,
+      "precision": 0.630137,
+      "recall": 0.938776
+    },
+    {
+      "k": 74,
+      "tp": 46,
+      "precision": 0.621622,
+      "recall": 0.938776
+    },
+    {
+      "k": 75,
+      "tp": 46,
+      "precision": 0.613333,
+      "recall": 0.938776
+    },
+    {
+      "k": 76,
+      "tp": 46,
+      "precision": 0.605263,
+      "recall": 0.938776
+    },
+    {
+      "k": 77,
+      "tp": 46,
+      "precision": 0.597403,
+      "recall": 0.938776
+    },
+    {
+      "k": 78,
+      "tp": 46,
+      "precision": 0.589744,
+      "recall": 0.938776
+    },
+    {
+      "k": 79,
+      "tp": 46,
+      "precision": 0.582278,
+      "recall": 0.938776
+    },
+    {
+      "k": 80,
+      "tp": 46,
+      "precision": 0.575,
+      "recall": 0.938776
+    },
+    {
+      "k": 81,
+      "tp": 46,
+      "precision": 0.567901,
+      "recall": 0.938776
+    },
+    {
+      "k": 82,
+      "tp": 46,
+      "precision": 0.560976,
+      "recall": 0.938776
+    },
+    {
+      "k": 83,
+      "tp": 46,
+      "precision": 0.554217,
+      "recall": 0.938776
+    },
+    {
+      "k": 84,
+      "tp": 46,
+      "precision": 0.547619,
+      "recall": 0.938776
+    },
+    {
+      "k": 85,
+      "tp": 46,
+      "precision": 0.541176,
+      "recall": 0.938776
+    },
+    {
+      "k": 86,
+      "tp": 46,
+      "precision": 0.534884,
+      "recall": 0.938776
+    },
+    {
+      "k": 87,
+      "tp": 46,
+      "precision": 0.528736,
+      "recall": 0.938776
+    },
+    {
+      "k": 88,
+      "tp": 46,
+      "precision": 0.522727,
+      "recall": 0.938776
+    },
+    {
+      "k": 89,
+      "tp": 46,
+      "precision": 0.516854,
+      "recall": 0.938776
+    },
+    {
+      "k": 90,
+      "tp": 46,
+      "precision": 0.511111,
+      "recall": 0.938776
+    },
+    {
+      "k": 91,
+      "tp": 46,
+      "precision": 0.505495,
+      "recall": 0.938776
+    },
+    {
+      "k": 92,
+      "tp": 46,
+      "precision": 0.5,
+      "recall": 0.938776
+    },
+    {
+      "k": 93,
+      "tp": 46,
+      "precision": 0.494624,
+      "recall": 0.938776
+    },
+    {
+      "k": 94,
+      "tp": 46,
+      "precision": 0.489362,
+      "recall": 0.938776
+    },
+    {
+      "k": 95,
+      "tp": 46,
+      "precision": 0.484211,
+      "recall": 0.938776
+    },
+    {
+      "k": 96,
+      "tp": 46,
+      "precision": 0.479167,
+      "recall": 0.938776
+    },
+    {
+      "k": 97,
+      "tp": 46,
+      "precision": 0.474227,
+      "recall": 0.938776
+    },
+    {
+      "k": 98,
+      "tp": 46,
+      "precision": 0.469388,
+      "recall": 0.938776
+    },
+    {
+      "k": 99,
+      "tp": 46,
+      "precision": 0.464646,
+      "recall": 0.938776
+    },
+    {
+      "k": 100,
+      "tp": 46,
+      "precision": 0.46,
+      "recall": 0.938776
+    },
+    {
+      "k": 101,
+      "tp": 46,
+      "precision": 0.455446,
+      "recall": 0.938776
+    },
+    {
+      "k": 102,
+      "tp": 46,
+      "precision": 0.45098,
+      "recall": 0.938776
+    },
+    {
+      "k": 103,
+      "tp": 46,
+      "precision": 0.446602,
+      "recall": 0.938776
+    },
+    {
+      "k": 104,
+      "tp": 46,
+      "precision": 0.442308,
+      "recall": 0.938776
+    },
+    {
+      "k": 105,
+      "tp": 46,
+      "precision": 0.438095,
+      "recall": 0.938776
+    },
+    {
+      "k": 106,
+      "tp": 46,
+      "precision": 0.433962,
+      "recall": 0.938776
+    },
+    {
+      "k": 107,
+      "tp": 46,
+      "precision": 0.429907,
+      "recall": 0.938776
+    },
+    {
+      "k": 108,
+      "tp": 46,
+      "precision": 0.425926,
+      "recall": 0.938776
+    },
+    {
+      "k": 109,
+      "tp": 46,
+      "precision": 0.422018,
+      "recall": 0.938776
+    },
+    {
+      "k": 110,
+      "tp": 46,
+      "precision": 0.418182,
+      "recall": 0.938776
+    },
+    {
+      "k": 111,
+      "tp": 46,
+      "precision": 0.414414,
+      "recall": 0.938776
+    },
+    {
+      "k": 112,
+      "tp": 46,
+      "precision": 0.410714,
+      "recall": 0.938776
+    },
+    {
+      "k": 113,
+      "tp": 46,
+      "precision": 0.40708,
+      "recall": 0.938776
+    },
+    {
+      "k": 114,
+      "tp": 46,
+      "precision": 0.403509,
+      "recall": 0.938776
+    },
+    {
+      "k": 115,
+      "tp": 46,
+      "precision": 0.4,
+      "recall": 0.938776
+    },
+    {
+      "k": 116,
+      "tp": 46,
+      "precision": 0.396552,
+      "recall": 0.938776
+    },
+    {
+      "k": 117,
+      "tp": 46,
+      "precision": 0.393162,
+      "recall": 0.938776
+    },
+    {
+      "k": 118,
+      "tp": 46,
+      "precision": 0.389831,
+      "recall": 0.938776
+    },
+    {
+      "k": 119,
+      "tp": 46,
+      "precision": 0.386555,
+      "recall": 0.938776
+    },
+    {
+      "k": 120,
+      "tp": 46,
+      "precision": 0.383333,
+      "recall": 0.938776
+    },
+    {
+      "k": 121,
+      "tp": 46,
+      "precision": 0.380165,
+      "recall": 0.938776
+    },
+    {
+      "k": 122,
+      "tp": 46,
+      "precision": 0.377049,
+      "recall": 0.938776
+    },
+    {
+      "k": 123,
+      "tp": 46,
+      "precision": 0.373984,
+      "recall": 0.938776
+    },
+    {
+      "k": 124,
+      "tp": 46,
+      "precision": 0.370968,
+      "recall": 0.938776
+    },
+    {
+      "k": 125,
+      "tp": 46,
+      "precision": 0.368,
+      "recall": 0.938776
+    },
+    {
+      "k": 126,
+      "tp": 46,
+      "precision": 0.365079,
+      "recall": 0.938776
+    },
+    {
+      "k": 127,
+      "tp": 46,
+      "precision": 0.362205,
+      "recall": 0.938776
+    },
+    {
+      "k": 128,
+      "tp": 46,
+      "precision": 0.359375,
+      "recall": 0.938776
+    },
+    {
+      "k": 129,
+      "tp": 46,
+      "precision": 0.356589,
+      "recall": 0.938776
+    },
+    {
+      "k": 130,
+      "tp": 47,
+      "precision": 0.361538,
+      "recall": 0.959184
+    },
+    {
+      "k": 131,
+      "tp": 47,
+      "precision": 0.358779,
+      "recall": 0.959184
+    },
+    {
+      "k": 132,
+      "tp": 48,
+      "precision": 0.363636,
+      "recall": 0.979592
+    },
+    {
+      "k": 133,
+      "tp": 48,
+      "precision": 0.360902,
+      "recall": 0.979592
+    },
+    {
+      "k": 134,
+      "tp": 48,
+      "precision": 0.358209,
+      "recall": 0.979592
+    },
+    {
+      "k": 135,
+      "tp": 48,
+      "precision": 0.355556,
+      "recall": 0.979592
+    },
+    {
+      "k": 136,
+      "tp": 48,
+      "precision": 0.352941,
+      "recall": 0.979592
+    },
+    {
+      "k": 137,
+      "tp": 48,
+      "precision": 0.350365,
+      "recall": 0.979592
+    },
+    {
+      "k": 138,
+      "tp": 48,
+      "precision": 0.347826,
+      "recall": 0.979592
+    },
+    {
+      "k": 139,
+      "tp": 49,
+      "precision": 0.352518,
+      "recall": 1.0
+    },
+    {
+      "k": 140,
+      "tp": 49,
+      "precision": 0.35,
+      "recall": 1.0
+    },
+    {
+      "k": 141,
+      "tp": 49,
+      "precision": 0.347518,
+      "recall": 1.0
+    },
+    {
+      "k": 142,
+      "tp": 49,
+      "precision": 0.34507,
+      "recall": 1.0
+    },
+    {
+      "k": 143,
+      "tp": 49,
+      "precision": 0.342657,
+      "recall": 1.0
+    },
+    {
+      "k": 144,
+      "tp": 49,
+      "precision": 0.340278,
+      "recall": 1.0
+    },
+    {
+      "k": 145,
+      "tp": 49,
+      "precision": 0.337931,
+      "recall": 1.0
+    },
+    {
+      "k": 146,
+      "tp": 49,
+      "precision": 0.335616,
+      "recall": 1.0
+    },
+    {
+      "k": 147,
+      "tp": 49,
+      "precision": 0.333333,
+      "recall": 1.0
+    },
+    {
+      "k": 148,
+      "tp": 49,
+      "precision": 0.331081,
+      "recall": 1.0
+    },
+    {
+      "k": 149,
+      "tp": 49,
+      "precision": 0.328859,
+      "recall": 1.0
+    },
+    {
+      "k": 150,
+      "tp": 49,
+      "precision": 0.326667,
+      "recall": 1.0
+    }
+  ],
+  "adversarial_normal": {
+    "n": 41,
+    "max_score": 45.3,
+    "mean_score": 19.521951,
+    "median_score": 17.1,
+    "highest_ranked_eight": [
+      {
+        "rank": 9,
+        "project_id": "P-5040",
+        "subtype": "C",
+        "risk_score": 45.3
+      },
+      {
+        "rank": 15,
+        "project_id": "P-5010",
+        "subtype": "C",
+        "risk_score": 38.1
+      },
+      {
+        "rank": 18,
+        "project_id": "P-5048",
+        "subtype": "C",
+        "risk_score": 36.9
+      },
+      {
+        "rank": 33,
+        "project_id": "P-5024",
+        "subtype": "D",
+        "risk_score": 26.2
+      },
+      {
+        "rank": 37,
+        "project_id": "P-5043",
+        "subtype": "C",
+        "risk_score": 25.0
+      },
+      {
+        "rank": 38,
+        "project_id": "P-5091",
+        "subtype": "D",
+        "risk_score": 25.0
+      },
+      {
+        "rank": 40,
+        "project_id": "P-5078",
+        "subtype": "D",
+        "risk_score": 24.1
+      },
+      {
+        "rank": 41,
+        "project_id": "P-5026",
+        "subtype": "D",
+        "risk_score": 23.5
+      }
+    ],
+    "by_subtype_max_score": {
+      "A": 18.5,
+      "B": 22.1,
+      "C": 45.3,
+      "D": 26.2,
+      "E": 23.3
+    }
+  },
+  "scale_sensitivity_of_fixed_thresholds": [
+    {
+      "variant": "FULL",
+      "highest_score_observed": 55.5,
+      "queued_at_ge_30": 21,
+      "anomalous_at_ge_30": 18,
+      "queued_at_ge_40": 10,
+      "anomalous_at_ge_40": 9,
+      "anomalous_in_top_10": 9,
+      "anomalous_in_top_20": 17
+    },
+    {
+      "variant": "NO_COST",
+      "highest_score_observed": 30.5,
+      "queued_at_ge_30": 1,
+      "anomalous_at_ge_30": 1,
+      "queued_at_ge_40": 0,
+      "anomalous_at_ge_40": 0,
+      "anomalous_in_top_10": 10,
+      "anomalous_in_top_20": 18
+    },
+    {
+      "variant": "NO_SIMILARITY",
+      "highest_score_observed": 35.0,
+      "queued_at_ge_30": 5,
+      "anomalous_at_ge_30": 4,
+      "queued_at_ge_40": 0,
+      "anomalous_at_ge_40": 0,
+      "anomalous_in_top_10": 6,
+      "anomalous_in_top_20": 16
+    },
+    {
+      "variant": "NO_CONTRACTOR",
+      "highest_score_observed": 55.5,
+      "queued_at_ge_30": 18,
+      "anomalous_at_ge_30": 15,
+      "queued_at_ge_40": 10,
+      "anomalous_at_ge_40": 9,
+      "anomalous_in_top_10": 9,
+      "anomalous_in_top_20": 17
+    },
+    {
+      "variant": "NO_BILLING",
+      "highest_score_observed": 47.1,
+      "queued_at_ge_30": 21,
+      "anomalous_at_ge_30": 18,
+      "queued_at_ge_40": 5,
+      "anomalous_at_ge_40": 5,
+      "anomalous_in_top_10": 10,
+      "anomalous_in_top_20": 17
+    },
+    {
+      "variant": "NO_GEOGRAPHIC",
+      "highest_score_observed": 55.5,
+      "queued_at_ge_30": 21,
+      "anomalous_at_ge_30": 18,
+      "queued_at_ge_40": 10,
+      "anomalous_at_ge_40": 9,
+      "anomalous_in_top_10": 9,
+      "anomalous_in_top_20": 17
+    }
+  ],
+  "mandatory_claim": "V2.5 evaluates how NidhiGuard's deterministic risk scores translate into investigation workload. Rather than arbitrarily tuning a fraud threshold, the evaluation compares predefined score thresholds and Top-K operating points, exposing the precision/recall and false-positive trade-offs for investigators.",
+  "candidate_operating_points": [
+    {
+      "name": "V1 native queue: risk_score >= 30",
+      "kind": "production threshold",
+      "queue_size": 21,
+      "pct_of_dataset": 0.14,
+      "anomalous_captured": 18,
+      "precision": 0.857143,
+      "recall": 0.367347,
+      "false_positives": 3,
+      "adversarial_queued": 3,
+      "why": "This is what V1 does today (every non-LOW project); it is the baseline any alternative must be compared with."
+    },
+    {
+      "name": "Top-10",
+      "kind": "investigator operating point",
+      "queue_size": 10,
+      "pct_of_dataset": 0.066667,
+      "anomalous_captured": 9,
+      "precision": 0.9,
+      "recall": 0.183673,
+      "false_positives": 1,
+      "adversarial_queued": 1,
+      "why": "A small high-priority tier for a reviewer with very little capacity; about 7% of this pool."
+    },
+    {
+      "name": "Top-20",
+      "kind": "investigator operating point",
+      "queue_size": 20,
+      "pct_of_dataset": 0.133333,
+      "anomalous_captured": 17,
+      "precision": 0.85,
+      "recall": 0.346939,
+      "false_positives": 3,
+      "adversarial_queued": 3,
+      "why": "Roughly the same workload as the native queue, but fixed in size however the score scale moves."
+    },
+    {
+      "name": "risk_score >= 40",
+      "kind": "evaluation threshold",
+      "queue_size": 10,
+      "pct_of_dataset": 0.066667,
+      "anomalous_captured": 9,
+      "precision": 0.9,
+      "recall": 0.183673,
+      "false_positives": 1,
+      "adversarial_queued": 1,
+      "why": "A narrow high-score tier, shown for continuity with V2.2; not a V1 boundary."
+    },
+    {
+      "name": "Top-40",
+      "kind": "investigator operating point",
+      "queue_size": 40,
+      "pct_of_dataset": 0.266667,
+      "anomalous_captured": 33,
+      "precision": 0.825,
+      "recall": 0.673469,
+      "false_positives": 7,
+      "adversarial_queued": 7,
+      "why": "A deliberately wide net (about 27% of the pool) to show how much precision is given up for coverage."
+    }
+  ]
+}
