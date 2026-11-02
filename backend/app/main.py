@@ -40,6 +40,7 @@ from backend.app.db.database import init_db
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://nidhi-gaurd-gamma.vercel.app",
 ]
 _OCTET = r"(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)"
 CORS_ALLOWED_ORIGIN_REGEX = rf"http://(?:192\.168\.{_OCTET}\.{_OCTET}|10\.{_OCTET}\.{_OCTET}\.{_OCTET}):8443"
