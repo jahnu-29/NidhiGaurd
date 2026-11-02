@@ -1,0 +1,75 @@
+name: CI
+
+# Runs on pushes to, and pull requests targeting, the v2-evaluation branch.
+# Needs no secrets, API keys, database credentials, .env files or external services.
+on:
+  push:
+    branches: [v2-evaluation]
+  pull_request:
+    branches: [v2-evaluation]
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend tests (Python)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          # No Python version is pinned in the repo; 3.13 is what the committed
+          # evaluation metadata records the project was run on.
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: backend/requirements*.txt
+
+      - name: Install dependencies
+        # backend/requirements*.txt list the API and test packages only. The
+        # intelligence engine and the tests also import numpy, pandas and
+        # scikit-learn, which no requirements file lists, so they are installed
+        # here, pinned to the versions recorded in the evaluation metadata.
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements-dev.txt numpy==2.5.0 pandas==3.0.3 scikit-learn==1.9.0
+
+      # The CI gate is the normal project suite (pytest.ini: intelligence/tests + backend/tests).
+      # evaluation/tests is deliberately NOT run: its byte-identical regeneration checks compare
+      # against committed metadata that records exact library versions, so they are verified
+      # locally, not in CI.
+      - name: Run tests
+        run: python -m pytest -q
+
+  frontend:
+    name: Frontend type-check and build (Node)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22 # as declared in .mise.toml
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # vite.config.ts imports ./.figma/make/site.json, but .gitignore excludes .figma/, so a
+      # fresh checkout may not have it. Create an empty stub only if it is missing (a no-op if
+      # the file is tracked). Every field the config reads from it is optional.
+      - name: Ensure Figma site config exists
+        run: |
+          mkdir -p .figma/make
+          [ -f .figma/make/site.json ] || echo '{}' > .figma/make/site.json
+
+      # No type-check npm script exists and `vite build` does not type-check, so run the
+      # TypeScript compiler directly against the existing tsconfig.json (it is noEmit).
+      - name: Type-check
+        run: npx tsc --noEmit
+
+      - name: Build
+        run: npm run build

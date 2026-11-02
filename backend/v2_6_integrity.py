@@ -27,6 +27,11 @@ So two different questions are verified separately:
 The V2.6 manifest (backend/v2_6_source_manifest.json) is deliberately stored
 OUTSIDE ``backend/app`` and ``src`` so it never hashes itself.
 
+It covers the source that git can ship. The historical runs walked the filesystem and so
+also recorded one git-ignored, local-only file (src/imports/pasted_text/pasted-attachment.txt)
+that no clean checkout contains; EXCLUDED_LOCAL_ONLY_PATHS names it explicitly. The
+historical manifests still record it, unchanged.
+
 Hashing rules (deterministic, machine-independent)
 -------------------------------------------------
   * SHA-256, hex digest
@@ -52,6 +57,12 @@ from pathlib import Path
 
 SCOPE = ("backend/app", "src")
 HISTORICAL_GROUP = "v1_backend_and_frontend_source"
+# Local-only paths that the V2.6 manifest deliberately does NOT cover. Each must be (a) listed in
+# .gitignore, so a clean checkout cannot contain it, and (b) referenced by no source file. The
+# historical V2.3-V2.5 runs walked the filesystem and so recorded one such file; it is still in
+# those (immutable) manifests, but a clean clone can never have it. Keep this list minimal: a path
+# belongs here only if the two conditions above hold (enforced by test_v2_6_source_integrity.py).
+EXCLUDED_LOCAL_ONLY_PATHS = ("src/imports/pasted_text/",)
 MANIFEST_RELPATH = "backend/v2_6_source_manifest.json"
 # The historical manifests, recorded by the V2.3 / V2.4 / V2.5 runs. Read-only here.
 HISTORICAL_MANIFEST_FILES = (
@@ -65,6 +76,11 @@ SCHEMA_VERSION = 1
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parent.parent
+
+
+def is_excluded(rel: str) -> bool:
+    """True for a repo-relative POSIX path in EXCLUDED_LOCAL_ONLY_PATHS."""
+    return rel.startswith(EXCLUDED_LOCAL_ONLY_PATHS)
 
 
 # ----------------------------------------------------------------- hashing --
@@ -92,7 +108,9 @@ def walk_scope(root: Path) -> list[str]:
             for name in filenames:
                 if name.endswith((".pyc", ".pyo")):
                     continue
-                found.append(Path(dirpath, name).relative_to(root).as_posix())
+                rel = Path(dirpath, name).relative_to(root).as_posix()
+                if not is_excluded(rel):
+                    found.append(rel)
     return sorted(found)
 
 
@@ -102,7 +120,7 @@ def walk_scope(root: Path) -> list[str]:
 def historical_snapshot(root: Path) -> dict[str, str]:
     """The V1 backend/frontend snapshot recorded by the V2.3 run (raw SHA-256 per file)."""
     meta = json.loads((root / HISTORICAL_MANIFEST_FILES[0]).read_text(encoding="utf-8"))
-    return dict(meta["frozen_manifest"][HISTORICAL_GROUP])
+    return {k: v for k, v in meta["frozen_manifest"][HISTORICAL_GROUP].items() if not is_excluded(k)}
 
 
 def historical_snapshots_agree(root: Path) -> bool:
@@ -144,6 +162,7 @@ def build_manifest(root: Path | None = None) -> dict:
             "encoding": "UTF-8",
         },
         "scope": [f"{b}/**" for b in SCOPE],
+        "excluded_local_only_paths": list(EXCLUDED_LOCAL_ONLY_PATHS),
         "historical_manifest_sha256": {rel: normalized_sha256(root / rel) for rel in HISTORICAL_MANIFEST_FILES},
         "v2_6_changes_from_v1_snapshot": diff_from_historical(root),
         "files": {rel: normalized_sha256(root / rel) for rel in walk_scope(root)},
@@ -164,6 +183,8 @@ def verify(root: Path | None = None, manifest: dict | None = None) -> list[str]:
     root = Path(root) if root else repo_root()
     manifest = manifest if manifest is not None else load_manifest(root)
     problems: list[str] = []
+    if manifest.get("excluded_local_only_paths") != list(EXCLUDED_LOCAL_ONLY_PATHS):
+        problems.append("excluded_local_only_paths in the manifest differs from the tool's exclusion list")
     on_disk = walk_scope(root)
     recorded = manifest["files"]
     for rel in sorted(set(recorded) - set(on_disk)):
@@ -191,7 +212,8 @@ def frozen_diff(recorded: dict, now: dict, manifest: dict | None = None) -> dict
 
     Every group is compared exactly as before — except the V1 backend/frontend group, where
     the files V2.6 declares it added/modified/removed (backend/v2_6_source_manifest.json) are
-    tolerated. Any *other* difference in that group, and any difference in any other group
+    tolerated, as is the one git-ignored local-only path in EXCLUDED_LOCAL_ONLY_PATHS (absent
+    from any clean clone). Any *other* difference in that group, and any difference in any other group
     (V1 intelligence, V2.1 dataset/spec, V2.2, V2.3, V2.4), is still reported.
     """
     manifest = manifest if manifest is not None else load_manifest()
@@ -201,7 +223,7 @@ def frozen_diff(recorded: dict, now: dict, manifest: dict | None = None) -> dict
     for group in recorded:
         differing = sorted(k for k in set(now[group]) | set(recorded[group]) if now[group].get(k) != recorded[group].get(k))
         if group == HISTORICAL_GROUP:
-            differing = [k for k in differing if k not in allowed]
+            differing = [k for k in differing if k not in allowed and not is_excluded(k)]
         if differing:
             out[group] = differing
     return out

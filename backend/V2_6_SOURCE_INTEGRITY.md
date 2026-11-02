@@ -46,3 +46,26 @@ python -m backend.v2_6_integrity --write   # regenerate — only when an applica
 
 Never regenerate to make an unexpected difference disappear, and never regenerate the
 historical V2.3–V2.5 manifests or results.
+
+## One git-ignored, local-only path is excluded
+
+The historical V2.3–V2.5 runs (and the first V2.6 manifest) discovered files by walking the
+filesystem, not by asking git. They therefore also recorded
+`src/imports/pasted_text/pasted-attachment.txt`: a git-ignored (`.gitignore`: `src/imports/pasted_text/`),
+untracked, local-only file that nothing imports and that no clean checkout can contain.
+
+* The **historical manifests still record it, byte-for-byte unchanged** (and are pinned above).
+  They are never edited.
+* The **V2.6 manifest and tooling exclude it** via `EXCLUDED_LOCAL_ONLY_PATHS` in
+  `backend/v2_6_integrity.py`, so a clean clone verifies, and so does a developer machine where
+  the file exists (its contents are irrelevant).
+* In the historical freeze tests, that single path is tolerated as absent in the V1
+  backend/frontend group only; it is never excused in any other group, and no other missing or
+  changed file is excused.
+* The exclusion cannot silently widen: tests require the list to be exactly this one path, every
+  excluded path to be listed in `.gitignore`, no source file to reference it, the manifest to
+  record the same list, and the historical manifests to still contain it.
+
+The three `*_byte_identical_and_matches_committed` evaluation tests regenerate artifacts that
+embed the whole filesystem walk (including this file), so they can only pass on a machine that
+has it. They are not part of the CI gate.

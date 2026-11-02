@@ -1,4 +1,7 @@
 {
+  "excluded_local_only_paths": [
+    "src/imports/pasted_text/"
+  ],
   "files": {
     "backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "backend/app/api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -60,7 +63,6 @@
     "src/data/riskResults.ts": "d83d8c13a309f2aa38d5d19f00e8675a562d8367adfbc1a53df2b622d6693a20",
     "src/data/synthetic.ts": "a573743eda3243c0cacb0c0cf4d5c6a76d5595532a4b833703aec90e76cac7ec",
     "src/data/types.ts": "a21d14a29f64c07ffd8b9bc9b57635343221d3275c07e20ecf5fd32807cae994",
-    "src/imports/pasted_text/pasted-attachment.txt": "f180494b707487d76d433679880d25776a000446a0ccf2226f4c56ec66123697",
     "src/index.css": "e58d7553ccc93f73c730d3ee82287e3655f0e1e476aafe15928f248b4fad7e83",
     "src/investigation/status.ts": "70db86530f9dd79efe4b0625bb0ca12b3513f59a9123873a57ac919814cb0ef1",
     "src/main.tsx": "5f49dce6e6cc4b5d678cf529ef892af0ab7dfa6afb300b11ad559224019b8b05",

@@ -178,3 +178,84 @@ def test_crlf_checkout_still_verifies(tree_copy):
         p = tree_copy / rel
         p.write_bytes(p.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
     assert I.verify(tree_copy) == []
+
+
+# ------------------------------------- git-ignored, local-only exclusion --
+# The historical V2.3-V2.5 runs walked the filesystem and recorded one git-ignored file that no
+# clean checkout contains. The V2.6 manifest excludes exactly that path. These tests keep the
+# exclusion from silently widening: every excluded path must be git-ignored AND referenced by no
+# source file, and the historical manifests must still record it, unchanged.
+
+
+def test_exclusion_list_is_exactly_the_one_known_local_only_path():
+    # Adding to this tuple weakens the integrity check; do it only deliberately, with the two tests below passing.
+    assert I.EXCLUDED_LOCAL_ONLY_PATHS == ("src/imports/pasted_text/",)
+
+
+def test_every_excluded_path_is_git_ignored():
+    ignored = {line.strip() for line in (ROOT / ".gitignore").read_text(encoding="utf-8").splitlines()}
+    for prefix in I.EXCLUDED_LOCAL_ONLY_PATHS:
+        assert prefix in ignored, f"{prefix} is excluded from the manifest but is not listed in .gitignore"
+
+
+def test_no_source_file_references_an_excluded_path():
+    needles = ("pasted_text", "pasted-attachment")
+    candidates = [ROOT / rel for rel in I.walk_scope(ROOT)]
+    candidates += [ROOT / "vite.config.ts", ROOT / "index.html", ROOT / "package.json", ROOT / "tsconfig.json"]
+    candidates += [p for base in ("scripts", "intelligence") for p in (ROOT / base).rglob("*") if p.suffix in {".py", ".mjs", ".ts"}]
+    offenders = [str(p.relative_to(ROOT)) for p in candidates if p.is_file() and any(n in p.read_text(encoding="utf-8", errors="ignore") for n in needles)]
+    assert offenders == []
+
+
+def test_manifest_records_the_exclusion_and_has_no_entry_for_excluded_paths(manifest):
+    assert manifest["excluded_local_only_paths"] == list(I.EXCLUDED_LOCAL_ONLY_PATHS)
+    assert not [p for p in manifest["files"] if I.is_excluded(p)]
+
+
+def test_historical_manifests_still_record_the_excluded_file_unchanged():
+    """We exclude the path from V2.6 verification only; V2.3/V2.4/V2.5 history is untouched."""
+    for rel in I.HISTORICAL_MANIFEST_FILES:
+        group = json.loads((ROOT / rel).read_text(encoding="utf-8"))["frozen_manifest"][I.HISTORICAL_GROUP]
+        assert "src/imports/pasted_text/pasted-attachment.txt" in group, rel
+
+
+def test_verify_reports_a_mismatch_between_manifest_and_tool_exclusion_lists(manifest):
+    problems = I.verify(ROOT, {**manifest, "excluded_local_only_paths": []})
+    assert "excluded_local_only_paths in the manifest differs from the tool's exclusion list" in problems
+
+
+def test_excluded_file_being_present_or_absent_does_not_matter(tree_copy):
+    target = tree_copy / "src/imports/pasted_text/pasted-attachment.txt"
+    if target.exists():
+        target.unlink()
+    assert I.verify(tree_copy) == []  # a clean clone: file absent
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text("anything at all\r\n", encoding="utf-8")
+    assert I.verify(tree_copy) == []  # a developer machine: file present, contents irrelevant
+    assert not [p for p in I.walk_scope(tree_copy) if I.is_excluded(p)]
+
+
+def test_exclusion_does_not_cover_other_paths_in_the_same_folder_tree(tree_copy):
+    sibling = tree_copy / "src/imports/other_notes.txt"
+    sibling.parent.mkdir(parents=True, exist_ok=True)
+    sibling.write_text("x\n", encoding="utf-8")
+    assert I.verify(tree_copy) == ["unexpected (not in V2.6 manifest): src/imports/other_notes.txt"]
+
+
+def test_frozen_diff_tolerates_only_the_excluded_path_being_absent():
+    recorded = {I.HISTORICAL_GROUP: {"src/keep.ts": "same", "src/imports/pasted_text/pasted-attachment.txt": "h"}}
+    now = {I.HISTORICAL_GROUP: {"src/keep.ts": "same"}}
+    assert I.frozen_diff(recorded, now, _decl()) == {}
+    # any other missing file is still reported
+    now_missing_other = {I.HISTORICAL_GROUP: {}}
+    assert I.frozen_diff(recorded, now_missing_other, _decl()) == {I.HISTORICAL_GROUP: ["src/keep.ts"]}
+    # a similarly named path elsewhere is not excused
+    recorded2 = {I.HISTORICAL_GROUP: {"src/imports/other.txt": "h"}}
+    assert I.frozen_diff(recorded2, {I.HISTORICAL_GROUP: {}}, _decl()) == {I.HISTORICAL_GROUP: ["src/imports/other.txt"]}
+
+
+def test_frozen_diff_never_excuses_the_excluded_path_in_other_groups():
+    recorded = {"v2_1_dataset_and_spec": {"src/imports/pasted_text/pasted-attachment.txt": "h"}}
+    assert I.frozen_diff(recorded, {"v2_1_dataset_and_spec": {}}, _decl()) == {
+        "v2_1_dataset_and_spec": ["src/imports/pasted_text/pasted-attachment.txt"]
+    }
