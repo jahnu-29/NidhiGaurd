@@ -259,3 +259,79 @@ def test_frozen_diff_never_excuses_the_excluded_path_in_other_groups():
     assert I.frozen_diff(recorded, {"v2_1_dataset_and_spec": {}}, _decl()) == {
         "v2_1_dataset_and_spec": ["src/imports/pasted_text/pasted-attachment.txt"]
     }
+
+
+# -------------------------------- line endings are not content (CI regression) --
+# The historical manifests recorded RAW hashes of a Windows working tree. src/pages/UsersPage.tsx had
+# CRLF line endings there while its git blob has LF, so a Linux/CI checkout (LF) hashed differently and
+# was falsely reported as a V2.6 change. Content is compared modulo line endings; content changes are
+# still detected.
+
+USERS_PAGE = "src/pages/UsersPage.tsx"
+
+
+def _rewrite_line_endings(path, ending):
+    data = path.read_bytes().replace(b"\r\n", b"\n")
+    path.write_bytes(data if ending == "lf" else data.replace(b"\n", b"\r\n"))
+
+
+@pytest.mark.parametrize("ending", ["lf", "crlf"])
+def test_line_endings_alone_never_count_as_a_change_from_the_v1_snapshot(tree_copy, manifest, ending):
+    _rewrite_line_endings(tree_copy / USERS_PAGE, ending)  # e.g. what a Linux checkout of an LF blob looks like
+    changes = I.diff_from_historical(tree_copy)
+    assert USERS_PAGE not in changes["modified"]
+    assert changes == manifest["v2_6_changes_from_v1_snapshot"]
+    assert I.verify(tree_copy) == []
+
+
+@pytest.mark.parametrize("ending", ["lf", "crlf"])
+def test_a_real_content_change_is_still_detected_whatever_the_line_endings(tree_copy, ending):
+    _rewrite_line_endings(tree_copy / USERS_PAGE, ending)
+    target = tree_copy / USERS_PAGE
+    text = target.read_bytes().decode("utf-8")
+    target.write_bytes(text.replace("export default", "export  default", 1).encode("utf-8"))  # a one-character content change
+    assert USERS_PAGE in I.diff_from_historical(tree_copy)["modified"]
+    assert f"modified: {USERS_PAGE}" in I.verify(tree_copy)
+
+
+def test_every_file_in_the_v1_snapshot_is_recognised_as_unchanged_or_declared():
+    """The real tree: the only 'modified' files are the declared V2.6 ones — none is a line-ending artefact."""
+    assert I.diff_from_historical(ROOT)["modified"] == I.load_manifest(ROOT)["v2_6_changes_from_v1_snapshot"]["modified"]
+
+
+def test_frozen_diff_ignores_line_endings_in_the_v1_group_only(tree_copy):
+    _rewrite_line_endings(tree_copy / USERS_PAGE, "crlf")
+    recorded_crlf_hash = I.raw_sha256(tree_copy / USERS_PAGE)
+    _rewrite_line_endings(tree_copy / USERS_PAGE, "lf")  # the checkout now has LF
+    lf_hash = I.raw_sha256(tree_copy / USERS_PAGE)
+    assert recorded_crlf_hash != lf_hash
+    recorded = {I.HISTORICAL_GROUP: {USERS_PAGE: recorded_crlf_hash}}
+    now = {I.HISTORICAL_GROUP: {USERS_PAGE: lf_hash}}
+    assert I.frozen_diff(recorded, now, _decl(), root=tree_copy) == {}  # same content, only line endings differ
+    # ...but any other group stays byte-exact (V2.1-V2.5 evaluation guarantees are not relaxed)
+    other = {"v2_2_metrics_and_reference_outputs": {USERS_PAGE: recorded_crlf_hash}}
+    assert I.frozen_diff(other, {"v2_2_metrics_and_reference_outputs": {USERS_PAGE: lf_hash}}, _decl(), root=tree_copy) == {
+        "v2_2_metrics_and_reference_outputs": [USERS_PAGE]
+    }
+    # ...and a content change in the V1 group is still reported
+    target = tree_copy / USERS_PAGE
+    target.write_bytes(target.read_bytes() + b"// changed\n")
+    changed = {I.HISTORICAL_GROUP: {USERS_PAGE: I.raw_sha256(target)}}
+    assert I.frozen_diff(recorded, changed, _decl(), root=tree_copy) == {I.HISTORICAL_GROUP: [USERS_PAGE]}
+
+
+def test_line_ending_variants_cover_text_files_only(tmp_path):
+    import hashlib
+
+    def sha(b):
+        return hashlib.sha256(b).hexdigest()
+
+    text = tmp_path / "a.ts"
+    for stored in (b"x\r\ny\r\n", b"x\ny\n"):  # the same content stored with either line ending
+        text.write_bytes(stored)
+        assert I.sha256_line_ending_variants(text) == {sha(b"x\r\ny\r\n"), sha(b"x\ny\n")}
+    text.write_bytes(b"x\ny\nz\n")  # different content is never in the other file's variant set
+    assert not I.sha256_line_ending_variants(text) & {sha(b"x\r\ny\r\n"), sha(b"x\ny\n")}
+    binary = tmp_path / "a.bin"
+    binary.write_bytes(b"x\r\ny\r\n")
+    assert I.sha256_line_ending_variants(binary) == {sha(b"x\r\ny\r\n")}  # binary content is never normalised

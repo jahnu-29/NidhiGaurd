@@ -47,6 +47,16 @@ python -m backend.v2_6_integrity --write   # regenerate — only when an applica
 Never regenerate to make an unexpected difference disappear, and never regenerate the
 historical V2.3–V2.5 manifests or results.
 
+## Line endings never count as a change
+
+The historical manifests record RAW byte hashes taken on a Windows working tree, where some
+files (e.g. `src/pages/UsersPage.tsx`) were CRLF while their git blob is LF. A Linux/CI
+checkout writes LF, so the raw hash differs even though the committed content is identical.
+When comparing against the V1 snapshot (`diff_from_historical`, and the V1 backend/frontend
+group inside `frozen_diff`), a text file counts as unchanged if its raw, LF-normalised or
+CRLF-normalised hash equals the recorded one. Real content changes are still detected, and
+every other group stays byte-exact.
+
 ## One git-ignored, local-only path is excluded
 
 The historical V2.3–V2.5 runs (and the first V2.6 manifest) discovered files by walking the

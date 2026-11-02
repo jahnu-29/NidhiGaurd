@@ -99,6 +99,30 @@ def normalized_sha256(path: Path) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def sha256_line_ending_variants(path: Path) -> set[str]:
+    """
+    The SHA-256 values one file's *content* can have under line-ending rewriting: as stored (raw),
+    with CRLF->LF, and with every LF as CRLF. Non-text files have only the raw hash.
+
+    The historical manifests recorded RAW hashes of a Windows working tree, where a file may have
+    CRLF line endings while the git blob (and so a Linux/CI checkout) has LF, e.g. with
+    ``core.autocrlf``. Line endings are not content, so comparing to a recorded hash must tolerate
+    them. Any change to the actual content changes all three values, so this stays strict.
+    """
+    data = Path(path).read_bytes()
+    out = {hashlib.sha256(data).hexdigest()}
+    if Path(path).suffix.lower() in TEXT_EXTENSIONS:
+        lf = data.replace(b"\r\n", b"\n")
+        out.add(hashlib.sha256(lf).hexdigest())
+        out.add(hashlib.sha256(lf.replace(b"\n", b"\r\n")).hexdigest())
+    return out
+
+
+def matches_recorded(path: Path, recorded_sha256: str) -> bool:
+    """True if the file's content equals the recorded hash, ignoring line-ending differences only."""
+    return recorded_sha256 in sha256_line_ending_variants(path)
+
+
 def walk_scope(root: Path) -> list[str]:
     """Sorted repo-relative POSIX paths of every file in scope (no bytecode caches)."""
     found: list[str] = []
@@ -133,11 +157,11 @@ def historical_snapshots_agree(root: Path) -> bool:
 
 
 def diff_from_historical(root: Path) -> dict[str, list[str]]:
-    """Exactly which files differ between the recorded V1 snapshot and the tree on disk."""
+    """Exactly which files differ in CONTENT between the recorded V1 snapshot and the tree on disk (line endings ignored)."""
     old = historical_snapshot(root)
-    now = {rel: raw_sha256(root / rel) for rel in walk_scope(root)}
+    now = set(walk_scope(root))
     return {
-        "modified": sorted(k for k in old if k in now and old[k] != now[k]),
+        "modified": sorted(k for k in old if k in now and not matches_recorded(root / k, old[k])),
         "added": sorted(k for k in now if k not in old),
         "removed": sorted(k for k in old if k not in now),
     }
@@ -205,7 +229,7 @@ def verify(root: Path | None = None, manifest: dict | None = None) -> list[str]:
 # --------------------------------------------- hook for the historical tests --
 
 
-def frozen_diff(recorded: dict, now: dict, manifest: dict | None = None) -> dict[str, list[str]]:
+def frozen_diff(recorded: dict, now: dict, manifest: dict | None = None, root: Path | None = None) -> dict[str, list[str]]:
     """
     Drop-in replacement for the comparison the V2.3/V2.4/V2.5 freeze tests make:
     ``{group: [paths whose current hash differs from the recorded one]}``, empty groups omitted.
@@ -213,17 +237,25 @@ def frozen_diff(recorded: dict, now: dict, manifest: dict | None = None) -> dict
     Every group is compared exactly as before — except the V1 backend/frontend group, where
     the files V2.6 declares it added/modified/removed (backend/v2_6_source_manifest.json) are
     tolerated, as is the one git-ignored local-only path in EXCLUDED_LOCAL_ONLY_PATHS (absent
-    from any clean clone). Any *other* difference in that group, and any difference in any other group
+    from any clean clone), as is a file whose content is unchanged and only its line endings
+    differ (see ``sha256_line_ending_variants``). Any *other* difference in that group, and any difference in any other group
     (V1 intelligence, V2.1 dataset/spec, V2.2, V2.3, V2.4), is still reported.
     """
-    manifest = manifest if manifest is not None else load_manifest()
+    root = Path(root) if root else repo_root()
+    manifest = manifest if manifest is not None else load_manifest(root)
     declared = manifest["v2_6_changes_from_v1_snapshot"]
     allowed = set(declared["modified"]) | set(declared["added"]) | set(declared["removed"])
     out: dict[str, list[str]] = {}
     for group in recorded:
         differing = sorted(k for k in set(now[group]) | set(recorded[group]) if now[group].get(k) != recorded[group].get(k))
         if group == HISTORICAL_GROUP:
-            differing = [k for k in differing if k not in allowed and not is_excluded(k)]
+            # In this group only, a file whose content is unchanged but whose line endings were rewritten
+            # by the checkout is not a difference. Every other group stays byte-exact.
+            differing = [
+                k for k in differing
+                if k not in allowed and not is_excluded(k)
+                and not (k in recorded[group] and (root / k).is_file() and matches_recorded(root / k, recorded[group][k]))
+            ]
         if differing:
             out[group] = differing
     return out
