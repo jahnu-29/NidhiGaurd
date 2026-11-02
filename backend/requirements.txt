@@ -4,3 +4,4 @@ sqlalchemy
 pydantic
 pandas
 scikit-learn
+psycopg[binary]
