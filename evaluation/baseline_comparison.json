@@ -1,0 +1,1668 @@
+{
+  "dataset": {
+    "projects": 150,
+    "anomalous": 49,
+    "normal": 101,
+    "adversarial_normal": 41,
+    "scenario_counts": {
+      "NORMAL": 60,
+      "ADVERSARIAL_NORMAL": 41,
+      "COST_ANOMALY": 8,
+      "BILLING_ANOMALY": 8,
+      "CONTRACTOR_PATTERN": 9,
+      "SIMILAR_PROJECT": 8,
+      "GEOGRAPHIC_PATTERN": 8,
+      "MULTI_SIGNAL": 8
+    },
+    "multi_signal_cases": 8,
+    "multi_signal_with_cost_inflation": 8,
+    "same_projects_and_labels_as_v2_2": true,
+    "provenance": {
+      "labels_sha256": "c6642c357120925661df40d24a6456063c360fe1ab2b6f002e4250de61a149fc",
+      "labels_match_frozen_hash": true,
+      "predictions_sha256": "bee17325fa5a409167f39352ab4e34f2b38c510783b5fa51480ee5c97d758615",
+      "predictions_made_from_frozen_engine_input": true,
+      "predictions_projects_scored": 150,
+      "frozen_hash_check_at_prediction_time": "passed"
+    }
+  },
+  "alert_budgets": {
+    "A": {
+      "size": 21,
+      "definition": "number of projects V1 scores at or above its LOW/MEDIUM boundary (risk_score >= 30)"
+    },
+    "B": {
+      "size": 10,
+      "definition": "number of projects V1 scores at or above the V2.2 evaluation threshold (risk_score >= 40)"
+    }
+  },
+  "alert_budget_note": "Budgets come from V1's own outputs (never from labels). Baselines flag their top-N projects (score >= the N-th highest score) so each method reviews the same number of projects as V1.",
+  "approaches": {
+    "NidhiGuard V1": {
+      "score_distribution": {
+        "min": 11.8,
+        "p25": 15.7,
+        "median": 17.65,
+        "mean": 21.849333,
+        "p75": 24.95,
+        "max": 55.5,
+        "std": 9.336679
+      },
+      "average_precision": 0.845326,
+      "trapezoid_auc": 0.843097,
+      "random_baseline": 0.326667,
+      "precision_at_k": {
+        "5": {
+          "k": 5,
+          "anomalous_in_top_k": 5,
+          "precision": 1.0,
+          "recall_at_k": 0.102041
+        },
+        "10": {
+          "k": 10,
+          "anomalous_in_top_k": 9,
+          "precision": 0.9,
+          "recall_at_k": 0.183673
+        },
+        "20": {
+          "k": 20,
+          "anomalous_in_top_k": 17,
+          "precision": 0.85,
+          "recall_at_k": 0.346939
+        }
+      },
+      "r_precision": {
+        "k": 49,
+        "anomalous_in_top_k": 39,
+        "precision": 0.795918,
+        "recall_at_k": 0.795918
+      },
+      "budgets": {
+        "A": {
+          "cutoff_score": 30.0,
+          "flagged": 21,
+          "threshold": 30.0,
+          "tp": 18,
+          "fp": 3,
+          "tn": 98,
+          "fn": 31,
+          "precision": 0.857143,
+          "recall": 0.367347,
+          "f1": 0.514286,
+          "false_positive_rate": 0.029703,
+          "predicted_positive": 21
+        },
+        "B": {
+          "cutoff_score": 40.0,
+          "flagged": 10,
+          "threshold": 40.0,
+          "tp": 9,
+          "fp": 1,
+          "tn": 100,
+          "fn": 40,
+          "precision": 0.9,
+          "recall": 0.183673,
+          "f1": 0.305085,
+          "false_positive_rate": 0.009901,
+          "predicted_positive": 10
+        }
+      },
+      "adversarial_normal": {
+        "n": 41,
+        "mean_percentile_rank": 0.438455,
+        "false_positives_at_budget_A": 3,
+        "fp_rate_at_budget_A": 0.073171,
+        "false_positives_at_budget_B": 1,
+        "fp_rate_at_budget_B": 0.02439,
+        "by_subtype": {
+          "A": {
+            "n": 14,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 15.971429,
+            "max_score": 18.5
+          },
+          "B": {
+            "n": 9,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 17.788889,
+            "max_score": 22.1
+          },
+          "C": {
+            "n": 5,
+            "flagged_at_budget_A": 3,
+            "flagged_at_budget_B": 1,
+            "mean_score": 31.56,
+            "max_score": 45.3
+          },
+          "D": {
+            "n": 5,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 24.28,
+            "max_score": 26.2
+          },
+          "E": {
+            "n": 8,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 17.1875,
+            "max_score": 23.3
+          }
+        }
+      },
+      "scenario_level": {
+        "NORMAL": {
+          "n": 60,
+          "n_anomalous": 0,
+          "mean_score": 16.341667,
+          "max_score": 21.3,
+          "mean_percentile_rank": 0.325111,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "ADVERSARIAL_NORMAL": {
+          "n": 41,
+          "n_anomalous": 0,
+          "mean_score": 19.521951,
+          "max_score": 45.3,
+          "mean_percentile_rank": 0.438455,
+          "flagged_at_budget_A": 3,
+          "rate_at_budget_A": 0.073171,
+          "flagged_at_budget_B": 1,
+          "rate_at_budget_B": 0.02439,
+          "rate_meaning": "false_positive_rate"
+        },
+        "COST_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 37.9375,
+          "max_score": 45.5,
+          "mean_percentile_rank": 0.911667,
+          "flagged_at_budget_A": 7,
+          "rate_at_budget_A": 0.875,
+          "flagged_at_budget_B": 1,
+          "rate_at_budget_B": 0.125,
+          "rate_meaning": "detection_rate"
+        },
+        "BILLING_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 26.3125,
+          "max_score": 28.1,
+          "mean_percentile_rank": 0.79125,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "CONTRACTOR_PATTERN": {
+          "n": 9,
+          "n_anomalous": 9,
+          "mean_score": 26.311111,
+          "max_score": 34.5,
+          "mean_percentile_rank": 0.752593,
+          "flagged_at_budget_A": 3,
+          "rate_at_budget_A": 0.333333,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "SIMILAR_PROJECT": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 21.8625,
+          "max_score": 23.5,
+          "mean_percentile_rank": 0.663333,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "GEOGRAPHIC_PATTERN": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 22.95,
+          "max_score": 28.6,
+          "mean_percentile_rank": 0.565,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "MULTI_SIGNAL": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 48.4,
+          "max_score": 55.5,
+          "mean_percentile_rank": 0.974167,
+          "flagged_at_budget_A": 8,
+          "rate_at_budget_A": 1.0,
+          "flagged_at_budget_B": 8,
+          "rate_at_budget_B": 1.0,
+          "rate_meaning": "detection_rate"
+        }
+      },
+      "top_20": [
+        {
+          "rank": 1,
+          "project_id": "P-5062",
+          "risk_score": 55.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 2,
+          "project_id": "P-5044",
+          "risk_score": 50.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 3,
+          "project_id": "P-5135",
+          "risk_score": 49.8,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 4,
+          "project_id": "P-5035",
+          "risk_score": 49.6,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 5,
+          "project_id": "P-5066",
+          "risk_score": 47.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 6,
+          "project_id": "P-5116",
+          "risk_score": 47.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 7,
+          "project_id": "P-5131",
+          "risk_score": 45.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 8,
+          "project_id": "P-5106",
+          "risk_score": 45.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 9,
+          "project_id": "P-5040",
+          "risk_score": 45.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 10,
+          "project_id": "P-5005",
+          "risk_score": 42.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 11,
+          "project_id": "P-5114",
+          "risk_score": 39.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 12,
+          "project_id": "P-5070",
+          "risk_score": 38.9,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 13,
+          "project_id": "P-5060",
+          "risk_score": 38.8,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 14,
+          "project_id": "P-5145",
+          "risk_score": 38.3,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 15,
+          "project_id": "P-5010",
+          "risk_score": 38.1,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 16,
+          "project_id": "P-5041",
+          "risk_score": 37.2,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 17,
+          "project_id": "P-5081",
+          "risk_score": 37.2,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 18,
+          "project_id": "P-5048",
+          "risk_score": 36.9,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 19,
+          "project_id": "P-5031",
+          "risk_score": 34.5,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "CONTRACTOR_PATTERN"
+        },
+        {
+          "rank": 20,
+          "project_id": "P-5100",
+          "risk_score": 33.4,
+          "risk_level": "MEDIUM",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "CONTRACTOR_PATTERN"
+        }
+      ]
+    },
+    "Cost-Deviation": {
+      "score_distribution": {
+        "min": 0.6563,
+        "p25": 0.942016,
+        "median": 1.050178,
+        "mean": 1.240644,
+        "p75": 1.265054,
+        "max": 3.8307,
+        "std": 0.592373
+      },
+      "average_precision": 0.666093,
+      "trapezoid_auc": 0.662634,
+      "random_baseline": 0.326667,
+      "precision_at_k": {
+        "5": {
+          "k": 5,
+          "anomalous_in_top_k": 5,
+          "precision": 1.0,
+          "recall_at_k": 0.102041
+        },
+        "10": {
+          "k": 10,
+          "anomalous_in_top_k": 9,
+          "precision": 0.9,
+          "recall_at_k": 0.183673
+        },
+        "20": {
+          "k": 20,
+          "anomalous_in_top_k": 16,
+          "precision": 0.8,
+          "recall_at_k": 0.326531
+        }
+      },
+      "r_precision": {
+        "k": 49,
+        "anomalous_in_top_k": 29,
+        "precision": 0.591837,
+        "recall_at_k": 0.591837
+      },
+      "budgets": {
+        "A": {
+          "cutoff_score": 1.549264,
+          "flagged": 21,
+          "threshold": 1.549264,
+          "tp": 16,
+          "fp": 5,
+          "tn": 96,
+          "fn": 33,
+          "precision": 0.761905,
+          "recall": 0.326531,
+          "f1": 0.457143,
+          "false_positive_rate": 0.049505,
+          "predicted_positive": 21
+        },
+        "B": {
+          "cutoff_score": 2.266757,
+          "flagged": 10,
+          "threshold": 2.266757,
+          "tp": 9,
+          "fp": 1,
+          "tn": 100,
+          "fn": 40,
+          "precision": 0.9,
+          "recall": 0.183673,
+          "f1": 0.305085,
+          "false_positive_rate": 0.009901,
+          "predicted_positive": 10
+        }
+      },
+      "adversarial_normal": {
+        "n": 41,
+        "mean_percentile_rank": 0.469106,
+        "false_positives_at_budget_A": 4,
+        "fp_rate_at_budget_A": 0.097561,
+        "false_positives_at_budget_B": 1,
+        "fp_rate_at_budget_B": 0.02439,
+        "by_subtype": {
+          "A": {
+            "n": 14,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 0.979361,
+            "max_score": 1.372895
+          },
+          "B": {
+            "n": 9,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 1.067862,
+            "max_score": 1.255464
+          },
+          "C": {
+            "n": 5,
+            "flagged_at_budget_A": 4,
+            "flagged_at_budget_B": 1,
+            "mean_score": 2.01028,
+            "max_score": 2.266757
+          },
+          "D": {
+            "n": 5,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 1.025267,
+            "max_score": 1.243983
+          },
+          "E": {
+            "n": 8,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 1.004626,
+            "max_score": 1.3337
+          }
+        }
+      },
+      "scenario_level": {
+        "NORMAL": {
+          "n": 60,
+          "n_anomalous": 0,
+          "mean_score": 1.002693,
+          "max_score": 1.549264,
+          "mean_percentile_rank": 0.389556,
+          "flagged_at_budget_A": 1,
+          "rate_at_budget_A": 0.016667,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "ADVERSARIAL_NORMAL": {
+          "n": 41,
+          "n_anomalous": 0,
+          "mean_score": 1.135038,
+          "max_score": 2.266757,
+          "mean_percentile_rank": 0.469106,
+          "flagged_at_budget_A": 4,
+          "rate_at_budget_A": 0.097561,
+          "flagged_at_budget_B": 1,
+          "rate_at_budget_B": 0.02439,
+          "rate_meaning": "false_positive_rate"
+        },
+        "COST_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 2.682589,
+          "max_score": 3.8307,
+          "mean_percentile_rank": 0.939167,
+          "flagged_at_budget_A": 8,
+          "rate_at_budget_A": 1.0,
+          "flagged_at_budget_B": 4,
+          "rate_at_budget_B": 0.5,
+          "rate_meaning": "detection_rate"
+        },
+        "BILLING_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 1.100022,
+          "max_score": 1.265549,
+          "mean_percentile_rank": 0.548333,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "CONTRACTOR_PATTERN": {
+          "n": 9,
+          "n_anomalous": 9,
+          "mean_score": 1.357501,
+          "max_score": 1.509576,
+          "mean_percentile_rank": 0.768148,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "SIMILAR_PROJECT": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 0.982989,
+          "max_score": 1.083531,
+          "mean_percentile_rank": 0.376667,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "GEOGRAPHIC_PATTERN": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 1.057728,
+          "max_score": 1.350027,
+          "mean_percentile_rank": 0.4425,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "MULTI_SIGNAL": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 2.574287,
+          "max_score": 3.696329,
+          "mean_percentile_rank": 0.940833,
+          "flagged_at_budget_A": 8,
+          "rate_at_budget_A": 1.0,
+          "flagged_at_budget_B": 5,
+          "rate_at_budget_B": 0.625,
+          "rate_meaning": "detection_rate"
+        }
+      },
+      "top_20": [
+        {
+          "rank": 1,
+          "project_id": "P-5081",
+          "risk_score": 3.8307,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 2,
+          "project_id": "P-5044",
+          "risk_score": 3.696329,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 3,
+          "project_id": "P-5062",
+          "risk_score": 3.472023,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 4,
+          "project_id": "P-5114",
+          "risk_score": 3.454128,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 5,
+          "project_id": "P-5131",
+          "risk_score": 3.364228,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 6,
+          "project_id": "P-5135",
+          "risk_score": 3.107399,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 7,
+          "project_id": "P-5145",
+          "risk_score": 3.047993,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 8,
+          "project_id": "P-5066",
+          "risk_score": 2.424556,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 9,
+          "project_id": "P-5116",
+          "risk_score": 2.356361,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 10,
+          "project_id": "P-5040",
+          "risk_score": 2.266757,
+          "risk_level": "n/a",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 11,
+          "project_id": "P-5010",
+          "risk_score": 2.232818,
+          "risk_level": "n/a",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 12,
+          "project_id": "P-5041",
+          "risk_score": 2.208952,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 13,
+          "project_id": "P-5060",
+          "risk_score": 2.12838,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 14,
+          "project_id": "P-5048",
+          "risk_score": 2.034404,
+          "risk_level": "n/a",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 15,
+          "project_id": "P-5043",
+          "risk_score": 1.98571,
+          "risk_level": "n/a",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "ADVERSARIAL_NORMAL"
+        },
+        {
+          "rank": 16,
+          "project_id": "P-5106",
+          "risk_score": 1.952179,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 17,
+          "project_id": "P-5005",
+          "risk_score": 1.857357,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 18,
+          "project_id": "P-5035",
+          "risk_score": 1.728096,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 19,
+          "project_id": "P-5071",
+          "risk_score": 1.720213,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 20,
+          "project_id": "P-5070",
+          "risk_score": 1.706121,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        }
+      ]
+    },
+    "Isolation Forest": {
+      "score_distribution": {
+        "min": 0.370141,
+        "p25": 0.409466,
+        "median": 0.456745,
+        "mean": 0.460045,
+        "p75": 0.487584,
+        "max": 0.686309,
+        "std": 0.064392
+      },
+      "average_precision": 0.650514,
+      "trapezoid_auc": 0.637821,
+      "random_baseline": 0.326667,
+      "precision_at_k": {
+        "5": {
+          "k": 5,
+          "anomalous_in_top_k": 4,
+          "precision": 0.8,
+          "recall_at_k": 0.081633
+        },
+        "10": {
+          "k": 10,
+          "anomalous_in_top_k": 9,
+          "precision": 0.9,
+          "recall_at_k": 0.183673
+        },
+        "20": {
+          "k": 20,
+          "anomalous_in_top_k": 16,
+          "precision": 0.8,
+          "recall_at_k": 0.326531
+        }
+      },
+      "r_precision": {
+        "k": 49,
+        "anomalous_in_top_k": 27,
+        "precision": 0.55102,
+        "recall_at_k": 0.55102
+      },
+      "budgets": {
+        "A": {
+          "cutoff_score": 0.530569,
+          "flagged": 21,
+          "threshold": 0.530569,
+          "tp": 17,
+          "fp": 4,
+          "tn": 97,
+          "fn": 32,
+          "precision": 0.809524,
+          "recall": 0.346939,
+          "f1": 0.485714,
+          "false_positive_rate": 0.039604,
+          "predicted_positive": 21
+        },
+        "B": {
+          "cutoff_score": 0.581849,
+          "flagged": 10,
+          "threshold": 0.581849,
+          "tp": 9,
+          "fp": 1,
+          "tn": 100,
+          "fn": 40,
+          "precision": 0.9,
+          "recall": 0.183673,
+          "f1": 0.305085,
+          "false_positive_rate": 0.009901,
+          "predicted_positive": 10
+        }
+      },
+      "adversarial_normal": {
+        "n": 41,
+        "mean_percentile_rank": 0.42878,
+        "false_positives_at_budget_A": 0,
+        "fp_rate_at_budget_A": 0.0,
+        "false_positives_at_budget_B": 0,
+        "fp_rate_at_budget_B": 0.0,
+        "by_subtype": {
+          "A": {
+            "n": 14,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 0.460275,
+            "max_score": 0.490064
+          },
+          "B": {
+            "n": 9,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 0.474127,
+            "max_score": 0.50071
+          },
+          "C": {
+            "n": 5,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 0.447548,
+            "max_score": 0.470416
+          },
+          "D": {
+            "n": 5,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 0.389536,
+            "max_score": 0.434539
+          },
+          "E": {
+            "n": 8,
+            "flagged_at_budget_A": 0,
+            "flagged_at_budget_B": 0,
+            "mean_score": 0.392076,
+            "max_score": 0.441218
+          }
+        }
+      },
+      "scenario_level": {
+        "NORMAL": {
+          "n": 60,
+          "n_anomalous": 0,
+          "mean_score": 0.436253,
+          "max_score": 0.686309,
+          "mean_percentile_rank": 0.387222,
+          "flagged_at_budget_A": 4,
+          "rate_at_budget_A": 0.066667,
+          "flagged_at_budget_B": 1,
+          "rate_at_budget_B": 0.016667,
+          "rate_meaning": "false_positive_rate"
+        },
+        "ADVERSARIAL_NORMAL": {
+          "n": 41,
+          "n_anomalous": 0,
+          "mean_score": 0.43983,
+          "max_score": 0.50071,
+          "mean_percentile_rank": 0.42878,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "false_positive_rate"
+        },
+        "COST_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 0.529454,
+          "max_score": 0.601329,
+          "mean_percentile_rank": 0.824167,
+          "flagged_at_budget_A": 4,
+          "rate_at_budget_A": 0.5,
+          "flagged_at_budget_B": 2,
+          "rate_at_budget_B": 0.25,
+          "rate_meaning": "detection_rate"
+        },
+        "BILLING_ANOMALY": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 0.449104,
+          "max_score": 0.484539,
+          "mean_percentile_rank": 0.506667,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "CONTRACTOR_PATTERN": {
+          "n": 9,
+          "n_anomalous": 9,
+          "mean_score": 0.466194,
+          "max_score": 0.525666,
+          "mean_percentile_rank": 0.563704,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "SIMILAR_PROJECT": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 0.461918,
+          "max_score": 0.484218,
+          "mean_percentile_rank": 0.554167,
+          "flagged_at_budget_A": 0,
+          "rate_at_budget_A": 0.0,
+          "flagged_at_budget_B": 0,
+          "rate_at_budget_B": 0.0,
+          "rate_meaning": "detection_rate"
+        },
+        "GEOGRAPHIC_PATTERN": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 0.55621,
+          "max_score": 0.618716,
+          "mean_percentile_rank": 0.9025,
+          "flagged_at_budget_A": 6,
+          "rate_at_budget_A": 0.75,
+          "flagged_at_budget_B": 2,
+          "rate_at_budget_B": 0.25,
+          "rate_meaning": "detection_rate"
+        },
+        "MULTI_SIGNAL": {
+          "n": 8,
+          "n_anomalous": 8,
+          "mean_score": 0.578672,
+          "max_score": 0.630921,
+          "mean_percentile_rank": 0.914167,
+          "flagged_at_budget_A": 7,
+          "rate_at_budget_A": 0.875,
+          "flagged_at_budget_B": 5,
+          "rate_at_budget_B": 0.625,
+          "rate_meaning": "detection_rate"
+        }
+      },
+      "top_20": [
+        {
+          "rank": 1,
+          "project_id": "P-5042",
+          "risk_score": 0.686309,
+          "risk_level": "n/a",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "NORMAL"
+        },
+        {
+          "rank": 2,
+          "project_id": "P-5044",
+          "risk_score": 0.630921,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 3,
+          "project_id": "P-5135",
+          "risk_score": 0.630779,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 4,
+          "project_id": "P-5103",
+          "risk_score": 0.618716,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 5,
+          "project_id": "P-5116",
+          "risk_score": 0.612285,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 6,
+          "project_id": "P-5066",
+          "risk_score": 0.609569,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 7,
+          "project_id": "P-5081",
+          "risk_score": 0.601329,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 8,
+          "project_id": "P-5062",
+          "risk_score": 0.594097,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        },
+        {
+          "rank": 9,
+          "project_id": "P-5114",
+          "risk_score": 0.587946,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 10,
+          "project_id": "P-5090",
+          "risk_score": 0.581849,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 11,
+          "project_id": "P-5123",
+          "risk_score": 0.579555,
+          "risk_level": "n/a",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "NORMAL"
+        },
+        {
+          "rank": 12,
+          "project_id": "P-5098",
+          "risk_score": 0.575925,
+          "risk_level": "n/a",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "NORMAL"
+        },
+        {
+          "rank": 13,
+          "project_id": "P-5107",
+          "risk_score": 0.572437,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 14,
+          "project_id": "P-5130",
+          "risk_score": 0.558417,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 15,
+          "project_id": "P-5061",
+          "risk_score": 0.557238,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 16,
+          "project_id": "P-5118",
+          "risk_score": 0.557041,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "GEOGRAPHIC_PATTERN"
+        },
+        {
+          "rank": 17,
+          "project_id": "P-5131",
+          "risk_score": 0.553243,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 18,
+          "project_id": "P-5145",
+          "risk_score": 0.544927,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "COST_ANOMALY"
+        },
+        {
+          "rank": 19,
+          "project_id": "P-5092",
+          "risk_score": 0.542854,
+          "risk_level": "n/a",
+          "ground_truth_label": "NORMAL",
+          "scenario_type": "NORMAL"
+        },
+        {
+          "rank": 20,
+          "project_id": "P-5035",
+          "risk_score": 0.542423,
+          "risk_level": "n/a",
+          "ground_truth_label": "ANOMALOUS",
+          "scenario_type": "MULTI_SIGNAL"
+        }
+      ]
+    }
+  },
+  "comparison_table": [
+    {
+      "approach": "NidhiGuard V1",
+      "average_precision": 0.845326,
+      "precision_at_5": 1.0,
+      "precision_at_10": 0.9,
+      "precision_at_20": 0.85,
+      "recall_at_20": 0.346939
+    },
+    {
+      "approach": "Cost-Deviation",
+      "average_precision": 0.666093,
+      "precision_at_5": 1.0,
+      "precision_at_10": 0.9,
+      "precision_at_20": 0.8,
+      "recall_at_20": 0.326531
+    },
+    {
+      "approach": "Isolation Forest",
+      "average_precision": 0.650514,
+      "precision_at_5": 0.8,
+      "precision_at_10": 0.9,
+      "precision_at_20": 0.8,
+      "recall_at_20": 0.326531
+    }
+  ],
+  "recall_definition": "Recall@20 (anomalous projects in the top 20 / all anomalous)",
+  "paired_bootstrap_delta_average_precision": {
+    "NidhiGuard V1 minus Cost-Deviation": {
+      "mean_delta_ap": 0.177468,
+      "ci95": [
+        0.086187,
+        0.284472
+      ],
+      "share_resamples_first_better": 1.0,
+      "resamples_used": 2000,
+      "label": "Supplementary optimistic bootstrap interval; row resampling does not account for linked synthetic scenario groups."
+    },
+    "NidhiGuard V1 minus Isolation Forest": {
+      "mean_delta_ap": 0.184239,
+      "ci95": [
+        0.036724,
+        0.342236
+      ],
+      "share_resamples_first_better": 0.995,
+      "resamples_used": 2000,
+      "label": "Supplementary optimistic bootstrap interval; row resampling does not account for linked synthetic scenario groups."
+    },
+    "Cost-Deviation minus Isolation Forest": {
+      "mean_delta_ap": 0.00677,
+      "ci95": [
+        -0.139967,
+        0.151515
+      ],
+      "share_resamples_first_better": 0.5375,
+      "resamples_used": 2000,
+      "label": "Supplementary optimistic bootstrap interval; row resampling does not account for linked synthetic scenario groups."
+    }
+  },
+  "overlap": {
+    "budget_A": {
+      "cost_catches_that_v1_misses": {
+        "count": 1,
+        "by_scenario": {
+          "COST_ANOMALY": 1
+        },
+        "project_ids": [
+          "P-5071"
+        ]
+      },
+      "isolation_forest_catches_that_v1_misses": {
+        "count": 6,
+        "by_scenario": {
+          "GEOGRAPHIC_PATTERN": 6
+        },
+        "project_ids": [
+          "P-5061",
+          "P-5090",
+          "P-5103",
+          "P-5107",
+          "P-5118",
+          "P-5130"
+        ]
+      },
+      "v1_catches_that_both_baselines_miss": {
+        "count": 3,
+        "by_scenario": {
+          "CONTRACTOR_PATTERN": 3
+        },
+        "project_ids": [
+          "P-5031",
+          "P-5100",
+          "P-5117"
+        ]
+      },
+      "all_three_catch": {
+        "count": 11,
+        "by_scenario": {
+          "COST_ANOMALY": 4,
+          "MULTI_SIGNAL": 7
+        },
+        "project_ids": [
+          "P-5005",
+          "P-5035",
+          "P-5044",
+          "P-5062",
+          "P-5066",
+          "P-5081",
+          "P-5114",
+          "P-5116",
+          "P-5131",
+          "P-5135",
+          "P-5145"
+        ]
+      },
+      "missed_by_all_three": {
+        "count": 24,
+        "by_scenario": {
+          "BILLING_ANOMALY": 8,
+          "CONTRACTOR_PATTERN": 6,
+          "GEOGRAPHIC_PATTERN": 2,
+          "SIMILAR_PROJECT": 8
+        },
+        "project_ids": [
+          "P-5013",
+          "P-5014",
+          "P-5016",
+          "P-5028",
+          "P-5029",
+          "P-5033",
+          "P-5034",
+          "P-5038",
+          "P-5045",
+          "P-5050",
+          "P-5052",
+          "P-5053",
+          "P-5054",
+          "P-5059",
+          "P-5073",
+          "P-5088",
+          "P-5095",
+          "P-5109",
+          "P-5124",
+          "P-5125",
+          "P-5128",
+          "P-5134",
+          "P-5136",
+          "P-5144"
+        ]
+      },
+      "adversarial_normals_flagged": {
+        "NidhiGuard V1": {
+          "count": 3,
+          "project_ids": [
+            "P-5010",
+            "P-5040",
+            "P-5048"
+          ],
+          "subtypes": {
+            "P-5010": "C",
+            "P-5040": "C",
+            "P-5048": "C"
+          }
+        },
+        "Cost-Deviation": {
+          "count": 4,
+          "project_ids": [
+            "P-5010",
+            "P-5040",
+            "P-5043",
+            "P-5048"
+          ],
+          "subtypes": {
+            "P-5010": "C",
+            "P-5040": "C",
+            "P-5043": "C",
+            "P-5048": "C"
+          }
+        },
+        "Isolation Forest": {
+          "count": 0,
+          "project_ids": [],
+          "subtypes": {}
+        }
+      }
+    },
+    "budget_B": {
+      "cost_catches_that_v1_misses": {
+        "count": 3,
+        "by_scenario": {
+          "COST_ANOMALY": 3
+        },
+        "project_ids": [
+          "P-5081",
+          "P-5114",
+          "P-5145"
+        ]
+      },
+      "isolation_forest_catches_that_v1_misses": {
+        "count": 4,
+        "by_scenario": {
+          "COST_ANOMALY": 2,
+          "GEOGRAPHIC_PATTERN": 2
+        },
+        "project_ids": [
+          "P-5081",
+          "P-5090",
+          "P-5103",
+          "P-5114"
+        ]
+      },
+      "v1_catches_that_both_baselines_miss": {
+        "count": 3,
+        "by_scenario": {
+          "MULTI_SIGNAL": 3
+        },
+        "project_ids": [
+          "P-5005",
+          "P-5035",
+          "P-5106"
+        ]
+      },
+      "all_three_catch": {
+        "count": 5,
+        "by_scenario": {
+          "MULTI_SIGNAL": 5
+        },
+        "project_ids": [
+          "P-5044",
+          "P-5062",
+          "P-5066",
+          "P-5116",
+          "P-5135"
+        ]
+      },
+      "missed_by_all_three": {
+        "count": 35,
+        "by_scenario": {
+          "BILLING_ANOMALY": 8,
+          "CONTRACTOR_PATTERN": 9,
+          "COST_ANOMALY": 4,
+          "GEOGRAPHIC_PATTERN": 6,
+          "SIMILAR_PROJECT": 8
+        },
+        "project_ids": [
+          "P-5013",
+          "P-5014",
+          "P-5016",
+          "P-5028",
+          "P-5029",
+          "P-5031",
+          "P-5033",
+          "P-5034",
+          "P-5038",
+          "P-5041",
+          "P-5045",
+          "P-5050",
+          "P-5052",
+          "P-5053",
+          "P-5054",
+          "P-5059",
+          "P-5060",
+          "P-5061",
+          "P-5070",
+          "P-5071",
+          "P-5073",
+          "P-5088",
+          "P-5095",
+          "P-5100",
+          "P-5107",
+          "P-5109",
+          "P-5117",
+          "P-5118",
+          "P-5124",
+          "P-5125",
+          "P-5128",
+          "P-5130",
+          "P-5134",
+          "P-5136",
+          "P-5144"
+        ]
+      },
+      "adversarial_normals_flagged": {
+        "NidhiGuard V1": {
+          "count": 1,
+          "project_ids": [
+            "P-5040"
+          ],
+          "subtypes": {
+            "P-5040": "C"
+          }
+        },
+        "Cost-Deviation": {
+          "count": 1,
+          "project_ids": [
+            "P-5040"
+          ],
+          "subtypes": {
+            "P-5040": "C"
+          }
+        },
+        "Isolation Forest": {
+          "count": 0,
+          "project_ids": [],
+          "subtypes": {}
+        }
+      }
+    }
+  },
+  "wins_losses": {
+    "metrics": {
+      "v1_better": [
+        {
+          "metric": "average_precision",
+          "against": "Cost-Deviation",
+          "v1": 0.845326,
+          "baseline": 0.666093
+        },
+        {
+          "metric": "average_precision",
+          "against": "Isolation Forest",
+          "v1": 0.845326,
+          "baseline": 0.650514
+        },
+        {
+          "metric": "precision_at_5",
+          "against": "Isolation Forest",
+          "v1": 1.0,
+          "baseline": 0.8
+        },
+        {
+          "metric": "precision_at_20",
+          "against": "Cost-Deviation",
+          "v1": 0.85,
+          "baseline": 0.8
+        },
+        {
+          "metric": "precision_at_20",
+          "against": "Isolation Forest",
+          "v1": 0.85,
+          "baseline": 0.8
+        }
+      ],
+      "v1_worse": [],
+      "v1_equal": [
+        {
+          "metric": "precision_at_5",
+          "against": "Cost-Deviation",
+          "v1": 1.0,
+          "baseline": 1.0
+        },
+        {
+          "metric": "precision_at_10",
+          "against": "Cost-Deviation",
+          "v1": 0.9,
+          "baseline": 0.9
+        },
+        {
+          "metric": "precision_at_10",
+          "against": "Isolation Forest",
+          "v1": 0.9,
+          "baseline": 0.9
+        }
+      ]
+    },
+    "scenarios_at_budget_A": {
+      "v1_detects_more_than_both": [
+        {
+          "scenario": "CONTRACTOR_PATTERN",
+          "NidhiGuard V1": 3,
+          "Cost-Deviation": 0,
+          "Isolation Forest": 0,
+          "n": 9
+        }
+      ],
+      "v1_ties_best": [
+        {
+          "scenario": "BILLING_ANOMALY",
+          "NidhiGuard V1": 0,
+          "Cost-Deviation": 0,
+          "Isolation Forest": 0,
+          "n": 8
+        },
+        {
+          "scenario": "SIMILAR_PROJECT",
+          "NidhiGuard V1": 0,
+          "Cost-Deviation": 0,
+          "Isolation Forest": 0,
+          "n": 8
+        },
+        {
+          "scenario": "MULTI_SIGNAL",
+          "NidhiGuard V1": 8,
+          "Cost-Deviation": 8,
+          "Isolation Forest": 7,
+          "n": 8
+        }
+      ],
+      "v1_detects_less_than_a_baseline": [
+        {
+          "scenario": "COST_ANOMALY",
+          "NidhiGuard V1": 7,
+          "Cost-Deviation": 8,
+          "Isolation Forest": 4,
+          "n": 8
+        },
+        {
+          "scenario": "GEOGRAPHIC_PATTERN",
+          "NidhiGuard V1": 0,
+          "Cost-Deviation": 0,
+          "Isolation Forest": 6,
+          "n": 8
+        }
+      ]
+    },
+    "adversarial_false_positives_at_budget_A": {
+      "NidhiGuard V1": 3,
+      "Cost-Deviation": 4,
+      "Isolation Forest": 0
+    }
+  },
+  "v1_mean_component_scores_by_scenario": {
+    "ADVERSARIAL_NORMAL": {
+      "cost_anomaly_score": 3.026829,
+      "project_similarity_score": 15.053659,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 1.197561,
+      "geographic_signal_score": 0.243902
+    },
+    "BILLING_ANOMALY": {
+      "cost_anomaly_score": 0.0,
+      "project_similarity_score": 16.3125,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 10.0,
+      "geographic_signal_score": 0.0
+    },
+    "CONTRACTOR_PATTERN": {
+      "cost_anomaly_score": 5.155556,
+      "project_similarity_score": 16.044444,
+      "contractor_pattern_score": 5.111111,
+      "billing_anomaly_score": 0.0,
+      "geographic_signal_score": 0.0
+    },
+    "COST_ANOMALY": {
+      "cost_anomaly_score": 22.6125,
+      "project_similarity_score": 15.325,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 0.0,
+      "geographic_signal_score": 0.0
+    },
+    "GEOGRAPHIC_PATTERN": {
+      "cost_anomaly_score": 0.0,
+      "project_similarity_score": 16.7,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 0.0,
+      "geographic_signal_score": 6.25
+    },
+    "MULTI_SIGNAL": {
+      "cost_anomaly_score": 22.825,
+      "project_similarity_score": 18.075,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 7.5,
+      "geographic_signal_score": 0.0
+    },
+    "NORMAL": {
+      "cost_anomaly_score": 0.15,
+      "project_similarity_score": 16.191667,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 0.0,
+      "geographic_signal_score": 0.0
+    },
+    "SIMILAR_PROJECT": {
+      "cost_anomaly_score": 0.2125,
+      "project_similarity_score": 21.65,
+      "contractor_pattern_score": 0.0,
+      "billing_anomaly_score": 0.0,
+      "geographic_signal_score": 0.0
+    }
+  },
+  "baseline_metadata": {
+    "isolation_forest_features": [
+      "log_cost_ratio",
+      "sanction_over_estimate",
+      "bill_count",
+      "billed_over_sanctioned",
+      "payment_count",
+      "contractor_project_count",
+      "neighbors_within_5km",
+      "nearest_neighbor_km_log1p"
+    ],
+    "isolation_forest_parameters": {
+      "n_estimators": 200,
+      "max_samples": "auto",
+      "contamination": "auto",
+      "max_features": 1.0,
+      "bootstrap": false,
+      "n_jobs": 1,
+      "random_state": 2303
+    },
+    "cost_deviation_method": "score = sanctioned_amount / median(historical sanctioned_amount of the same work_type); pooled across states; historical table only; one-sided (higher = more anomalous); no tuning."
+  }
+}

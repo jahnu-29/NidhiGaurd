@@ -339,3 +339,47 @@ export interface LoginResponse {
   expires_at: number;
   user: AuthUser;
 }
+
+// ------------------------------------------- investigation workflow (V2.6) --
+// Workflow state is recorded by human investigators. It is NOT a risk signal and
+// never changes a risk score or the queue ranking.
+
+export type InvestigationStatus =
+  | "NEW"
+  | "UNDER_REVIEW"
+  | "REQUIRES_FURTHER_INVESTIGATION"
+  | "REVIEWED_NO_CONCERN"
+  | "ESCALATED";
+
+export interface InvestigationHistoryEntry {
+  id: number;
+  project_id: string;
+  action: "STATUS_CHANGE" | "NOTE";
+  previous_status: InvestigationStatus | null;
+  new_status: InvestigationStatus | null;
+  note: string | null;
+  username: string;
+  user_role: string;
+  created_at: string; // ISO 8601, UTC
+}
+
+export interface InvestigationResponse {
+  project_id: string;
+  status: InvestigationStatus;
+  created_at: string | null;
+  updated_at: string | null;
+  history: InvestigationHistoryEntry[]; // oldest first
+  disclaimer: string;
+}
+
+export interface InvestigationSummary {
+  project_id: string;
+  status: InvestigationStatus;
+  last_action_at: string | null;
+}
+
+export interface InvestigationSummariesResponse {
+  default_status: InvestigationStatus;
+  items: InvestigationSummary[];
+}
+

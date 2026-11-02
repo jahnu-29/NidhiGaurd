@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="440" viewBox="0 0 760 440" font-family="Helvetica, Arial, sans-serif" font-size="12">
+<title>V1 risk-score distribution (frozen V2.1 set)</title>
+<desc>Projects per score band, split into anomalous, plain normal and adversarial normal.</desc>
+<rect width="760" height="440" fill="#ffffff"/>
+<text x="380.00" y="28" text-anchor="middle" font-size="16" font-weight="bold">V1 risk-score distribution (frozen V2.1 set)</text>
+<text x="404.00" y="426" text-anchor="middle">risk_score band</text>
+<text x="20" y="218.00" text-anchor="middle" transform="rotate(-90 20 218.00)">projects</text>
+<line x1="78" y1="380.00" x2="730" y2="380.00" stroke="#dddddd"/>
+<text x="70" y="384.00" text-anchor="end">0</text>
+<line x1="78" y1="315.20" x2="730" y2="315.20" stroke="#dddddd"/>
+<text x="70" y="319.20" text-anchor="end">20</text>
+<line x1="78" y1="250.40" x2="730" y2="250.40" stroke="#dddddd"/>
+<text x="70" y="254.40" text-anchor="end">40</text>
+<line x1="78" y1="185.60" x2="730" y2="185.60" stroke="#dddddd"/>
+<text x="70" y="189.60" text-anchor="end">60</text>
+<line x1="78" y1="120.80" x2="730" y2="120.80" stroke="#dddddd"/>
+<text x="70" y="124.80" text-anchor="end">80</text>
+<line x1="78" y1="56.00" x2="730" y2="56.00" stroke="#dddddd"/>
+<text x="70" y="60.00" text-anchor="end">100</text>
+<line x1="78" y1="380" x2="730" y2="380" stroke="#333333"/><line x1="78" y1="380" x2="78" y2="56" stroke="#333333"/>
+<rect x="94.30" y="363.80" width="48.90" height="16.20" fill="#b03a2e"/>
+<rect x="94.30" y="182.36" width="48.90" height="181.44" fill="#5d8aa8"/>
+<rect x="94.30" y="91.64" width="48.90" height="90.72" fill="#d68910"/>
+<text x="118.75" y="85.64" text-anchor="middle">89</text>
+<text x="118.75" y="400" text-anchor="middle">&lt;20</text>
+<rect x="175.80" y="341.12" width="48.90" height="38.88" fill="#b03a2e"/>
+<rect x="175.80" y="328.16" width="48.90" height="12.96" fill="#5d8aa8"/>
+<rect x="175.80" y="305.48" width="48.90" height="22.68" fill="#d68910"/>
+<text x="200.25" y="299.48" text-anchor="middle">23</text>
+<text x="200.25" y="400" text-anchor="middle">20-24.9</text>
+<rect x="257.30" y="334.64" width="48.90" height="45.36" fill="#b03a2e"/>
+<rect x="257.30" y="324.92" width="48.90" height="9.72" fill="#d68910"/>
+<text x="281.75" y="318.92" text-anchor="middle">17</text>
+<text x="281.75" y="400" text-anchor="middle">25-29.9</text>
+<rect x="338.80" y="370.28" width="48.90" height="9.72" fill="#b03a2e"/>
+<text x="363.25" y="364.28" text-anchor="middle">3</text>
+<text x="363.25" y="400" text-anchor="middle">30-34.9</text>
+<rect x="420.30" y="360.56" width="48.90" height="19.44" fill="#b03a2e"/>
+<rect x="420.30" y="354.08" width="48.90" height="6.48" fill="#d68910"/>
+<text x="444.75" y="348.08" text-anchor="middle">8</text>
+<text x="444.75" y="400" text-anchor="middle">35-39.9</text>
+<rect x="501.80" y="376.76" width="48.90" height="3.24" fill="#b03a2e"/>
+<text x="526.25" y="370.76" text-anchor="middle">1</text>
+<text x="526.25" y="400" text-anchor="middle">40-44.9</text>
+<rect x="583.30" y="360.56" width="48.90" height="19.44" fill="#b03a2e"/>
+<rect x="583.30" y="357.32" width="48.90" height="3.24" fill="#d68910"/>
+<text x="607.75" y="351.32" text-anchor="middle">7</text>
+<text x="607.75" y="400" text-anchor="middle">45-49.9</text>
+<rect x="664.80" y="373.52" width="48.90" height="6.48" fill="#b03a2e"/>
+<text x="689.25" y="367.52" text-anchor="middle">2</text>
+<text x="689.25" y="400" text-anchor="middle">&gt;=50</text>
+<rect x="515.00" y="64.00" width="12" height="12" fill="#b03a2e"/>
+<text x="533.00" y="74.00">anomalous</text>
+<rect x="515.00" y="82.00" width="12" height="12" fill="#5d8aa8"/>
+<text x="533.00" y="92.00">normal (plain)</text>
+<rect x="515.00" y="100.00" width="12" height="12" fill="#d68910"/>
+<text x="533.00" y="110.00">adversarial normal</text>
+</svg>

@@ -45,6 +45,13 @@ explicit seed command above (the server never seeds users on startup).
 | Contractors (`/api/contractors…`)                 | ✔ | ✔ | ✘ 403 |
 | Geographic intelligence (`/api/geography`)        | ✔ | ✔ | ✘ 403 |
 | User management (`/api/users…`)                   | ✔ | ✘ 403 | ✘ 403 |
+| V2.6 Investigation status + history, read (`GET /api/projects/{id}/investigation`, `GET /api/investigations`) | ✔ | ✔ | ✔ |
+| V2.6 Change status / add note (`POST /api/projects/{id}/investigation/status`, `…/notes`) | ✔ | ✔ | ✘ 403 |
+
+V2.6 investigation workflow state is recorded by human investigators and is separate from
+risk. There is no PUT/PATCH/DELETE route: the audit history (`investigation_history`) is
+append-only, and the ORM also refuses UPDATE/DELETE on it. The acting user always comes from
+the token, never from the request body.
 
 No token / bad token / expired / logged-out / deactivated user → **401**.
 Valid user, wrong role → **403**. `/` and `/health` stay public.

@@ -1,0 +1,151 @@
+project_id,risk_score,risk_level,recommendation,cost_anomaly_score,project_similarity_score,contractor_pattern_score,billing_anomaly_score,geographic_signal_score
+P-5001,15.3,LOW,No immediate action indicated,0.0,15.3,0.0,0.0,0.0
+P-5002,15.4,LOW,No immediate action indicated,0.0,15.4,0.0,0.0,0.0
+P-5003,16.9,LOW,No immediate action indicated,0.0,16.9,0.0,0.0,0.0
+P-5004,14.4,LOW,No immediate action indicated,0.0,14.4,0.0,0.0,0.0
+P-5005,42.4,MEDIUM,Review recommended,17.3,15.1,0.0,10.0,0.0
+P-5006,21.3,LOW,No immediate action indicated,3.4,17.9,0.0,0.0,0.0
+P-5007,16.1,LOW,No immediate action indicated,0.0,16.1,0.0,0.0,0.0
+P-5008,17.6,LOW,No immediate action indicated,0.0,17.6,0.0,0.0,0.0
+P-5009,15.1,LOW,No immediate action indicated,0.0,15.1,0.0,0.0,0.0
+P-5010,38.1,MEDIUM,Review recommended,25.0,13.1,0.0,0.0,0.0
+P-5011,15.7,LOW,No immediate action indicated,0.6,15.1,0.0,0.0,0.0
+P-5012,17.9,LOW,No immediate action indicated,0.0,17.9,0.0,0.0,0.0
+P-5013,27.1,LOW,No immediate action indicated,0.0,17.1,0.0,10.0,0.0
+P-5014,22.5,LOW,No immediate action indicated,0.0,22.5,0.0,0.0,0.0
+P-5015,15.7,LOW,No immediate action indicated,0.0,15.7,0.0,0.0,0.0
+P-5016,24.8,LOW,No immediate action indicated,2.8,18.0,4,0.0,0.0
+P-5017,15.4,LOW,No immediate action indicated,0.0,15.4,0.0,0.0,0.0
+P-5018,22.1,LOW,No immediate action indicated,0.0,17.1,0.0,0.0,5.0
+P-5019,14.1,LOW,No immediate action indicated,0.0,14.1,0.0,0.0,0.0
+P-5020,12.9,LOW,No immediate action indicated,0.0,12.9,0.0,0.0,0.0
+P-5021,17.9,LOW,No immediate action indicated,0.0,17.9,0.0,0.0,0.0
+P-5022,14.8,LOW,No immediate action indicated,0.0,14.8,0.0,0.0,0.0
+P-5023,15.1,LOW,No immediate action indicated,0.0,15.1,0.0,0.0,0.0
+P-5024,26.2,LOW,No immediate action indicated,0.0,18.6,0.0,7.6,0.0
+P-5025,15.2,LOW,No immediate action indicated,0.0,15.2,0.0,0.0,0.0
+P-5026,23.5,LOW,No immediate action indicated,0.0,15.7,0.0,7.8,0.0
+P-5027,20.0,LOW,No immediate action indicated,0.0,20.0,0.0,0.0,0.0
+P-5028,25.1,LOW,No immediate action indicated,3.1,18.0,4,0.0,0.0
+P-5029,19.3,LOW,No immediate action indicated,0.0,19.3,0.0,0.0,0.0
+P-5030,22.6,LOW,No immediate action indicated,0.0,14.3,0.0,8.3,0.0
+P-5031,34.5,MEDIUM,Review recommended,13.4,15.1,6,0.0,0.0
+P-5032,18.0,LOW,No immediate action indicated,0.0,18.0,0.0,0.0,0.0
+P-5033,22.0,LOW,No immediate action indicated,2.3,15.7,4,0.0,0.0
+P-5034,28.1,LOW,No immediate action indicated,0.0,18.1,0.0,10.0,0.0
+P-5035,49.6,MEDIUM,Review recommended,19.7,19.9,0.0,10.0,0.0
+P-5036,17.7,LOW,No immediate action indicated,0.0,17.7,0.0,0.0,0.0
+P-5037,15.4,LOW,No immediate action indicated,0.0,15.4,0.0,0.0,0.0
+P-5038,22.5,LOW,No immediate action indicated,0.0,22.5,0.0,0.0,0.0
+P-5039,16.1,LOW,No immediate action indicated,0.0,16.1,0.0,0.0,0.0
+P-5040,45.3,MEDIUM,Review recommended,25.0,13.1,0.0,7.2,0.0
+P-5041,37.2,MEDIUM,Review recommended,24.6,12.6,0.0,0.0,0.0
+P-5042,16.1,LOW,No immediate action indicated,0.0,16.1,0.0,0.0,0.0
+P-5043,25.0,LOW,No immediate action indicated,25.0,0.0,0.0,0.0,0.0
+P-5044,50.3,MEDIUM,Review recommended,25.0,15.3,0.0,10.0,0.0
+P-5045,23.2,LOW,No immediate action indicated,2.1,15.1,6,0.0,0.0
+P-5046,18.6,LOW,No immediate action indicated,0.0,18.6,0.0,0.0,0.0
+P-5047,18.0,LOW,No immediate action indicated,0.0,18.0,0.0,0.0,0.0
+P-5048,36.9,MEDIUM,Review recommended,25.0,11.9,0.0,0.0,0.0
+P-5049,15.7,LOW,No immediate action indicated,0.0,15.7,0.0,0.0,0.0
+P-5050,19.6,LOW,No immediate action indicated,0.3,19.3,0.0,0.0,0.0
+P-5051,15.1,LOW,No immediate action indicated,0.0,15.1,0.0,0.0,0.0
+P-5052,26.9,LOW,No immediate action indicated,0.0,16.9,0.0,10.0,0.0
+P-5053,22.6,LOW,No immediate action indicated,0.0,12.6,0.0,10.0,0.0
+P-5054,22.0,LOW,No immediate action indicated,0.0,22.0,0.0,0.0,0.0
+P-5055,17.1,LOW,No immediate action indicated,0.0,17.1,0.0,0.0,0.0
+P-5056,15.7,LOW,No immediate action indicated,0.0,15.7,0.0,0.0,0.0
+P-5057,17.2,LOW,No immediate action indicated,0.0,17.2,0.0,0.0,0.0
+P-5058,16.2,LOW,No immediate action indicated,0.8,15.4,0.0,0.0,0.0
+P-5059,22.0,LOW,No immediate action indicated,0.0,22.0,0.0,0.0,0.0
+P-5060,38.8,MEDIUM,Review recommended,24.2,14.6,0.0,0.0,0.0
+P-5061,27.4,LOW,No immediate action indicated,0.0,17.4,0.0,0.0,10
+P-5062,55.5,MEDIUM,Review recommended,25.0,20.5,0.0,10.0,0.0
+P-5063,15.7,LOW,No immediate action indicated,0.0,15.7,0.0,0.0,0.0
+P-5064,15.1,LOW,No immediate action indicated,0.0,15.1,0.0,0.0,0.0
+P-5065,20.7,LOW,No immediate action indicated,0.0,15.7,0.0,0.0,5.0
+P-5066,47.1,MEDIUM,Review recommended,25.0,22.1,0.0,0.0,0.0
+P-5067,15.2,LOW,No immediate action indicated,0.0,15.2,0.0,0.0,0.0
+P-5068,15.4,LOW,No immediate action indicated,0.0,15.4,0.0,0.0,0.0
+P-5069,17.5,LOW,No immediate action indicated,0.0,17.5,0.0,0.0,0.0
+P-5070,38.9,MEDIUM,Review recommended,19.0,19.9,0.0,0.0,0.0
+P-5071,28.3,LOW,No immediate action indicated,13.1,15.2,0.0,0.0,0.0
+P-5072,15.8,LOW,No immediate action indicated,0.0,15.8,0.0,0.0,0.0
+P-5073,15.1,LOW,No immediate action indicated,0.0,15.1,0.0,0.0,0.0
+P-5074,15.8,LOW,No immediate action indicated,0.0,15.8,0.0,0.0,0.0
+P-5075,20.3,LOW,No immediate action indicated,0.0,20.3,0.0,0.0,0.0
+P-5076,17.1,LOW,No immediate action indicated,0.0,17.1,0.0,0.0,0.0
+P-5077,12.6,LOW,No immediate action indicated,0.0,12.6,0.0,0.0,0.0
+P-5078,24.1,LOW,No immediate action indicated,0.0,15.5,0.0,8.6,0.0
+P-5079,17.2,LOW,No immediate action indicated,0.0,17.2,0.0,0.0,0.0
+P-5080,13.3,LOW,No immediate action indicated,0.0,13.3,0.0,0.0,0.0
+P-5081,37.2,MEDIUM,Review recommended,25.0,12.2,0.0,0.0,0.0
+P-5082,12.2,LOW,No immediate action indicated,0.0,12.2,0.0,0.0,0.0
+P-5083,15.8,LOW,No immediate action indicated,0.0,15.8,0.0,0.0,0.0
+P-5084,17.5,LOW,No immediate action indicated,0.0,17.5,0.0,0.0,0.0
+P-5085,16.9,LOW,No immediate action indicated,0.0,16.9,0.0,0.0,0.0
+P-5086,14.1,LOW,No immediate action indicated,0.0,14.1,0.0,0.0,0.0
+P-5087,17.1,LOW,No immediate action indicated,0.0,17.1,0.0,0.0,0.0
+P-5088,20.3,LOW,No immediate action indicated,0.0,14.3,6,0.0,0.0
+P-5089,15.3,LOW,No immediate action indicated,0.0,15.3,0.0,0.0,0.0
+P-5090,27.4,LOW,No immediate action indicated,0.0,17.4,0.0,0.0,10
+P-5091,25.0,LOW,No immediate action indicated,0.0,15.4,0.0,9.6,0.0
+P-5092,17.2,LOW,No immediate action indicated,1.5,15.7,0.0,0.0,0.0
+P-5093,17.6,LOW,No immediate action indicated,0.0,17.6,0.0,0.0,0.0
+P-5094,15.1,LOW,No immediate action indicated,0.0,15.1,0.0,0.0,0.0
+P-5095,25.2,LOW,No immediate action indicated,0.0,15.2,0.0,10.0,0.0
+P-5096,17.1,LOW,No immediate action indicated,1.0,16.1,0.0,0.0,0.0
+P-5097,16.9,LOW,No immediate action indicated,0.0,16.9,0.0,0.0,0.0
+P-5098,13.3,LOW,No immediate action indicated,0.0,13.3,0.0,0.0,0.0
+P-5099,17.1,LOW,No immediate action indicated,0.0,17.1,0.0,0.0,0.0
+P-5100,33.4,MEDIUM,Review recommended,12.3,15.1,6,0.0,0.0
+P-5101,20.0,LOW,No immediate action indicated,0.0,20.0,0.0,0.0,0.0
+P-5102,23.3,LOW,No immediate action indicated,8.1,15.2,0.0,0.0,0.0
+P-5103,27.1,LOW,No immediate action indicated,0.0,17.1,0.0,0.0,10
+P-5104,13.3,LOW,No immediate action indicated,0.0,13.3,0.0,0.0,0.0
+P-5105,16.9,LOW,No immediate action indicated,0.0,16.9,0.0,0.0,0.0
+P-5106,45.4,MEDIUM,Review recommended,20.6,14.8,0.0,10.0,0.0
+P-5107,15.1,LOW,No immediate action indicated,0.0,15.1,0.0,0.0,0.0
+P-5108,17.9,LOW,No immediate action indicated,0.0,17.9,0.0,0.0,0.0
+P-5109,23.5,LOW,No immediate action indicated,0.7,22.8,0.0,0.0,0.0
+P-5110,11.8,LOW,No immediate action indicated,0.0,11.8,0.0,0.0,0.0
+P-5111,18.5,LOW,No immediate action indicated,0.0,18.5,0.0,0.0,0.0
+P-5112,20.3,LOW,No immediate action indicated,0.0,20.3,0.0,0.0,0.0
+P-5113,17.5,LOW,No immediate action indicated,0.0,17.5,0.0,0.0,0.0
+P-5114,39.3,MEDIUM,Review recommended,25.0,14.3,0.0,0.0,0.0
+P-5115,13.3,LOW,No immediate action indicated,0.0,13.3,0.0,0.0,0.0
+P-5116,47.1,MEDIUM,Review recommended,25.0,22.1,0.0,0.0,0.0
+P-5117,31.5,MEDIUM,Review recommended,10.4,15.1,6,0.0,0.0
+P-5118,28.6,LOW,No immediate action indicated,0.0,18.6,0.0,0.0,10
+P-5119,18.6,LOW,No immediate action indicated,3.5,15.1,0.0,0.0,0.0
+P-5120,16.9,LOW,No immediate action indicated,0.0,16.9,0.0,0.0,0.0
+P-5121,18.5,LOW,No immediate action indicated,0.0,18.5,0.0,0.0,0.0
+P-5122,17.1,LOW,No immediate action indicated,0.0,17.1,0.0,0.0,0.0
+P-5123,15.1,LOW,No immediate action indicated,0.0,15.1,0.0,0.0,0.0
+P-5124,27.1,LOW,No immediate action indicated,0.0,17.1,0.0,10.0,0.0
+P-5125,25.8,LOW,No immediate action indicated,0.0,15.8,0.0,10.0,0.0
+P-5126,15.2,LOW,No immediate action indicated,0.0,15.2,0.0,0.0,0.0
+P-5127,16.9,LOW,No immediate action indicated,0.0,16.9,0.0,0.0,0.0
+P-5128,14.3,LOW,No immediate action indicated,0.0,14.3,0.0,0.0,0.0
+P-5129,15.2,LOW,No immediate action indicated,0.0,15.2,0.0,0.0,0.0
+P-5130,28.6,LOW,No immediate action indicated,0.0,18.6,0.0,0.0,10
+P-5131,45.5,MEDIUM,Review recommended,25.0,20.5,0.0,0.0,0.0
+P-5132,15.8,LOW,No immediate action indicated,0.0,15.8,0.0,0.0,0.0
+P-5133,17.1,LOW,No immediate action indicated,0.0,17.1,0.0,0.0,0.0
+P-5134,23.5,LOW,No immediate action indicated,0.7,22.8,0.0,0.0,0.0
+P-5135,49.8,MEDIUM,Review recommended,25.0,14.8,0.0,10.0,0.0
+P-5136,27.7,LOW,No immediate action indicated,0.0,17.7,0.0,10.0,0.0
+P-5137,16.7,LOW,No immediate action indicated,0.0,16.7,0.0,0.0,0.0
+P-5138,15.1,LOW,No immediate action indicated,0.0,15.1,0.0,0.0,0.0
+P-5139,17.1,LOW,No immediate action indicated,0.0,17.1,0.0,0.0,0.0
+P-5140,15.1,LOW,No immediate action indicated,0.0,15.1,0.0,0.0,0.0
+P-5141,17.7,LOW,No immediate action indicated,0.0,17.7,0.0,0.0,0.0
+P-5142,19.4,LOW,No immediate action indicated,1.3,18.1,0.0,0.0,0.0
+P-5143,17.5,LOW,No immediate action indicated,0.4,17.1,0.0,0.0,0.0
+P-5144,22.0,LOW,No immediate action indicated,0.0,18.0,4,0.0,0.0
+P-5145,38.3,MEDIUM,Review recommended,25.0,13.3,0.0,0.0,0.0
+P-5146,15.7,LOW,No immediate action indicated,0.0,15.7,0.0,0.0,0.0
+P-5147,15.8,LOW,No immediate action indicated,0.0,15.8,0.0,0.0,0.0
+P-5148,12.5,LOW,No immediate action indicated,12.5,0.0,0.0,0.0,0.0
+P-5149,14.8,LOW,No immediate action indicated,0.0,14.8,0.0,0.0,0.0
+P-5150,16.9,LOW,No immediate action indicated,0.0,16.9,0.0,0.0,0.0

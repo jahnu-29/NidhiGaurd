@@ -1,4 +1,4 @@
-import { type ReactNode, type CSSProperties } from "react";
+import { useState, type ReactNode, type CSSProperties } from "react";
 import {
   getProjectById,
   getSignalsByProject,
@@ -13,9 +13,12 @@ import {
 } from "@/api/client";
 import { useApiData } from "@/api/useApiData";
 import { LoadingBlock, ErrorBlock } from "@/components/ApiState";
+import InvestigationWorkflow, { StatusBadge } from "@/components/InvestigationWorkflow";
+import { useAuth } from "@/auth/AuthContext";
+import { canInvestigate } from "@/auth/permissions";
 import type {
   ProjectDetail, ProjectRiskResponse, ProjectRelationshipsResponse,
-  ProjectGeographyResponse, ContractorDetail, RiskResultSummary, RiskComponents,
+  ProjectGeographyResponse, ContractorDetail, RiskResultSummary, RiskComponents, InvestigationStatus,
 } from "@/api/types";
 
 // Stage 6.5 note: this page is the central investigator-facing screen. Core
@@ -146,6 +149,10 @@ export default function ProjectInvestigationPage({ projectId, onBack }: Props) {
   const relationshipsQ = useApiData<ProjectRelationshipsResponse>(() => getProjectRelationships(projectId), [projectId]);
   const geographyQ = useApiData<ProjectGeographyResponse>(() => getProjectGeography(projectId), [projectId]);
   const riskResultsQ = useApiData<RiskResultSummary[]>(getRiskResults, []);
+  // V2.6 — workflow status is fetched by <InvestigationWorkflow/>; it reports it here so the header can mirror it.
+  const [workflowStatus, setWorkflowStatus] = useState<InvestigationStatus | null>(null);
+  const { user } = useAuth();
+  const canWrite = !!user && canInvestigate(user.role);
 
   const contractorId = projectQ.data?.contractor_id ?? null;
   const contractorQ = useApiData<ContractorDetail | null>(
@@ -232,6 +239,11 @@ export default function ProjectInvestigationPage({ projectId, onBack }: Props) {
               {risk.risk_level} · {risk.risk_score.toFixed(1)}/100
             </span>
           </div>
+          {workflowStatus && (
+            <div style={{ marginTop: "0.4rem", fontSize: "0.62rem", color: "#6b7280" }}>
+              Investigation status: <StatusBadge status={workflowStatus} />
+            </div>
+          )}
         </div>
       </div>
 
@@ -751,6 +763,15 @@ export default function ProjectInvestigationPage({ projectId, onBack }: Props) {
           This recommendation reflects Stage 4's own classification of this project's risk score ({risk.risk_score.toFixed(1)}/100, {risk.risk_level}) and is not independently generated on this page. Final determination remains with the authorized investigator.
         </div>
       </Card>
+
+      {/* V2.6 — human investigator review: status, notes, audit history. Separate from the risk signal above. */}
+      <InvestigationWorkflow
+        projectId={project.project_id}
+        riskScore={risk.risk_score}
+        riskLevel={risk.risk_level}
+        canWrite={canWrite}
+        onStatusKnown={setWorkflowStatus}
+      />
 
       {/* Disclaimer */}
       <div style={{ background: "#f8faff", border: "1px solid #dde8f5", borderRadius: 3, padding: "0.75rem 1rem", fontSize: "0.7rem", color: "#4b6c8e" }}>
