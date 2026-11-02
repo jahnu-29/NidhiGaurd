@@ -13,6 +13,7 @@ import csv
 import hashlib
 import json
 import os
+
 import re
 import shutil
 import xml.etree.ElementTree as ET
@@ -21,6 +22,7 @@ from unittest import mock
 import pandas as pd
 import pytest
 
+from backend.v2_6_integrity import frozen_diff as v2_6_frozen_diff
 from evaluation import evaluation_metrics as M
 from evaluation.ablation import run_ablation as RA
 from evaluation.baselines import run_baselines as RB
@@ -463,21 +465,26 @@ def test_v2_1_dataset_labels_and_v2_2_predictions_match_recorded_hashes():
 
 
 def test_v2_3_and_v2_4_recorded_manifests_still_match_current_files():
+    """The recorded V2.3/V2.4 manifests are historical and unchanged; only the V2.6-declared application files may differ."""
     for mod, meta in ((RB, "baseline_predictions_meta.json"), (RA, os.path.join("ablation", "ablation_predictions_meta.json"))):
         rec = json.load(open(os.path.join(EVAL_DIR, meta), encoding="utf-8"))["frozen_manifest"]
         now = mod.manifest(EVAL_DIR)
-        diff = {g: sorted(k for k in set(now[g]) | set(rec[g]) if now[g].get(k) != rec[g].get(k)) for g in rec}
-        assert not {g: v for g, v in diff.items() if v}, (meta, diff)
+        diff = v2_6_frozen_diff(rec, now)
+        assert not diff, (meta, diff)
 
 
 def test_nothing_frozen_changed_since_the_v2_5_run():
-    """The recorded manifest must have been produced by running the V2.5 command in THIS repository."""
+    """The recorded manifest must have been produced by running the V2.5 command in THIS repository.
+
+    V2.6 note: the recorded V1 backend/frontend group is a historical snapshot and is never regenerated. V2.6 is an
+    intentional application-code change after this run, so the files it declares in backend/v2_6_source_manifest.json
+    are tolerated in that group only; every other difference (and every other group) is still reported.
+    """
     rec = json.load(open(os.path.join(CAL_DIR, "calibration_metadata.json"), encoding="utf-8"))["frozen_manifest"]
     now = RC.manifest(EVAL_DIR)
     assert set(rec) == {"v1_intelligence_source", "v1_backend_and_frontend_source", "v2_1_dataset_and_spec",
                         "v2_2_metrics_and_reference_outputs", "v2_3_baselines", "v2_4_ablation"}
-    diff = {g: sorted(k for k in set(now[g]) | set(rec[g]) if now[g].get(k) != rec[g].get(k)) for g in rec}
-    diff = {g: v for g, v in diff.items() if v}
+    diff = v2_6_frozen_diff(rec, now)
     assert not diff, ("frozen assets differ from the manifest recorded by the V2.5 run; if (and only if) the current files are the intended "
                       f"frozen state, regenerate with `python -m evaluation.calibration.run_calibration --dir evaluation`: {diff}")
 

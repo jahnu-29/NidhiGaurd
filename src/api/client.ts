@@ -11,6 +11,9 @@ import type {
   ContractorSummary,
   DashboardSummaryResponse,
   InvestigationQueueResponse,
+  InvestigationResponse,
+  InvestigationStatus,
+  InvestigationSummariesResponse,
   ProjectDetail,
   ProjectGeographyResponse,
   ProjectRelationshipsResponse,
@@ -108,6 +111,9 @@ async function apiFetch<T>(path: string, options: RequestOptions = {}): Promise<
     if (response.status === 404) {
       throw new ApiError("The requested record was not found.", 404);
     }
+    if (response.status === 422) {
+      throw new ApiError("The submitted value was not valid. Please check it and try again.", 422);
+    }
     if (response.status === 400 || response.status === 409) {
       // Backend rule violations (e.g. "cannot change your own role") carry a readable message.
       try {
@@ -197,4 +203,29 @@ export function getInvestigationQueue(): Promise<InvestigationQueueResponse> {
 
 export function getDashboardSummary(): Promise<DashboardSummaryResponse> {
   return apiFetch<DashboardSummaryResponse>("/api/dashboard/summary");
+}
+
+// ------------------------------------------- investigation workflow (V2.6) --
+
+export function getInvestigation(projectId: string): Promise<InvestigationResponse> {
+  return apiFetch<InvestigationResponse>(`/api/projects/${encodeURIComponent(projectId)}/investigation`);
+}
+
+export function changeInvestigationStatus(projectId: string, status: InvestigationStatus): Promise<InvestigationResponse> {
+  return apiFetch<InvestigationResponse>(`/api/projects/${encodeURIComponent(projectId)}/investigation/status`, {
+    method: "POST",
+    body: { status },
+  });
+}
+
+export function addInvestigationNote(projectId: string, note: string): Promise<InvestigationResponse> {
+  return apiFetch<InvestigationResponse>(`/api/projects/${encodeURIComponent(projectId)}/investigation/notes`, {
+    method: "POST",
+    body: { note },
+  });
+}
+
+/** Workflow status for every project that has one (all others are implicitly NEW). */
+export function getInvestigations(): Promise<InvestigationSummariesResponse> {
+  return apiFetch<InvestigationSummariesResponse>("/api/investigations");
 }

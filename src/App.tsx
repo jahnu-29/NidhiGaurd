@@ -66,7 +66,7 @@ function AppShell() {
       {allowedPage === "risk-analysis" && <RiskAnalysisPage />}
       {allowedPage === "contractors" && <ContractorsPage />}
       {allowedPage === "geographic" && <GeographicPage />}
-      {allowedPage === "investigation-queue" && <InvestigationQueuePage />}
+      {allowedPage === "investigation-queue" && <InvestigationQueuePage onViewProject={viewProject} />}
       {allowedPage === "reports" && <ReportsPage />}
       {allowedPage === "users" && <UsersPage currentUserId={user.id} />}
     </Layout>

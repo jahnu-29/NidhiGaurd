@@ -22,6 +22,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
+from backend.v2_6_integrity import frozen_diff as v2_6_frozen_diff
 from evaluation import evaluation_metrics as M
 from evaluation.ablation import run_ablation as RA
 from evaluation.baselines import run_baselines as RB
@@ -345,10 +346,10 @@ def test_v2_2_reference_predictions_and_labels_match_the_v2_2_report():
 
 
 def test_v2_3_frozen_manifest_still_matches_current_files():
+    """The V2.3 recorded manifest is historical and unchanged; only the V2.6-declared application files may differ (see v2_6_integrity)."""
     recorded = json.load(open(os.path.join(EVAL_DIR, "baseline_predictions_meta.json"), encoding="utf-8"))["frozen_manifest"]
     now = RB.manifest(EVAL_DIR)
-    differing = {g: sorted(k for k in set(now[g]) | set(recorded[g]) if now[g].get(k) != recorded[g].get(k)) for g in recorded}
-    assert not {g: v for g, v in differing.items() if v}, differing
+    assert not v2_6_frozen_diff(recorded, now), v2_6_frozen_diff(recorded, now)
 
 
 def test_nothing_frozen_changed_since_the_v2_4_run():
@@ -356,13 +357,16 @@ def test_nothing_frozen_changed_since_the_v2_4_run():
 
     The recorded manifest must have been produced by running the V2.4 command in THIS repository; a manifest produced
     elsewhere hashes that machine's copies of files such as evaluation_predictions_meta.json (which embeds a git commit).
+
+    V2.6 note: the recorded V1 backend/frontend group is a historical snapshot and is never regenerated. V2.6 is an
+    intentional application-code change after this run, so the files it declares in backend/v2_6_source_manifest.json
+    are tolerated in that group only; every other difference (and every other group) is still reported.
     """
     recorded = json.load(open(os.path.join(ABL_DIR, "ablation_predictions_meta.json"), encoding="utf-8"))["frozen_manifest"]
     now = RA.manifest(EVAL_DIR)
     assert set(recorded) == {"v1_intelligence_source", "v1_backend_and_frontend_source", "v2_1_dataset_and_spec",
                              "v2_2_metrics_and_reference_outputs", "v2_3_baselines"}
-    differing = {g: sorted(k for k in set(now[g]) | set(recorded[g]) if now[g].get(k) != recorded[g].get(k)) for g in recorded}
-    differing = {g: v for g, v in differing.items() if v}
+    differing = v2_6_frozen_diff(recorded, now)
     assert not differing, ("frozen assets differ from the manifest recorded by the V2.4 run; if (and only if) the current files are the intended "
                            f"frozen state, regenerate with `python -m evaluation.ablation.run_ablation --dir evaluation`: {differing}")
 
