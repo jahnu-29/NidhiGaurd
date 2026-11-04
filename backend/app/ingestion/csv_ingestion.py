@@ -42,6 +42,7 @@ from sqlalchemy.orm import Session
 
 from backend.app.config import SEED_DATA_DIR
 from backend.app.db.database import Base, SessionLocal, init_db
+from backend.app.intelligence.cache import cache as intelligence_cache
 from backend.app.db.models import (
     AnomalySignal,
     Bill,
@@ -298,6 +299,10 @@ def ingest_all(session: Session, data_dir: Path | str | None = None) -> list[Tab
         session.rollback()
         raise
 
+    # Phase 2.1: the project/bill/payment/location/contractor data just changed, so any
+    # in-process intelligence results computed from the old data are stale. This is the one
+    # place those tables are written; a failed run rolls back and never reaches this line.
+    intelligence_cache.invalidate_all("ingestion committed")
     return results
 
 
