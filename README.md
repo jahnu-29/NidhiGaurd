@@ -1,145 +1,168 @@
 # NidhiGuard — MPLADS Intelligence & Investigation Prioritisation System
 
-**An explainable anomaly-analysis and investigation-prioritisation platform for public infrastructure project data.**
+**Explainable anomaly scoring that helps reviewers decide which public-works projects to look at first.**
 
-NidhiGuard brings cost, project-similarity, contractor, billing, and geographic signals into a single workflow so that unusual patterns can be surfaced for human review. It is a decision-support tool: a risk indicator is not a finding of fraud or wrongdoing.
+[**Live demo**](https://nidhi-gaurd-gamma.vercel.app) · [API health check](https://nidhigaurd-api.onrender.com/health) · [Evaluation report](evaluation/evaluation_report.md)
 
-<p align="center">
-  <img src="docs/diagrams/architecture.svg" alt="NidhiGuard system architecture" width="100%" />
-</p>
+> **Prototype on synthetic data.** Every project, contractor, bill and payment in this repository and in the live demo is fictional, generated for a Smart India Hackathon prototype. Nothing refers to a real MP, contractor or transaction. NidhiGuard is an independent project, not an official government platform, and a risk score is **not** a finding of fraud.
 
-## Engineering at a glance
+<!-- Add a screenshot or GIF of the Investigation Queue here, e.g. ![Investigation Queue](screenshots/<file>.png) -->
+
+## What it does
+
+NidhiGuard combines five kinds of signals into a single 0–100 risk score per project, then gives reviewers a ranked queue, the evidence behind each score, and a place to record what they find.
+
+| Detector | What it looks for |
+|---|---|
+| Cost | Sanctioned amount far above the comparable-group median, unsupported by the estimate |
+| Project similarity | Near-duplicate projects, using TF-IDF + cosine similarity on descriptions plus shared attributes |
+| Contractor | Repeated awards to one contractor in a short window, at inflated cost, in scattered districts |
+| Billing | Bills compressed into a short burst, or heavily end-loaded |
+| Geographic | Clusters of near-identical projects in close proximity |
+
+**How scoring works.** The engine is deterministic and rule-based, not a trained model. Each detector scales itself to a fixed cap (cost 25, similarity 25, contractor 20, billing 20, geographic 10), and the capped scores are summed (max 100). Levels: LOW < 30 ≤ MEDIUM < 60 ≤ HIGH < 80 ≤ CRITICAL. The **investigation queue is every project that is not LOW** (score ≥ 30), ranked by score. Because every point of a score comes from a named detector, each result can be explained.
+
+**Application.** Risk Analysis, Investigation Queue, Contractor Intelligence, Geographic Intelligence and Project Investigation views, with JWT login and three roles (admin, investigator, viewer). Investigations keep persistent records, notes, status changes and an append-only activity history.
+
+## Architecture
+
+[![NidhiGuard system architecture](docs/diagrams/architecture.svg)](docs/diagrams/architecture.svg)
 
 | Area | Implementation |
 |---|---|
-| Web client | React, TypeScript, Vite, Tailwind CSS |
+| Web client | React 19, TypeScript, Vite, Tailwind CSS, Recharts |
 | API | Python, FastAPI |
-| Data layer | SQLAlchemy, Neon PostgreSQL |
-| Analytics | Pandas, NumPy, scikit-learn |
-| Visualisation | Recharts |
-| Access control | JWT authentication and role-based access control |
-| Hosting | Vercel (frontend), Render (backend) |
+| Data layer | SQLAlchemy; SQLite by default locally, Neon PostgreSQL in production |
+| Analytics | pandas, NumPy, scikit-learn (TF-IDF similarity; Isolation Forest used only as an evaluation baseline) |
+| Access control | JWT authentication, role-based access control |
+| Hosting | Vercel (frontend), Render (backend), Neon (database) |
 
-## Analytical workflow
+[![Anomaly-analysis pipeline](docs/diagrams/anomaly-pipeline.svg)](docs/diagrams/anomaly-pipeline.svg)
 
-NidhiGuard evaluates five categories of signals and exposes the resulting indicators through risk-analysis and investigation workflows.
+## Evaluation
 
-<p align="center">
-  <img src="docs/diagrams/anomaly-pipeline.svg" alt="NidhiGuard anomaly-analysis pipeline" width="100%" />
-</p>
+There is no public labelled ground truth for MPLADS irregularities, so the engine was evaluated on a **controlled synthetic benchmark** built independently of it. The engine was not tuned on this data, the labels were never given to any detector, and the dataset, labels and predictions are frozen by SHA-256 hash.
 
-| Signal | Analysis focus |
-|---|---|
-| Cost | Unusual project cost patterns |
-| Project similarity | Potentially similar or duplicate projects |
-| Contractor | Contractor-related patterns |
-| Billing | Unusual billing patterns |
-| Geographic | Location-based patterns |
+**Benchmark.** 150 projects: 49 anomalous (prevalence 32.7%) and 101 normal, of which 41 are *adversarial normals*: legitimate look-alikes such as a large honest contractor, nearby but unrelated projects, high-cost projects with documented extra scope, and milestone billing. Anomalies are built from documented rules in [`SCENARIO_SPEC.md`](evaluation/SCENARIO_SPEC.md), with obvious and borderline variants of each type.
 
-The interface includes Risk Analysis, Investigation Queue, Contractor Intelligence, Geographic Intelligence, and Project Investigation views. The investigation workflow supports persistent records, notes, role-aware access, and append-only activity history.
+### Ranking quality
 
-## Phase 2.1 — In-process intelligence caching
+| Metric | NidhiGuard | Random baseline |
+|---|--:|--:|
+| PR-AUC (average precision) | **0.845** | 0.327 |
+| Precision@5 / @10 / @20 | 1.00 / 0.90 / 0.85 | 0.327 |
+| Recall@20 | 0.347 (17 of 49) | — |
 
-Phase 2.1 reduces repeated analytical work by caching expensive, reusable computations inside the backend process.
+The bootstrap 95% interval for PR-AUC is [0.741, 0.934]. It is optimistic, because it resamples rows and ignores that the synthetic cases come in linked groups.
 
-<p align="center">
-  <img src="docs/diagrams/cache-lifecycle.svg" alt="Phase 2.1 cache lookup, computation, reuse, and invalidation lifecycle" width="100%" />
-</p>
+### Where it works and where it doesn't
 
-**Cached computations:** dataset loading, risk analysis, relationship analysis, geographic intelligence, and the TF-IDF similarity index.
+The score ranks well, but its absolute values are compressed (max 55.5 on this set), so fixed thresholds miss many anomalies. Detection by anomaly type at the production queue cutoff (score ≥ 30):
 
-**Implementation characteristics:**
+| Anomaly type | Cases | Flagged at ≥ 30 |
+|---|--:|--:|
+| Multi-signal | 8 | 8 (100%) |
+| Cost | 8 | 7 (88%) |
+| Contractor pattern | 9 | 3 (33%) |
+| Billing | 8 | 0 |
+| Similar project | 8 | 0 |
+| Geographic | 8 | 0 |
 
-- Cache lookup and reuse for repeated computations.
-- Single-flight coordination to avoid duplicate concurrent computation for the same cache key.
-- Deep-copy protection so consumers do not mutate shared cached results.
-- Cache invalidation after successful ingestion.
-- Non-blocking startup warm-up.
-- Process-local memory; entries are cleared when the backend process restarts.
+At that cutoff the queue has precision 0.857, recall 0.367 and a 3% false-positive rate (3 of 101 normals, all adversarial). At a stricter cutoff of 40: precision 0.90, recall 0.184. In short, the engine is good at putting anomalous projects *near the top* and good at not crying wolf, but single-signal billing, similarity and geographic anomalies usually score below the queue cutoff. That is the main thing to improve.
 
-This is an in-process cache, not a distributed cache. Multiple backend instances do not share cache state.
+**Detector contribution (ablation).** Removing each detector and re-scoring changes PR-AUC by: similarity −0.110, cost −0.058, billing −0.051, geographic −0.034, contractor −0.027. The detectors were also compared against a cost-deviation baseline and an Isolation Forest on identical projects and labels; see [`baseline_comparison.md`](evaluation/baseline_comparison.md). Threshold and queue-size trade-offs are in [`calibration_report.md`](evaluation/calibration/calibration_report.md).
 
-### Local benchmark observations
+### Limits you should know about
 
-| Operation | Before | After |
-|---|---:|---:|
+- **This is not real-world accuracy.** A label says how a case was *constructed*. The scenario families mirror the detector families by design, so the benchmark tests the author's definition of suspicious, not external truth. [`SCENARIO_SPEC.md`](evaluation/SCENARIO_SPEC.md) §0 documents this and one disclosed exposure incident.
+- Results on real data could be better or worse.
+- The evaluation tests are not run in CI because they pin exact library versions; they are run locally.
+
+Reproduce from the repository root:
+
+```bash
+python -m evaluation.generate_evaluation_data --out evaluation   # deterministic, seed 7919
+pytest evaluation/tests -q
+```
+
+## Performance: Phase 2.1 in-process cache
+
+Each analysis (dataset load, risk, relationships, geography, TF-IDF index) used to be recomputed on every request. Phase 2.1 caches them in the backend process with single-flight coordination (concurrent requests for the same key share one computation), deep-copy protection against mutation of shared results, invalidation after a successful ingestion, and a non-blocking startup warm-up (disable with `NIDHIGUARD_WARM_INTELLIGENCE_CACHE=0`).
+
+| Operation | Recomputed every request | Cache hit |
+|---|--:|--:|
 | Risk analysis | ~14–15 s | ~15–16 ms |
 | Relationship analysis | ~11–12 s | ~158–192 ms |
 | Geographic analysis | ~20 s | ~1.6 ms |
 
-These are recorded **local benchmark** observations. They are not production latency guarantees and should not be compared with browser timings without controlling for network, cold starts, and deployment resources.
-
-## Evaluation
-
-The anomaly-analysis approach was evaluated against an independent synthetic benchmark.
-
-| Metric | Result |
-|---|---:|
-| PR-AUC | **0.845** |
-| Precision@20 | **0.85** |
-
-The evaluation work included baseline comparisons, ablation analysis, and threshold calibration. These figures describe performance on the synthetic evaluation benchmark; they are not verified accuracy measurements on real-world government cases.
-
-## Production deployment
-
-<p align="center">
-  <img src="docs/diagrams/deployment.svg" alt="NidhiGuard production deployment topology" width="100%" />
-</p>
-
-| Service | Platform | Endpoint |
-|---|---|---|
-| Frontend | Vercel | [Open application](https://nidhi-gaurd-gamma.vercel.app) |
-| Backend API | Render | [API base URL](https://nidhigaurd-api.onrender.com) |
-| Health check | Render | [`/health`](https://nidhigaurd-api.onrender.com/health) |
-| Database | Neon | Managed PostgreSQL |
-
-## Verification
-
-The backend test suite passed after the Phase 2.1 integration:
-
-- **304 passed**
-- **1 non-blocking deprecation warning**
-
-Production logs confirmed a dataset-cache miss followed by a hit. Other production cache-hit claims should be made only when corresponding risk, relationship, or geographic cache log entries have been observed.
+These are **local sandbox timings** from [`scripts/phase_2_1_benchmark.py`](scripts/phase_2_1_benchmark.py), not production guarantees. The cache removes *repeated* work; it does not make the underlying computation faster, so the first request after a restart or a hosting spin-down still pays the full cost. The cache is process-local (not shared across instances) and is cleared when the process restarts.
 
 ## Run locally
 
-### Backend
+Run everything from the **repository root**. The backend imports as `backend.app…`, so it will not start from inside `backend/`.
 
-Requires Python, the project's backend dependencies, and a configured PostgreSQL connection.
-
-```bash
-cd backend
-python -m venv .venv
-```
-
-Activate the virtual environment, install the dependencies listed in the repository, configure the required environment variables, and start the API:
+### Backend (Python 3.12+)
 
 ```bash
-pip install -r requirements.txt
-uvicorn app.main:app --reload
+python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
+pip install -r backend/requirements-dev.txt
+
+cp backend/env.example backend/.env      # optional: set NIDHIGUARD_AUTH_SECRET (see file)
+python -m backend.app.ingestion          # load the seed CSVs from data-source/data into the DB
+python -m backend.app.auth.seed          # create demo users (see backend/README_AUTH.md)
+python -m uvicorn backend.app.main:app --reload      # http://127.0.0.1:8000
 ```
 
-### Frontend
+Check it with `curl http://127.0.0.1:8000/health`. The database defaults to SQLite at `backend/nidhiguard.db`; set `NIDHIGUARD_DATABASE_URL` to use PostgreSQL. The seeded accounts use **demo-only passwords** documented in [`backend/README_AUTH.md`](backend/README_AUTH.md). Never use them for a real deployment; override them with the `NIDHIGUARD_DEMO_*_PASSWORD` variables.
 
-Requires Node.js and npm. Configure the frontend API base URL for the local backend before starting:
+### Frontend (Node 22)
 
 ```bash
-cd frontend
-npm install
-npm run dev
+npm ci
+PORT=5173 npm run dev                    # Windows (cmd): set PORT=5173 && npm run dev
 ```
 
-Do not commit `.env` files, database credentials, JWT secrets, or API keys.
+The dev server defaults to port 8443, but the backend only allows the origins `http://localhost:5173` and `http://127.0.0.1:5173` (plus LAN addresses on port 8443), so set `PORT=5173` to avoid CORS errors on localhost. The frontend talks to `http://127.0.0.1:8000` unless you set `VITE_API_BASE_URL` in a `.env` file.
 
-## Repository notes
+### Tests
 
-The diagrams in [`docs/diagrams/`](docs/diagrams/) are SVG assets and can be edited as the architecture evolves. Keep them aligned with the implementation when services, cache behaviour, or deployment topology change.
+```bash
+python -m pytest -q
+```
 
-## Responsible-use note
+The suite (`intelligence/tests` + `backend/tests`) was last run on 7 Nov 2026 with Python 3.12 and current library versions: **374 passed, 1 deprecation warning**. CI pins Python 3.13 and exact library versions (see [`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
 
-NidhiGuard is an independent software project, not an official government platform. It does not determine fraud, replace official audits, or make enforcement decisions. Its outputs are intended to help users prioritise records for further human investigation.
+## Repository layout
 
----
+| Path | Contents |
+|---|---|
+| `src/` | React frontend (pages, API client, auth) |
+| `backend/` | FastAPI app: API routes, auth/RBAC, investigation workflow, DB models, CSV ingestion, cache |
+| `intelligence/` | The five detectors, the risk engine and their tests |
+| `evaluation/` | Synthetic benchmark, baselines, ablation, calibration, reports and frozen manifests |
+| `data-source/` | Synthetic data generator and the seed CSVs (200 projects, 75 contractors) |
+| `scripts/` | Cache benchmark and data-conversion scripts |
+| `docs/diagrams/` | Architecture, pipeline, cache-lifecycle and deployment diagrams |
 
-**Repository:** [jahnu-29/NidhiGaurd](https://github.com/jahnu-29/NidhiGaurd)
+`backend/V2_6_SOURCE_INTEGRITY.md` explains the SHA-256 manifests that tie the frozen evaluation runs to the code they ran on. If you change files under `backend/app/` or `src/`, those integrity tests will tell you, so record intentional changes in `backend/post_v2_6_changes.json` rather than editing manifests by hand.
+
+## Deployment
+
+[![Production deployment topology](docs/diagrams/deployment.svg)](docs/diagrams/deployment.svg)
+
+| Service | Platform | Endpoint |
+|---|---|---|
+| Frontend | Vercel | [nidhi-gaurd-gamma.vercel.app](https://nidhi-gaurd-gamma.vercel.app) |
+| Backend API | Render | [nidhigaurd-api.onrender.com](https://nidhigaurd-api.onrender.com) · [`/health`](https://nidhigaurd-api.onrender.com/health) |
+| Database | Neon | Managed PostgreSQL |
+
+## Known limitations and next steps
+
+- Detection of single-signal billing, similarity and geographic anomalies is weak at the current thresholds (see the evaluation above).
+- All data is synthetic; the system has not been validated against real MPLADS records.
+- The cache is process-local, so it is not shared across instances and is lost on restart.
+- Never commit `.env` files, database credentials, JWT secrets or API keys.
+
+## Responsible use
+
+NidhiGuard helps users prioritise records for further human investigation. It does not determine fraud, replace official audits or make enforcement decisions.
