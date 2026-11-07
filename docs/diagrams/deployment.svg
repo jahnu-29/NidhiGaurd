@@ -1,0 +1,30 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540">
+  <rect width="1000" height="540" rx="18" fill="#0b1220"/>
+  <text x="40" y="48" fill="#f1f5f9" font-family="Arial" font-size="25" font-weight="bold">NidhiGuard | Production Deployment Architecture</text>
+  <g font-family="Arial" text-anchor="middle">
+    <rect x="360" y="90" width="280" height="65" rx="10" fill="#172b4d" stroke="#60a5fa" stroke-width="2"/>
+    <text x="500" y="118" fill="white" font-size="18">Client Browser</text>
+    <text x="500" y="140" fill="#bfdbfe" font-size="13">User Interface</text>
+    <path d="M500 155 V210" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M493 202 L500 210 L507 202" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="100" y="210" width="330" height="105" rx="10" fill="#33264e" stroke="#c4b5fd" stroke-width="2"/>
+    <text x="265" y="244" fill="white" font-size="20" font-weight="bold">Vercel</text>
+    <text x="265" y="270" fill="#ddd6fe" font-size="15">React · TypeScript · Vite</text>
+    <text x="265" y="293" fill="#c4b5fd" font-size="12">Frontend Hosting</text>
+    <rect x="570" y="210" width="330" height="105" rx="10" fill="#163a35" stroke="#34d399" stroke-width="2"/>
+    <text x="735" y="244" fill="white" font-size="20" font-weight="bold">Render</text>
+    <text x="735" y="270" fill="#a7f3d0" font-size="15">FastAPI · Python</text>
+    <text x="735" y="293" fill="#6ee7b7" font-size="12">Backend API · Intelligence Engine</text>
+    <path d="M430 262 H570" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M562 255 L570 262 L562 269" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <text x="500" y="246" fill="#94a3b8" font-size="12">HTTPS API</text>
+    <path d="M735 315 V370" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M728 362 L735 370 L742 362" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="570" y="370" width="330" height="95" rx="10" fill="#3b2d1b" stroke="#fbbf24" stroke-width="2"/>
+    <text x="735" y="405" fill="white" font-size="20" font-weight="bold">Neon PostgreSQL</text>
+    <text x="735" y="430" fill="#fde68a" font-size="14">Managed Persistent Database</text>
+    <text x="735" y="450" fill="#fcd34d" font-size="12">Application Data &amp; Investigations</text>
+    <text x="500" y="505" fill="#94a3b8" font-size="13">Independent frontend and backend services · Managed database</text>
+  </g>
+</svg>
