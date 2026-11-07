@@ -1,0 +1,33 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620">
+  <rect width="1000" height="620" rx="18" fill="#0b1220"/>
+  <text x="40" y="48" fill="#f1f5f9" font-family="Arial" font-size="25" font-weight="bold">NidhiGuard | Phase 2.1 Cache Lifecycle</text>
+  <g font-family="Arial" text-anchor="middle">
+    <rect x="350" y="85" width="300" height="60" rx="9" fill="#172b4d" stroke="#60a5fa"/>
+    <text x="500" y="120" fill="white" font-size="17">Incoming Intelligence Request</text>
+    <path d="M500 145 V185" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="350" y="185" width="300" height="60" rx="9" fill="#33264e" stroke="#c4b5fd"/>
+    <text x="500" y="220" fill="white" font-size="17">Cache Lookup</text>
+    <path d="M500 245 V280 H250 V310 M500 280 H750 V310" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="115" y="310" width="270" height="75" rx="9" fill="#163a35" stroke="#34d399"/>
+    <text x="250" y="340" fill="white" font-size="19" font-weight="bold">CACHE HIT</text>
+    <text x="250" y="363" fill="#a7f3d0" font-size="13">Return cached result</text>
+    <rect x="615" y="310" width="270" height="75" rx="9" fill="#3b2d1b" stroke="#fbbf24"/>
+    <text x="750" y="340" fill="white" font-size="19" font-weight="bold">CACHE MISS</text>
+    <text x="750" y="363" fill="#fde68a" font-size="13">Check concurrent computation</text>
+    <path d="M750 385 V420" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="615" y="420" width="270" height="65" rx="9" fill="#172b4d" stroke="#60a5fa"/>
+    <text x="750" y="448" fill="white" font-size="16">Single-flight Execution</text>
+    <text x="750" y="468" fill="#bfdbfe" font-size="12">Avoid duplicate work</text>
+    <path d="M750 485 V515" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="615" y="515" width="270" height="65" rx="9" fill="#163a35" stroke="#34d399"/>
+    <text x="750" y="543" fill="white" font-size="16">Compute &amp; Store Result</text>
+    <text x="750" y="563" fill="#a7f3d0" font-size="12">Return protected result copy</text>
+    <path d="M615 548 H500 V145" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5 5"/>
+    <text x="475" y="570" fill="#94a3b8" font-size="12" text-anchor="end">Future requests reuse cache</text>
+    <rect x="115" y="420" width="270" height="75" rx="9" fill="#33264e" stroke="#c4b5fd"/>
+    <text x="250" y="449" fill="white" font-size="16">Cache Invalidation</text>
+    <text x="250" y="472" fill="#ddd6fe" font-size="12">After successful ingestion</text>
+    <text x="500" y="605" fill="#94a3b8" font-size="12">Process-local cache · Cleared on backend restart</text>
+  </g>
+</svg>
