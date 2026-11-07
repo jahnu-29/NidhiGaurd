@@ -31,6 +31,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.app.api.routes import api_router
 from backend.app.auth.routes import auth_router, users_router
 from backend.app.db.database import init_db
+from backend.app.intelligence.cache import start_background_warmup
 
 # Local-development CORS. The LAN IP of the machine serving the frontend
 # changes between sessions, so instead of hardcoding it we accept any
@@ -50,6 +51,10 @@ async def lifespan(app: FastAPI):
     # Creates tables that don't exist yet; a no-op against an existing,
     # already-correct database. No data is seeded here.
     init_db()
+    # Phase 2.1: optionally pre-compute the shared intelligence cache on a background
+    # thread so the first user request doesn't pay for it. Never blocks or fails startup;
+    # disable with NIDHIGUARD_WARM_INTELLIGENCE_CACHE=0.
+    start_background_warmup()
     yield
 
 

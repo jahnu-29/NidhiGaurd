@@ -7,10 +7,11 @@ V2.6 manifest (backend/v2_6_source_manifest.json), and checks that the historica
 manifests recorded by V2.3/V2.4/V2.5 are intact and are accounted for exactly.
 See backend/v2_6_integrity.py for the rationale.
 
-If one of these fails because application source was changed on purpose, review the
-change and regenerate with:  python -m backend.v2_6_integrity --write
-(Never regenerate to hide an unexpected difference. The historical V2.3-V2.5
-manifests and artifacts are never regenerated.)
+Source changes made AFTER V2.6 are declared in the append-only ledger
+backend/post_v2_6_changes.json (see test_post_v2_6_integrity.py); the V2.6 manifest itself is
+immutable and `--write` refuses to rewrite it once the ledger exists. "The tree" below therefore
+means the EFFECTIVE manifest: the V2.6 manifest plus the declared ledger changes. The historical
+V2.3-V2.5 manifests and artifacts are never regenerated.
 """
 
 import json
@@ -40,7 +41,10 @@ def test_current_source_tree_matches_the_v2_6_manifest():
 
 
 def test_manifest_lists_exactly_the_files_in_scope(manifest):
-    assert sorted(manifest["files"]) == I.walk_scope(ROOT)
+    # Effective manifest = V2.6 manifest + declared post-V2.6 changes. Every V2.6 file is still in it.
+    effective = I.effective_manifest(ROOT)
+    assert sorted(effective["files"]) == I.walk_scope(ROOT)
+    assert set(manifest["files"]) <= set(effective["files"])
     assert manifest["files"]  # not vacuous
 
 
@@ -56,7 +60,9 @@ def test_manifest_file_is_canonical_utf8_lf_and_deterministic(manifest):
     assert b"\r" not in raw and raw.endswith(b"\n") and not raw.endswith(b"\n\n")
     text = raw.decode("utf-8")  # raises if not UTF-8
     assert text == I.render(json.loads(text)), "manifest must equal its canonical rendering (sorted keys, 2-space indent)"
-    assert I.render(I.build_manifest(ROOT)) == text, "regenerating from the tree must reproduce the committed manifest byte-for-byte"
+    # The V2.6 manifest is immutable, so the tree is regenerated and compared with the EFFECTIVE manifest
+    # (V2.6 manifest + declared post-V2.6 ledger changes); the V2.6 file's own bytes are pinned by the ledger.
+    assert I.render(I.build_manifest(ROOT)) == I.render(I.effective_manifest(ROOT)), "regenerating from the tree must reproduce the effective manifest byte-for-byte"
     assert I.render(I.build_manifest(ROOT)) == I.render(I.build_manifest(ROOT))  # stable across runs
 
 
@@ -89,8 +95,11 @@ def test_v2_3_v2_4_v2_5_recorded_the_same_v1_snapshot():
 
 
 def test_declared_v2_6_changes_are_exactly_the_real_difference_from_the_v1_snapshot(manifest):
-    """Nothing undeclared changed, and nothing declared is fictitious."""
-    assert manifest["v2_6_changes_from_v1_snapshot"] == I.diff_from_historical(ROOT)
+    """Nothing undeclared changed, and nothing declared is fictitious (V2.6 declarations + ledger declarations)."""
+    assert I.declared_changes_from_v1(ROOT) == I.diff_from_historical(ROOT)
+    # the V2.6 declarations are a subset of that: V2.6's own list is never rewritten
+    for kind, paths in manifest["v2_6_changes_from_v1_snapshot"].items():
+        assert set(paths) <= set(I.declared_changes_from_v1(ROOT)[kind])
 
 
 def test_v2_6_did_not_touch_the_v1_intelligence_engine_or_risk_code(manifest):
@@ -144,7 +153,7 @@ def tree_copy(tmp_path):
     """A scratch copy of the in-scope source plus the historical manifests; the real tree is never touched."""
     for base in I.SCOPE:
         shutil.copytree(ROOT / base, tmp_path / base, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
-    for rel in (*I.HISTORICAL_MANIFEST_FILES, I.MANIFEST_RELPATH):
+    for rel in (*I.HISTORICAL_MANIFEST_FILES, I.MANIFEST_RELPATH, I.LEDGER_RELPATH):
         (tmp_path / rel).parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / rel, tmp_path / rel)
     return tmp_path
@@ -280,7 +289,7 @@ def test_line_endings_alone_never_count_as_a_change_from_the_v1_snapshot(tree_co
     _rewrite_line_endings(tree_copy / USERS_PAGE, ending)  # e.g. what a Linux checkout of an LF blob looks like
     changes = I.diff_from_historical(tree_copy)
     assert USERS_PAGE not in changes["modified"]
-    assert changes == manifest["v2_6_changes_from_v1_snapshot"]
+    assert changes == I.declared_changes_from_v1(tree_copy)
     assert I.verify(tree_copy) == []
 
 
@@ -296,7 +305,7 @@ def test_a_real_content_change_is_still_detected_whatever_the_line_endings(tree_
 
 def test_every_file_in_the_v1_snapshot_is_recognised_as_unchanged_or_declared():
     """The real tree: the only 'modified' files are the declared V2.6 ones — none is a line-ending artefact."""
-    assert I.diff_from_historical(ROOT)["modified"] == I.load_manifest(ROOT)["v2_6_changes_from_v1_snapshot"]["modified"]
+    assert I.diff_from_historical(ROOT)["modified"] == I.declared_changes_from_v1(ROOT)["modified"]
 
 
 def test_frozen_diff_ignores_line_endings_in_the_v1_group_only(tree_copy):

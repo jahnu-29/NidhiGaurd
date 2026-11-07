@@ -1,0 +1,56 @@
+{
+  "changes": [
+    {
+      "description": "Commit 7bd437b (2026-11-02): add https://nidhi-gaurd-gamma.vercel.app to CORS_ALLOWED_ORIGINS in backend/app/main.py for the Vercel/Render deployment; also adds the missing trailing newline. No other source change.",
+      "entry_sha256": "892f4fe2d3d7f77e71eb9137e771c49223c35e14153479913a4d2c9a872468b6",
+      "files": [
+        {
+          "base_sha256": "cc44c802734cac73d6b31ff5e504785d9d8b6d511083be8725978ce51463c66c",
+          "change": "modified",
+          "path": "backend/app/main.py",
+          "sha256": "8c6b303e2e1c05d1a4c829f0dacf311784a88b914db267edfda44808e04fde32"
+        }
+      ],
+      "id": "post-v2.6-001-deployment-cors-origin",
+      "previous_entry_sha256": "2df5e7f9aedef1167a4bcb49d939d792660e67eedf24788d3310e75ce4e9c41c"
+    },
+    {
+      "description": "Phase 2.1: shared in-process cache for the expensive intelligence results (dataset, risk, relationships, geography). dependencies.py serves results from backend/app/intelligence/cache.py; csv_ingestion.py invalidates the cache after a committed ingestion; main.py starts an optional background warm-up. Intelligence algorithms, weights, thresholds, auth, RBAC and the investigation workflow are unchanged.",
+      "entry_sha256": "a0d71c02df33fedc0e6a53b32107d8891c1fee989179ed63e87cb08dc8e3cb0a",
+      "files": [
+        {
+          "base_sha256": "656d4d3e95f80b07c6728985dbdbc3e273d9189c69096e6207c88dcdb7406c8b",
+          "change": "modified",
+          "path": "backend/app/api/dependencies.py",
+          "sha256": "d33a19c0dacf8d723a44dc9529085725d48bcb07883025837e6bb74124795a98"
+        },
+        {
+          "base_sha256": "ab1bda4cab0b64e8cb852665ce7f06ceef170d2ca6b7f250b4ce0885b2810e09",
+          "change": "modified",
+          "path": "backend/app/ingestion/csv_ingestion.py",
+          "sha256": "8d9dba966a56e453cfbf8f9fe70ecb3c0f34ffc0581138df01d94ccde42ed54a"
+        },
+        {
+          "base_sha256": null,
+          "change": "added",
+          "path": "backend/app/intelligence/cache.py",
+          "sha256": "6fb5ea60b0cf6336372174ff3a2ddeafb3ea3afa7e8c5c41d0fc072d2c75930d"
+        },
+        {
+          "base_sha256": "8c6b303e2e1c05d1a4c829f0dacf311784a88b914db267edfda44808e04fde32",
+          "change": "modified",
+          "path": "backend/app/main.py",
+          "sha256": "6f29a7e3ec08042f27bc7b7a935d24522c8c29699d657b322dfe00ce07d9d54d"
+        }
+      ],
+      "id": "post-v2.6-002-phase-2.1-intelligence-cache",
+      "previous_entry_sha256": "892f4fe2d3d7f77e71eb9137e771c49223c35e14153479913a4d2c9a872468b6"
+    }
+  ],
+  "purpose": "Append-only ledger of source changes made AFTER the V2.6 release. The V2.6 manifest is immutable; each entry here declares exact path, change type, base hash and new hash. Entries are hash-chained (previous_entry_sha256 -> entry_sha256, the first chaining to the pinned V2.6 manifest). Never edit an existing entry; append a new one.",
+  "schema_version": 1,
+  "v2_6_manifest": {
+    "path": "backend/v2_6_source_manifest.json",
+    "sha256": "2df5e7f9aedef1167a4bcb49d939d792660e67eedf24788d3310e75ce4e9c41c"
+  }
+}

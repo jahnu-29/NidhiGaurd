@@ -79,3 +79,48 @@ untracked, local-only file that nothing imports and that no clean checkout can c
 The three `*_byte_identical_and_matches_committed` evaluation tests regenerate artifacts that
 embed the whole filesystem walk (including this file), so they can only pass on a machine that
 has it. They are not part of the CI gate.
+
+## Changes made after V2.6: the post-V2.6 ledger
+
+`backend/v2_6_source_manifest.json` is **closed**: it records the source V2.6 shipped and is never
+regenerated or edited. Source changes made afterwards are declared, one entry at a time, in the
+append-only ledger `backend/post_v2_6_changes.json`.
+
+```
+Layer 0  V2.3/V2.4/V2.5 manifests + V1 snapshot     immutable (pinned by the V2.6 manifest)
+Layer 1  backend/v2_6_source_manifest.json           immutable (SHA-256 pinned by the ledger)
+Layer 2  backend/post_v2_6_changes.json              append-only, hash-chained
+Layer 3  the current tree  ==  Layer 1 + Layer 2     (the "effective" manifest), verified exactly
+```
+
+Each ledger entry lists files as `{path, change: modified|added, base_sha256, sha256}`
+(`base_sha256` is `null` for an added file). `verify` / `--check` requires:
+
+* the ledger pins the SHA-256 of the V2.6 manifest, and that manifest still matches it;
+* entries are chained: each `previous_entry_sha256` equals the previous entry's `entry_sha256`
+  (the first chains to the pinned V2.6 manifest), and each `entry_sha256` equals the digest of
+  its own content, so rewriting or reordering history is detected;
+* every `modified` file's `base_sha256` equals the effective hash immediately before that change
+  (so `backend/app/main.py` is chained: V2.6 hash -> CORS change -> Phase 2.1);
+* every file on disk equals its latest declared hash; an undeclared edit, a wrong hash, an extra
+  file or a missing file fails;
+* the ledger never declares `intelligence/**`, `evaluation/**`, `backend/app/auth/**`,
+  `backend/app/db/**`, a V1 file under `backend/app/intelligence/**`, anything outside `backend/app`
+  and `src`, or a local-only excluded path.
+
+`python -m backend.v2_6_integrity --write` **refuses** once the ledger exists. To make a legitimate
+post-V2.6 change: edit the source, then append a new entry (new `id`, `previous_entry_sha256`,
+files with exact base/new hashes, `entry_sha256`) — never edit an existing entry. Further edits to a
+declared file (for example `backend/app/intelligence/cache.py`) need a new entry too.
+
+The historical freeze tests (`evaluation/tests`) call `frozen_diff`. Its V2.6 allowance is unchanged
+(the paths in the V2.6 manifest). A post-V2.6 file is additionally tolerated in the V1
+backend/frontend group only when the ledger is valid AND the file's current hash equals the
+ledger's declared hash. Every other group stays byte-exact.
+
+Limit: all of this lives in the repository, so a single commit that edits a file *and* the ledger
+passes these tests. The ledger makes such changes explicit and reviewable (it is append-only; any
+diff that touches an existing entry is a red flag); it cannot replace review.
+
+Recorded post-V2.6 changes: `post-v2.6-001-deployment-cors-origin` (commit `7bd437b`, `backend/app/main.py`)
+and `post-v2.6-002-phase-2.1-intelligence-cache`.
