@@ -1,1 +1,28 @@
 
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540">
+  <rect width="1000" height="540" rx="18" fill="#0b1220"/>
+  <text x="45" y="48" fill="#e5e7eb" font-size="25" font-family="Arial" font-weight="bold">NidhiGuard | System Architecture</text>
+  <g font-family="Arial" text-anchor="middle">
+    <rect x="370" y="85" width="260" height="65" rx="10" fill="#172b4d" stroke="#60a5fa"/>
+    <text x="500" y="112" fill="#fff" font-size="17">User Interface</text>
+    <text x="500" y="134" fill="#93c5fd" font-size="13">React · TypeScript · Vite</text>
+    <path d="M500 150 V195" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M493 187 L500 195 L507 187" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="370" y="195" width="260" height="65" rx="10" fill="#163a35" stroke="#34d399"/>
+    <text x="500" y="222" fill="#fff" font-size="17">API Layer</text>
+    <text x="500" y="244" fill="#a7f3d0" font-size="13">FastAPI · JWT · RBAC</text>
+    <path d="M500 260 V305" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M493 297 L500 305 L507 297" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="310" y="305" width="380" height="75" rx="10" fill="#33264e" stroke="#c4b5fd"/>
+    <text x="500" y="335" fill="#fff" font-size="17">Intelligence Engine</text>
+    <text x="500" y="359" fill="#ddd6fe" font-size="13">Cost · Similarity · Contractor · Billing · Geography</text>
+    <path d="M400 380 V420 H235 V445 M600 380 V420 H765 V445" fill="none" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="90" y="445" width="290" height="65" rx="10" fill="#3b2d1b" stroke="#fbbf24"/>
+    <text x="235" y="472" fill="#fff" font-size="17">Intelligence Cache</text>
+    <text x="235" y="493" fill="#fde68a" font-size="13">In-process · Single-flight · Invalidation</text>
+    <rect x="620" y="445" width="290" height="65" rx="10" fill="#172b4d" stroke="#60a5fa"/>
+    <text x="765" y="472" fill="#fff" font-size="17">Persistent Storage</text>
+    <text x="765" y="493" fill="#bfdbfe" font-size="13">SQLAlchemy · Neon PostgreSQL</text>
+  </g>
+</svg>
+
